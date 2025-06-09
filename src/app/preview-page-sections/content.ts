@@ -15,21 +15,17 @@ import signup from '@/images/preview/signup.jpg';
 import singleProduct from '@/images/preview/singleProduct.jpg';
 
 export const templateDetails = {
-  name: 'HotKicks Ecommerce NextJS Template',
+  name: 'FITMEX STORE',
   description:
-    'Presenting HotKicks Template, the ultimate ecommerce template in NextJS.',
+    'Llévate todo lo que necesitas para potenciar tu entrenamiento.',
   screenshotsOne: [
     preview,
     collection,
     singleProduct,
-    blogPage,
-    blogSingle,
     preview,
   ],
   screenshotsTwo: [
     preview,
-    blogSingle,
-    blogPage,
     singleProduct,
     collection,
     preview,
@@ -37,7 +33,7 @@ export const templateDetails = {
 };
 
 export const templateIncludes = {
-  heading: `What is included in ${templateDetails.name}`,
+  heading: `Descubre sobre ${templateDetails.name}`,
   sections: 85,
   pages: 13,
   font: 'Poppins',
@@ -46,18 +42,18 @@ export const templateIncludes = {
 export const includesCardsData = [
   {
     coverImage: preview,
-    title: `pages`,
-    spanText: `10+ pages`,
+    title: `Descuentos`,
+    spanText: `Descuentos`,
   },
   {
     coverImage: collection,
-    title: `sections`,
-    spanText: `20+ sections`,
+    title: `Productos`,
+    spanText: `Productos`,
   },
   {
     coverImage: showcase2,
-    title: `font`,
-    spanText: `Poppins`,
+    title: `Novedades`,
+    spanText: `Novedades`,
   },
 ];
 

@@ -9,16 +9,16 @@ const ContactForm = () => {
   return (
     <div className="w-full space-y-5">
       <div className="grid gap-5 md:grid-cols-2">
-        <FormItem label="Name">
+        <FormItem label="Nombre completo">
           <Input
-            placeholder="Full name"
+            placeholder="Nombre completo"
             sizeClass="h-14 px-4 py-5"
             type="text"
             rounded="rounded-lg"
             className="border-neutral-300 bg-white placeholder:text-neutral-500 focus:border-primary"
           />
         </FormItem>
-        <FormItem label="Email Address">
+        <FormItem label="Correo electrónico">
           <Input
             placeholder="example@email.com"
             sizeClass="h-14 px-4 py-5"
@@ -29,7 +29,7 @@ const ContactForm = () => {
         </FormItem>
       </div>
       <div className="grid gap-5 md:grid-cols-2">
-        <FormItem label="Phone Number">
+        <FormItem label="Telefono Celar">
           <Input
             placeholder="(123) 456-7890"
             sizeClass="h-14 px-4 py-5"
@@ -38,9 +38,9 @@ const ContactForm = () => {
             className="border-neutral-300 bg-white placeholder:text-neutral-500 focus:border-primary"
           />
         </FormItem>
-        <FormItem label="Subject">
+        <FormItem label="Dirección de envío">
           <Input
-            placeholder="Shoe care"
+            placeholder="Calle, número, colonia, ciudad"
             sizeClass="h-14 px-4 py-5"
             type="text"
             rounded="rounded-lg"

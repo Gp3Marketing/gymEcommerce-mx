@@ -23,7 +23,7 @@ const page = () => {
         </div>
       </div>
 
-      <div className="mb-32">
+      {/* <div className="mb-32">
         <Heading
           desc={contactSection.directContactInfoHeader.description}
           isMain
@@ -53,12 +53,12 @@ const page = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       <div className="mb-32">
         <div className="mb-10 flex items-center justify-between">
           <h2 className="text-3xl font-semibold">Follow us on Instagram</h2>
-          <ButtonSecondary className="border-2 border-primary text-primary">
+          <ButtonSecondary className="border-2 border-[#E6D1B5] text-[#CDA168] hover:text-[#755327]">
             Visit
           </ButtonSecondary>
         </div>
@@ -71,8 +71,8 @@ const page = () => {
                   src={photo}
                   alt="instagram photo"
                   className="h-full w-full object-cover object-center"
-                  width={1000}
-                  height={1000}
+                  width={120}
+                  height={120}
                 />
               </div>
             ))}

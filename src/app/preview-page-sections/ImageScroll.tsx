@@ -63,7 +63,6 @@ const DivSlider = () => {
             />
           </div>
         ))}
-        s
       </motion.div>
     </div>
   );

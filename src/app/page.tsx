@@ -30,9 +30,11 @@ const page = () => {
         <SectionUtilityPages />
       </div>
 
+      {/* 
       <div className="mb-24 bg-gray py-24">
         <SectionBuyOrExplore />
-      </div>
+      </div> 
+      */}
     </div>
   );
 };

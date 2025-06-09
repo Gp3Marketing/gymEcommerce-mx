@@ -635,9 +635,9 @@ export const brandsSection = {
 };
 
 export const footerBannerData = {
-  heading: 'BRINGING YOU TO UPDATE WITH FANTASTIC FOOTWEAR',
+  heading: 'Ponte al día con los mejores suplementos',
   description:
-    'View all brands of our collection on HotKicks, there is another collection. Please check it out bro, like seriously',
+    'Descubre todas las marcas de nuestra colección en HotSupps. Tenemos otra línea brutal que tienes que ver, en serio bro, ¡échale un vistazo ya!',
 };
 
 export const footerData = {
@@ -651,7 +651,7 @@ export const footerData = {
         { href: '/products', name: 'Collections' },
         { href: '/cart', name: 'Cart' },
         { href: '/checkout', name: 'Checkout' },
-        { href: '/blog', name: 'Blogs' },
+        // { href: '/blog', name: 'Blogs' },
       ],
     },
     {
@@ -665,8 +665,8 @@ export const footerData = {
       ],
     },
     {
-      title: 'Other Pages',
-      links: [{ href: '/rt', name: 'Not Found' }],
+      title: '',
+      links: [{ href: '', name: '' }],
     },
     {
       title: 'Utility Pages',
@@ -703,7 +703,7 @@ export const note =
   ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, est eum magnam doloremque, at adipisci debitis, similique dolores ipsa unde necessitatibus vero quibusdam nostrum numquam!';
 
 export const contactSection = {
-  heading: 'Contact us',
+  heading: 'Contacto',
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis quis phasellus eleifend tellus orci ornare.',
   directContactInfoHeader: {
@@ -744,11 +744,11 @@ export const contactSection = {
     },
   ],
   instagramPhotos: [
-    'https://images.unsplash.com/photo-1595341888016-a392ef81b7de?q=80&w=1479&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1463100099107-aa0980c362e6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1505784045224-1247b2b29cf3?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1604671801908-6f0c6a092c05?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    '/images/products/WhatsApp Image 2025-05-28 at 4.18.34 PM.jpeg',
+    '/images/products/WhatsApp Image 2025-05-28 at 4.18.09 PM(2).jpeg',
+    '/images/products/BUM.jpeg',
+    '/images/products/WhatsApp Image 2025-05-28 at 4.18.10 PM.jpeg',
+    '/images/products/ISO-100-DYMATIZE.jpeg',
   ],
 };
 

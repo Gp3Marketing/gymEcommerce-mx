@@ -48,11 +48,11 @@ const SectionMainPages = () => {
         ))}
       </div>
 
-      <div className="mt-14 flex justify-center">
+      {/* <div className="mt-14 flex justify-center">
         <ButtonPrimary className="shadow-md" sizeClass="px-5 py-4">
           Buy Template
         </ButtonPrimary>
-      </div>
+      </div> */}
     </div>
   );
 };

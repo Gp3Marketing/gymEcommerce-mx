@@ -33,11 +33,6 @@ const SectionMid = () => {
           </div>
         </div>
       </div>
-      <div className="mt-14 flex items-center justify-center">
-        <ButtonPrimary className="shadow-md" sizeClass="px-5 py-4">
-          Buy Template
-        </ButtonPrimary>
-      </div>
     </div>
   );
 };
