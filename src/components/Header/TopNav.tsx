@@ -1,8 +1,5 @@
 import React from 'react';
-
 import { topNavLinks } from '@/data/content';
-
-import Language from '../Language';
 import NavigationItem from '../NavItem';
 
 const TopNav = () => {
@@ -16,7 +13,6 @@ const TopNav = () => {
         </div>
 
           <div>Ayuda?</div>
-        {/* <Language /> */}
       </div>
     </div>
   );
