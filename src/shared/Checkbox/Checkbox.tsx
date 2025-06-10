@@ -1,5 +1,5 @@
-import type { FC } from 'react';
-import React from 'react';
+import type { FC } from "react";
+import React from "react";
 
 export interface CheckboxProps {
   label?: string;
@@ -13,12 +13,12 @@ export interface CheckboxProps {
 }
 
 const Checkbox: FC<CheckboxProps> = ({
-  subLabel = '',
-  label = '',
+  subLabel = "",
+  label = "",
   name,
-  className = '',
-  sizeClassName = 'w-6 h-6',
-  labelClassName = '',
+  className = "",
+  sizeClassName = "w-6 h-6",
+  labelClassName = "",
   defaultChecked,
   onChange,
 }) => {
@@ -34,7 +34,7 @@ const Checkbox: FC<CheckboxProps> = ({
       />
       {label && (
         <div className="flex flex-1 select-none flex-col justify-center pl-2.5 sm:pl-3.5">
-          <span className={`${labelClassName} ${subLabel ? '-mt-0.5' : ''}`}>
+          <span className={`${labelClassName} ${subLabel ? "-mt-0.5" : ""}`}>
             {label}
           </span>
           {subLabel && (

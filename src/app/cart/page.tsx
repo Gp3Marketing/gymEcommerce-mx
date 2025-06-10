@@ -1,15 +1,15 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { AiOutlineDelete } from 'react-icons/ai';
-import { MdStar } from 'react-icons/md';
-import { TbBrandPaypal } from 'react-icons/tb';
+import Image from "next/image";
+import Link from "next/link";
+import { AiOutlineDelete } from "react-icons/ai";
+import { MdStar } from "react-icons/md";
+import { TbBrandPaypal } from "react-icons/tb";
 
-import LikeButton from '@/components/LikeButton';
-import { shoes } from '@/data/content';
-import type { ProductType } from '@/data/types';
-import ButtonPrimary from '@/shared/Button/ButtonPrimary';
-import ButtonSecondary from '@/shared/Button/ButtonSecondary';
-import InputNumber from '@/shared/InputNumber/InputNumber';
+import LikeButton from "@/components/LikeButton";
+import { shoes } from "@/data/content";
+import type { ProductType } from "@/data/types";
+import ButtonPrimary from "@/shared/Button/ButtonPrimary";
+import ButtonSecondary from "@/shared/Button/ButtonSecondary";
+import InputNumber from "@/shared/InputNumber/InputNumber";
 
 const renderProduct = (item: ProductType) => {
   const { shoeName, coverImage, currentPrice, slug, rating, shoeCategory } =

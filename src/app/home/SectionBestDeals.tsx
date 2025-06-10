@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import CountDownTimer from '@/components/CountDownTimer';
-import ProductSlider from '@/components/ProductSlider';
+import CountDownTimer from "@/components/CountDownTimer";
+import ProductSlider from "@/components/ProductSlider";
 
 const SectionBestDeals = () => {
   return (

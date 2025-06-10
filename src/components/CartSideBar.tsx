@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
-import { Dialog, Transition } from '@headlessui/react';
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { Fragment, useState } from 'react';
-import { AiOutlineDelete } from 'react-icons/ai';
-import { FaBagShopping } from 'react-icons/fa6';
-import { MdClose, MdStar } from 'react-icons/md';
+import { Dialog, Transition } from "@headlessui/react";
+import Image from "next/image";
+import Link from "next/link";
+import React, { Fragment, useState } from "react";
+import { AiOutlineDelete } from "react-icons/ai";
+import { FaBagShopping } from "react-icons/fa6";
+import { MdClose, MdStar } from "react-icons/md";
 
-import { shoes } from '@/data/content';
-import type { ProductType } from '@/data/types';
-import ButtonCircle3 from '@/shared/Button/ButtonCircle3';
-import ButtonPrimary from '@/shared/Button/ButtonPrimary';
-import ButtonSecondary from '@/shared/Button/ButtonSecondary';
-import InputNumber from '@/shared/InputNumber/InputNumber';
+import { shoes } from "@/data/content";
+import type { ProductType } from "@/data/types";
+import ButtonCircle3 from "@/shared/Button/ButtonCircle3";
+import ButtonPrimary from "@/shared/Button/ButtonPrimary";
+import ButtonSecondary from "@/shared/Button/ButtonSecondary";
+import InputNumber from "@/shared/InputNumber/InputNumber";
 
-import LikeButton from './LikeButton';
+import LikeButton from "./LikeButton";
 
 export interface CartSideBarProps {}
 const CartSideBar: React.FC<CartSideBarProps> = () => {

@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import BrandCard from '@/components/BrandCard';
-import { brandsSection } from '@/data/content';
-import ButtonPrimary from '@/shared/Button/ButtonPrimary';
-import Heading from '@/shared/Heading/Heading';
+import BrandCard from "@/components/BrandCard";
+import { brandsSection } from "@/data/content";
+import ButtonPrimary from "@/shared/Button/ButtonPrimary";
+import Heading from "@/shared/Heading/Heading";
 
 const SectionBrands = () => {
   return (

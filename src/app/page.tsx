@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import SectionBestDeals from './home/SectionBestDeals';
-import SectionBrands from './home/SectionBrands';
-import SectionHeader from './home/SectionHeader';
-import SectionProducts from './home/SectionProducts';
-import SectionHeroSlider from './home/SectionHeroSlider';
+import SectionBestDeals from "./home/SectionBestDeals";
+import SectionBrands from "./home/SectionBrands";
+import SectionHeader from "./home/SectionHeader";
+import SectionProducts from "./home/SectionProducts";
+import SectionHeroSlider from "./home/SectionHeroSlider";
 
 const page = () => {
   return (

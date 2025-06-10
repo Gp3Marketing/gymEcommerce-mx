@@ -1,12 +1,12 @@
-import Image from 'next/image';
-import { pathOr } from 'ramda';
-import React from 'react';
+import Image from "next/image";
+import { pathOr } from "ramda";
+import React from "react";
 
-import { contactSection } from '@/data/content';
-import ButtonSecondary from '@/shared/Button/ButtonSecondary';
-import Heading from '@/shared/Heading/Heading';
+import { contactSection } from "@/data/content";
+import ButtonSecondary from "@/shared/Button/ButtonSecondary";
+import Heading from "@/shared/Heading/Heading";
 
-import ContactForm from './ContactForm';
+import ContactForm from "./ContactForm";
 
 const page = () => {
   return (
@@ -45,7 +45,7 @@ const page = () => {
           </div>
           <div>
             <Image
-              src={pathOr('', ['instagramPhotos', 4], contactSection)}
+              src={pathOr("", ["instagramPhotos", 4], contactSection)}
               alt="instagram photo"
               className="h-full w-full object-cover object-center"
               width={1000}

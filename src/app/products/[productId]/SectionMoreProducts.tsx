@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import ProductCard from '@/components/ProductCard';
-import { shoes } from '@/data/content';
-import Heading from '@/shared/Heading/Heading';
+import ProductCard from "@/components/ProductCard";
+import { shoes } from "@/data/content";
+import Heading from "@/shared/Heading/Heading";
 
 const SectionMoreProducts = () => {
   return (
