@@ -278,7 +278,7 @@ export const shoes = [
     shipment_details: [
       {
         icon: <PiPercentFill className="text-xl text-secondary" />,
-        title: "Descuento",
+        title: 'Descuento',
         description: "10% en compras mayores a $100 MXN",
       },
       {
@@ -299,39 +299,39 @@ export const shoes = [
     ],
   },
   {
-    slug: "dymatize-iso100-vainilla",
-    shoeName: "ISO 100",
+    slug: 'dymatize-iso100-vainilla',
+    shoeName: 'ISO 100',
     coverImage: iso,
     currentPrice: 950,
     previousPrice: 1150,
-    shoeCategory: "Proteina",
+    shoeCategory: 'Proteina',
     rating: 5,
     reviews: 76,
     pieces_sold: 600,
     justIn: true,
     shots: [iso1, iso2, iso3, iso4],
     overview:
-      "Aislado de proteína de suero de leche 100% hidrolizado, científicamente probado y de digestión rápida. Cada porción proporciona 25 g de proteína, 5.5 g de BCAA y 2.7 g de leucina, con solo 120 calorías, menos de 1 g de azúcar, lactosa y grasa. Libre de gluten. Se mezcla fácilmente incluso solo con cuchara. Cada envase contiene 2.27 kg con 76 servicios aproximados. Ideal para apoyar la recuperación muscular y el desarrollo de masa magra.",
+      'Aislado de proteína de suero de leche 100% hidrolizado, científicamente probado y de digestión rápida. Cada porción proporciona 25 g de proteína, 5.5 g de BCAA y 2.7 g de leucina, con solo 120 calorías, menos de 1 g de azúcar, lactosa y grasa. Libre de gluten. Se mezcla fácilmente incluso solo con cuchara. Cada envase contiene 2.27 kg con 76 servicios aproximados. Ideal para apoyar la recuperación muscular y el desarrollo de masa magra.',
     shipment_details: [
       {
         icon: <PiPercentFill className="text-xl text-secondary" />,
-        title: "Descuento",
-        description: "Descuento del 17%",
+        title: 'Descuento',
+        description: 'Descuento del 17%',
       },
       {
         icon: <FaCalendarAlt className="text-xl text-secondary" />,
-        title: "Empaque",
-        description: "76 porciones | 2.27 kg | ~$12.50 MXN por porción",
+        title: 'Empaque',
+        description: '76 porciones | 2.27 kg | ~$12.50 MXN por porción',
       },
       {
         icon: <BsBoxFill className="text-xl text-secondary" />,
-        title: "Calorias",
-        description: "120 calorías, menos de 0.04 oz de azúcar",
+        title: 'Calorias',
+        description: '120 calorías, menos de 0.04 oz de azúcar',
       },
       {
         icon: <FaTruckFast className="text-xl text-secondary" />,
-        title: "Sabor",
-        description: "Vainilla / FRUITY PEBBLES",
+        title: 'Sabor',
+        description: 'Vainilla / FRUITY PEBBLES',
       },
     ],
   },
@@ -719,9 +719,9 @@ export const shoeSizes = [
   "EU44",
 ];
 
-export const note =
-  " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, est eum magnam doloremque, at adipisci debitis, similique dolores ipsa unde necessitatibus vero quibusdam nostrum numquam!";
-
+/* 
+export const note = " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, est eum magnam doloremque, at adipisci debitis, similique dolores ipsa unde necessitatibus vero quibusdam nostrum numquam!";
+ */
 export const contactSection = {
   heading: "Contacto",
   description:
