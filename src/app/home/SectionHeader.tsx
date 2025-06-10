@@ -3,7 +3,7 @@ import React from 'react';
 
 import PromoTag from '@/components/PromoTag';
 import { headerSection } from '@/data/content';
-import shoe_box from '@/images/shoe_box.png';
+import shoe_box from '@/images/Micronized.png';
 import ButtonPrimary from '@/shared/Button/ButtonPrimary';
 
 const SectionHeader = () => {
@@ -20,7 +20,7 @@ const SectionHeader = () => {
           >
             {headerSection.heading}
           </h1>
-          <p className="my-10 w-[80%] text-neutral-500">
+          <p className="my-10 w-4/5 text-neutral-500">
             {headerSection.description}
           </p>
           <ButtonPrimary sizeClass="px-5 py-4">View Product</ButtonPrimary>
