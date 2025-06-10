@@ -20,7 +20,7 @@ const Header = () => {
 
       <div className="relative mt-16">
         <div className="">
-          {/* <ImageScroll /> */}
+          <ImageScroll />
         </div>
       </div>
     </div>

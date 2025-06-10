@@ -9,7 +9,7 @@ const CountDownTimer = () => {
 
   return (
     <div className="inline-flex rounded-full bg-primary px-3 py-2 font-medium text-white">
-      Ends in :{timeLeft.hours}:{timeLeft.minutes}:{timeLeft.seconds}
+      Termina en: {timeLeft.hours}:{timeLeft.minutes}:{timeLeft.seconds}
     </div>
   );
 };
