@@ -643,23 +643,24 @@ export const footerData = {
     'HotKicks was designed and founded in 2023 by Person. The theme is about sneakers ecommerce thet use for shoes selling around the world.',
   footerLinks: [
     {
-      title: 'Main Pages',
+      title: 'Páginas principales',
       links: [
-        { href: '/home', name: 'Home' },
         { href: '/products', name: 'Collections' },
+        { href: '/News', name: 'Novedades' },
+        /*
         { href: '/cart', name: 'Cart' },
-        { href: '/checkout', name: 'Checkout' },
-        // { href: '/blog', name: 'Blogs' },
+        { href: '/checkout', name: 'Checkout' }, 
+        */
       ],
     },
     {
-      title: 'Single Pages',
+      title: 'Promociones',
       links: [
-        { href: '/product/yellowLow', name: 'Product Single' },
-        {
+        { href: '/product/yellowLow', name: 'Productos en descuentos' },
+        /* {
           href: '/blog/the-evolution-of-sneaker-culture-a-historical-perspective',
           name: 'Blog Single',
-        },
+        }, */
       ],
     },
     {
@@ -680,9 +681,9 @@ export const footerData = {
 };
 
 export const newsletter = {
-  heading: "Don't wanna miss our offers?",
+  heading: '¿No quieres perderte nuestras ofertas?',
   description:
-    'Drop your email below and start receiving the best offers from HotKicks',
+    'Deja tu correo electrónico a continuación y comienza a recibir las mejores ofertas de FITMEX STORE',
 };
 
 export const shoeSizes = [
