@@ -618,40 +618,40 @@ const prices = [
 
 export const filters = [shoeBrands, prices, sizes, shoeTypes];
 
-export const brandsSection = {
-  heading: "The Official Store of The Amazing Brand",
-  description:
-    "We work together with high quality and famous brands around the world",
-  brands: [
-    {
-      brandName: "New Balance",
-      rating: 4.9,
-      reviews: 10334,
-      followers: 7.2,
-      visitLink: "https://www.newbalance.com",
-      logo: new_balance,
-      shoes: [new_balance1, new_balance2, new_balance3, new_balance4],
-    },
-    {
-      brandName: "Compass",
-      rating: 4.9,
-      reviews: 10334,
-      followers: 8.5,
-      visitLink: "https://www.sepatucompass.com/",
-      logo: compass_profile,
-      shoes: [compass1, compass2, compass3, compass4],
-    },
-    {
-      brandName: "Nike",
-      rating: 4.9,
-      reviews: 10334,
-      followers: 11.2,
-      visitLink: "https://nike.com",
-      logo: nike_profile,
-      shoes: [yellowLow, redlow, dunklow, lebronxx],
-    },
-  ],
-};
+// export const brandsSection = {
+//   heading: "The Official Store of The Amazing Brand",
+//   description:
+//     "We work together with high quality and famous brands around the world",
+//   brands: [
+//     {
+//       brandName: "New Balance",
+//       rating: 4.9,
+//       reviews: 10334,
+//       followers: 7.2,
+//       visitLink: "https://www.newbalance.com",
+//       logo: new_balance,
+//       shoes: [new_balance1, new_balance2, new_balance3, new_balance4],
+//     },
+//     {
+//       brandName: "Compass",
+//       rating: 4.9,
+//       reviews: 10334,
+//       followers: 8.5,
+//       visitLink: "https://www.sepatucompass.com/",
+//       logo: compass_profile,
+//       shoes: [compass1, compass2, compass3, compass4],
+//     },
+//     {
+//       brandName: "Nike",
+//       rating: 4.9,
+//       reviews: 10334,
+//       followers: 11.2,
+//       visitLink: "https://nike.com",
+//       logo: nike_profile,
+//       shoes: [yellowLow, redlow, dunklow, lebronxx],
+//     },
+//   ],
+// };
 
 export const footerBannerData = {
   heading: "Ponte al día con los mejores suplementos",
