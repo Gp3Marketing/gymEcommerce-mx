@@ -72,8 +72,8 @@ import cream4 from "@/images/cbum-cream/81UBADFP5jL._AC_SX679_.jpg";
 import cream5 from "@/images/cbum-cream/2_39e2e94c-a850-482a-80ad-bda793c229f4.webp";
 
 import gold from "@/images/isolate-gold/gold.jpg";
-import gold1 from "@/images/isolate-gold/gold1.jpeg";
-import gold2 from "@/images/isolate-gold/gold2.jpg";
+import gold1 from "@/images/isolate-gold/gold1.png";
+import gold2 from "@/images/isolate-gold/gold2.png";
 import gold3 from "@/images/isolate-gold/gold3.jpg";
 
 import type { BlogType } from "./types";
@@ -471,39 +471,39 @@ export const shoes = [
     ],
   },
   {
-    slug: "nike_blazer",
-    shoeName: "Nike Blazer",
+    slug: "gold-standard-chocolate",
+    shoeName: "Gold Standard Chocolate",
     coverImage: gold,
-    currentPrice: 199,
-    previousPrice: 250,
-    shoeCategory: "Men's shoes",
-    rating: 4.8,
-    reviews: 56,
-    pieces_sold: 600,
+    currentPrice: 1949,
+    previousPrice: 2359,
+    shoeCategory: "Suplementos",
+    rating: 4.1,
+    reviews: 157,
+    pieces_sold: 50,
     justIn: true,
-    shots: [gold, gold1, gold2, gold3],
+    shots: [gold, gold1, gold2, gold3, gold3],
     overview:
-      "When your workouts wade into the nitty gritty, the Nike Free Metcon 5 can meet you in the depths, help you dig deep to find that final ounce of force and come out of the other side on a high. It matches style with substance, forefoot flexibility with backend stability, perfect for flying through a cardio day or enhancing your agility. A revamped upper offers easier entry with a collar made just for your ankle.",
+      "Optimum Nutrition Gold Standard 100% Isolate sabor Chocolate es una proteína de suero aislada, diseñada para apoyar el desarrollo muscular y la recuperación después del entrenamiento. Con 5 libras de producto, es ideal para adultos que buscan calidad y pureza en cada porción. Su fórmula se obtiene mediante microfiltración, eliminando grasas y carbohidratos, y ofreciendo una proteína de alta concentración y rápida absorción.",
     shipment_details: [
       {
         icon: <PiPercentFill className="text-xl text-secondary" />,
-        title: "Discount",
-        description: "> $100 Disc 10%",
+        title: "Descuento",
+        description: "17% de ahorro aplicado",
       },
       {
         icon: <FaCalendarAlt className="text-xl text-secondary" />,
-        title: "Delivery Time",
-        description: "6 - 12 Working days",
+        title: "Tiempo de entrega",
+        description: "4 - 8 días hábiles",
       },
       {
         icon: <BsBoxFill className="text-xl text-secondary" />,
-        title: "Package",
-        description: "Reagular Premium Box",
+        title: "Empaque",
+        description: "Bolsa o bote premium con sello de seguridad",
       },
       {
         icon: <FaTruckFast className="text-xl text-secondary" />,
-        title: "Estimated Arrival",
-        description: "10 - 12 October 23",
+        title: "Envío estimado",
+        description: "Enviado por Amazon México",
       },
     ],
   },
