@@ -52,6 +52,30 @@ import iso2 from "@/images/iso100/iso-2.jpg";
 import iso3 from "@/images/iso100/iso-3.jpg";
 import iso4 from "@/images/iso100/iso-4.jpg";
 
+import CBUM from "@/images/cbum/Bum.webp";
+import CBUM1 from "@/images/cbum/BUM2.png";
+import CBUM2 from "@/images/cbum/BUM1.png";
+import CBUM3 from "@/images/cbum/Bum.jpg";
+import CBUM4 from "@/images/cbum/811JAuF2ryL.jpg";
+
+import Cake from "@/images/cbum-cake/cbum-bday-cake.webp";
+import Cake1 from "@/images/cbum-cake/BUM1.png";
+import Cake2 from "@/images/cbum-cake/BUM2.png";
+import Cake3 from "@/images/cbum-cake/81Cd2quHXyL._AC_UF1000,1000_QL80_.jpg";
+import Cake4 from "@/images/cbum-cake/2_39e2e94c-a850-482a-80ad-bda793c229f4.webp";
+
+import cream from "@/images/cbum-cream/cbum-bday-cake.webp";
+import cream1 from "@/images/cbum-cream/BUM1.jpg";
+import cream2 from "@/images/cbum-cream/Bum2.webp";
+import cream3 from "@/images/cbum-cream/81Cd2quHXyL._AC_UF1000,1000_QL80_.jpg";
+import cream4 from "@/images/cbum-cream/81UBADFP5jL._AC_SX679_.jpg";
+import cream5 from "@/images/cbum-cream/2_39e2e94c-a850-482a-80ad-bda793c229f4.webp";
+
+import gold from "@/images/isolate-gold/gold.jpg";
+import gold1 from "@/images/isolate-gold/gold1.jpeg";
+import gold2 from "@/images/isolate-gold/gold2.jpg";
+import gold3 from "@/images/isolate-gold/gold3.jpg";
+
 import type { BlogType } from "./types";
 
 export const topNavLinks: NavItemType[] = [
@@ -258,8 +282,8 @@ export const shoes = [
     slug: "psychotic-orange",
     shoeName: "PSYCHOTIC",
     coverImage: psychotic,
-    currentPrice: 2800,
-    previousPrice: 3500,
+    currentPrice: 280,
+    previousPrice: 350,
     shoeCategory: "Pre-Entrenamiento",
     rating: 4.8,
     reviews: 56,
@@ -278,7 +302,7 @@ export const shoes = [
     shipment_details: [
       {
         icon: <PiPercentFill className="text-xl text-secondary" />,
-        title: 'Descuento',
+        title: "Descuento",
         description: "10% en compras mayores a $100 MXN",
       },
       {
@@ -299,157 +323,157 @@ export const shoes = [
     ],
   },
   {
-    slug: 'dymatize-iso100-vainilla',
-    shoeName: 'ISO 100',
+    slug: "dymatize-iso100-vainilla",
+    shoeName: "ISO 100",
     coverImage: iso,
     currentPrice: 950,
     previousPrice: 1150,
-    shoeCategory: 'Proteina',
+    shoeCategory: "Proteina",
     rating: 5,
     reviews: 76,
     pieces_sold: 600,
     justIn: true,
     shots: [iso1, iso2, iso3, iso4],
     overview:
-      'Aislado de proteína de suero de leche 100% hidrolizado, científicamente probado y de digestión rápida. Cada porción proporciona 25 g de proteína, 5.5 g de BCAA y 2.7 g de leucina, con solo 120 calorías, menos de 1 g de azúcar, lactosa y grasa. Libre de gluten. Se mezcla fácilmente incluso solo con cuchara. Cada envase contiene 2.27 kg con 76 servicios aproximados. Ideal para apoyar la recuperación muscular y el desarrollo de masa magra.',
+      "Aislado de proteína de suero de leche 100% hidrolizado, científicamente probado y de digestión rápida. Cada porción proporciona 25 g de proteína, 5.5 g de BCAA y 2.7 g de leucina, con solo 120 calorías, menos de 1 g de azúcar, lactosa y grasa. Libre de gluten. Se mezcla fácilmente incluso solo con cuchara. Cada envase contiene 2.27 kg con 76 servicios aproximados. Ideal para apoyar la recuperación muscular y el desarrollo de masa magra.",
     shipment_details: [
       {
         icon: <PiPercentFill className="text-xl text-secondary" />,
-        title: 'Descuento',
-        description: 'Descuento del 17%',
+        title: "Descuento",
+        description: "Descuento del 17%",
       },
       {
         icon: <FaCalendarAlt className="text-xl text-secondary" />,
-        title: 'Empaque',
-        description: '76 porciones | 2.27 kg | ~$12.50 MXN por porción',
+        title: "Empaque",
+        description: "76 porciones | 2.27 kg | ~$12.50 MXN por porción",
       },
       {
         icon: <BsBoxFill className="text-xl text-secondary" />,
-        title: 'Calorias',
-        description: '120 calorías, menos de 0.04 oz de azúcar',
+        title: "Calorias",
+        description: "120 calorías, menos de 0.04 oz de azúcar",
       },
       {
         icon: <FaTruckFast className="text-xl text-secondary" />,
-        title: 'Sabor',
-        description: 'Vainilla / FRUITY PEBBLES',
+        title: "Sabor",
+        description: "Vainilla / FRUITY PEBBLES",
       },
     ],
   },
   {
-    slug: "lebronxx",
-    shoeName: "Lebron XXL",
-    coverImage: lebronxx,
-    currentPrice: 199,
-    previousPrice: 250,
-    shoeCategory: "Men's shoes",
-    rating: 4.8,
-    reviews: 56,
-    pieces_sold: 600,
+    slug: "cbum-itholate",
+    shoeName: "CBUM Itholate Protein",
+    coverImage: CBUM,
+    currentPrice: 1250,
+    previousPrice: 1450,
+    shoeCategory: "Proteína aislada en polvo RAW",
+    rating: 4.5,
+    reviews: 194,
+    pieces_sold: 700,
     justIn: false,
-    shots: [lebronxx, shot1, shot2, shot3, shot4, shot5, shot6, shot7],
+    shots: [CBUM, CBUM1, CBUM2, CBUM3, CBUM4],
     overview:
-      "When your workouts wade into the nitty gritty, the Nike Free Metcon 5 can meet you in the depths, help you dig deep to find that final ounce of force and come out of the other side on a high. It matches style with substance, forefoot flexibility with backend stability, perfect for flying through a cardio day or enhancing your agility. A revamped upper offers easier entry with a collar made just for your ankle.",
+      "Proteína de suero aislada de alta calidad con 25 g por porción, sabor a avena con vainilla. Bajo en grasas, con solo 1 g de carbohidratos, y derivada 100 % de vacas alimentadas con pasto. Ideal para apoyar el desarrollo muscular magro, la recuperación post-entrenamiento y mejorar el rendimiento físico. Fácil de digerir gracias a su proceso de microfiltración, sin molestias estomacales.",
     shipment_details: [
       {
         icon: <PiPercentFill className="text-xl text-secondary" />,
-        title: "Discount",
-        description: "> $100 Disc 10%",
+        title: "Descuento",
+        description: "¡10% en compras mayores a $1000 MXN!",
       },
       {
         icon: <FaCalendarAlt className="text-xl text-secondary" />,
-        title: "Delivery Time",
-        description: "6 - 12 Working days",
+        title: "Empaque",
+        description: "Sabor avena con vainilla - 2 lbs (25 servicios)",
       },
       {
         icon: <BsBoxFill className="text-xl text-secondary" />,
-        title: "Package",
-        description: "Reagular Premium Box",
+        title: "Presentación",
+        description: "Proteína en polvo, envase de 2 libras",
       },
       {
         icon: <FaTruckFast className="text-xl text-secondary" />,
-        title: "Estimated Arrival",
-        description: "10 - 12 October 23",
+        title: "Envío estimado",
+        description: "6 - 12 días hábiles",
       },
     ],
   },
   {
-    slug: "metcon5",
-    shoeName: "Metcon 5",
-    coverImage: metcon5,
-    currentPrice: 199,
-    previousPrice: 250,
-    shoeCategory: "Men's shoes",
-    rating: 4.8,
-    reviews: 56,
-    pieces_sold: 600,
-    justIn: true,
-    shots: [metcon5, shot1, shot2, shot3, shot4, shot5, shot6, shot7],
-    overview:
-      "When your workouts wade into the nitty gritty, the Nike Free Metcon 5 can meet you in the depths, help you dig deep to find that final ounce of force and come out of the other side on a high. It matches style with substance, forefoot flexibility with backend stability, perfect for flying through a cardio day or enhancing your agility. A revamped upper offers easier entry with a collar made just for your ankle.",
-    shipment_details: [
-      {
-        icon: <PiPercentFill className="text-xl text-secondary" />,
-        title: "Discount",
-        description: "> $100 Disc 10%",
-      },
-      {
-        icon: <FaCalendarAlt className="text-xl text-secondary" />,
-        title: "Delivery Time",
-        description: "6 - 12 Working days",
-      },
-      {
-        icon: <BsBoxFill className="text-xl text-secondary" />,
-        title: "Package",
-        description: "Reagular Premium Box",
-      },
-      {
-        icon: <FaTruckFast className="text-xl text-secondary" />,
-        title: "Estimated Arrival",
-        description: "10 - 12 October 23",
-      },
-    ],
-  },
-  {
-    slug: "metcon9",
-    shoeName: "Metcon 9",
-    coverImage: metcon9,
-    currentPrice: 199,
-    previousPrice: 250,
-    shoeCategory: "Men's shoes",
-    rating: 4.8,
-    reviews: 56,
-    pieces_sold: 600,
+    slug: "cbum-itholate-cake",
+    shoeName: "CBUM Itholate Protein Cake",
+    coverImage: Cake,
+    currentPrice: 1250,
+    previousPrice: 1450,
+    shoeCategory: "Proteína de suero aislada (Itolato)",
+    rating: 4.5,
+    reviews: 194,
+    pieces_sold: 700,
     justIn: false,
-    shots: [metcon9, shot1, shot2, shot3, shot4, shot5, shot6, shot7],
+    shots: [Cake, Cake1, Cake2, Cake3, Cake4],
     overview:
-      "When your workouts wade into the nitty gritty, the Nike Free Metcon 5 can meet you in the depths, help you dig deep to find that final ounce of force and come out of the other side on a high. It matches style with substance, forefoot flexibility with backend stability, perfect for flying through a cardio day or enhancing your agility. A revamped upper offers easier entry with a collar made just for your ankle.",
+      "Proteína de suero aislada de alta calidad con 25 g por porción, sabor a avena con vainilla. Bajo en grasas, con solo 1 g de carbohidratos, y derivada 100 % de vacas alimentadas con pasto. Ideal para apoyar el desarrollo muscular magro, la recuperación post-entrenamiento y mejorar el rendimiento físico. Fácil de digerir gracias a su proceso de microfiltración, sin molestias estomacales.",
     shipment_details: [
       {
         icon: <PiPercentFill className="text-xl text-secondary" />,
-        title: "Discount",
-        description: "> $100 Disc 10%",
+        title: "Descuento",
+        description: "¡10% en compras mayores a $1000 MXN!",
       },
       {
         icon: <FaCalendarAlt className="text-xl text-secondary" />,
-        title: "Delivery Time",
-        description: "6 - 12 Working days",
+        title: "Empaque",
+        description: "Sabor de pastel de cumpleaños - 2.25 lbs (25 porciones)",
       },
       {
         icon: <BsBoxFill className="text-xl text-secondary" />,
-        title: "Package",
-        description: "Reagular Premium Box",
+        title: "Presentación",
+        description: "Proteína en polvo, envase de 2.25 libras",
       },
       {
         icon: <FaTruckFast className="text-xl text-secondary" />,
-        title: "Estimated Arrival",
-        description: "10 - 12 October 23",
+        title: "Envío estimado",
+        description: "6 - 12 días hábiles",
+      },
+    ],
+  },
+  {
+    slug: "raw-mint-chip",
+    shoeName: "RAW Itholate - Menta Chispas",
+    coverImage: cream,
+    currentPrice: 900,
+    previousPrice: 1050,
+    shoeCategory: "Proteína de suero aislada (Itolato)",
+    rating: 4.3,
+    reviews: 1676,
+    pieces_sold: 1200,
+    justIn: false,
+    shots: [cream, cream1, cream2, cream3, cream4, cream5],
+    overview:
+      "Proteína aislada tipo Itholate de RAW Nutrition, formulada por Chris Bumstead, con sabor a helado de chispas de menta. Contiene 25 g de proteína por servicio, sin rellenos ni hormonas, microfiltrada y libre de ingredientes artificiales. Perfecta para apoyar el crecimiento muscular magro y la recuperación rápida post-entreno. Presentación de 2.2 lbs (25 porciones).",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Descuento",
+        description: "¡10% en compras mayores a $1000 MXN!",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Sabor",
+        description: "Helado de chips de menta",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Empaque",
+        description: "2.2 lbs (25 porciones)",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Envío estimado",
+        description: "6 - 12 días hábiles",
       },
     ],
   },
   {
     slug: "nike_blazer",
     shoeName: "Nike Blazer",
-    coverImage: nike_blazer,
+    coverImage: gold,
     currentPrice: 199,
     previousPrice: 250,
     shoeCategory: "Men's shoes",
@@ -457,7 +481,7 @@ export const shoes = [
     reviews: 56,
     pieces_sold: 600,
     justIn: true,
-    shots: [nike_blazer, shot1, shot2, shot3, shot4, shot5, shot6, shot7],
+    shots: [gold, gold1, gold2, gold3],
     overview:
       "When your workouts wade into the nitty gritty, the Nike Free Metcon 5 can meet you in the depths, help you dig deep to find that final ounce of force and come out of the other side on a high. It matches style with substance, forefoot flexibility with backend stability, perfect for flying through a cardio day or enhancing your agility. A revamped upper offers easier entry with a collar made just for your ankle.",
     shipment_details: [
