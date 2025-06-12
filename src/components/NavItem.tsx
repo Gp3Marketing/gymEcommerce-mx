@@ -55,7 +55,6 @@ const NavigationItem: FC<NavigationItemProps> = ({
     );
   };
 
-  // ===================== MENU DROPDOW =====================
   const renderDropdownMenu = (menuDropdown: NavItemType) => {
     const isHover = menuCurrentHovers.includes(menuDropdown.id);
     return (

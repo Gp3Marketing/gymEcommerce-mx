@@ -10,23 +10,7 @@ import type { NavItemType } from "@/components/NavItem";
 import airForce1 from "@/images/airForce1.webp";
 import blackLebron from "@/images/blackLebron.webp";
 import brownsb from "@/images/brownsb.webp";
-import brsb from "@/images/brsb.webp";
-import compass_profile from "@/images/compass_profile.jpeg";
-import compass1 from "@/images/compass1.jpg";
-import compass2 from "@/images/compass2.jpg";
-import compass3 from "@/images/compass3.png";
-import compass4 from "@/images/compass4.jpg";
-import dunklow from "@/images/dunklow.webp";
-import lebronxx from "@/images/lebronxx.webp";
-import metcon5 from "@/images/metcon5.webp";
-import metcon9 from "@/images/metcon9.webp";
-import new_balance from "@/images/new_balance.png";
-import new_balance1 from "@/images/new_balance1.webp";
-import new_balance2 from "@/images/new_balance2.webp";
-import new_balance3 from "@/images/new_balance3.webp";
-import new_balance4 from "@/images/new_balance4.webp";
-import nike_blazer from "@/images/nike_blazer.webp";
-import nike_profile from "@/images/nike_profile.jpg";
+
 import redlow from "@/images/redlow.webp";
 import shot1 from "@/images/shots/shot1.webp";
 import shot2 from "@/images/shots/shot2.webp";
@@ -82,13 +66,13 @@ export const topNavLinks: NavItemType[] = [
   {
     id: "ee46t",
     name: "Home",
-    href: "/home",
+    href: "/",
   },
-  {
-    id: "eerrrt",
-    name: "Blog",
-    href: "/blog",
-  },
+  // {
+  //   id: "eerrrt",
+  //   name: "Blog",
+  //   href: "/blog",
+  // },
   {
     id: "eexct",
     name: "Collections",
@@ -120,13 +104,13 @@ export const NavLinks: NavItemType[] = [
   {
     id: "ee46t",
     name: "Home",
-    href: "/home",
+    href: "/",
   },
-  {
-    id: "eerrrt",
-    name: "Blog",
-    href: "/blog",
-  },
+  // {
+  //   id: "eerrrt",
+  //   name: "Blog",
+  //   href: "/blog",
+  // },
   {
     id: "eexct",
     name: "Collection",
