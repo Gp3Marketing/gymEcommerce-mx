@@ -38,6 +38,44 @@ import shot7 from "@/images/shots/shot7.webp";
 import slides from "@/images/slides.webp";
 import yellowLow from "@/images/yellowLow.webp";
 
+/* new */
+import psychotic from "@/images/psychotic/psychotic-3.webp";
+import psychotic1 from "@/images/psychotic/psychotic-0.png";
+import psychotic2 from "@/images/psychotic/psychotic-2.webp";
+import psychotic3 from "@/images/psychotic/psychotic-1.png";
+import psychotic4 from "@/images/psychotic/psychotic.webp";
+import psychotic5 from "@/images/psychotic/psychotic-5.jpg";
+
+import iso from "@/images/iso100/Iso-100-0.avif";
+import iso1 from "@/images/iso100/iso-1.jpg";
+import iso2 from "@/images/iso100/iso-2.jpg";
+import iso3 from "@/images/iso100/iso-3.jpg";
+import iso4 from "@/images/iso100/iso-4.jpg";
+
+import CBUM from "@/images/cbum/Bum.webp";
+import CBUM1 from "@/images/cbum/BUM2.png";
+import CBUM2 from "@/images/cbum/BUM1.png";
+import CBUM3 from "@/images/cbum/Bum.jpg";
+import CBUM4 from "@/images/cbum/811JAuF2ryL.jpg";
+
+import Cake from "@/images/cbum-cake/cbum-bday-cake.webp";
+import Cake1 from "@/images/cbum-cake/BUM1.png";
+import Cake2 from "@/images/cbum-cake/BUM2.png";
+import Cake3 from "@/images/cbum-cake/81Cd2quHXyL._AC_UF1000,1000_QL80_.jpg";
+import Cake4 from "@/images/cbum-cake/2_39e2e94c-a850-482a-80ad-bda793c229f4.webp";
+
+import cream from "@/images/cbum-cream/cbum-bday-cake.webp";
+import cream1 from "@/images/cbum-cream/BUM1.jpg";
+import cream2 from "@/images/cbum-cream/Bum2.webp";
+import cream3 from "@/images/cbum-cream/81Cd2quHXyL._AC_UF1000,1000_QL80_.jpg";
+import cream4 from "@/images/cbum-cream/81UBADFP5jL._AC_SX679_.jpg";
+import cream5 from "@/images/cbum-cream/2_39e2e94c-a850-482a-80ad-bda793c229f4.webp";
+
+import gold from "@/images/isolate-gold/gold.jpg";
+import gold1 from "@/images/isolate-gold/gold1.png";
+import gold2 from "@/images/isolate-gold/gold2.png";
+import gold3 from "@/images/isolate-gold/gold3.jpg";
+
 import type { BlogType } from "./types";
 
 export const topNavLinks: NavItemType[] = [
@@ -118,10 +156,10 @@ export const NavLinks: NavItemType[] = [
 ];
 
 export const headerSection = {
-  title: "NEW ARRIVAL!",
-  heading: "AIR JORDAN 6 GX EASTSIDE",
+  title: "¡NUEVA LLEGADA!",
+  heading: "PSYCHOTIC – WORKOUT DE LOCURA",
   description:
-    "Feel unbeatable from the tee box to the final putt in a design that's pure early MJ: speed, class",
+    "Psychotic no es un pre-entreno cualquiera: es una bomba de energía extrema que lleva tu entrenamiento a otro nivel.",
 };
 
 export const promotionTag = {
@@ -241,224 +279,231 @@ export const shoes = [
     ],
   },
   {
-    slug: "brsb",
-    shoeName: "BRSB",
-    coverImage: brsb,
-    currentPrice: 199,
-    previousPrice: 250,
-    shoeCategory: "Men's shoes",
-    rating: 4.8,
-    reviews: 56,
-    pieces_sold: 600,
-    justIn: false,
-    shots: [brsb, shot1, shot2, shot3, shot4, shot5, shot6, shot7],
-    overview:
-      "When your workouts wade into the nitty gritty, the Nike Free Metcon 5 can meet you in the depths, help you dig deep to find that final ounce of force and come out of the other side on a high. It matches style with substance, forefoot flexibility with backend stability, perfect for flying through a cardio day or enhancing your agility. A revamped upper offers easier entry with a collar made just for your ankle.",
-    shipment_details: [
-      {
-        icon: <PiPercentFill className="text-xl text-secondary" />,
-        title: "Discount",
-        description: "> $100 Disc 10%",
-      },
-      {
-        icon: <FaCalendarAlt className="text-xl text-secondary" />,
-        title: "Delivery Time",
-        description: "6 - 12 Working days",
-      },
-      {
-        icon: <BsBoxFill className="text-xl text-secondary" />,
-        title: "Package",
-        description: "Reagular Premium Box",
-      },
-      {
-        icon: <FaTruckFast className="text-xl text-secondary" />,
-        title: "Estimated Arrival",
-        description: "10 - 12 October 23",
-      },
-    ],
-  },
-  {
-    slug: "dunklow",
-    shoeName: "Dunk Low",
-    coverImage: dunklow,
-    currentPrice: 199,
-    previousPrice: 250,
-    shoeCategory: "Men's shoes",
-    rating: 4.8,
-    reviews: 56,
-    pieces_sold: 600,
-    justIn: false,
-    shots: [dunklow, shot1, shot2, shot3, shot4, shot5, shot6, shot7],
-    overview:
-      "When your workouts wade into the nitty gritty, the Nike Free Metcon 5 can meet you in the depths, help you dig deep to find that final ounce of force and come out of the other side on a high. It matches style with substance, forefoot flexibility with backend stability, perfect for flying through a cardio day or enhancing your agility. A revamped upper offers easier entry with a collar made just for your ankle.",
-    shipment_details: [
-      {
-        icon: <PiPercentFill className="text-xl text-secondary" />,
-        title: "Discount",
-        description: "> $100 Disc 10%",
-      },
-      {
-        icon: <FaCalendarAlt className="text-xl text-secondary" />,
-        title: "Delivery Time",
-        description: "6 - 12 Working days",
-      },
-      {
-        icon: <BsBoxFill className="text-xl text-secondary" />,
-        title: "Package",
-        description: "Reagular Premium Box",
-      },
-      {
-        icon: <FaTruckFast className="text-xl text-secondary" />,
-        title: "Estimated Arrival",
-        description: "10 - 12 October 23",
-      },
-    ],
-  },
-  {
-    slug: "lebronxx",
-    shoeName: "Lebron XXL",
-    coverImage: lebronxx,
-    currentPrice: 199,
-    previousPrice: 250,
-    shoeCategory: "Men's shoes",
-    rating: 4.8,
-    reviews: 56,
-    pieces_sold: 600,
-    justIn: false,
-    shots: [lebronxx, shot1, shot2, shot3, shot4, shot5, shot6, shot7],
-    overview:
-      "When your workouts wade into the nitty gritty, the Nike Free Metcon 5 can meet you in the depths, help you dig deep to find that final ounce of force and come out of the other side on a high. It matches style with substance, forefoot flexibility with backend stability, perfect for flying through a cardio day or enhancing your agility. A revamped upper offers easier entry with a collar made just for your ankle.",
-    shipment_details: [
-      {
-        icon: <PiPercentFill className="text-xl text-secondary" />,
-        title: "Discount",
-        description: "> $100 Disc 10%",
-      },
-      {
-        icon: <FaCalendarAlt className="text-xl text-secondary" />,
-        title: "Delivery Time",
-        description: "6 - 12 Working days",
-      },
-      {
-        icon: <BsBoxFill className="text-xl text-secondary" />,
-        title: "Package",
-        description: "Reagular Premium Box",
-      },
-      {
-        icon: <FaTruckFast className="text-xl text-secondary" />,
-        title: "Estimated Arrival",
-        description: "10 - 12 October 23",
-      },
-    ],
-  },
-  {
-    slug: "metcon5",
-    shoeName: "Metcon 5",
-    coverImage: metcon5,
-    currentPrice: 199,
-    previousPrice: 250,
-    shoeCategory: "Men's shoes",
+    slug: "psychotic-orange",
+    shoeName: "PSYCHOTIC",
+    coverImage: psychotic,
+    currentPrice: 280,
+    previousPrice: 350,
+    shoeCategory: "Pre-Entrenamiento",
     rating: 4.8,
     reviews: 56,
     pieces_sold: 600,
     justIn: true,
-    shots: [metcon5, shot1, shot2, shot3, shot4, shot5, shot6, shot7],
+    shots: [
+      psychotic,
+      psychotic1,
+      psychotic2,
+      psychotic3,
+      psychotic4,
+      psychotic5,
+    ],
     overview:
-      "When your workouts wade into the nitty gritty, the Nike Free Metcon 5 can meet you in the depths, help you dig deep to find that final ounce of force and come out of the other side on a high. It matches style with substance, forefoot flexibility with backend stability, perfect for flying through a cardio day or enhancing your agility. A revamped upper offers easier entry with a collar made just for your ankle.",
+      "Psychotic Pre Workout Orange, es un suplemento de pre entrenamiento extremo con 35 servicios por envase. Está formulado con Ampiberry®, un ingrediente que prolonga el efecto de los estimulantes por más de 3 horas. Contiene de 3 a 4 veces más potencia que otros pre entrenos del mercado. Sometido a pruebas microbiológicas estrictas, cuenta con certificación cGMP que garantiza su calidad.",
     shipment_details: [
       {
         icon: <PiPercentFill className="text-xl text-secondary" />,
-        title: "Discount",
-        description: "> $100 Disc 10%",
-      },
-      {
-        icon: <FaCalendarAlt className="text-xl text-secondary" />,
-        title: "Delivery Time",
-        description: "6 - 12 Working days",
-      },
-      {
-        icon: <BsBoxFill className="text-xl text-secondary" />,
-        title: "Package",
-        description: "Reagular Premium Box",
+        title: "Descuento",
+        description: "10% en compras mayores a $100 MXN",
       },
       {
         icon: <FaTruckFast className="text-xl text-secondary" />,
-        title: "Estimated Arrival",
-        description: "10 - 12 October 23",
+        title: "Tiempo de entrega",
+        description: "6 - 12 días hábiles",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Empaque",
+        description: "Bote de 200g / 35 servicios",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Presentación",
+        description: "Sabor Natural y a Naranja",
       },
     ],
   },
   {
-    slug: "metcon9",
-    shoeName: "Metcon 9",
-    coverImage: metcon9,
-    currentPrice: 199,
-    previousPrice: 250,
-    shoeCategory: "Men's shoes",
-    rating: 4.8,
-    reviews: 56,
-    pieces_sold: 600,
-    justIn: false,
-    shots: [metcon9, shot1, shot2, shot3, shot4, shot5, shot6, shot7],
-    overview:
-      "When your workouts wade into the nitty gritty, the Nike Free Metcon 5 can meet you in the depths, help you dig deep to find that final ounce of force and come out of the other side on a high. It matches style with substance, forefoot flexibility with backend stability, perfect for flying through a cardio day or enhancing your agility. A revamped upper offers easier entry with a collar made just for your ankle.",
-    shipment_details: [
-      {
-        icon: <PiPercentFill className="text-xl text-secondary" />,
-        title: "Discount",
-        description: "> $100 Disc 10%",
-      },
-      {
-        icon: <FaCalendarAlt className="text-xl text-secondary" />,
-        title: "Delivery Time",
-        description: "6 - 12 Working days",
-      },
-      {
-        icon: <BsBoxFill className="text-xl text-secondary" />,
-        title: "Package",
-        description: "Reagular Premium Box",
-      },
-      {
-        icon: <FaTruckFast className="text-xl text-secondary" />,
-        title: "Estimated Arrival",
-        description: "10 - 12 October 23",
-      },
-    ],
-  },
-  {
-    slug: "nike_blazer",
-    shoeName: "Nike Blazer",
-    coverImage: nike_blazer,
-    currentPrice: 199,
-    previousPrice: 250,
-    shoeCategory: "Men's shoes",
-    rating: 4.8,
-    reviews: 56,
+    slug: "dymatize-iso100-vainilla",
+    shoeName: "ISO 100",
+    coverImage: iso,
+    currentPrice: 950,
+    previousPrice: 1150,
+    shoeCategory: "Proteina",
+    rating: 5,
+    reviews: 76,
     pieces_sold: 600,
     justIn: true,
-    shots: [nike_blazer, shot1, shot2, shot3, shot4, shot5, shot6, shot7],
+    shots: [iso1, iso2, iso3, iso4],
     overview:
-      "When your workouts wade into the nitty gritty, the Nike Free Metcon 5 can meet you in the depths, help you dig deep to find that final ounce of force and come out of the other side on a high. It matches style with substance, forefoot flexibility with backend stability, perfect for flying through a cardio day or enhancing your agility. A revamped upper offers easier entry with a collar made just for your ankle.",
+      "Aislado de proteína de suero de leche 100% hidrolizado, científicamente probado y de digestión rápida. Cada porción proporciona 25 g de proteína, 5.5 g de BCAA y 2.7 g de leucina, con solo 120 calorías, menos de 1 g de azúcar, lactosa y grasa. Libre de gluten. Se mezcla fácilmente incluso solo con cuchara. Cada envase contiene 2.27 kg con 76 servicios aproximados. Ideal para apoyar la recuperación muscular y el desarrollo de masa magra.",
     shipment_details: [
       {
         icon: <PiPercentFill className="text-xl text-secondary" />,
-        title: "Discount",
-        description: "> $100 Disc 10%",
+        title: "Descuento",
+        description: "Descuento del 17%",
       },
       {
         icon: <FaCalendarAlt className="text-xl text-secondary" />,
-        title: "Delivery Time",
-        description: "6 - 12 Working days",
+        title: "Empaque",
+        description: "76 porciones | 2.27 kg | ~$12.50 MXN por porción",
       },
       {
         icon: <BsBoxFill className="text-xl text-secondary" />,
-        title: "Package",
-        description: "Reagular Premium Box",
+        title: "Calorias",
+        description: "120 calorías, menos de 0.04 oz de azúcar",
       },
       {
         icon: <FaTruckFast className="text-xl text-secondary" />,
-        title: "Estimated Arrival",
-        description: "10 - 12 October 23",
+        title: "Sabor",
+        description: "Vainilla / FRUITY PEBBLES",
+      },
+    ],
+  },
+  {
+    slug: "cbum-itholate",
+    shoeName: "CBUM Itholate Protein",
+    coverImage: CBUM,
+    currentPrice: 1250,
+    previousPrice: 1450,
+    shoeCategory: "Proteína aislada en polvo RAW",
+    rating: 4.5,
+    reviews: 194,
+    pieces_sold: 700,
+    justIn: false,
+    shots: [CBUM, CBUM1, CBUM2, CBUM3, CBUM4],
+    overview:
+      "Proteína de suero aislada de alta calidad con 25 g por porción, sabor a avena con vainilla. Bajo en grasas, con solo 1 g de carbohidratos, y derivada 100 % de vacas alimentadas con pasto. Ideal para apoyar el desarrollo muscular magro, la recuperación post-entrenamiento y mejorar el rendimiento físico. Fácil de digerir gracias a su proceso de microfiltración, sin molestias estomacales.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Descuento",
+        description: "¡10% en compras mayores a $1000 MXN!",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Empaque",
+        description: "Sabor avena con vainilla - 2 lbs (25 servicios)",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Presentación",
+        description: "Proteína en polvo, envase de 2 libras",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Envío estimado",
+        description: "6 - 12 días hábiles",
+      },
+    ],
+  },
+  {
+    slug: "cbum-itholate-cake",
+    shoeName: "CBUM Itholate Protein Cake",
+    coverImage: Cake,
+    currentPrice: 1250,
+    previousPrice: 1450,
+    shoeCategory: "Proteína de suero aislada (Itolato)",
+    rating: 4.5,
+    reviews: 194,
+    pieces_sold: 700,
+    justIn: false,
+    shots: [Cake, Cake1, Cake2, Cake3, Cake4],
+    overview:
+      "Proteína de suero aislada de alta calidad con 25 g por porción, sabor a avena con vainilla. Bajo en grasas, con solo 1 g de carbohidratos, y derivada 100 % de vacas alimentadas con pasto. Ideal para apoyar el desarrollo muscular magro, la recuperación post-entrenamiento y mejorar el rendimiento físico. Fácil de digerir gracias a su proceso de microfiltración, sin molestias estomacales.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Descuento",
+        description: "¡10% en compras mayores a $1000 MXN!",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Empaque",
+        description: "Sabor de pastel de cumpleaños - 2.25 lbs (25 porciones)",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Presentación",
+        description: "Proteína en polvo, envase de 2.25 libras",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Envío estimado",
+        description: "6 - 12 días hábiles",
+      },
+    ],
+  },
+  {
+    slug: "raw-mint-chip",
+    shoeName: "RAW Itholate - Menta Chispas",
+    coverImage: cream,
+    currentPrice: 900,
+    previousPrice: 1050,
+    shoeCategory: "Proteína de suero aislada (Itolato)",
+    rating: 4.3,
+    reviews: 1676,
+    pieces_sold: 1200,
+    justIn: false,
+    shots: [cream, cream1, cream2, cream3, cream4, cream5],
+    overview:
+      "Proteína aislada tipo Itholate de RAW Nutrition, formulada por Chris Bumstead, con sabor a helado de chispas de menta. Contiene 25 g de proteína por servicio, sin rellenos ni hormonas, microfiltrada y libre de ingredientes artificiales. Perfecta para apoyar el crecimiento muscular magro y la recuperación rápida post-entreno. Presentación de 2.2 lbs (25 porciones).",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Descuento",
+        description: "¡10% en compras mayores a $1000 MXN!",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Sabor",
+        description: "Helado de chips de menta",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Empaque",
+        description: "2.2 lbs (25 porciones)",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Envío estimado",
+        description: "6 - 12 días hábiles",
+      },
+    ],
+  },
+  {
+    slug: "gold-standard-chocolate",
+    shoeName: "Gold Standard Chocolate",
+    coverImage: gold,
+    currentPrice: 1949,
+    previousPrice: 2359,
+    shoeCategory: "Suplementos",
+    rating: 4.1,
+    reviews: 157,
+    pieces_sold: 50,
+    justIn: true,
+    shots: [gold, gold1, gold2, gold3, gold3],
+    overview:
+      "Optimum Nutrition Gold Standard 100% Isolate sabor Chocolate es una proteína de suero aislada, diseñada para apoyar el desarrollo muscular y la recuperación después del entrenamiento. Con 5 libras de producto, es ideal para adultos que buscan calidad y pureza en cada porción. Su fórmula se obtiene mediante microfiltración, eliminando grasas y carbohidratos, y ofreciendo una proteína de alta concentración y rápida absorción.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Descuento",
+        description: "17% de ahorro aplicado",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Tiempo de entrega",
+        description: "4 - 8 días hábiles",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Empaque",
+        description: "Bolsa o bote premium con sello de seguridad",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Envío estimado",
+        description: "Enviado por Amazon México",
       },
     ],
   },
@@ -597,40 +642,40 @@ const prices = [
 
 export const filters = [shoeBrands, prices, sizes, shoeTypes];
 
-export const brandsSection = {
-  heading: "The Official Store of The Amazing Brand",
-  description:
-    "We work together with high quality and famous brands around the world",
-  brands: [
-    {
-      brandName: "New Balance",
-      rating: 4.9,
-      reviews: 10334,
-      followers: 7.2,
-      visitLink: "https://www.newbalance.com",
-      logo: new_balance,
-      shoes: [new_balance1, new_balance2, new_balance3, new_balance4],
-    },
-    {
-      brandName: "Compass",
-      rating: 4.9,
-      reviews: 10334,
-      followers: 8.5,
-      visitLink: "https://www.sepatucompass.com/",
-      logo: compass_profile,
-      shoes: [compass1, compass2, compass3, compass4],
-    },
-    {
-      brandName: "Nike",
-      rating: 4.9,
-      reviews: 10334,
-      followers: 11.2,
-      visitLink: "https://nike.com",
-      logo: nike_profile,
-      shoes: [yellowLow, redlow, dunklow, lebronxx],
-    },
-  ],
-};
+// export const brandsSection = {
+//   heading: "The Official Store of The Amazing Brand",
+//   description:
+//     "We work together with high quality and famous brands around the world",
+//   brands: [
+//     {
+//       brandName: "New Balance",
+//       rating: 4.9,
+//       reviews: 10334,
+//       followers: 7.2,
+//       visitLink: "https://www.newbalance.com",
+//       logo: new_balance,
+//       shoes: [new_balance1, new_balance2, new_balance3, new_balance4],
+//     },
+//     {
+//       brandName: "Compass",
+//       rating: 4.9,
+//       reviews: 10334,
+//       followers: 8.5,
+//       visitLink: "https://www.sepatucompass.com/",
+//       logo: compass_profile,
+//       shoes: [compass1, compass2, compass3, compass4],
+//     },
+//     {
+//       brandName: "Nike",
+//       rating: 4.9,
+//       reviews: 10334,
+//       followers: 11.2,
+//       visitLink: "https://nike.com",
+//       logo: nike_profile,
+//       shoes: [yellowLow, redlow, dunklow, lebronxx],
+//     },
+//   ],
+// };
 
 export const footerBannerData = {
   heading: "Ponte al día con los mejores suplementos",
@@ -643,23 +688,24 @@ export const footerData = {
     "HotKicks was designed and founded in 2023 by Person. The theme is about sneakers ecommerce thet use for shoes selling around the world.",
   footerLinks: [
     {
-      title: "Main Pages",
+      title: "Páginas principales",
       links: [
-        { href: "/home", name: "Home" },
         { href: "/products", name: "Collections" },
-        { href: "/cart", name: "Cart" },
-        { href: "/checkout", name: "Checkout" },
-        // { href: '/blog', name: 'Blogs' },
+        { href: "/News", name: "Novedades" },
+        /*
+        { href: '/cart', name: 'Cart' },
+        { href: '/checkout', name: 'Checkout' }, 
+        */
       ],
     },
     {
-      title: "Single Pages",
+      title: "Promociones",
       links: [
-        { href: "/product/yellowLow", name: "Product Single" },
-        {
-          href: "/blog/the-evolution-of-sneaker-culture-a-historical-perspective",
-          name: "Blog Single",
-        },
+        { href: "/product/yellowLow", name: "Productos en descuentos" },
+        /* {
+          href: '/blog/the-evolution-of-sneaker-culture-a-historical-perspective',
+          name: 'Blog Single',
+        }, */
       ],
     },
     {
@@ -680,9 +726,9 @@ export const footerData = {
 };
 
 export const newsletter = {
-  heading: "Don't wanna miss our offers?",
+  heading: "¿No quieres perderte nuestras ofertas?",
   description:
-    "Drop your email below and start receiving the best offers from HotKicks",
+    "Deja tu correo electrónico a continuación y comienza a recibir las mejores ofertas de FITMEX STORE",
 };
 
 export const shoeSizes = [
@@ -697,9 +743,9 @@ export const shoeSizes = [
   "EU44",
 ];
 
-export const note =
-  " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, est eum magnam doloremque, at adipisci debitis, similique dolores ipsa unde necessitatibus vero quibusdam nostrum numquam!";
-
+/* 
+export const note = " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, est eum magnam doloremque, at adipisci debitis, similique dolores ipsa unde necessitatibus vero quibusdam nostrum numquam!";
+ */
 export const contactSection = {
   heading: "Contacto",
   description:

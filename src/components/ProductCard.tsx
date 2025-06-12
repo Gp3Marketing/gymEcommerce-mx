@@ -25,7 +25,7 @@ const ProductCard: FC<ProductCardProps> = ({
       <div className="h-[250px] w-full overflow-hidden rounded-2xl lg:h-[220px] 2xl:h-[300px]">
         {product.justIn && (
           <div className="absolute left-6 top-0 rounded-b-lg bg-primary px-3 py-2 text-sm uppercase text-white shadow-md">
-            Just In!
+            ¡Acabo de llegar!
           </div>
         )}
         <LikeButton className="absolute right-2 top-2" />
