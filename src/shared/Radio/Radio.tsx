@@ -1,5 +1,5 @@
-import type { FC } from 'react';
-import React from 'react';
+import type { FC } from "react";
+import React from "react";
 
 export interface RadioProps {
   className?: string;
@@ -12,12 +12,12 @@ export interface RadioProps {
 }
 
 const Radio: FC<RadioProps> = ({
-  className = '',
+  className = "",
   name,
   id,
   onChange,
   label,
-  sizeClassName = 'w-6 h-6',
+  sizeClassName = "w-6 h-6",
   defaultChecked,
 }) => {
   return (

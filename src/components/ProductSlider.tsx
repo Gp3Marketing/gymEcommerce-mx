@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 
-import { shoes } from '@/data/content';
-import Slider from '@/shared/Slider/Slider';
+import { shoes } from "@/data/content";
+import Slider from "@/shared/Slider/Slider";
 
-import ProductCard from './ProductCard';
+import ProductCard from "./ProductCard";
 
 const data = shoes.slice(3, 9);
 

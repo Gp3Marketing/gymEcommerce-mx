@@ -1,10 +1,10 @@
 'use client';
 import React from 'react';
 
-import ButtonPrimary from '@/shared/Button/ButtonPrimary';
-import FormItem from '@/shared/FormItem';
-import Input from '@/shared/Input/Input';
-import Textarea from '@/shared/TextArea/TextArea';
+import ButtonPrimary from "@/shared/Button/ButtonPrimary";
+import FormItem from "@/shared/FormItem";
+import Input from "@/shared/Input/Input";
+import Textarea from "@/shared/TextArea/TextArea";
 
 const ContactForm = () => {
   return (
