@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import type { FC } from 'react';
-import React, { useEffect, useState } from 'react';
+import type { FC } from "react";
+import React, { useEffect, useState } from "react";
 
 export interface InputNumberProps {
   className?: string;
@@ -14,7 +14,7 @@ export interface InputNumberProps {
 }
 
 const InputNumber: FC<InputNumberProps> = ({
-  className = 'w-full',
+  className = "w-full",
   defaultValue = 1,
   min = 1,
   max = 99,

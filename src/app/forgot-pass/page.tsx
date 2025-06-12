@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import React from 'react';
+import Link from "next/link";
+import React from "react";
 
-import FormItem from '@/shared/FormItem';
-import Input from '@/shared/Input/Input';
+import FormItem from "@/shared/FormItem";
+import Input from "@/shared/Input/Input";
 
 const PageForgotPass = () => {
   return (

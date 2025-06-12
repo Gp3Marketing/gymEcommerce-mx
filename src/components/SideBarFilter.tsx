@@ -1,48 +1,48 @@
-'use client';
+"use client";
 
-import 'rc-slider/assets/index.css';
+import "rc-slider/assets/index.css";
 
-import { pathOr } from 'ramda';
-import Slider from 'rc-slider';
-import React, { useState } from 'react';
-import { MdSearch } from 'react-icons/md';
+import { pathOr } from "ramda";
+import Slider from "rc-slider";
+import React, { useState } from "react";
+import { MdSearch } from "react-icons/md";
 
-import Heading from '@/shared/Heading/Heading';
-import Input from '@/shared/Input/Input';
+import Heading from "@/shared/Heading/Heading";
+import Input from "@/shared/Input/Input";
 
 // DEMO DATA
 const brands = [
   {
-    name: 'All',
+    name: "All",
   },
   {
-    name: 'Nike',
+    name: "Nike",
   },
   {
-    name: 'New Balance',
+    name: "New Balance",
   },
   {
-    name: 'Rick Owens',
+    name: "Rick Owens",
   },
 ];
 
-const gender = ['Men', 'Women', 'Unisex', 'Kids'];
+const gender = ["Men", "Women", "Unisex", "Kids"];
 
 const locations = [
-  'New York',
-  'Canada',
-  'Bangladesh',
-  'Indonesia',
-  'San Francisco',
+  "New York",
+  "Canada",
+  "Bangladesh",
+  "Indonesia",
+  "San Francisco",
 ];
 
 const PRICE_RANGE = [1, 500];
 //
 const SidebarFilters = () => {
   const [rangePrices, setRangePrices] = useState([100, 500]);
-  const [activeBrand, setActiveBrand] = useState('All');
-  const [activeGender, setActiveGender] = useState('Men');
-  const [activeLocation, setActiveLocation] = useState('New York');
+  const [activeBrand, setActiveBrand] = useState("All");
+  const [activeGender, setActiveGender] = useState("Men");
+  const [activeLocation, setActiveLocation] = useState("New York");
 
   const renderTabsCategories = () => {
     return (
@@ -55,7 +55,7 @@ const SidebarFilters = () => {
               type="button"
               onClick={() => setActiveBrand(item.name)}
               className={`rounded-lg py-4 ${
-                activeBrand === item.name ? 'bg-primary text-white' : 'bg-gray'
+                activeBrand === item.name ? "bg-primary text-white" : "bg-gray"
               }`}
             >
               {item.name}
@@ -78,7 +78,7 @@ const SidebarFilters = () => {
               type="button"
               onClick={() => setActiveGender(item)}
               className={`rounded-lg py-4 ${
-                activeGender === item ? 'bg-primary text-white' : 'bg-gray'
+                activeGender === item ? "bg-primary text-white" : "bg-gray"
               }`}
             >
               {item}
@@ -171,7 +171,7 @@ const SidebarFilters = () => {
               type="button"
               onClick={() => setActiveLocation(item)}
               className={`rounded-lg py-4 ${
-                activeLocation === item ? 'bg-primary text-white' : 'bg-gray'
+                activeLocation === item ? "bg-primary text-white" : "bg-gray"
               }`}
             >
               {item}

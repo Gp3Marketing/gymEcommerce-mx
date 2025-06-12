@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import ButtonPrimary from '@/shared/Button/ButtonPrimary';
-import ButtonSecondary from '@/shared/Button/ButtonSecondary';
+import ButtonPrimary from "@/shared/Button/ButtonPrimary";
+import ButtonSecondary from "@/shared/Button/ButtonSecondary";
 
 const Page404 = () => {
   return (
@@ -9,7 +9,7 @@ const Page404 = () => {
       <div className="mx-auto flex max-w-2xl flex-col items-center justify-center gap-5 py-24">
         <h1
           className="text-[100px] font-extrabold text-primary"
-          style={{ lineHeight: '1em' }}
+          style={{ lineHeight: "1em" }}
         >
           404
         </h1>

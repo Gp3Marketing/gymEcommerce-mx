@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
-import ButtonPrimary from '@/shared/Button/ButtonPrimary';
-import Heading from '@/shared/Heading/Heading';
+import ButtonPrimary from "@/shared/Button/ButtonPrimary";
+import Heading from "@/shared/Heading/Heading";
 
-import { utilityPages } from './content';
+import { utilityPages } from "./content";
 
 const SectionUtilityPages = () => {
   return (
@@ -20,8 +20,8 @@ const SectionUtilityPages = () => {
       <div className="grid gap-5 md:grid-cols-2 md:gap-10 lg:grid-cols-3 lg:gap-12">
         {utilityPages.pages.map((DATA) => (
           <motion.div
-            initial={{ opacity: 0, y: '50%' }}
-            whileInView={{ opacity: 1, y: '0%' }}
+            initial={{ opacity: 0, y: "50%" }}
+            whileInView={{ opacity: 1, y: "0%" }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
             key={DATA.pageName}

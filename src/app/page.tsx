@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import SectionBestDeals from './home/SectionBestDeals';
 // import SectionBrands from './home/SectionBrands';
