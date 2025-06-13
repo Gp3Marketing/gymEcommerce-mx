@@ -1,11 +1,11 @@
-import Image from 'next/image';
-import React from 'react';
+import Image from "next/image";
+import React from "react";
 
 // import Logo from '@/shared/Logo/Logo';
-import allThemesPreview from '@/images/preview/showcase1.jpg';
-import ButtonPrimary from '@/shared/Button/ButtonPrimary';
+import allThemesPreview from "@/images/preview/showcase1.jpg";
+import ButtonPrimary from "@/shared/Button/ButtonPrimary";
 
-import { midSection } from './content';
+import { midSection } from "./content";
 
 const SectionMid = () => {
   return (

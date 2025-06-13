@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { Popover, Transition } from '@headlessui/react';
-import type { Route } from 'next';
-import Link from 'next/link';
-import type { FC, ReactNode } from 'react';
-import React, { Fragment, useState } from 'react';
+import { Popover, Transition } from "@headlessui/react";
+import type { Route } from "next";
+import Link from "next/link";
+import type { FC, ReactNode } from "react";
+import React, { Fragment, useState } from "react";
 
 export interface NavItemType {
   id: string;
   name: string;
   href: Route;
   targetBlank?: boolean;
-  type?: 'dropdown' | 'megaMenu' | 'none';
+  type?: "dropdown" | "megaMenu" | "none";
   isNew?: boolean;
 }
 
@@ -55,7 +55,6 @@ const NavigationItem: FC<NavigationItemProps> = ({
     );
   };
 
-  // ===================== MENU DROPDOW =====================
   const renderDropdownMenu = (menuDropdown: NavItemType) => {
     const isHover = menuCurrentHovers.includes(menuDropdown.id);
     return (
@@ -83,7 +82,7 @@ const NavigationItem: FC<NavigationItemProps> = ({
               <Popover.Panel
                 static
                 className={`sub-menu absolute z-10 ${
-                  changeWidth ? 'w-[670px]' : 'w-[300px]'
+                  changeWidth ? "w-[670px]" : "w-[300px]"
                 } left-0 top-full`}
               >
                 <div className="relative py-4 shadow-lg">{children}</div>
@@ -96,9 +95,9 @@ const NavigationItem: FC<NavigationItemProps> = ({
   };
 
   switch (menuItem.type) {
-    case 'dropdown':
+    case "dropdown":
       return renderDropdownMenu(menuItem);
-    case 'megaMenu':
+    case "megaMenu":
       return null;
     default:
       return (

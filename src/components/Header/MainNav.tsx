@@ -1,20 +1,45 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
-import { FaRegBell } from 'react-icons/fa6';
-import { RiSearch2Line } from 'react-icons/ri';
+"use client";
 
-import avatar from '@/images/avatar.png';
-import ButtonCircle3 from '@/shared/Button/ButtonCircle3';
-import Input from '@/shared/Input/Input';
-import Logo from '@/shared/Logo/Logo';
+import Image from "next/image";
+import Link from "next/link";
+import React, { useState } from "react";
+import { FaRegBell } from "react-icons/fa6";
+import { RiSearch2Line } from "react-icons/ri";
 
-import CartSideBar from '../CartSideBar';
-import MenuBar from './MenuBar';
+import avatar from "@/images/avatar.png";
+import ButtonCircle3 from "@/shared/Button/ButtonCircle3";
+import Input from "@/shared/Input/Input";
+import Logo from "@/shared/Logo/Logo";
+import { useAuth } from "@/hooks/useAuth";
+
+import AccountMenu from "./AccountMenu";
+import CartSideBar from "../CartSideBar";
+import MenuBar from "./MenuBar";
+
+const getFirstName = (displayName: string | null, email: string | null) => {
+  if (displayName) return displayName.split(" ")[0];
+  if (email) return email.split("@")[0];
+  return "Usuario";
+};
 
 const MainNav = () => {
+  const { user, logout } = useAuth();
+  const [showAccountMenu, setShowAccountMenu] = useState(false);
+
+  const handleAccountClick = (e: React.MouseEvent) => {
+    if (user) {
+      e.preventDefault();
+      setShowAccountMenu((prev) => !prev);
+    }
+  };
+
+  const handleLogout = () => {
+    setShowAccountMenu(false);
+    logout();
+  };
+
   return (
-    <div className="container flex items-center justify-between py-4">
+    <div className="container flex items-center justify-between py-4 relative">
       <div className="flex-1 lg:hidden">
         <MenuBar />
       </div>
@@ -38,7 +63,7 @@ const MainNav = () => {
 
         <div className="flex items-center divide-x divide-neutral-300">
           <CartSideBar />
-          <div className="flex items-center gap-2 pl-5">
+          <div className="flex items-center gap-2 pl-5 relative">
             <ButtonCircle3 className="overflow-hidden bg-gray" size="w-10 h-10">
               <Image
                 src={avatar}
@@ -46,9 +71,16 @@ const MainNav = () => {
                 className="h-full w-full object-cover object-center"
               />
             </ButtonCircle3>
-            <Link href="/signup" className="hidden text-sm lg:block">
-              Clark Kent
+            <Link
+              href={user ? "#" : "/signup"}
+              className="hidden text-sm lg:block"
+              onClick={handleAccountClick}
+            >
+              {user ? getFirstName(user.displayName, user.email) : "Registrarse"}
             </Link>
+            {user && showAccountMenu && (
+              <AccountMenu onLogout={handleLogout} />
+            )}
           </div>
         </div>
       </div>

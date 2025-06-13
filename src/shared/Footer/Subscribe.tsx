@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import { newsletter } from '@/data/content';
+import { newsletter } from "@/data/content";
 
-import ButtonPrimary from '../Button/ButtonPrimary';
-import Input from '../Input/Input';
+import ButtonPrimary from "../Button/ButtonPrimary";
+import Input from "../Input/Input";
 
 const Subscribe = () => {
   return (
