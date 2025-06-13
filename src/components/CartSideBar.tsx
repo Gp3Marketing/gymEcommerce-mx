@@ -21,6 +21,8 @@ export interface CartSideBarProps {}
 const CartSideBar: React.FC<CartSideBarProps> = () => {
   const [isVisable, setIsVisable] = useState(false);
 
+  const [cartItems, setCartItems] = useState<ProductType[]>(shoes.slice(0, 2));
+
   const handleOpenMenu = () => setIsVisable(true);
   const handleCloseMenu = () => setIsVisable(false);
 
@@ -107,7 +109,7 @@ const CartSideBar: React.FC<CartSideBarProps> = () => {
                         </ButtonCircle3>
                       </div>
                       <div className="divide-y divide-neutral-300">
-                        {shoes.slice(0, 2).map((item) => renderProduct(item))}
+                        {cartItems.map((item) => renderProduct(item))}
                       </div>
                     </div>
                     <div className="absolute bottom-0 left-0 w-full bg-neutral-50 p-5">
@@ -167,7 +169,9 @@ const CartSideBar: React.FC<CartSideBarProps> = () => {
         className="mx-5 flex items-center gap-1 rounded-full bg-neutral-100 p-2 text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
       >
         <FaBagShopping className="text-2xl" />
-        <span className="hidden text-sm lg:block">2 items</span>
+        <span className="hidden text-sm lg:block">
+          {cartItems.length} items
+        </span>
       </button>
 
       {renderContent()}
