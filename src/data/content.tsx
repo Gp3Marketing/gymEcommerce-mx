@@ -7,26 +7,9 @@ import { MdOutlineCameraAlt } from "react-icons/md";
 import { PiPercentFill } from "react-icons/pi";
 
 import type { NavItemType } from "@/components/NavItem";
-import airForce1 from "@/images/airForce1.webp";
 import blackLebron from "@/images/blackLebron.webp";
 import brownsb from "@/images/brownsb.webp";
-import brsb from "@/images/brsb.webp";
-import compass_profile from "@/images/compass_profile.jpeg";
-import compass1 from "@/images/compass1.jpg";
-import compass2 from "@/images/compass2.jpg";
-import compass3 from "@/images/compass3.png";
-import compass4 from "@/images/compass4.jpg";
-import dunklow from "@/images/dunklow.webp";
-import lebronxx from "@/images/lebronxx.webp";
-import metcon5 from "@/images/metcon5.webp";
-import metcon9 from "@/images/metcon9.webp";
-import new_balance from "@/images/new_balance.png";
-import new_balance1 from "@/images/new_balance1.webp";
-import new_balance2 from "@/images/new_balance2.webp";
-import new_balance3 from "@/images/new_balance3.webp";
-import new_balance4 from "@/images/new_balance4.webp";
-import nike_blazer from "@/images/nike_blazer.webp";
-import nike_profile from "@/images/nike_profile.jpg";
+
 import redlow from "@/images/redlow.webp";
 import shot1 from "@/images/shots/shot1.webp";
 import shot2 from "@/images/shots/shot2.webp";
@@ -75,6 +58,13 @@ import gold from "@/images/isolate-gold/gold.jpg";
 import gold1 from "@/images/isolate-gold/gold1.png";
 import gold2 from "@/images/isolate-gold/gold2.png";
 import gold3 from "@/images/isolate-gold/gold3.jpg";
+
+import whey from "@/images/whey/whey.jpg";
+
+import cbum5peat from "@/images/cbum5peat/cbum5peat.jpg";
+
+import peachbum from "@/images/peachbum/peachbum.jpg";
+
 
 import type { BlogType } from "./types";
 
@@ -167,80 +157,80 @@ export const promotionTag = {
 };
 
 export const shoes = [
+ {
+  slug: "cbum5peat",
+  shoeName: "cbum5peat",
+  coverImage: cbum5peat, // reemplaza con tu imagen importada
+  currentPrice: 189000, // en COP (ajústalo según tu tienda)
+  previousPrice: 210000,
+  shoeCategory: "Pre-entrenamiento",
+  rating: 4.9,
+  reviews: 10500, // número estimado de reseñas globales
+  pieces_sold: 85000,
+  justIn: true,
+  shots: [cbum5peat, shot1, shot2, shot3, shot4, shot5, shot6, shot7], // reemplaza si tienes otras tomas
+  overview:
+    "El pre-entreno CBUM Thavage, creado por el campeón mundial Chris Bumstead, está diseñado para quienes entrenan con intensidad. Su fórmula incluye ingredientes como L-Citrulina, Beta-Alanina y Alpha-GPC para mayor bombeo muscular, concentración mental y resistencia. Con un sabor delicioso y rendimiento comprobado, es ideal para elevar tus sesiones al siguiente nivel.",
+  shipment_details: [
+    {
+      icon: <PiPercentFill className="text-xl text-secondary" />,
+      title: "Descuento",
+      description: "15% en compras superiores a $180.000 COP",
+    },
+    {
+      icon: <FaCalendarAlt className="text-xl text-secondary" />,
+      title: "Tiempo de entrega",
+      description: "2 - 5 días hábiles",
+    },
+    {
+      icon: <BsBoxFill className="text-xl text-secondary" />,
+      title: "Presentación",
+      description: "Envase con 20 servicios",
+    },
+    {
+      icon: <FaTruckFast className="text-xl text-secondary" />,
+      title: "Llegada estimada",
+      description: "13 - 16 Junio 2025",
+    },
+  ],
+},
   {
-    slug: "airForce1",
-    shoeName: "Air Force 1",
-    coverImage: airForce1,
-    currentPrice: 199,
-    previousPrice: 250,
-    shoeCategory: "Men's shoes",
-    rating: 4.8,
-    reviews: 56,
-    pieces_sold: 600,
-    justIn: false,
-    shots: [airForce1, shot1, shot2, shot3, shot4, shot5, shot6, shot7],
-    overview:
-      "When your workouts wade into the nitty gritty, the Nike Free Metcon 5 can meet you in the depths, help you dig deep to find that final ounce of force and come out of the other side on a high. It matches style with substance, forefoot flexibility with backend stability, perfect for flying through a cardio day or enhancing your agility. A revamped upper offers easier entry with a collar made just for your ankle.",
-    shipment_details: [
-      {
-        icon: <PiPercentFill className="text-xl text-secondary" />,
-        title: "Discount",
-        description: "> $100 Disc 10%",
-      },
-      {
-        icon: <FaCalendarAlt className="text-xl text-secondary" />,
-        title: "Delivery Time",
-        description: "6 - 12 Working days",
-      },
-      {
-        icon: <BsBoxFill className="text-xl text-secondary" />,
-        title: "Package",
-        description: "Reagular Premium Box",
-      },
-      {
-        icon: <FaTruckFast className="text-xl text-secondary" />,
-        title: "Estimated Arrival",
-        description: "10 - 12 October 23",
-      },
-    ],
-  },
-  {
-    slug: "blackLebron",
-    shoeName: "Lebron Black",
-    coverImage: blackLebron,
-    currentPrice: 199,
-    previousPrice: 250,
-    shoeCategory: "Men's shoes",
-    rating: 4.8,
-    reviews: 56,
-    pieces_sold: 600,
-    justIn: true,
-    shots: [blackLebron, shot1, shot2, shot3, shot4, shot5, shot6, shot7],
-    overview:
-      "When your workouts wade into the nitty gritty, the Nike Free Metcon 5 can meet you in the depths, help you dig deep to find that final ounce of force and come out of the other side on a high. It matches style with substance, forefoot flexibility with backend stability, perfect for flying through a cardio day or enhancing your agility. A revamped upper offers easier entry with a collar made just for your ankle.",
-    shipment_details: [
-      {
-        icon: <PiPercentFill className="text-xl text-secondary" />,
-        title: "Discount",
-        description: "> $100 Disc 10%",
-      },
-      {
-        icon: <FaCalendarAlt className="text-xl text-secondary" />,
-        title: "Delivery Time",
-        description: "6 - 12 Working days",
-      },
-      {
-        icon: <BsBoxFill className="text-xl text-secondary" />,
-        title: "Package",
-        description: "Reagular Premium Box",
-      },
-      {
-        icon: <FaTruckFast className="text-xl text-secondary" />,
-        title: "Estimated Arrival",
-        description: "10 - 12 October 23",
-      },
-    ],
-  },
+  slug: "peachbum",
+  shoeName: "peachbum",
+  coverImage: peachbum, // Asegúrate de importar esta imagen correctamente
+  currentPrice: 189000, // Precio estimado en COP
+  previousPrice: 210000,
+  shoeCategory: "Pre-entrenamiento",
+  rating: 4.9,
+  reviews: 8700,
+  pieces_sold: 68000,
+  justIn: true,
+  shots: [peachbum, shot1, shot2, shot3, shot4, shot5, shot6, shot7],
+  overview:
+    "Thavage Pre-Workout en sabor Peach Bum ofrece energía explosiva, concentración mental y bombeo muscular intenso. Con 40 servicios, esta fórmula incluye Beta-Alanina, L-Citrulina y Alpha-GPC para entrenamientos de alto rendimiento. Su sabor a durazno dulce te encantará desde el primer scoop.",
+  shipment_details: [
+    {
+      icon: <PiPercentFill className="text-xl text-secondary" />,
+      title: "Descuento",
+      description: "10% en compras desde $180.000 COP",
+    },
+    {
+      icon: <FaCalendarAlt className="text-xl text-secondary" />,
+      title: "Tiempo de entrega",
+      description: "2 - 5 días hábiles",
+    },
+    {
+      icon: <BsBoxFill className="text-xl text-secondary" />,
+      title: "Presentación",
+      description: "Envase con 40 servicios sabor Peach Bum",
+    },
+    {
+      icon: <FaTruckFast className="text-xl text-secondary" />,
+      title: "Llegada estimada",
+      description: "13 - 16 Junio 2025",
+    },
+  ],
+},
   {
     slug: "brownsb",
     shoeName: "SB Low Brown",
@@ -507,43 +497,44 @@ export const shoes = [
       },
     ],
   },
-  {
-    slug: "redlow",
-    shoeName: "Dunk Low Red",
-    coverImage: redlow,
-    currentPrice: 199,
-    previousPrice: 250,
-    shoeCategory: "Men's shoes",
-    rating: 4.8,
-    reviews: 56,
-    pieces_sold: 600,
-    justIn: false,
-    shots: [redlow, shot1, shot2, shot3, shot4, shot5, shot6, shot7],
-    overview:
-      "When your workouts wade into the nitty gritty, the Nike Free Metcon 5 can meet you in the depths, help you dig deep to find that final ounce of force and come out of the other side on a high. It matches style with substance, forefoot flexibility with backend stability, perfect for flying through a cardio day or enhancing your agility. A revamped upper offers easier entry with a collar made just for your ankle.",
-    shipment_details: [
-      {
-        icon: <PiPercentFill className="text-xl text-secondary" />,
-        title: "Discount",
-        description: "> $100 Disc 10%",
-      },
-      {
-        icon: <FaCalendarAlt className="text-xl text-secondary" />,
-        title: "Delivery Time",
-        description: "6 - 12 Working days",
-      },
-      {
-        icon: <BsBoxFill className="text-xl text-secondary" />,
-        title: "Package",
-        description: "Reagular Premium Box",
-      },
-      {
-        icon: <FaTruckFast className="text-xl text-secondary" />,
-        title: "Estimated Arrival",
-        description: "10 - 12 October 23",
-      },
-    ],
-  },
+ {
+  slug: "gold-standard-whey",
+  shoeName: "Gold Standard 100% Whey",
+  coverImage: whey, // reemplázalo con la imagen que subiste
+  currentPrice: 168000, // en pesos colombianos (COP)
+  previousPrice: 190000,
+  shoeCategory: "Proteína en polvo",
+  rating: 4.8,
+  reviews: 22500, // basado en el número de reseñas en iHerb
+  pieces_sold: 150000,
+  justIn: true,
+  shots: [whey, shot1, shot2, shot3, shot4, shot5, shot6, shot7], // usa las imágenes que tengas del producto
+  overview:
+    "Optimum Nutrition Gold Standard 100% Whey es la fórmula de proteína más vendida en el mundo. Elaborada con aislado de proteína de suero como ingrediente principal, ofrece 24 g de proteína de alta calidad por porción para apoyar el crecimiento y mantenimiento muscular. Sabor: Extreme Milk Chocolate.",
+  shipment_details: [
+    {
+      icon: <PiPercentFill className="text-xl text-secondary" />,
+      title: "Descuento",
+      description: "10% en compras superiores a $150.000 COP",
+    },
+    {
+      icon: <FaCalendarAlt className="text-xl text-secondary" />,
+      title: "Tiempo de entrega",
+      description: "3 - 5 días hábiles",
+    },
+    {
+      icon: <BsBoxFill className="text-xl text-secondary" />,
+      title: "Presentación",
+      description: "Tarro de 2 lb (907 g)",
+    },
+    {
+      icon: <FaTruckFast className="text-xl text-secondary" />,
+      title: "Llegada estimada",
+      description: "Entre 14 - 17 Junio 2025",
+    },
+  ],
+},
+
   {
     slug: "slides",
     shoeName: "Slides",
