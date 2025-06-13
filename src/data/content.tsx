@@ -197,8 +197,8 @@ export const shoes = [
   {
   slug: "peachbum",
   shoeName: "peachbum",
-  coverImage: peachbum, // Asegúrate de importar esta imagen correctamente
-  currentPrice: 189000, // Precio estimado en COP
+  coverImage: peachbum, 
+  currentPrice: 189000,
   previousPrice: 210000,
   shoeCategory: "Pre-entrenamiento",
   rating: 4.9,
