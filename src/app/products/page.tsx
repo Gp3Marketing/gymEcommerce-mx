@@ -8,7 +8,7 @@ import { shoes } from "@/data/content";
 import ButtonSecondary from "@/shared/Button/ButtonSecondary";
 import Input from "@/shared/Input/Input";
 
-import SectionBrands from "../home/SectionBrands";
+//import SectionBrands from '../home/SectionBrands';
 
 const page = () => {
   return (
@@ -50,7 +50,7 @@ const page = () => {
       </div>
 
       <div className="my-24">
-        <SectionBrands />
+        {/* <SectionBrands /> */}
       </div>
     </div>
   );

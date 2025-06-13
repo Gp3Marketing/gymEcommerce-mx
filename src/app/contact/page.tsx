@@ -24,9 +24,15 @@ const page = () => {
       <div className="mb-32">
         <div className="mb-10 flex items-center justify-between">
           <h2 className="text-3xl font-semibold">Follow us on Instagram</h2>
-          <ButtonSecondary className="border-2 border-[#E6D1B5] text-[#CDA168] hover:text-[#755327]">
-            Visit
-          </ButtonSecondary>
+          <a
+            href="https://www.instagram.com/fitmexstore_/?igsh=MXZlZHZ0Mzg5MXB1bg%3D%3D"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <ButtonSecondary className="border-2 border-[#E6D1B5] text-[#CDA168] hover:text-[#755327]">
+              Visit
+            </ButtonSecondary>
+          </a>
         </div>
 
         <div className="grid gap-5 md:grid-cols-2">
@@ -36,7 +42,7 @@ const page = () => {
                 <Image
                   src={photo}
                   alt="instagram photo"
-                  className="h-full w-full object-cover object-center"
+                  className="h-full w-full object-cover object-center max-w-[150px] max-h-[250px] rounded"
                   width={1000}
                   height={1000}
                 />
@@ -47,7 +53,7 @@ const page = () => {
             <Image
               src={pathOr("", ["instagramPhotos", 4], contactSection)}
               alt="instagram photo"
-              className="h-full w-full object-cover object-center"
+              className="h-full w-full object-cover object-center max-w-[400px] max-h-[400px] rounded mt-5 -ml-12"
               width={1000}
               height={1000}
             />

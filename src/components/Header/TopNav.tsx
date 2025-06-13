@@ -12,7 +12,8 @@ const TopNav = () => {
           ))}
         </div>
 
-        <div>Ayuda?</div>
+          <div>Necesitas Ayuda?</div>
+        {/* <Language /> */}
       </div>
     </div>
   );

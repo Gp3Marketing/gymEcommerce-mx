@@ -10,23 +10,7 @@ import type { NavItemType } from "@/components/NavItem";
 import airForce1 from "@/images/airForce1.webp";
 import blackLebron from "@/images/blackLebron.webp";
 import brownsb from "@/images/brownsb.webp";
-import brsb from "@/images/brsb.webp";
-import compass_profile from "@/images/compass_profile.jpeg";
-import compass1 from "@/images/compass1.jpg";
-import compass2 from "@/images/compass2.jpg";
-import compass3 from "@/images/compass3.png";
-import compass4 from "@/images/compass4.jpg";
-import dunklow from "@/images/dunklow.webp";
-import lebronxx from "@/images/lebronxx.webp";
-import metcon5 from "@/images/metcon5.webp";
-import metcon9 from "@/images/metcon9.webp";
-import new_balance from "@/images/new_balance.png";
-import new_balance1 from "@/images/new_balance1.webp";
-import new_balance2 from "@/images/new_balance2.webp";
-import new_balance3 from "@/images/new_balance3.webp";
-import new_balance4 from "@/images/new_balance4.webp";
-import nike_blazer from "@/images/nike_blazer.webp";
-import nike_profile from "@/images/nike_profile.jpg";
+
 import redlow from "@/images/redlow.webp";
 import shot1 from "@/images/shots/shot1.webp";
 import shot2 from "@/images/shots/shot2.webp";
@@ -82,13 +66,13 @@ export const topNavLinks: NavItemType[] = [
   {
     id: "ee46t",
     name: "Home",
-    href: "/home",
+    href: "/",
   },
-  {
-    id: "eerrrt",
-    name: "Blog",
-    href: "/blog",
-  },
+  // {
+  //   id: "eerrrt",
+  //   name: "Blog",
+  //   href: "/blog",
+  // },
   {
     id: "eexct",
     name: "Collections",
@@ -120,13 +104,13 @@ export const NavLinks: NavItemType[] = [
   {
     id: "ee46t",
     name: "Home",
-    href: "/home",
+    href: "/",
   },
-  {
-    id: "eerrrt",
-    name: "Blog",
-    href: "/blog",
-  },
+  // {
+  //   id: "eerrrt",
+  //   name: "Blog",
+  //   href: "/blog",
+  // },
   {
     id: "eexct",
     name: "Collection",
@@ -805,29 +789,29 @@ export const faqsData = {
       category: "Shipping",
       data: [
         {
-          question: "How can I track my order?",
+          question: "¿Cómo puedo rastrear mi pedido?",
           answer:
-            "You can track your order by logging into your account and checking the order status. Additionally, a tracking number will be provided in the shipping confirmation email.",
+            "Puedes rastrear tu pedido iniciando sesión en tu cuenta y verificando el estado del pedido. Además, se te proporcionará un número de seguimiento en el correo de confirmación de envío.",
         },
         {
-          question: "What is the estimated delivery time for my order?",
+          question: "¿Cuál es el tiempo estimado de entrega de mi pedido?",
           answer:
-            "Delivery times vary based on your location. Typically, domestic orders take 3-5 business days, while international orders may take 7-14 business days.",
+            "Los tiempos de entrega varían según tu ubicación. Normalmente, los pedidos nacionales tardan de 3 a 5 días hábiles, mientras que los pedidos internacionales pueden tardar de 7 a 14 días hábiles.",
         },
         {
-          question: "Can I change my shipping address after placing an order?",
+          question: "¿Puedo cambiar mi dirección de envío después de realizar un pedido?",
           answer:
-            "Unfortunately, we cannot change the shipping address once the order is placed. Please double-check your information before completing the purchase.",
+            "Desafortunadamente, no podemos cambiar la dirección de envío una vez realizado el pedido. Por favor, verifica bien tu información antes de completar la compra.",
         },
         {
-          question: "Do you offer expedited shipping options?",
+          question: "¿Ofrecen opciones de envío exprés?",
           answer:
-            "Yes, we offer expedited shipping at an additional cost. You can choose your preferred shipping method during the checkout process.",
+            "Sí, ofrecemos envío exprés por un costo adicional. Puedes elegir tu método de envío preferido durante el proceso de pago.",
         },
         {
-          question: "What should I do if my order is delayed or lost?",
+          question: "¿Qué debo hacer si mi pedido se retrasa o se pierde?",
           answer:
-            "If your order is significantly delayed or lost, please contact our customer support team, and we will investigate the issue.",
+            "Si tu pedido se retrasa significativamente o se pierde, por favor contacta a nuestro equipo de soporte al cliente y revisaremos el problema.",
         },
       ],
     },

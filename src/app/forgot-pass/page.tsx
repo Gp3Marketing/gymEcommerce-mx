@@ -9,7 +9,7 @@ const PageForgotPass = () => {
     <div className="container mb-24 lg:mb-32">
       <header className="- mx-auto mb-14 max-w-2xl text-center sm:mb-16 lg:mb-20">
         <h2 className="mt-20 flex items-center justify-center text-3xl font-semibold leading-[115%] md:text-5xl md:leading-[115%]">
-          Forgot password
+          Olvidaste tu contraseña?
         </h2>
       </header>
 
@@ -27,13 +27,13 @@ const PageForgotPass = () => {
 
         {/* ==== */}
         <span className="block text-center text-neutral-500">
-          Go back for {` `}
+          Volver a {` `}
           <Link href="/login" className="text-primary">
-            Sign in
+            Iniciar sesión
           </Link>
           {` / `}
           <Link href="/signup" className="text-primary">
-            Sign up
+            Registrarse
           </Link>
         </span>
       </div>

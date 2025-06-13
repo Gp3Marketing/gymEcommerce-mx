@@ -59,22 +59,22 @@ export const mainPages = {
   pages: [
     {
       coverImage: preview,
-      pageName: "Home",
-      href: "/home",
+      pageName: 'Home',
+      href: '/',
       CMS: false,
     },
-    {
-      coverImage: blogPage,
-      pageName: "Blog",
-      href: "/blog",
-      CMS: false,
-    },
-    {
-      coverImage: blogSingle,
-      pageName: "Blog Single",
-      href: "/blog/the-evolution-of-sneaker-culture-a-historical-perspective",
-      CMS: false,
-    },
+    // {
+    //   coverImage: blogPage,
+    //   pageName: 'Blog',
+    //   href: '/blog',
+    //   CMS: false,
+    // },
+    // {
+    //   coverImage: blogSingle,
+    //   pageName: 'Blog Single',
+    //   href: '/blog/the-evolution-of-sneaker-culture-a-historical-perspective',
+    //   CMS: false,
+    // },
     {
       coverImage: collection,
       pageName: "Products",
