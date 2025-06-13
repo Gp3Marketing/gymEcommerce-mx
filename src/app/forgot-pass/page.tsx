@@ -27,7 +27,7 @@ const PageForgotPass = () => {
 
         {/* ==== */}
         <span className="block text-center text-neutral-500">
-          Volver a {` `}
+          Regresar a {` `}
           <Link href="/login" className="text-primary">
             Iniciar sesión
           </Link>

@@ -72,11 +72,11 @@ const MainNav = () => {
               />
             </ButtonCircle3>
             <Link
-              href={user ? "#" : "/signup"}
+              href={user ? "#" : "/login"}
               className="hidden text-sm lg:block"
               onClick={handleAccountClick}
             >
-              {user ? getFirstName(user.displayName, user.email) : "Registrarse"}
+              {user ? getFirstName(user.displayName, user.email) : "Iniciar sesión"}
             </Link>
             {user && showAccountMenu && (
               <AccountMenu onLogout={handleLogout} />

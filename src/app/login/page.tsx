@@ -12,11 +12,12 @@ import Input from "@/shared/Input/Input";
 import { useAuth } from "@/hooks/useAuth";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-
 const PageLogin = () => {
-  const { loginWithGoogle} = useAuth();
+  const { loginWithGoogle, loginWithEmail } = useAuth();
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleGoogleLogin = async () => {
     try {
@@ -24,6 +25,17 @@ const PageLogin = () => {
       router.push("/");
     } catch (error) {
       console.error("Error al iniciar sesión con Google:", error);
+    }
+  };
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await loginWithEmail(email, password);
+      router.push("/");
+    } catch (error: any) {
+      alert("Correo o contraseña incorrectos.");
+      console.error("Error al iniciar sesión:", error);
     }
   };
 
@@ -50,45 +62,50 @@ const PageLogin = () => {
               </span>
               <div className="absolute left-0 top-1/2 w-full -translate-y-1/2 border border-neutral-300" />
             </div>
-            <div className="grid gap-6">
-              <FormItem label="Email address">
-                <Input
-                  type="email"
-                  rounded="rounded-full"
-                  sizeClass="h-12 px-4 py-3"
-                  placeholder="example@example.com"
-                  className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
-                />
-              </FormItem>
-              <FormItem label="Password">
-                <div className="relative">
+            <form onSubmit={handleLogin}>
+              <div className="grid gap-6">
+                <FormItem label="Email address">
                   <Input
-                    type={showPassword ? "text" : "password"}
+                    type="email"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
                     rounded="rounded-full"
                     sizeClass="h-12 px-4 py-3"
-                    placeholder="*********"
-                    className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary pr-10"
+                    placeholder="example@example.com"
+                    className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
                   />
-                  <button
-                    type="button"
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-500"
-                    onClick={() => setShowPassword((v) => !v)}
-                    tabIndex={-1}
-                  >
-                    {showPassword ? <FaEyeSlash /> : <FaEye />}
-                  </button>
-                </div>
-              </FormItem>
-              <ButtonPrimary type="submit">Continue</ButtonPrimary>
-            </div>
-
+                </FormItem>
+                <FormItem label="Password">
+                  <div className="relative">
+                    <Input
+                      type={showPassword ? "text" : "password"}
+                      value={password}
+                      onChange={e => setPassword(e.target.value)}
+                      rounded="rounded-full"
+                      sizeClass="h-12 px-4 py-3"
+                      placeholder="*********"
+                      className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary pr-10"
+                    />
+                    <button
+                      type="button"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-500"
+                      onClick={() => setShowPassword((v) => !v)}
+                      tabIndex={-1}
+                    >
+                      {showPassword ? <FaEyeSlash /> : <FaEye />}
+                    </button>
+                  </div>
+                </FormItem>
+                <ButtonPrimary type="submit">Continue</ButtonPrimary>
+              </div>
+            </form>
             <div className="flex flex-col items-center justify-center gap-2">
               <Link href="/forgot-pass" className="text-sm text-neutral-500">
                 Olvidaste tu contraseña?
                 <span className="text-primary"> No hay problema</span>
               </Link>
               <span className="block text-center text-sm text-neutral-500">
-                No posees cuenta? {" "}
+                No posees cuenta?{" "}
                 <Link href="/signup" className="text-primary">
                   Registrate
                 </Link>
