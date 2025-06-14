@@ -9,17 +9,17 @@ import {
   onAuthStateChanged,
   signOut,
   User,
+  UserCredential,
 } from "firebase/auth";
-
 import { auth, googleProvider } from "@/firebase/config";
 
 interface UseAuthResult {
   user: User | null;
   loading: boolean;
   loginWithEmail: (email: string, password: string) => Promise<void>;
-  loginWithGoogle: () => Promise<void>;
+  loginWithGoogle: () => Promise<UserCredential>;
   logout: () => Promise<void>;
-  registerWithEmail: (email: string, password: string) => Promise<void>;
+  registerWithEmail: (email: string, password: string) => Promise<UserCredential>;
 }
 
 export function useAuth(): UseAuthResult {
@@ -31,7 +31,7 @@ export function useAuth(): UseAuthResult {
   };
 
   const loginWithGoogle = async () => {
-    await signInWithPopup(auth, googleProvider);
+    return await signInWithPopup(auth, googleProvider);
   };
 
   const registerWithEmail = async (email: string, password: string) => {
@@ -43,6 +43,7 @@ export function useAuth(): UseAuthResult {
     if (userCredential.user) {
       await sendEmailVerification(userCredential.user);
     }
+    return userCredential;
   };
 
   const logout = async () => {
