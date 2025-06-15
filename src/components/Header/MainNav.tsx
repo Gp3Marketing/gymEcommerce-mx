@@ -15,6 +15,7 @@ import { useAuth } from "@/hooks/useAuth";
 import AccountMenu from "./AccountMenu";
 import CartSideBar from "../CartSideBar";
 import MenuBar from "./MenuBar";
+import MsgWhatsapp from "@/components/WhatsApp";
 
 const getFirstName = (displayName: string | null, email: string | null) => {
   if (displayName) return displayName.split(" ")[0];
@@ -72,11 +73,11 @@ const MainNav = () => {
               />
             </ButtonCircle3>
             <Link
-              href={user ? "#" : "/signup"}
+              href={user ? "#" : "/login"}
               className="hidden text-sm lg:block"
               onClick={handleAccountClick}
             >
-              {user ? getFirstName(user.displayName, user.email) : "Registrarse"}
+              {user ? getFirstName(user.displayName, user.email) : "Iniciar sesión"}
             </Link>
             {user && showAccountMenu && (
               <AccountMenu onLogout={handleLogout} />
@@ -84,6 +85,8 @@ const MainNav = () => {
           </div>
         </div>
       </div>
+
+      <MsgWhatsapp />
     </div>
   );
 };
