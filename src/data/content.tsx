@@ -18,7 +18,7 @@ import shot4 from "@/images/shots/shot4.jpeg";
 import shot5 from "@/images/shots/shot5.webp";
 import shot6 from "@/images/shots/shot6.jpeg";
 import shot7 from "@/images/shots/shot7.webp";
-import slides from "@/images/slides.webp";
+
 import yellowLow from "@/images/yellowLow.webp";
 
 /* new */
@@ -64,6 +64,14 @@ import whey from "@/images/whey/whey.jpg";
 import cbum5peat from "@/images/cbum5peat/cbum5peat.jpg";
 
 import peachbum from "@/images/peachbum/peachbum.jpg";
+
+import preentreno from "@/images/preentreno/preentrenovenom.jpg"
+
+import creatine from "@/images/creatine/creatine.jpg"
+
+import aminox from "@/images/aminox/aminox.jpg"
+
+
 
 
 import type { BlogType } from "./types";
@@ -193,7 +201,7 @@ export const shoes = [
       description: "13 - 16 Junio 2025",
     },
   ],
-},
+}, 
   {
   slug: "peachbum",
   shoeName: "peachbum",
@@ -232,42 +240,42 @@ export const shoes = [
   ],
 },
   {
-    slug: "brownsb",
-    shoeName: "SB Low Brown",
-    coverImage: brownsb,
-    currentPrice: 199,
-    previousPrice: 250,
-    shoeCategory: "Men's shoes",
-    rating: 4.8,
-    reviews: 56,
-    pieces_sold: 600,
-    justIn: false,
-    shots: [brownsb, shot1, shot2, shot3, shot4, shot5, shot6, shot7],
-    overview:
-      "When your workouts wade into the nitty gritty, the Nike Free Metcon 5 can meet you in the depths, help you dig deep to find that final ounce of force and come out of the other side on a high. It matches style with substance, forefoot flexibility with backend stability, perfect for flying through a cardio day or enhancing your agility. A revamped upper offers easier entry with a collar made just for your ankle.",
-    shipment_details: [
-      {
-        icon: <PiPercentFill className="text-xl text-secondary" />,
-        title: "Discount",
-        description: "> $100 Disc 10%",
-      },
-      {
-        icon: <FaCalendarAlt className="text-xl text-secondary" />,
-        title: "Delivery Time",
-        description: "6 - 12 Working days",
-      },
-      {
-        icon: <BsBoxFill className="text-xl text-secondary" />,
-        title: "Package",
-        description: "Reagular Premium Box",
-      },
-      {
-        icon: <FaTruckFast className="text-xl text-secondary" />,
-        title: "Estimated Arrival",
-        description: "10 - 12 October 23",
-      },
-    ],
-  },
+  slug: "preentreno",
+  shoeName: "preentreno",
+  coverImage: preentreno, // reemplaza esto con la imagen correspondiente al producto de Venom
+  currentPrice: 199,
+  previousPrice: 250,
+  shoeCategory: "preentreno-venom",
+  rating: 4.9,
+  reviews: 310,
+  pieces_sold: 2400,
+  justIn: true,
+  shots: [preentreno, shot1, shot2, shot3, shot4, shot5, shot6, shot7], // reemplaza con imágenes reales si las tienes
+  overview:
+    "Venom® es un pre-entrenamiento extremadamente potente formulado para atletas que desean niveles extremos de energía, enfoque y rendimiento. Con ingredientes como Beta-Alanina, Alpha-GPC y Caffeine Anhydrous, Venom® te lleva al siguiente nivel para que puedas aplastar cada entrenamiento con intensidad y concentración máximas.",
+  shipment_details: [
+    {
+      icon: <PiPercentFill className="text-xl text-secondary" />,
+      title: "Discount",
+      description: "> $100 Disc 10%",
+    },
+    {
+      icon: <FaCalendarAlt className="text-xl text-secondary" />,
+      title: "Delivery Time",
+      description: "4 - 8 Working days",
+    },
+    {
+      icon: <BsBoxFill className="text-xl text-secondary" />,
+      title: "Package",
+      description: "Dragon Pharma Secure Bottle",
+    },
+    {
+      icon: <FaTruckFast className="text-xl text-secondary" />,
+      title: "Estimated Arrival",
+      description: "14 - 18 June 2025",
+    },
+  ],
+},
   {
     slug: "psychotic-orange",
     shoeName: "PSYCHOTIC",
@@ -535,80 +543,80 @@ export const shoes = [
   ],
 },
 
+ {
+  slug: "creatine",
+  shoeName: "Creatine",
+  coverImage: creatine, // reemplaza con la imagen correspondiente al producto si tienes una específica
+  currentPrice: 165,
+  previousPrice: 210,
+  shoeCategory: "Supplements",
+  rating: 4.9,
+  reviews: 124,
+  pieces_sold: 3200,
+  justIn: true,
+  shots: [creatine, shot1, shot2, shot3, shot4, shot5, shot6, shot7], // actualiza con imágenes reales si las tienes
+  overview:
+    "La Creatine Powder de Optimum Nutrition te ayuda a mejorar tu rendimiento físico durante ejercicios de alta intensidad. Cada porción contiene 5g de monohidrato de creatina micronizada para una mejor absorción y resultados comprobados. Ideal para deportistas que buscan aumentar su fuerza y resistencia.",
+  shipment_details: [
+    {
+      icon: <PiPercentFill className="text-xl text-secondary" />,
+      title: "Discount",
+      description: "Compra > $100 y obtén 10% OFF",
+    },
+    {
+      icon: <FaCalendarAlt className="text-xl text-secondary" />,
+      title: "Delivery Time",
+      description: "4 - 8 días hábiles",
+    },
+    {
+      icon: <BsBoxFill className="text-xl text-secondary" />,
+      title: "Package",
+      description: "Envase plástico resistente ON®",
+    },
+    {
+      icon: <FaTruckFast className="text-xl text-secondary" />,
+      title: "Estimated Arrival",
+      description: "14 - 18 de junio 2025",
+    },
+  ],
+},
   {
-    slug: "slides",
-    shoeName: "Slides",
-    coverImage: slides,
-    currentPrice: 199,
-    previousPrice: 250,
-    shoeCategory: "Men's shoes",
-    rating: 4.8,
-    reviews: 56,
-    pieces_sold: 600,
-    justIn: false,
-    shots: [slides, shot1, shot2, shot3, shot4, shot5, shot6, shot7],
-    overview:
-      "When your workouts wade into the nitty gritty, the Nike Free Metcon 5 can meet you in the depths, help you dig deep to find that final ounce of force and come out of the other side on a high. It matches style with substance, forefoot flexibility with backend stability, perfect for flying through a cardio day or enhancing your agility. A revamped upper offers easier entry with a collar made just for your ankle.",
-    shipment_details: [
-      {
-        icon: <PiPercentFill className="text-xl text-secondary" />,
-        title: "Discount",
-        description: "> $100 Disc 10%",
-      },
-      {
-        icon: <FaCalendarAlt className="text-xl text-secondary" />,
-        title: "Delivery Time",
-        description: "6 - 12 Working days",
-      },
-      {
-        icon: <BsBoxFill className="text-xl text-secondary" />,
-        title: "Package",
-        description: "Reagular Premium Box",
-      },
-      {
-        icon: <FaTruckFast className="text-xl text-secondary" />,
-        title: "Estimated Arrival",
-        description: "10 - 12 October 23",
-      },
-    ],
-  },
-  {
-    slug: "yellowLow",
-    shoeName: "Dunk Low Yellow",
-    coverImage: yellowLow,
-    currentPrice: 199,
-    previousPrice: 250,
-    shoeCategory: "Men's shoes",
-    rating: 4.8,
-    reviews: 56,
-    pieces_sold: 600,
-    justIn: true,
-    shots: [yellowLow, shot1, shot2, shot3, shot4, shot5, shot6, shot7],
-    overview:
-      "When your workouts wade into the nitty gritty, the Nike Free Metcon 5 can meet you in the depths, help you dig deep to find that final ounce of force and come out of the other side on a high. It matches style with substance, forefoot flexibility with backend stability, perfect for flying through a cardio day or enhancing your agility. A revamped upper offers easier entry with a collar made just for your ankle.",
-    shipment_details: [
-      {
-        icon: <PiPercentFill className="text-xl text-secondary" />,
-        title: "Discount",
-        description: "> $100 Disc 10%",
-      },
-      {
-        icon: <FaCalendarAlt className="text-xl text-secondary" />,
-        title: "Delivery Time",
-        description: "6 - 12 Working days",
-      },
-      {
-        icon: <BsBoxFill className="text-xl text-secondary" />,
-        title: "Package",
-        description: "Reagular Premium Box",
-      },
-      {
-        icon: <FaTruckFast className="text-xl text-secondary" />,
-        title: "Estimated Arrival",
-        description: "10 - 12 October 23",
-      },
-    ],
-  },
+  slug: "aminox",
+  shoeName: "aminox",
+  coverImage: aminox, // cambia por la imagen real si tienes una específica del producto
+  currentPrice: 145,
+  previousPrice: 180,
+  shoeCategory: "Supplements",
+  rating: 4.7,
+  reviews: 89,
+  pieces_sold: 2300,
+  justIn: true,
+  shots: [aminox, shot1, shot2, shot3, shot4, shot5, shot6, shot7], // puedes reemplazar estas imágenes si tienes del producto
+  overview:
+    "AMINOx de BSN es un suplemento efervescente que combina BCAA’s y aminoácidos esenciales para favorecer la recuperación muscular y mejorar el rendimiento deportivo. Con sabor a sandía, no contiene cafeína y es ideal para cualquier hora del día. Aporta 10g de aminoácidos por porción y ayuda a combatir la fatiga post-entrenamiento.",
+  shipment_details: [
+    {
+      icon: <PiPercentFill className="text-xl text-secondary" />,
+      title: "Discount",
+      description: "10% OFF por compras > $100",
+    },
+    {
+      icon: <FaCalendarAlt className="text-xl text-secondary" />,
+      title: "Delivery Time",
+      description: "4 - 7 días hábiles",
+    },
+    {
+      icon: <BsBoxFill className="text-xl text-secondary" />,
+      title: "Package",
+      description: "Envase de plástico sellado BSN®",
+    },
+    {
+      icon: <FaTruckFast className="text-xl text-secondary" />,
+      title: "Estimated Arrival",
+      description: "14 - 17 de junio 2025",
+    },
+  ],
+},
 ];
 
 export const productsSection = {
