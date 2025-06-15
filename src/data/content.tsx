@@ -581,7 +581,7 @@ export const shoes = [
   ],
 },
   {
-  slug: "aminox",
+  slug: "aminox", // Hola mundo
   shoeName: "aminox",
   coverImage: aminox, // cambia por la imagen real si tienes una específica del producto
   currentPrice: 145,
