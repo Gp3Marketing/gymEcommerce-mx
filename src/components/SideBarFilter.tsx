@@ -14,16 +14,13 @@ import { MdSearch } from "react-icons/md";
 // DEMO DATA
 const brands = [
   { name: "Mostrar todo" },
-  { name: "Proteína" },
-  { name: "Creatina" },
-  { name: "Pre-entreno" },
   { name: "Aminoácidos" },
-  { name: "Quemadores de grasa" },
-  { name: "Ganadores de masa" },
-  { name: "Multivitamínicos" },
+  { name: "Creatina" },
+  { name: "Glutamina" },
   { name: "Omega 3" },
-  { name: "Colágeno" },
-  { name: "Glutamina" }
+  { name: "Pre-entreno" },
+  { name: "Proteína" },
+  { name: "Suplemento" },
 ];
 
 const gender = ["Men", "Women", "Unisex", "Kids"];
@@ -54,7 +51,7 @@ const SidebarFilters = () => {
               key={item.name}
               type="button"
               onClick={() => setActiveBrand(item.name)}
-              className={`rounded-lg py-4 ${activeBrand === item.name ? "bg-primary text-white" : "bg-gray"
+              className={`rounded-lg py-4 ${activeBrand === item.name ? "text-sm bg-primary text-white" : "bg-gray"
                 }`}
             >
               {item.name}

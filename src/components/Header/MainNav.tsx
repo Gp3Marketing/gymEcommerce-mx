@@ -15,6 +15,7 @@ import { useAuth } from "@/hooks/useAuth";
 import AccountMenu from "./AccountMenu";
 import CartSideBar from "../CartSideBar";
 import MenuBar from "./MenuBar";
+import MsgWhatsapp from "@/components/WhatsApp";
 
 const getFirstName = (displayName: string | null, email: string | null) => {
   if (displayName) return displayName.split(" ")[0];
@@ -84,6 +85,8 @@ const MainNav = () => {
           </div>
         </div>
       </div>
+
+      <MsgWhatsapp />
     </div>
   );
 };
