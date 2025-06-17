@@ -14,7 +14,7 @@ import Input from "@/shared/Input/Input";
 import InputNumber from "@/shared/InputNumber/InputNumber";
 
 import ContactInfo from "./ContactInfo";
-import PaymentMethod from "./PaymentMethod";
+// import PaymentMethod from "./PaymentMethod";
 import ShippingAddress from "./ShippingAddress";
 
 const CheckoutPage = () => {
@@ -108,7 +108,8 @@ const CheckoutPage = () => {
           />
         </div>
 
-        <div id="PaymentMethod" className="scroll-mt-24">
+        {/* Componente para pagar por PSE */}
+        {/* <div id="PaymentMethod" className="scroll-mt-24">
           <PaymentMethod
             isActive={tabActive === "PaymentMethod"}
             onOpenActive={() => {
@@ -117,7 +118,7 @@ const CheckoutPage = () => {
             }}
             onCloseActive={() => setTabActive("PaymentMethod")}
           />
-        </div>
+        </div> */}
       </div>
     );
   };
@@ -127,7 +128,7 @@ const CheckoutPage = () => {
       <main className="container py-16 lg:pb-28 lg:pt-20 ">
         <div className="mb-16">
           <h2 className="block text-2xl font-semibold sm:text-3xl lg:text-4xl ">
-            Checkout
+            Confirmación de datos
           </h2>
         </div>
 
@@ -177,7 +178,7 @@ const CheckoutPage = () => {
                 <span>$276.00</span>
               </div>
             </div>
-            <ButtonPrimary className="mt-8 w-full">Confirm order</ButtonPrimary>
+            <ButtonPrimary className="mt-8 w-full">Confirmar</ButtonPrimary>
           </div>
         </div>
       </main>

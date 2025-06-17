@@ -112,11 +112,6 @@ export const NavLinks: NavItemType[] = [
     name: "Home",
     href: "/",
   },
-  // {
-  //   id: "eerrrt",
-  //   name: "Blog",
-  //   href: "/blog",
-  // },
   {
     id: "eexct",
     name: "Collection",
@@ -160,12 +155,12 @@ export const shoes = [
  {
   slug: "cbum5peat",
   shoeName: "cbum5peat",
-  coverImage: cbum5peat, // reemplaza con tu imagen importada
-  currentPrice: 189000, // en COP (ajústalo según tu tienda)
+  coverImage: cbum5peat,
+  currentPrice: 189000,
   previousPrice: 210000,
   shoeCategory: "Pre-entrenamiento",
   rating: 4.9,
-  reviews: 10500, // número estimado de reseñas globales
+  reviews: 10500,
   pieces_sold: 85000,
   justIn: true,
   shots: [cbum5peat, shot1, shot2, shot3, shot4, shot5, shot6, shot7], // reemplaza si tienes otras tomas
