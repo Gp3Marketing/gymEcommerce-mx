@@ -29,7 +29,6 @@ const SendOrderEmail = ({ contactInfo, shippingAddress }: Props) => {
                 process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
                 process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
                 {
-                    to_email: "juanjoseborrero95@gmail.com",
                     fullName: contactInfo.fullName,
                     phone: contactInfo.phone,
                     email: contactInfo.email,

@@ -129,11 +129,24 @@ const CheckoutPage = () => {
   // ENVÍO DE EMAILJS AL CONFIRMAR
   const handleConfirm = async () => {
     try {
+      // Opcional: revisa los datos antes de enviar
+      console.log({
+        fullName: contactInfo.fullName,
+        phone: contactInfo.phone,
+        email: contactInfo.email,
+        street: shippingAddress.street,
+        apartment: shippingAddress.apartment,
+        city: shippingAddress.city,
+        state: shippingAddress.state,
+        country: shippingAddress.country,
+        postalCode: shippingAddress.postalCode,
+        communicationTime: shippingAddress.communicationTime,
+      });
+
       await emailjs.send(
-        "service_5fiwguc", // Tu Service ID
-        "template_checkout", // Tu Template ID
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         {
-          to_email: "juanjoseborrero95@gmail.com",
           fullName: contactInfo.fullName,
           phone: contactInfo.phone,
           email: contactInfo.email,
@@ -145,7 +158,7 @@ const CheckoutPage = () => {
           postalCode: shippingAddress.postalCode,
           communicationTime: shippingAddress.communicationTime,
         },
-        "YOUR_PUBLIC_KEY" // Tu Public Key de EmailJS
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
       alert("¡Datos enviados correctamente!");
     } catch (error) {
