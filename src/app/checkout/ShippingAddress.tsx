@@ -1,7 +1,7 @@
 "use client";
 
 import type { FC } from "react";
-import React, { useState } from "react";
+import React from "react";
 import { TbTruckDelivery } from "react-icons/tb";
 
 import ButtonPrimary from "@/shared/Button/ButtonPrimary";
@@ -15,19 +15,36 @@ interface Props {
   isActive: boolean;
   onCloseActive: () => void;
   onOpenActive: () => void;
+  shippingAddress: {
+    street: string;
+    apartment: string;
+    city: string;
+    state: string;
+    country: string;
+    postalCode: string;
+    communicationTime: string;
+  };
+  setShippingAddress: React.Dispatch<React.SetStateAction<{
+    street: string;
+    apartment: string;
+    city: string;
+    state: string;
+    country: string;
+    postalCode: string;
+    communicationTime: string;
+  }>>;
 }
 
-const ShippingAddress: FC<Props> = ({ isActive, onCloseActive, onOpenActive }) => {
-  const [street, setStreet] = useState("");
-  const [apartment, setApartment] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [country, setCountry] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [isAddressSaved, setIsAddressSaved] = useState(false);
+const ShippingAddress: FC<Props> = ({
+  isActive,
+  onCloseActive,
+  onOpenActive,
+  shippingAddress,
+  setShippingAddress,
+}) => {
+  const [isAddressSaved, setIsAddressSaved] = React.useState(false);
 
   const handleSave = () => {
-    // Puedes validar que todos los campos estén llenos aquí si lo deseas
     setIsAddressSaved(true);
     onCloseActive();
   };
@@ -38,14 +55,13 @@ const ShippingAddress: FC<Props> = ({ isActive, onCloseActive, onOpenActive }) =
         <span className="hidden sm:block">
           <TbTruckDelivery className="text-3xl text-primary" />
         </span>
-
         <div className="flex w-full items-center justify-between">
           <div className="sm:ml-8">
             <span className="uppercase">Dirección de Envío</span>
             <div className="mt-1 text-sm font-semibold">
               {isAddressSaved ? (
                 <span>
-                  {street}, Apt {apartment}, {city}, {state}, {country}, {postalCode}
+                  {shippingAddress.street}, Apt {shippingAddress.apartment}, {shippingAddress.city}, {shippingAddress.state}, {shippingAddress.country}, {shippingAddress.postalCode}
                 </span>
               ) : (
                 <span className="text-neutral-500 italic">
@@ -64,42 +80,15 @@ const ShippingAddress: FC<Props> = ({ isActive, onCloseActive, onOpenActive }) =
         </div>
       </div>
 
-      {/* Formulario editable */}
       <div className={`space-y-4 border-t border-neutral-300 px-6 py-7 sm:space-y-6 ${isActive ? "block" : "hidden"}`}>
         <div className="space-y-4 sm:flex sm:space-x-3 sm:space-y-0">
           <div className="flex-1">
-            <FormItem label="Dirección de envío">
-              <Input
-                value={street}
-                onChange={(e) => setStreet(e.target.value)}
-                rounded="rounded-lg"
-                sizeClass="h-12 px-4 py-3"
-                className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
-                placeholder="Ej. AV. Calle 44"
-                type="text"
-              />
-            </FormItem>
-          </div>
-          <div className="sm:w-1/3">
-            <FormItem label="Apartamento, casa">
-              <Input
-                value={apartment}
-                onChange={(e) => setApartment(e.target.value)}
-                rounded="rounded-lg"
-                sizeClass="h-12 px-4 py-3"
-                className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
-                placeholder="101"
-              />
-            </FormItem>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3">
-          <div>
             <FormItem label="Ciudad">
               <Input
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
+                value={shippingAddress.city}
+                onChange={(e) =>
+                  setShippingAddress((prev) => ({ ...prev, city: e.target.value }))
+                }
                 rounded="rounded-lg"
                 sizeClass="h-12 px-4 py-3"
                 className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
@@ -107,11 +96,13 @@ const ShippingAddress: FC<Props> = ({ isActive, onCloseActive, onOpenActive }) =
               />
             </FormItem>
           </div>
-          <div>
+          <div className="sm:w-1/3">
             <FormItem label="País">
               <Select
-                value={country}
-                onChange={(e) => setCountry(e.target.value)}
+                value={shippingAddress.country}
+                onChange={(e) =>
+                  setShippingAddress((prev) => ({ ...prev, country: e.target.value }))
+                }
                 sizeClass="h-12 px-4 py-3"
                 className="rounded-lg border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
               >
@@ -128,10 +119,59 @@ const ShippingAddress: FC<Props> = ({ isActive, onCloseActive, onOpenActive }) =
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3">
           <div>
+            <FormItem label="Dirección de envío">
+              <Input
+                value={shippingAddress.street}
+                onChange={(e) =>
+                  setShippingAddress((prev) => ({ ...prev, street: e.target.value }))
+                }
+                rounded="rounded-lg"
+                sizeClass="h-12 px-4 py-3"
+                className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
+                placeholder="Ej. AV. Calle 44"
+                type="text"
+              />
+            </FormItem>
+          </div>
+          <div>
+            <FormItem label="Apartamento, casa">
+              <Input
+                value={shippingAddress.apartment}
+                onChange={(e) =>
+                  setShippingAddress((prev) => ({ ...prev, apartment: e.target.value }))
+                }
+                rounded="rounded-lg"
+                sizeClass="h-12 px-4 py-3"
+                className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
+                placeholder="101"
+              />
+            </FormItem>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3">
+          <div>
+            <FormItem label="Código Postal">
+              <Input
+                value={shippingAddress.postalCode}
+                onChange={(e) =>
+                  setShippingAddress((prev) => ({ ...prev, postalCode: e.target.value }))
+                }
+                rounded="rounded-lg"
+                sizeClass="h-12 px-4 py-3"
+                className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
+                placeholder="12345"
+              />
+            </FormItem>
+          </div>
+
+          <div>
             <FormItem label="Estado/Provincia">
               <Input
-                value={state}
-                onChange={(e) => setState(e.target.value)}
+                value={shippingAddress.state}
+                onChange={(e) =>
+                  setShippingAddress((prev) => ({ ...prev, state: e.target.value }))
+                }
                 rounded="rounded-lg"
                 sizeClass="h-12 px-4 py-3"
                 className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
@@ -140,29 +180,60 @@ const ShippingAddress: FC<Props> = ({ isActive, onCloseActive, onOpenActive }) =
             </FormItem>
           </div>
         </div>
-
-        <div>
-          <FormItem label="Código Postal">
-            <Input
-              value={postalCode}
-              onChange={(e) => setPostalCode(e.target.value)}
-              rounded="rounded-lg"
-              sizeClass="h-12 px-4 py-3"
-              className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
-              placeholder="12345"
-            />
-          </FormItem>
-        </div>
       </div>
 
       {/* Horario de comunicación */}
       <div className="px-6">
         <FormItem label="Hora de comunicación">
           <div className="mt-1.5 grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3">
-            <Radio label="Mañana (8 AM - 12 PM)" id="communication-time-morning" name="communication-time" defaultChecked />
-            <Radio label="Noche (6 PM - 9 PM)" id="communication-time-evening" name="communication-time" />
-            <Radio label="Tarde (12 PM - 6 PM)" id="communication-time-afternoon" name="communication-time" />
-            <Radio label="Comunicación a cualquier hora" id="communication-time-any" name="communication-time" />
+            <Radio
+              label="Mañana (8 AM - 12 PM)"
+              id="communication-time-morning"
+              name="communication-time"
+              defaultChecked={shippingAddress.communicationTime === "Mañana (8 AM - 12 PM)"}
+              onChange={() =>
+                setShippingAddress((prev) => ({
+                  ...prev,
+                  communicationTime: "Mañana (8 AM - 12 PM)",
+                }))
+              }
+            />
+            <Radio
+              label="Noche (6 PM - 9 PM)"
+              id="communication-time-evening"
+              name="communication-time"
+              defaultChecked={shippingAddress.communicationTime === "Noche (6 PM - 9 PM)"}
+              onChange={() =>
+                setShippingAddress((prev) => ({
+                  ...prev,
+                  communicationTime: "Noche (6 PM - 9 PM)",
+                }))
+              }
+            />
+            <Radio
+              label="Tarde (12 PM - 6 PM)"
+              id="communication-time-afternoon"
+              name="communication-time"
+              defaultChecked={shippingAddress.communicationTime === "Tarde (12 PM - 6 PM)"}
+              onChange={() =>
+                setShippingAddress((prev) => ({
+                  ...prev,
+                  communicationTime: "Tarde (12 PM - 6 PM)",
+                }))
+              }
+            />
+            <Radio
+              label="Comunicación a cualquier hora"
+              id="communication-time-any"
+              name="communication-time"
+              defaultChecked={shippingAddress.communicationTime === "Comunicación a cualquier hora"}
+              onChange={() =>
+                setShippingAddress((prev) => ({
+                  ...prev,
+                  communicationTime: "Comunicación a cualquier hora",
+                }))
+              }
+            />
           </div>
         </FormItem>
       </div>

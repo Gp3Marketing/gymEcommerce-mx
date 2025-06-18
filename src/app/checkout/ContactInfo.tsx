@@ -1,7 +1,7 @@
 "use client";
 
 import type { FC } from "react";
-import React, { useState } from "react";
+import React from "react";
 import { FaRegCircleUser } from "react-icons/fa6";
 
 import ButtonPrimary from "@/shared/Button/ButtonPrimary";
@@ -14,16 +14,29 @@ interface Props {
   isActive: boolean;
   onOpenActive: () => void;
   onCloseActive: () => void;
+  contactInfo: {
+    fullName: string;
+    phone: string;
+    email: string;
+  };
+  setContactInfo: React.Dispatch<React.SetStateAction<{
+    fullName: string;
+    phone: string;
+    email: string;
+  }>>;
 }
 
-const ContactInfo: FC<Props> = ({ isActive, onCloseActive, onOpenActive }) => {
-  const [fullName, setFullName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [saved, setSaved] = useState(false);
+const ContactInfo: FC<Props> = ({
+  isActive,
+  onCloseActive,
+  onOpenActive,
+  contactInfo,
+  setContactInfo,
+}) => {
+  const [saved, setSaved] = React.useState(false);
 
   const handleSave = () => {
-    if (phone && email) {
+    if (contactInfo.phone && contactInfo.email) {
       setSaved(true);
       onCloseActive();
     } else {
@@ -43,8 +56,8 @@ const ContactInfo: FC<Props> = ({ isActive, onCloseActive, onOpenActive }) => {
             <div className="mt-1 text-sm font-semibold">
               {saved ? (
                 <>
-                  <span>{email}</span>
-                  <span className="ml-3 tracking-tighter">{phone}</span>
+                  <span>{contactInfo.email},</span>
+                  <span className="ml-2 tracking-tighter">{contactInfo.phone}</span>
                 </>
               ) : (
                 <span className="text-neutral-500">Agrega tu información de contacto</span>
@@ -71,8 +84,10 @@ const ContactInfo: FC<Props> = ({ isActive, onCloseActive, onOpenActive }) => {
         <div className="max-w-lg">
           <FormItem label="Nombre Completo">
             <Input
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
+              value={contactInfo.fullName}
+              onChange={(e) =>
+                setContactInfo((prev) => ({ ...prev, fullName: e.target.value }))
+              }
               rounded="rounded-lg"
               sizeClass="h-12 px-4 py-3"
               className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
@@ -84,8 +99,10 @@ const ContactInfo: FC<Props> = ({ isActive, onCloseActive, onOpenActive }) => {
         <div className="max-w-lg">
           <FormItem label="Número de teléfono">
             <Input
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              value={contactInfo.phone}
+              onChange={(e) =>
+                setContactInfo((prev) => ({ ...prev, phone: e.target.value }))
+              }
               rounded="rounded-lg"
               sizeClass="h-12 px-4 py-3"
               className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
@@ -98,8 +115,10 @@ const ContactInfo: FC<Props> = ({ isActive, onCloseActive, onOpenActive }) => {
         <div className="max-w-lg">
           <FormItem label="Correo electrónico">
             <Input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={contactInfo.email}
+              onChange={(e) =>
+                setContactInfo((prev) => ({ ...prev, email: e.target.value }))
+              }
               rounded="rounded-lg"
               sizeClass="h-12 px-4 py-3"
               className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
