@@ -7,10 +7,7 @@ import { MdOutlineCameraAlt } from "react-icons/md";
 import { PiPercentFill } from "react-icons/pi";
 
 import type { NavItemType } from "@/components/NavItem";
-import blackLebron from "@/images/blackLebron.webp";
-import brownsb from "@/images/brownsb.webp";
 
-import redlow from "@/images/redlow.webp";
 import shot1 from "@/images/shots/shot1.webp";
 import shot2 from "@/images/shots/shot2.webp";
 import shot3 from "@/images/shots/shot3.jpeg";
@@ -60,18 +57,37 @@ import gold2 from "@/images/isolate-gold/gold2.png";
 import gold3 from "@/images/isolate-gold/gold3.jpg";
 
 import whey from "@/images/whey/whey.jpg";
+import whey1 from "@/images/whey/whey0.jpg";
+import whey2 from "@/images/whey/whey1.jpg";
+import whey3 from "@/images/whey/whey2.jpg";
+import whey4 from "@/images/whey/whey3.jpg";
 
 import cbum5peat from "@/images/cbum5peat/cbum5peat.jpg";
+import cbum5peat1 from "@/images/cbum5peat/cbum5peat-1.jpg";
+import cbum5peat2 from "@/images/cbum5peat/cbum5peat-2.jpg";
+import cbum5peat3 from "@/images/cbum5peat/cbum5peat-3.jpg";
+import cbum5peat4 from "@/images/cbum5peat/cbum5peat-4.jpg";
 
 import peachbum from "@/images/peachbum/peachbum.jpg";
+import peachbum1 from "@/images/peachbum/creatine-1.jpg";
+import peachbum2 from "@/images/peachbum/creatine-2.jpg";
+import peachbum3 from "@/images/peachbum/creatine-3.jpg";
 
 import preentreno from "@/images/preentreno/preentrenovenom.jpg"
+import Venom from "@/images/preentreno/vemon1.jpg"
+import Venom1 from "@/images/preentreno/vemon2.jpg"
 
 import creatine from "@/images/creatine/creatine.jpg"
+import creatine2 from "@/images/creatine/creatine-2.jpg"
+import creatine3 from "@/images/creatine/creatine-3.jpg"
+import creatine4 from "@/images/creatine/creatine-4.jpg"
 
 import aminox from "@/images/aminox/aminox.jpg"
-
-
+import aminox1 from "@/images/aminox/aminox-1.jpg"
+import aminox2 from "@/images/aminox/aminox-2.jpg"
+import aminox3 from "@/images/aminox/aminox-3.jpg"
+import aminox4 from "@/images/aminox/aminox-4.jpg"
+import aminox5 from "@/images/aminox/aminox-5.jpg"
 
 
 import type { BlogType } from "./types";
@@ -171,7 +187,7 @@ export const shoes = [
   reviews: 10500,
   pieces_sold: 85000,
   justIn: true,
-  shots: [cbum5peat, shot1, shot2, shot3, shot4, shot5, shot6, shot7], // reemplaza si tienes otras tomas
+  shots: [cbum5peat1, cbum5peat4, cbum5peat3, cbum5peat2],
   overview:
     "El pre-entreno CBUM Thavage, creado por el campeón mundial Chris Bumstead, está diseñado para quienes entrenan con intensidad. Su fórmula incluye ingredientes como L-Citrulina, Beta-Alanina y Alpha-GPC para mayor bombeo muscular, concentración mental y resistencia. Con un sabor delicioso y rendimiento comprobado, es ideal para elevar tus sesiones al siguiente nivel.",
   shipment_details: [
@@ -199,7 +215,7 @@ export const shoes = [
 }, 
   {
   slug: "peachbum",
-  shoeName: "peachbum",
+  shoeName: "PEACHBUM",
   coverImage: peachbum, 
   currentPrice: 189000,
   previousPrice: 210000,
@@ -208,7 +224,7 @@ export const shoes = [
   reviews: 8700,
   pieces_sold: 68000,
   justIn: true,
-  shots: [peachbum, shot1, shot2, shot3, shot4, shot5, shot6, shot7],
+  shots: [peachbum1, peachbum2, peachbum3],
   overview:
     "Thavage Pre-Workout en sabor Peach Bum ofrece energía explosiva, concentración mental y bombeo muscular intenso. Con 40 servicios, esta fórmula incluye Beta-Alanina, L-Citrulina y Alpha-GPC para entrenamientos de alto rendimiento. Su sabor a durazno dulce te encantará desde el primer scoop.",
   shipment_details: [
@@ -236,16 +252,16 @@ export const shoes = [
 },
   {
   slug: "preentreno",
-  shoeName: "preentreno",
-  coverImage: preentreno, // reemplaza esto con la imagen correspondiente al producto de Venom
+  shoeName: "Venom",
+  coverImage: preentreno,
   currentPrice: 199,
   previousPrice: 250,
-  shoeCategory: "preentreno-venom",
+  shoeCategory: "Pre-Entreno Dragon Pharma ",
   rating: 4.9,
   reviews: 310,
   pieces_sold: 2400,
   justIn: true,
-  shots: [preentreno, shot1, shot2, shot3, shot4, shot5, shot6, shot7], // reemplaza con imágenes reales si las tienes
+  shots: [preentreno, Venom, Venom1],
   overview:
     "Venom® es un pre-entrenamiento extremadamente potente formulado para atletas que desean niveles extremos de energía, enfoque y rendimiento. Con ingredientes como Beta-Alanina, Alpha-GPC y Caffeine Anhydrous, Venom® te lleva al siguiente nivel para que puedas aplastar cada entrenamiento con intensidad y concentración máximas.",
   shipment_details: [
@@ -502,16 +518,16 @@ export const shoes = [
   },
  {
   slug: "gold-standard-whey",
-  shoeName: "Gold Standard 100% Whey",
-  coverImage: whey, // reemplázalo con la imagen que subiste
-  currentPrice: 168000, // en pesos colombianos (COP)
+  shoeName: "Gold Standard - Whey Protein",
+  coverImage: whey, 
+  currentPrice: 168000,
   previousPrice: 190000,
   shoeCategory: "Proteína en polvo",
   rating: 4.8,
-  reviews: 22500, // basado en el número de reseñas en iHerb
+  reviews: 22500,
   pieces_sold: 150000,
   justIn: true,
-  shots: [whey, shot1, shot2, shot3, shot4, shot5, shot6, shot7], // usa las imágenes que tengas del producto
+  shots: [whey2, whey1, whey3, whey4],
   overview:
     "Optimum Nutrition Gold Standard 100% Whey es la fórmula de proteína más vendida en el mundo. Elaborada con aislado de proteína de suero como ingrediente principal, ofrece 24 g de proteína de alta calidad por porción para apoyar el crecimiento y mantenimiento muscular. Sabor: Extreme Milk Chocolate.",
   shipment_details: [
@@ -540,8 +556,8 @@ export const shoes = [
 
  {
   slug: "creatine",
-  shoeName: "Creatine",
-  coverImage: creatine, // reemplaza con la imagen correspondiente al producto si tienes una específica
+  shoeName: "Creatine micronized ",
+  coverImage: creatine,
   currentPrice: 165,
   previousPrice: 210,
   shoeCategory: "Supplements",
@@ -549,7 +565,7 @@ export const shoes = [
   reviews: 124,
   pieces_sold: 3200,
   justIn: true,
-  shots: [creatine, shot1, shot2, shot3, shot4, shot5, shot6, shot7], // actualiza con imágenes reales si las tienes
+  shots: [creatine, creatine2, creatine3, creatine4],
   overview:
     "La Creatine Powder de Optimum Nutrition te ayuda a mejorar tu rendimiento físico durante ejercicios de alta intensidad. Cada porción contiene 5g de monohidrato de creatina micronizada para una mejor absorción y resultados comprobados. Ideal para deportistas que buscan aumentar su fuerza y resistencia.",
   shipment_details: [
@@ -576,9 +592,9 @@ export const shoes = [
   ],
 },
   {
-  slug: "aminox", // Hola mundo
-  shoeName: "aminox",
-  coverImage: aminox, // cambia por la imagen real si tienes una específica del producto
+  slug: "aminox", 
+  shoeName: "ANINOX",
+  coverImage: aminox, 
   currentPrice: 145,
   previousPrice: 180,
   shoeCategory: "Supplements",
@@ -586,7 +602,7 @@ export const shoes = [
   reviews: 89,
   pieces_sold: 2300,
   justIn: true,
-  shots: [aminox, shot1, shot2, shot3, shot4, shot5, shot6, shot7], // puedes reemplazar estas imágenes si tienes del producto
+  shots: [aminox1, aminox2, aminox3, aminox4, aminox5],
   overview:
     "AMINOx de BSN es un suplemento efervescente que combina BCAA’s y aminoácidos esenciales para favorecer la recuperación muscular y mejorar el rendimiento deportivo. Con sabor a sandía, no contiene cafeína y es ideal para cualquier hora del día. Aporta 10g de aminoácidos por porción y ayuda a combatir la fatiga post-entrenamiento.",
   shipment_details: [
