@@ -11,7 +11,7 @@ import { PiSealCheckFill } from "react-icons/pi";
 import ImageShowCase from "@/components/ImageShowCase";
 import ShoeSizeButton from "@/components/ShoeSizeButton";
 import { shoeSizes } from "@/data/content";
-import nike_profile from "@/images/nike_profile.jpg";
+import nike_profile from "@/images/nike_profile.png";
 import ButtonCircle3 from "@/shared/Button/ButtonCircle3";
 import ButtonPrimary from "@/shared/Button/ButtonPrimary";
 import ButtonSecondary from "@/shared/Button/ButtonSecondary";
@@ -59,7 +59,7 @@ const SectionProductHeader: FC<SectionProductHeaderProps> = ({
                 className="h-full w-full object-cover"
               />
             </ButtonCircle3>
-            <span className="font-medium">Nike</span>
+            <span className="font-medium">FITMEX STORE</span>
             <PiSealCheckFill className="text-blue-600" />
           </div>
           <GoDotFill className="mx-3 text-neutral-500" />
@@ -85,7 +85,7 @@ const SectionProductHeader: FC<SectionProductHeaderProps> = ({
             Size guide <LuInfo />
           </p>
         </div>
-
+        
         <div className="grid grid-cols-3 gap-3">
           {shoeSizes.map((size) => (
             <ShoeSizeButton key={size} size={size} />
