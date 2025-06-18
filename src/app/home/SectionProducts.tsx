@@ -25,7 +25,7 @@ const SectionProducts = () => {
       </div>
 
       <div className="mt-14 flex items-center justify-center">
-        <ButtonPrimary>View More</ButtonPrimary>
+        <ButtonPrimary>View Mores</ButtonPrimary>
       </div>
     </div>
   );
