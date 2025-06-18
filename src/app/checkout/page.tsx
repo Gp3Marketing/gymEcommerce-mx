@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { MdStar } from "react-icons/md";
+import emailjs from "emailjs-com";
 
 import LikeButton from "@/components/LikeButton";
 import { shoes } from "@/data/content";
@@ -14,13 +15,27 @@ import Input from "@/shared/Input/Input";
 import InputNumber from "@/shared/InputNumber/InputNumber";
 
 import ContactInfo from "./ContactInfo";
-import PaymentMethod from "./PaymentMethod";
 import ShippingAddress from "./ShippingAddress";
 
 const CheckoutPage = () => {
   const [tabActive, setTabActive] = useState<
     "ContactInfo" | "ShippingAddress" | "PaymentMethod"
   >("ShippingAddress");
+
+  const [contactInfo, setContactInfo] = useState({
+    fullName: "",
+    phone: "",
+    email: "",
+  });
+  const [shippingAddress, setShippingAddress] = useState({
+    street: "",
+    apartment: "",
+    city: "",
+    state: "",
+    country: "",
+    postalCode: "",
+    communicationTime: "",
+  });
 
   const handleScrollToEl = (id: string) => {
     const element = document.getElementById(id);
@@ -30,8 +45,7 @@ const CheckoutPage = () => {
   };
 
   const renderProduct = (item: ProductType) => {
-    const { shoeName, coverImage, currentPrice, slug, rating, shoeCategory } =
-      item;
+    const { shoeName, coverImage, currentPrice, slug, rating, shoeCategory } = item;
 
     return (
       <div key={shoeName} className="flex py-5 last:pb-0">
@@ -77,49 +91,79 @@ const CheckoutPage = () => {
     );
   };
 
-  const renderLeft = () => {
-    return (
-      <div className="space-y-8">
-        <div id="ContactInfo" className="scroll-mt-24">
-          <ContactInfo
-            isActive={tabActive === "ContactInfo"}
-            onOpenActive={() => {
-              setTabActive("ContactInfo");
-              handleScrollToEl("ContactInfo");
-            }}
-            onCloseActive={() => {
-              setTabActive("ShippingAddress");
-              handleScrollToEl("ShippingAddress");
-            }}
-          />
-        </div>
-
-        <div id="ShippingAddress" className="scroll-mt-24">
-          <ShippingAddress
-            isActive={tabActive === "ShippingAddress"}
-            onOpenActive={() => {
-              setTabActive("ShippingAddress");
-              handleScrollToEl("ShippingAddress");
-            }}
-            onCloseActive={() => {
-              setTabActive("PaymentMethod");
-              handleScrollToEl("PaymentMethod");
-            }}
-          />
-        </div>
-
-        <div id="PaymentMethod" className="scroll-mt-24">
-          <PaymentMethod
-            isActive={tabActive === "PaymentMethod"}
-            onOpenActive={() => {
-              setTabActive("PaymentMethod");
-              handleScrollToEl("PaymentMethod");
-            }}
-            onCloseActive={() => setTabActive("PaymentMethod")}
-          />
-        </div>
+  const renderLeft = () => (
+    <div className="space-y-8">
+      <div id="ContactInfo" className="scroll-mt-24">
+        <ContactInfo
+          isActive={tabActive === "ContactInfo"}
+          onOpenActive={() => {
+            setTabActive("ContactInfo");
+            handleScrollToEl("ContactInfo");
+          }}
+          onCloseActive={() => {
+            setTabActive("ShippingAddress");
+            handleScrollToEl("ShippingAddress");
+          }}
+          contactInfo={contactInfo}
+          setContactInfo={setContactInfo}
+        />
       </div>
-    );
+      <div id="ShippingAddress" className="scroll-mt-24">
+        <ShippingAddress
+          isActive={tabActive === "ShippingAddress"}
+          onOpenActive={() => {
+            setTabActive("ShippingAddress");
+            handleScrollToEl("ShippingAddress");
+          }}
+          onCloseActive={() => {
+            setTabActive("PaymentMethod");
+            handleScrollToEl("PaymentMethod");
+          }}
+          shippingAddress={shippingAddress}
+          setShippingAddress={setShippingAddress}
+        />
+      </div>
+    </div>
+  );
+
+  // ENVÍO DE EMAILJS AL CONFIRMAR
+  const handleConfirm = async () => {
+    try {
+      // Opcional: revisa los datos antes de enviar
+      console.log({
+        fullName: contactInfo.fullName,
+        phone: contactInfo.phone,
+        email: contactInfo.email,
+        street: shippingAddress.street,
+        apartment: shippingAddress.apartment,
+        city: shippingAddress.city,
+        state: shippingAddress.state,
+        country: shippingAddress.country,
+        postalCode: shippingAddress.postalCode,
+        communicationTime: shippingAddress.communicationTime,
+      });
+
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          fullName: contactInfo.fullName,
+          phone: contactInfo.phone,
+          email: contactInfo.email,
+          street: shippingAddress.street,
+          apartment: shippingAddress.apartment,
+          city: shippingAddress.city,
+          state: shippingAddress.state,
+          country: shippingAddress.country,
+          postalCode: shippingAddress.postalCode,
+          communicationTime: shippingAddress.communicationTime,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+      alert("¡Datos enviados correctamente!");
+    } catch (error) {
+      alert("Error al enviar el correo.");
+    }
   };
 
   return (
@@ -127,7 +171,7 @@ const CheckoutPage = () => {
       <main className="container py-16 lg:pb-28 lg:pt-20 ">
         <div className="mb-16">
           <h2 className="block text-2xl font-semibold sm:text-3xl lg:text-4xl ">
-            Checkout
+            Confirmación de datos
           </h2>
         </div>
 
@@ -177,7 +221,9 @@ const CheckoutPage = () => {
                 <span>$276.00</span>
               </div>
             </div>
-            <ButtonPrimary className="mt-8 w-full">Confirm order</ButtonPrimary>
+            <ButtonPrimary className="mt-8 w-full" onClick={handleConfirm}>
+              Confirmar
+            </ButtonPrimary>
           </div>
         </div>
       </main>

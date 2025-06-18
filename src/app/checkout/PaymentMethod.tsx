@@ -186,10 +186,10 @@ const PaymentMethod: FC<Props> = ({
             className="w-full max-w-[240px]"
             onClick={onCloseActive}
           >
-            Confirm order
+            Confirmar orden
           </ButtonPrimary>
           <ButtonSecondary className="ml-3" onClick={onCloseActive}>
-            Cancel
+            Cancelar orden
           </ButtonSecondary>
         </div>
       </div>

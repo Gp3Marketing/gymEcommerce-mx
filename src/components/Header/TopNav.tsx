@@ -12,9 +12,17 @@ const TopNav = () => {
           ))}
         </div>
 
-          <div>Necesitas Ayuda?</div>
+        <a
+          href="https://wa.me/573206635657?text=Necesito%20ayuda%20y%20me%20comunico%20desde%20la%20p%C3%A1gina%20Fitmex%20Store"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:underline"
+        >
+          ¿Necesitas Ayuda?
+        </a>
         {/* <Language /> */}
       </div>
+
     </div>
   );
 };

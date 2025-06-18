@@ -5,6 +5,7 @@ import SectionBestDeals from './home/SectionBestDeals';
 import SectionHeader from './home/SectionHeader';
 import SectionProducts from './home/SectionProducts';
 import SectionHeroSlider from './home/SectionHeroSlider';
+import MsgWhatsapp from "@/components/WhatsApp";
 
 const page = () => {
   return (
@@ -23,6 +24,10 @@ const page = () => {
 
       <div className="mb-32">
         <SectionProducts />
+      </div>
+
+      <div className="mb-32">
+        <MsgWhatsapp />
       </div>
 
       {/* <div className="mb-32">

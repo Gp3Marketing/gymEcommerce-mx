@@ -1,15 +1,17 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import Link from "next/link";
-import { useAuth } from "@/hooks/useAuth";
+import { useRouter } from "next/navigation";
 
 interface AccountMenuProps {
-  onLogout: () => void;
+  onLogout: () => Promise<void> | void;
 }
 
 const AccountMenu: React.FC<AccountMenuProps> = ({ onLogout }) => {
   const menuRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -19,6 +21,11 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ onLogout }) => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [onLogout]);
+
+  const handleLogout = async () => {
+    await onLogout();
+    router.push("/login");
+  };
 
   return (
     <div
@@ -40,15 +47,10 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ onLogout }) => {
         <li>
           <button
             className="block w-full text-left hover:text-primary"
-            onClick={onLogout}
+            onClick={handleLogout}
           >
             Cerrar Sesión
           </button>
-        </li>
-        <li>
-          <Link href="/login" className="block hover:text-primary">
-            Cambiar de Cuenta
-          </Link>
         </li>
       </ul>
     </div>

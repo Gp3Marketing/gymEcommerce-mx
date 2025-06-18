@@ -1,3 +1,5 @@
+"use client";
+
 import type { FC } from "react";
 import React from "react";
 import { FaRegCircleUser } from "react-icons/fa6";
@@ -12,21 +14,54 @@ interface Props {
   isActive: boolean;
   onOpenActive: () => void;
   onCloseActive: () => void;
+  contactInfo: {
+    fullName: string;
+    phone: string;
+    email: string;
+  };
+  setContactInfo: React.Dispatch<React.SetStateAction<{
+    fullName: string;
+    phone: string;
+    email: string;
+  }>>;
 }
 
-const ContactInfo: FC<Props> = ({ isActive, onCloseActive, onOpenActive }) => {
+const ContactInfo: FC<Props> = ({
+  isActive,
+  onCloseActive,
+  onOpenActive,
+  contactInfo,
+  setContactInfo,
+}) => {
+  const [saved, setSaved] = React.useState(false);
+
+  const handleSave = () => {
+    if (contactInfo.phone && contactInfo.email) {
+      setSaved(true);
+      onCloseActive();
+    } else {
+      alert("Por favor completa el teléfono y el correo electrónico.");
+    }
+  };
+
   return (
     <div className="z-0 overflow-hidden rounded-xl border border-neutral-300">
-      <div className="flex flex-col items-start p-6 sm:flex-row ">
+      <div className="flex flex-col items-start p-6 sm:flex-row">
         <span className="hidden sm:block">
           <FaRegCircleUser className="text-3xl text-primary" />
         </span>
         <div className="flex w-full items-center justify-between">
           <div className="sm:ml-8">
-            <div className="uppercase tracking-tight">CONTACT INFORMATION</div>
+            <div className="uppercase tracking-tight">Información de contacto</div>
             <div className="mt-1 text-sm font-semibold">
-              <span className="">Clark Kent</span>
-              <span className="ml-3 tracking-tighter">+123-456-7890</span>
+              {saved ? (
+                <>
+                  <span>{contactInfo.email},</span>
+                  <span className="ml-2 tracking-tighter">{contactInfo.phone}</span>
+                </>
+              ) : (
+                <span className="text-neutral-500">Agrega tu información de contacto</span>
+              )}
             </div>
           </div>
           <ButtonSecondary
@@ -34,59 +69,80 @@ const ContactInfo: FC<Props> = ({ isActive, onCloseActive, onOpenActive }) => {
             className="border-2 border-primary text-primary"
             onClick={onOpenActive}
           >
-            Edit
+            Editar
           </ButtonSecondary>
         </div>
       </div>
+
       <div
         className={`space-y-4 border-t border-neutral-300 px-6 py-7 sm:space-y-6 ${
           isActive ? "block" : "hidden"
         }`}
       >
-        <h3 className="text-lg font-semibold">Contact infomation</h3>
+        <h3 className="text-lg font-semibold">Completa tu información</h3>
+
         <div className="max-w-lg">
-          <FormItem label="Your phone number">
+          <FormItem label="Nombre Completo">
             <Input
+              value={contactInfo.fullName}
+              onChange={(e) =>
+                setContactInfo((prev) => ({ ...prev, fullName: e.target.value }))
+              }
               rounded="rounded-lg"
               sizeClass="h-12 px-4 py-3"
               className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
-              defaultValue="+808 xxx"
+              placeholder="Ej. Juan"
+            />
+          </FormItem>
+        </div>
+
+        <div className="max-w-lg">
+          <FormItem label="Número de teléfono">
+            <Input
+              value={contactInfo.phone}
+              onChange={(e) =>
+                setContactInfo((prev) => ({ ...prev, phone: e.target.value }))
+              }
+              rounded="rounded-lg"
+              sizeClass="h-12 px-4 py-3"
+              className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
+              placeholder="+57 300 123 4567"
               type="tel"
             />
           </FormItem>
         </div>
+
         <div className="max-w-lg">
-          <FormItem label="Email address">
+          <FormItem label="Correo electrónico">
             <Input
+              value={contactInfo.email}
+              onChange={(e) =>
+                setContactInfo((prev) => ({ ...prev, email: e.target.value }))
+              }
               rounded="rounded-lg"
               sizeClass="h-12 px-4 py-3"
               className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
+              placeholder="correo@ejemplo.com"
               type="email"
             />
           </FormItem>
         </div>
+
         <div>
           <Checkbox
             className="!text-sm"
-            name="uudai"
-            label="Email me news and offers"
+            name="subscribe"
+            label="Quiero recibir novedades y ofertas por correo"
             defaultChecked
           />
         </div>
 
-        {/* ============ */}
         <div className="flex flex-col pt-6 sm:flex-row">
-          <ButtonPrimary
-            className="shadow-none sm:!px-7"
-            onClick={() => onCloseActive()}
-          >
-            Save and go to Shipping
+          <ButtonPrimary className="shadow-none sm:!px-7" onClick={handleSave}>
+            Guardar y continuar
           </ButtonPrimary>
-          <ButtonSecondary
-            className="mt-3 sm:ml-3 sm:mt-0"
-            onClick={() => onCloseActive()}
-          >
-            Cancel
+          <ButtonSecondary className="mt-3 sm:ml-3 sm:mt-0" onClick={onCloseActive}>
+            Cancelar
           </ButtonSecondary>
         </div>
       </div>

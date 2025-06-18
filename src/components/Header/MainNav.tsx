@@ -15,6 +15,9 @@ import { useAuth } from "@/hooks/useAuth";
 import AccountMenu from "./AccountMenu";
 import CartSideBar from "../CartSideBar";
 import MenuBar from "./MenuBar";
+import MsgWhatsapp from "@/components/WhatsApp";
+
+import { shoes } from '@/data/content';
 
 const getFirstName = (displayName: string | null, email: string | null) => {
   if (displayName) return displayName.split(" ")[0];
@@ -25,6 +28,9 @@ const getFirstName = (displayName: string | null, email: string | null) => {
 const MainNav = () => {
   const { user, logout } = useAuth();
   const [showAccountMenu, setShowAccountMenu] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState<typeof shoes>([]);
+  const [showResults, setShowResults] = useState(false);
 
   const handleAccountClick = (e: React.MouseEvent) => {
     if (user) {
@@ -38,6 +44,25 @@ const MainNav = () => {
     logout();
   };
 
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+
+    if (value.trim() === '') {
+      setSearchResults([]);
+      setShowResults(false);
+      return;
+    }
+
+    const results = shoes.filter(
+      (shoe) =>
+        shoe.shoeName.toLowerCase().includes(value.toLowerCase()) ||
+        shoe.shoeCategory.toLowerCase().includes(value.toLowerCase())
+    );
+    setSearchResults(results);
+    setShowResults(true);
+  };
+
   return (
     <div className="container flex items-center justify-between py-4 relative">
       <div className="flex-1 lg:hidden">
@@ -45,13 +70,41 @@ const MainNav = () => {
       </div>
       <div className="flex items-center gap-5 lg:basis-[60%]">
         <Logo />
-        <div className="hidden w-full max-w-2xl items-center gap-5 rounded-full border border-neutral-300 py-1 pr-3 lg:flex">
+        <div className="hidden w-full max-w-2xl items-center gap-5 rounded-full border border-neutral-300 py-1 pr-3 lg:flex relative">
           <Input
             type="text"
             className="border-transparent bg-white placeholder:text-neutral-500 focus:border-transparent"
-            placeholder="try 'Nike Air Jordan'"
+            placeholder="...Buscar productos"
+            value={searchTerm}
+            onChange={handleSearch}
+            onFocus={() => setShowResults(searchResults.length > 0)}
+            onBlur={() => setTimeout(() => setShowResults(false), 200)}
           />
           <RiSearch2Line className="text-2xl text-neutral-500" />
+          {showResults && searchResults.length > 0 && (
+            <div className="absolute top-full left-0 w-full bg-white border border-neutral-200 rounded shadow-lg z-50 mt-2 max-h-64 overflow-auto">
+              {searchResults.map((shoe) => (
+                <Link
+                  key={shoe.slug}
+                  href={`/product/${shoe.slug}`}
+                  className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100"
+                  onClick={() => setShowResults(false)}
+                >
+                  <Image
+                    src={shoe.coverImage}
+                    alt={shoe.shoeName}
+                    width={40}
+                    height={40}
+                    className="rounded"
+                  />
+                  <div>
+                    <div className="font-medium">{shoe.shoeName}</div>
+                    <div className="text-xs text-neutral-500">{shoe.shoeCategory}</div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
@@ -72,11 +125,11 @@ const MainNav = () => {
               />
             </ButtonCircle3>
             <Link
-              href={user ? "#" : "/signup"}
+              href={user ? "#" : "/login"}
               className="hidden text-sm lg:block"
               onClick={handleAccountClick}
             >
-              {user ? getFirstName(user.displayName, user.email) : "Registrarse"}
+              {user ? getFirstName(user.displayName, user.email) : "Iniciar sesión"}
             </Link>
             {user && showAccountMenu && (
               <AccountMenu onLogout={handleLogout} />
@@ -84,6 +137,8 @@ const MainNav = () => {
           </div>
         </div>
       </div>
+
+      <MsgWhatsapp />
     </div>
   );
 };
