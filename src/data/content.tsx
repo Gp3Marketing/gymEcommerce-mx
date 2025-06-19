@@ -60,17 +60,11 @@ import gold2 from "@/images/isolate-gold/gold2.png";
 import gold3 from "@/images/isolate-gold/gold3.jpg";
 
 import whey from "@/images/whey/whey.jpg";
-
 import cbum5peat from "@/images/cbum5peat/cbum5peat.jpg";
-
 import peachbum from "@/images/peachbum/peachbum.jpg";
-
 import preentreno from "@/images/preentreno/preentrenovenom.jpg"
-
 import creatine from "@/images/creatine/creatine.jpg"
-
 import aminox from "@/images/aminox/aminox.jpg"
-
 
 
 
@@ -99,18 +93,8 @@ export const topNavLinks: NavItemType[] = [
   },
   {
     id: "h678ty",
-    name: "FAQ",
+    name: "FAQs",
     href: "/faqs",
-  },
-  {
-    id: "h6i78g",
-    name: "Checkout",
-    href: "/checkout",
-  },
-  {
-    id: "f678ty",
-    name: "Cart",
-    href: "/cart",
   },
 ];
 
@@ -136,16 +120,16 @@ export const NavLinks: NavItemType[] = [
     name: "FAQ",
     href: "/faqs",
   },
-  {
-    id: "h6i78g",
-    name: "Checkout",
-    href: "/checkout",
-  },
-  {
-    id: "f678ty",
-    name: "Cart",
-    href: "/cart",
-  },
+  // {
+  //   id: "h6i78g",
+  //   name: "Checkout",
+  //   href: "/checkout",
+  // },
+  // {
+  //   id: "f678ty",
+  //   name: "Cart",
+  //   href: "/cart",
+  // },
 ];
 
 export const headerSection = {
