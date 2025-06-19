@@ -73,22 +73,21 @@ import peachbum1 from "@/images/peachbum/creatine-1.jpg";
 import peachbum2 from "@/images/peachbum/creatine-2.jpg";
 import peachbum3 from "@/images/peachbum/creatine-3.jpg";
 
-import preentreno from "@/images/preentreno/preentrenovenom.jpg"
-import Venom from "@/images/preentreno/vemon1.jpg"
-import Venom1 from "@/images/preentreno/vemon2.jpg"
+import preentreno from "@/images/preentreno/preentrenovenom.jpg";
+import Venom from "@/images/preentreno/vemon1.jpg";
+import Venom1 from "@/images/preentreno/vemon2.jpg";
 
-import creatine from "@/images/creatine/creatine.jpg"
-import creatine2 from "@/images/creatine/creatine-2.jpg"
-import creatine3 from "@/images/creatine/creatine-3.jpg"
-import creatine4 from "@/images/creatine/creatine-4.jpg"
+import creatine from "@/images/creatine/creatine.jpg";
+import creatine2 from "@/images/creatine/creatine-2.jpg";
+import creatine3 from "@/images/creatine/creatine-3.jpg";
+import creatine4 from "@/images/creatine/creatine-4.jpg";
 
-import aminox from "@/images/aminox/aminox.jpg"
-import aminox1 from "@/images/aminox/aminox-1.jpg"
-import aminox2 from "@/images/aminox/aminox-2.jpg"
-import aminox3 from "@/images/aminox/aminox-3.jpg"
-import aminox4 from "@/images/aminox/aminox-4.jpg"
-import aminox5 from "@/images/aminox/aminox-5.jpg"
-
+import aminox from "@/images/aminox/aminox.jpg";
+import aminox1 from "@/images/aminox/aminox-1.jpg";
+import aminox2 from "@/images/aminox/aminox-2.jpg";
+import aminox3 from "@/images/aminox/aminox-3.jpg";
+import aminox4 from "@/images/aminox/aminox-4.jpg";
+import aminox5 from "@/images/aminox/aminox-5.jpg";
 
 import type { BlogType } from "./types";
 
@@ -176,117 +175,117 @@ export const promotionTag = {
 };
 
 export const shoes = [
- {
-  slug: "cbum5peat",
-  shoeName: "cbum5peat",
-  coverImage: cbum5peat,
-  currentPrice: 189000,
-  previousPrice: 210000,
-  shoeCategory: "Pre-entrenamiento",
-  rating: 4.9,
-  reviews: 10500,
-  pieces_sold: 85000,
-  justIn: true,
-  shots: [cbum5peat1, cbum5peat4, cbum5peat3, cbum5peat2],
-  overview:
-    "El pre-entreno CBUM Thavage, creado por el campeón mundial Chris Bumstead, está diseñado para quienes entrenan con intensidad. Su fórmula incluye ingredientes como L-Citrulina, Beta-Alanina y Alpha-GPC para mayor bombeo muscular, concentración mental y resistencia. Con un sabor delicioso y rendimiento comprobado, es ideal para elevar tus sesiones al siguiente nivel.",
-  shipment_details: [
-    {
-      icon: <PiPercentFill className="text-xl text-secondary" />,
-      title: "Descuento",
-      description: "15% en compras superiores a $180.000 COP",
-    },
-    {
-      icon: <FaCalendarAlt className="text-xl text-secondary" />,
-      title: "Tiempo de entrega",
-      description: "2 - 5 días hábiles",
-    },
-    {
-      icon: <BsBoxFill className="text-xl text-secondary" />,
-      title: "Presentación",
-      description: "Envase con 20 servicios",
-    },
-    {
-      icon: <FaTruckFast className="text-xl text-secondary" />,
-      title: "Llegada estimada",
-      description: "13 - 16 Junio 2025",
-    },
-  ],
-}, 
   {
-  slug: "peachbum",
-  shoeName: "PEACHBUM",
-  coverImage: peachbum, 
-  currentPrice: 189000,
-  previousPrice: 210000,
-  shoeCategory: "Pre-entrenamiento",
-  rating: 4.9,
-  reviews: 8700,
-  pieces_sold: 68000,
-  justIn: true,
-  shots: [peachbum1, peachbum2, peachbum3],
-  overview:
-    "Thavage Pre-Workout en sabor Peach Bum ofrece energía explosiva, concentración mental y bombeo muscular intenso. Con 40 servicios, esta fórmula incluye Beta-Alanina, L-Citrulina y Alpha-GPC para entrenamientos de alto rendimiento. Su sabor a durazno dulce te encantará desde el primer scoop.",
-  shipment_details: [
-    {
-      icon: <PiPercentFill className="text-xl text-secondary" />,
-      title: "Descuento",
-      description: "10% en compras desde $180.000 COP",
-    },
-    {
-      icon: <FaCalendarAlt className="text-xl text-secondary" />,
-      title: "Tiempo de entrega",
-      description: "2 - 5 días hábiles",
-    },
-    {
-      icon: <BsBoxFill className="text-xl text-secondary" />,
-      title: "Presentación",
-      description: "Envase con 40 servicios sabor Peach Bum",
-    },
-    {
-      icon: <FaTruckFast className="text-xl text-secondary" />,
-      title: "Llegada estimada",
-      description: "13 - 16 Junio 2025",
-    },
-  ],
-},
+    slug: "cbum5peat",
+    shoeName: "cbum5peat",
+    coverImage: cbum5peat,
+    currentPrice: 189000,
+    previousPrice: 210000,
+    shoeCategory: "Pre-entrenamiento",
+    rating: 4.9,
+    reviews: 10500,
+    pieces_sold: 85000,
+    justIn: true,
+    shots: [cbum5peat1, cbum5peat4, cbum5peat3, cbum5peat2],
+    overview:
+      "El pre-entreno CBUM Thavage, creado por el campeón mundial Chris Bumstead, está diseñado para quienes entrenan con intensidad. Su fórmula incluye ingredientes como L-Citrulina, Beta-Alanina y Alpha-GPC para mayor bombeo muscular, concentración mental y resistencia. Con un sabor delicioso y rendimiento comprobado, es ideal para elevar tus sesiones al siguiente nivel.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Descuento",
+        description: "15% en compras superiores a $180.000 COP",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Tiempo de entrega",
+        description: "2 - 5 días hábiles",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Presentación",
+        description: "Envase con 20 servicios",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Llegada estimada",
+        description: "13 - 16 Junio 2025",
+      },
+    ],
+  },
   {
-  slug: "preentreno",
-  shoeName: "Venom",
-  coverImage: preentreno,
-  currentPrice: 199,
-  previousPrice: 250,
-  shoeCategory: "Pre-Entreno Dragon Pharma ",
-  rating: 4.9,
-  reviews: 310,
-  pieces_sold: 2400,
-  justIn: true,
-  shots: [preentreno, Venom, Venom1],
-  overview:
-    "Venom® es un pre-entrenamiento extremadamente potente formulado para atletas que desean niveles extremos de energía, enfoque y rendimiento. Con ingredientes como Beta-Alanina, Alpha-GPC y Caffeine Anhydrous, Venom® te lleva al siguiente nivel para que puedas aplastar cada entrenamiento con intensidad y concentración máximas.",
-  shipment_details: [
-    {
-      icon: <PiPercentFill className="text-xl text-secondary" />,
-      title: "Discount",
-      description: "> $100 Disc 10%",
-    },
-    {
-      icon: <FaCalendarAlt className="text-xl text-secondary" />,
-      title: "Delivery Time",
-      description: "4 - 8 Working days",
-    },
-    {
-      icon: <BsBoxFill className="text-xl text-secondary" />,
-      title: "Package",
-      description: "Dragon Pharma Secure Bottle",
-    },
-    {
-      icon: <FaTruckFast className="text-xl text-secondary" />,
-      title: "Estimated Arrival",
-      description: "14 - 18 June 2025",
-    },
-  ],
-},
+    slug: "peachbum",
+    shoeName: "PEACHBUM",
+    coverImage: peachbum,
+    currentPrice: 189000,
+    previousPrice: 210000,
+    shoeCategory: "Pre-entrenamiento",
+    rating: 4.9,
+    reviews: 8700,
+    pieces_sold: 68000,
+    justIn: true,
+    shots: [peachbum1, peachbum2, peachbum3],
+    overview:
+      "Thavage Pre-Workout en sabor Peach Bum ofrece energía explosiva, concentración mental y bombeo muscular intenso. Con 40 servicios, esta fórmula incluye Beta-Alanina, L-Citrulina y Alpha-GPC para entrenamientos de alto rendimiento. Su sabor a durazno dulce te encantará desde el primer scoop.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Descuento",
+        description: "10% en compras desde $180.000 COP",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Tiempo de entrega",
+        description: "2 - 5 días hábiles",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Presentación",
+        description: "Envase con 40 servicios sabor Peach Bum",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Llegada estimada",
+        description: "13 - 16 Junio 2025",
+      },
+    ],
+  },
+  {
+    slug: "preentreno",
+    shoeName: "Venom",
+    coverImage: preentreno,
+    currentPrice: 199,
+    previousPrice: 250,
+    shoeCategory: "Pre-Entreno Dragon Pharma ",
+    rating: 4.9,
+    reviews: 310,
+    pieces_sold: 2400,
+    justIn: true,
+    shots: [preentreno, Venom, Venom1],
+    overview:
+      "Venom® es un pre-entrenamiento extremadamente potente formulado para atletas que desean niveles extremos de energía, enfoque y rendimiento. Con ingredientes como Beta-Alanina, Alpha-GPC y Caffeine Anhydrous, Venom® te lleva al siguiente nivel para que puedas aplastar cada entrenamiento con intensidad y concentración máximas.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Discount",
+        description: "> $100 Disc 10%",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Delivery Time",
+        description: "4 - 8 Working days",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Package",
+        description: "Dragon Pharma Secure Bottle",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Estimated Arrival",
+        description: "14 - 18 June 2025",
+      },
+    ],
+  },
   {
     slug: "psychotic-orange",
     shoeName: "PSYCHOTIC",
@@ -516,118 +515,118 @@ export const shoes = [
       },
     ],
   },
- {
-  slug: "gold-standard-whey",
-  shoeName: "Gold Standard - Whey Protein",
-  coverImage: whey, 
-  currentPrice: 168000,
-  previousPrice: 190000,
-  shoeCategory: "Proteína en polvo",
-  rating: 4.8,
-  reviews: 22500,
-  pieces_sold: 150000,
-  justIn: true,
-  shots: [whey2, whey1, whey3, whey4],
-  overview:
-    "Optimum Nutrition Gold Standard 100% Whey es la fórmula de proteína más vendida en el mundo. Elaborada con aislado de proteína de suero como ingrediente principal, ofrece 24 g de proteína de alta calidad por porción para apoyar el crecimiento y mantenimiento muscular. Sabor: Extreme Milk Chocolate.",
-  shipment_details: [
-    {
-      icon: <PiPercentFill className="text-xl text-secondary" />,
-      title: "Descuento",
-      description: "10% en compras superiores a $150.000 COP",
-    },
-    {
-      icon: <FaCalendarAlt className="text-xl text-secondary" />,
-      title: "Tiempo de entrega",
-      description: "3 - 5 días hábiles",
-    },
-    {
-      icon: <BsBoxFill className="text-xl text-secondary" />,
-      title: "Presentación",
-      description: "Tarro de 2 lb (907 g)",
-    },
-    {
-      icon: <FaTruckFast className="text-xl text-secondary" />,
-      title: "Llegada estimada",
-      description: "Entre 14 - 17 Junio 2025",
-    },
-  ],
-},
-
- {
-  slug: "creatine",
-  shoeName: "Creatine micronized ",
-  coverImage: creatine,
-  currentPrice: 165,
-  previousPrice: 210,
-  shoeCategory: "Supplements",
-  rating: 4.9,
-  reviews: 124,
-  pieces_sold: 3200,
-  justIn: true,
-  shots: [creatine, creatine2, creatine3, creatine4],
-  overview:
-    "La Creatine Powder de Optimum Nutrition te ayuda a mejorar tu rendimiento físico durante ejercicios de alta intensidad. Cada porción contiene 5g de monohidrato de creatina micronizada para una mejor absorción y resultados comprobados. Ideal para deportistas que buscan aumentar su fuerza y resistencia.",
-  shipment_details: [
-    {
-      icon: <PiPercentFill className="text-xl text-secondary" />,
-      title: "Discount",
-      description: "Compra > $100 y obtén 10% OFF",
-    },
-    {
-      icon: <FaCalendarAlt className="text-xl text-secondary" />,
-      title: "Delivery Time",
-      description: "4 - 8 días hábiles",
-    },
-    {
-      icon: <BsBoxFill className="text-xl text-secondary" />,
-      title: "Package",
-      description: "Envase plástico resistente ON®",
-    },
-    {
-      icon: <FaTruckFast className="text-xl text-secondary" />,
-      title: "Estimated Arrival",
-      description: "14 - 18 de junio 2025",
-    },
-  ],
-},
   {
-  slug: "aminox", 
-  shoeName: "ANINOX",
-  coverImage: aminox, 
-  currentPrice: 145,
-  previousPrice: 180,
-  shoeCategory: "Supplements",
-  rating: 4.7,
-  reviews: 89,
-  pieces_sold: 2300,
-  justIn: true,
-  shots: [aminox1, aminox2, aminox3, aminox4, aminox5],
-  overview:
-    "AMINOx de BSN es un suplemento efervescente que combina BCAA’s y aminoácidos esenciales para favorecer la recuperación muscular y mejorar el rendimiento deportivo. Con sabor a sandía, no contiene cafeína y es ideal para cualquier hora del día. Aporta 10g de aminoácidos por porción y ayuda a combatir la fatiga post-entrenamiento.",
-  shipment_details: [
-    {
-      icon: <PiPercentFill className="text-xl text-secondary" />,
-      title: "Discount",
-      description: "10% OFF por compras > $100",
-    },
-    {
-      icon: <FaCalendarAlt className="text-xl text-secondary" />,
-      title: "Delivery Time",
-      description: "4 - 7 días hábiles",
-    },
-    {
-      icon: <BsBoxFill className="text-xl text-secondary" />,
-      title: "Package",
-      description: "Envase de plástico sellado BSN®",
-    },
-    {
-      icon: <FaTruckFast className="text-xl text-secondary" />,
-      title: "Estimated Arrival",
-      description: "14 - 17 de junio 2025",
-    },
-  ],
-},
+    slug: "gold-standard-whey",
+    shoeName: "Gold Standard - Whey Protein",
+    coverImage: whey,
+    currentPrice: 168000,
+    previousPrice: 190000,
+    shoeCategory: "Proteína en polvo",
+    rating: 4.8,
+    reviews: 22500,
+    pieces_sold: 150000,
+    justIn: false,
+    shots: [whey2, whey1, whey3, whey4],
+    overview:
+      "Optimum Nutrition Gold Standard 100% Whey es la fórmula de proteína más vendida en el mundo. Elaborada con aislado de proteína de suero como ingrediente principal, ofrece 24 g de proteína de alta calidad por porción para apoyar el crecimiento y mantenimiento muscular. Sabor: Extreme Milk Chocolate.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Descuento",
+        description: "10% en compras superiores a $150.000 COP",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Tiempo de entrega",
+        description: "3 - 5 días hábiles",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Presentación",
+        description: "Tarro de 2 lb (907 g)",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Llegada estimada",
+        description: "Entre 14 - 17 Junio 2025",
+      },
+    ],
+  },
+
+  {
+    slug: "creatine",
+    shoeName: "Creatine micronized ",
+    coverImage: creatine,
+    currentPrice: 165,
+    previousPrice: 210,
+    shoeCategory: "Supplements",
+    rating: 4.9,
+    reviews: 124,
+    pieces_sold: 3200,
+    justIn: true,
+    shots: [creatine, creatine2, creatine3, creatine4],
+    overview:
+      "La Creatine Powder de Optimum Nutrition te ayuda a mejorar tu rendimiento físico durante ejercicios de alta intensidad. Cada porción contiene 5g de monohidrato de creatina micronizada para una mejor absorción y resultados comprobados. Ideal para deportistas que buscan aumentar su fuerza y resistencia.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Discount",
+        description: "Compra > $100 y obtén 10% OFF",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Delivery Time",
+        description: "4 - 8 días hábiles",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Package",
+        description: "Envase plástico resistente ON®",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Estimated Arrival",
+        description: "14 - 18 de junio 2025",
+      },
+    ],
+  },
+  {
+    slug: "aminox",
+    shoeName: "ANINOX",
+    coverImage: aminox,
+    currentPrice: 145,
+    previousPrice: 180,
+    shoeCategory: "Supplements",
+    rating: 4.7,
+    reviews: 89,
+    pieces_sold: 2300,
+    justIn: true,
+    shots: [aminox1, aminox2, aminox3, aminox4, aminox5],
+    overview:
+      "AMINOx de BSN es un suplemento efervescente que combina BCAA’s y aminoácidos esenciales para favorecer la recuperación muscular y mejorar el rendimiento deportivo. Con sabor a sandía, no contiene cafeína y es ideal para cualquier hora del día. Aporta 10g de aminoácidos por porción y ayuda a combatir la fatiga post-entrenamiento.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Discount",
+        description: "10% OFF por compras > $100",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Delivery Time",
+        description: "4 - 7 días hábiles",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Package",
+        description: "Envase de plástico sellado BSN®",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Estimated Arrival",
+        description: "14 - 17 de junio 2025",
+      },
+    ],
+  },
 ];
 
 export const productsSection = {
@@ -825,7 +824,8 @@ export const faqsData = {
             "Los tiempos de entrega varían según tu ubicación. Normalmente, los pedidos nacionales tardan de 3 a 5 días hábiles, mientras que los pedidos internacionales pueden tardar de 7 a 14 días hábiles.",
         },
         {
-          question: "¿Puedo cambiar mi dirección de envío después de realizar un pedido?",
+          question:
+            "¿Puedo cambiar mi dirección de envío después de realizar un pedido?",
           answer:
             "Desafortunadamente, no podemos cambiar la dirección de envío una vez realizado el pedido. Por favor, verifica bien tu información antes de completar la compra.",
         },
