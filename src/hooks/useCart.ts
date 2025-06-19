@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
-import { addToCart, removeFromCart, subscribeToCart } from "@/utils/cartUtils";
+import { addToCart, removeFromCart, subscribeToCart, updateCartItemQuantity } from "@/utils/cartUtils";
 
 export interface CartItem {
   id: string;
   cantidad: number;
   precio: number;
   nombreProducto: string;
-  // ...otros campos que necesites (nombre, precio, etc.)
+  // ...otros campos que necesites
 }
 
 export function useCart() {
@@ -38,10 +38,16 @@ export function useCart() {
     await removeFromCart(user.uid, itemId);
   };
 
+  const handleUpdateQuantity = async (itemId: string, cantidad: number) => {
+    if (!user) return;
+    await updateCartItemQuantity(user.uid, itemId, cantidad);
+  };
+
   return {
     cart,
     loading,
     addToCart: handleAddToCart,
     removeFromCart: handleRemoveFromCart,
+    updateQuantity: handleUpdateQuantity,
   };
 }

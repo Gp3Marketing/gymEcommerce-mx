@@ -1,5 +1,5 @@
 import { db } from "@/firebase/config";
-import { collection, doc, setDoc, deleteDoc, onSnapshot } from "firebase/firestore";
+import { collection, doc, setDoc, deleteDoc, onSnapshot, updateDoc } from "firebase/firestore";
 
 export const addToCart = async (userId: string, item: any) => {
   if (!item || !item.id) {
@@ -9,10 +9,14 @@ export const addToCart = async (userId: string, item: any) => {
     doc(db, "carts", userId, "items", item.id),
     { ...item }
   );
-  console.log("Producto guardado en Firestore:", item);
 };
+
 export const removeFromCart = async (userId: string, itemId: string) => {
   await deleteDoc(doc(db, "carts", userId, "items", itemId));
+};
+
+export const updateCartItemQuantity = async (userId: string, itemId: string, cantidad: number) => {
+  await updateDoc(doc(db, "carts", userId, "items", itemId), { cantidad });
 };
 
 export const subscribeToCart = (

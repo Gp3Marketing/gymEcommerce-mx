@@ -50,7 +50,7 @@ const CartPage = () => {
             </button>
           </div>
           <div>
-            <InputNumber value={item.cantidad} /* puedes implementar update aquí */ />
+            <InputNumber value={item.cantidad} />
           </div>
         </div>
       </div>
