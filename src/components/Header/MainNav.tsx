@@ -81,28 +81,34 @@ const MainNav = () => {
             onBlur={() => setTimeout(() => setShowResults(false), 200)}
           />
           <RiSearch2Line className="text-2xl text-neutral-500" />
-          {showResults && searchResults.length > 0 && (
+          {showResults && (
             <div className="absolute top-full left-0 w-full bg-white border border-neutral-200 rounded shadow-lg z-50 mt-2 max-h-64 overflow-auto">
-              {searchResults.map((shoe) => (
-                <Link
-                  key={shoe.slug}
-                  href={`/product/${shoe.slug}`}
-                  className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100"
-                  onClick={() => setShowResults(false)}
-                >
-                  <Image
-                    src={shoe.coverImage}
-                    alt={shoe.shoeName}
-                    width={40}
-                    height={40}
-                    className="rounded"
-                  />
-                  <div>
-                    <div className="font-medium">{shoe.shoeName}</div>
-                    <div className="text-xs text-neutral-500">{shoe.shoeCategory}</div>
-                  </div>
-                </Link>
-              ))}
+              {searchResults.length > 0 ? (
+                searchResults.map((shoe) => (
+                  <Link
+                    key={shoe.slug}
+                    href={`/products/${shoe.slug}`}
+                    className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100"
+                    onClick={() => setShowResults(false)}
+                  >
+                    <Image
+                      src={shoe.coverImage}
+                      alt={shoe.shoeName}
+                      width={40}
+                      height={40}
+                      className="rounded"
+                    />
+                    <div>
+                      <div className="font-medium">{shoe.shoeName}</div>
+                      <div className="text-xs text-neutral-500">{shoe.shoeCategory}</div>
+                    </div>
+                  </Link>
+                ))
+              ) : (
+                <div className="px-4 py-2 text-neutral-500 text-center">
+                  Producto no encontrado
+                </div>
+              )}
             </div>
           )}
         </div>

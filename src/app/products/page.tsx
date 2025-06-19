@@ -20,6 +20,7 @@ const page = () => {
         <div className="mb-10 shrink-0 border-t lg:mx-4 lg:mb-0 lg:border-t-0" />
         <div className="relative flex-1">
           <div className="top-32 z-10 mb-3 items-center gap-5 space-y-5 bg-white py-10 lg:sticky lg:flex lg:space-y-0">
+            {/* Parte del search y filtros No.2
             <div className="flex flex-1 items-center gap-2 rounded-full border border-neutral-300 px-4">
               <MdSearch className="text-2xl text-neutral-500" />
               <Input
@@ -39,7 +40,8 @@ const page = () => {
                 Most popular
                 <MdOutlineFilterList />
               </ButtonSecondary>
-            </div>
+            </div> 
+            */}
           </div>
           <div className="grid flex-1 gap-x-8 gap-y-10 sm:grid-cols-2 xl:grid-cols-3 ">
             {shoes.map((item) => (
