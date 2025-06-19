@@ -8,16 +8,6 @@ import { PiPercentFill } from "react-icons/pi";
 
 import type { NavItemType } from "@/components/NavItem";
 
-import shot1 from "@/images/shots/shot1.webp";
-import shot2 from "@/images/shots/shot2.webp";
-import shot3 from "@/images/shots/shot3.jpeg";
-import shot4 from "@/images/shots/shot4.jpeg";
-import shot5 from "@/images/shots/shot5.webp";
-import shot6 from "@/images/shots/shot6.jpeg";
-import shot7 from "@/images/shots/shot7.webp";
-
-import yellowLow from "@/images/yellowLow.webp";
-
 /* new */
 import psychotic from "@/images/psychotic/psychotic-3.webp";
 import psychotic1 from "@/images/psychotic/psychotic-0.png";
@@ -620,26 +610,48 @@ export const shoes = [
 ];
 
 export const productsSection = {
-  heading: "Shop Now, Look Good Later",
+  heading: 'Haz tu compra ahora, tu progreso empieza hoy.',
   description:
-    "We have a buch of collections for you! Lets explore and find your dream shoes, make it happen",
+    "¡Tenemos una gran variedad de colecciones para ti! Explora y encuentra los zapatos de tus sueños, ¡hazlo realidad!",
 };
 
-const shoeBrands = ["Nike", "Alexander Mqueen", "New Balance", "Compass"];
-
-const shoeTypes = ["Type", "Sandals", "Sneakers", "Boots"];
-
-const sizes = ["Size", "S", "M", "L", "XL", "XXl"];
-
-const prices = [
-  "Price",
-  "Below $100",
-  "Below $200",
-  "Below $300",
-  "Below $400",
+export const shoeCategories = [
+  "Todos",
+  ...Array.from(new Set(shoes.map((item) => item.shoeCategory.trim()))),
 ];
 
-export const filters = [shoeBrands, prices, sizes, shoeTypes];
+export const shoeBrands = [
+  "Productos",
+  ...Array.from(new Set(shoes.map((item) => item.shoeName.trim()))),
+];
+
+export const priceRanges = [
+  "Reviews",
+  "Menos de 100",
+  "100 - 500",
+  "500 - 1000",
+  "Más de 1000",
+];
+
+export const shoeTypes = [
+  "Tipo",
+  ...Array.from(new Set(shoes.map((item) => item.shoeCategory.trim()))),
+];
+
+export const filters = [shoeBrands, priceRanges, shoeTypes];
+
+export const filterShoes = (shoes, [brand, reviews, type]) => {
+  return shoes.filter((shoe) => {
+    const matchBrand = brand === "Marca" || shoe.shoeName === brand;
+    let matchReviews = true;
+    if (reviews === "Menos de 100") matchReviews = shoe.reviews < 100;
+    else if (reviews === "100 - 500") matchReviews = shoe.reviews >= 100 && shoe.reviews <= 500;
+    else if (reviews === "500 - 1000") matchReviews = shoe.reviews > 500 && shoe.reviews <= 1000;
+    else if (reviews === "Más de 1000") matchReviews = shoe.reviews > 1000;
+    const matchType = type === "Tipo" || shoe.shoeCategory === type;
+    return matchBrand && matchReviews && matchType;
+  });
+};
 
 // export const brandsSection = {
 //   heading: "The Official Store of The Amazing Brand",
