@@ -117,10 +117,12 @@ const MainNav = () => {
       <div className="flex flex-1 items-center justify-end gap-5">
         <div className="relative hidden lg:block">
           <span className="absolute -top-1/4 left-3/4 aspect-square w-3 rounded-full bg-red-600" />
+          {/* Icono campana */}
           <FaRegBell className="text-2xl" />
         </div>
 
         <div className="flex items-center divide-x divide-neutral-300">
+          {/* Icono Compra */}
           <CartSideBar />
           <div className="flex items-center gap-2 pl-5 relative">
             <ButtonCircle3 className="overflow-hidden bg-gray" size="w-10 h-10">

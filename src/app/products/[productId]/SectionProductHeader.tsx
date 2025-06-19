@@ -1,3 +1,5 @@
+"use client";
+
 import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import type { FC } from "react";
@@ -16,6 +18,9 @@ import ButtonCircle3 from "@/shared/Button/ButtonCircle3";
 import ButtonPrimary from "@/shared/Button/ButtonPrimary";
 import ButtonSecondary from "@/shared/Button/ButtonSecondary";
 import Heading from "@/shared/Heading/Heading";
+import { useCart } from "@/hooks/useCart";
+import { useAuth } from "@/hooks/useAuth";
+import AddToCartButton from "@/components/AddToCartButton";
 
 interface SectionProductHeaderProps {
   shots: StaticImageData[];
@@ -25,6 +30,9 @@ interface SectionProductHeaderProps {
   rating: number;
   pieces_sold: number;
   reviews: number;
+  coverImage: string;
+  slug: string;
+  shoeCategory?: string;
 }
 
 const SectionProductHeader: FC<SectionProductHeaderProps> = ({
@@ -35,7 +43,31 @@ const SectionProductHeader: FC<SectionProductHeaderProps> = ({
   rating,
   pieces_sold,
   reviews,
+  coverImage,
+  slug,
+  shoeCategory,
 }) => {
+  const { user } = useAuth();
+  const { addToCart } = useCart();
+
+  const producto = {
+    id: slug,
+    nombreProducto: shoeName,
+    coverImage,
+    precio: currentPrice,
+    cantidad: 1,
+    shoeCategory,
+    rating,
+  };
+
+  const handleAddToCart = () => {
+    if (!user) {
+      alert("Debes iniciar sesión");
+      return;
+    }
+    addToCart(producto);
+  };
+
   return (
     <div className="items-stretch justify-between space-y-10 lg:flex lg:space-y-0">
       <div className="basis-[50%]">
@@ -85,7 +117,7 @@ const SectionProductHeader: FC<SectionProductHeaderProps> = ({
             Size guide <LuInfo />
           </p>
         </div>
-        
+
         <div className="grid grid-cols-3 gap-3">
           {shoeSizes.map((size) => (
             <ShoeSizeButton key={size} size={size} />
@@ -94,9 +126,13 @@ const SectionProductHeader: FC<SectionProductHeaderProps> = ({
 
         <div className="mt-5 flex items-center gap-5">
           <ButtonPrimary className="w-full">Buy Now</ButtonPrimary>
-          <ButtonSecondary className="flex w-full items-center gap-1 border-2 border-primary text-primary">
+          <AddToCartButton producto={producto} />
+          {/* <ButtonSecondary
+            className="flex w-full items-center gap-1 border-2 border-primary text-primary"
+            onClick={handleAddToCart}
+          >
             <BsBag /> Add to cart
-          </ButtonSecondary>
+          </ButtonSecondary> */}
         </div>
       </div>
     </div>

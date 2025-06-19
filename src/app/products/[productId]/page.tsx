@@ -34,6 +34,9 @@ const SingleProductPage = async (props: Props) => {
           rating={pathOr(0, ["rating"], selectedProduct)}
           pieces_sold={pathOr(0, ["pieces_sold"], selectedProduct)}
           reviews={pathOr(0, ["reviews"], selectedProduct)}
+          coverImage={pathOr("", ["coverImage"], selectedProduct)} 
+          slug={pathOr("", ["slug"], selectedProduct)}
+          shoeCategory={pathOr("", ["shoeCategory"], selectedProduct)}
         />
       </div>
 
