@@ -114,18 +114,8 @@ export const topNavLinks: NavItemType[] = [
   },
   {
     id: "h678ty",
-    name: "FAQ",
+    name: "FAQs",
     href: "/faqs",
-  },
-  {
-    id: "h6i78g",
-    name: "Checkout",
-    href: "/checkout",
-  },
-  {
-    id: "f678ty",
-    name: "Cart",
-    href: "/cart",
   },
 ];
 
@@ -151,16 +141,16 @@ export const NavLinks: NavItemType[] = [
     name: "FAQ",
     href: "/faqs",
   },
-  {
-    id: "h6i78g",
-    name: "Checkout",
-    href: "/checkout",
-  },
-  {
-    id: "f678ty",
-    name: "Cart",
-    href: "/cart",
-  },
+  // {
+  //   id: "h6i78g",
+  //   name: "Checkout",
+  //   href: "/checkout",
+  // },
+  // {
+  //   id: "f678ty",
+  //   name: "Cart",
+  //   href: "/cart",
+  // },
 ];
 
 export const headerSection = {
