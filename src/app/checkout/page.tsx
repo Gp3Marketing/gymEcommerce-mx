@@ -6,6 +6,7 @@ import { useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { MdStar } from "react-icons/md";
 import emailjs from "emailjs-com";
+import { addDoc, collection } from "firebase/firestore";
 
 import LikeButton from "@/components/LikeButton";
 import ButtonPrimary from "@/shared/Button/ButtonPrimary";
@@ -15,9 +16,12 @@ import InputNumber from "@/shared/InputNumber/InputNumber";
 import ContactInfo from "./ContactInfo";
 import ShippingAddress from "./ShippingAddress";
 import { useCart } from "@/hooks/useCart";
+import { useAuth } from "@/hooks/useAuth";
+import { db } from "@/firebase/config";
 
 const CheckoutPage = () => {
   const { cart, removeFromCart, updateQuantity } = useCart();
+  const { user } = useAuth();
   const [tabActive, setTabActive] = useState<
     "ContactInfo" | "ShippingAddress" | "PaymentMethod"
   >("ShippingAddress");
@@ -48,6 +52,7 @@ const CheckoutPage = () => {
     const {
       nombreProducto,
       coverImage,
+      overview,
       precio,
       id,
       rating,
@@ -70,16 +75,14 @@ const CheckoutPage = () => {
             <h3 className="font-medium md:text-2xl flex items-center gap-2">
               <Link href={`/products/${id}`}>{nombreProducto}</Link>
             </h3>
-            <span className="text-sm block mt-1">
-              Valor: ${precio}
-            </span>
-            <span className="text-sm block mt-1">
-              Cantidad: {cantidad}
-            </span>
-            <span className="text-sm block mt-1">
-              {shoeCategory}
-            </span>
-            
+            <span className="text-sm block mt-1">Valor: ${precio}</span>
+            <span className="text-sm block mt-1">Cantidad: {cantidad}</span>
+            <span className="text-sm block mt-1">{shoeCategory}</span>
+            {overview && (
+              <span className="text-xs block mt-1 text-neutral-500">
+                {overview}
+              </span>
+            )}
             <div className="flex items-center gap-1 mt-2">
               <MdStar className="text-yellow-400" />
               <span className="text-sm">{rating}</span>
@@ -140,9 +143,10 @@ const CheckoutPage = () => {
     </div>
   );
 
-  // ENVÍO DE EMAILJS AL CONFIRMAR
+  // ENVÍO DE EMAILJS Y GUARDADO EN FIRESTORE AL CONFIRMAR
   const handleConfirm = async () => {
     try {
+      // 1. Envía el correo
       await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
@@ -160,9 +164,31 @@ const CheckoutPage = () => {
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
+
+      // 2. Guarda el pedido en Firestore con toda la info relevante
+      if (user && cart.length > 0) {
+        const pedido = {
+          userId: user.uid,
+          fecha: new Date().toISOString().slice(0, 10),
+          total: cart.reduce(
+            (acc, item) => acc + item.precio * (item.cantidad || 1),
+            0
+          ),
+          productos: cart.map((item) => ({
+            slug: item.slug,
+            nombreProducto: item.nombreProducto,
+            cantidad: item.cantidad,
+            precio: item.precio,
+          })),
+          shipping: shippingAddress,
+          contact: contactInfo,
+        };
+        await addDoc(collection(db, "orders"), pedido);
+      }
+
       alert("¡Datos enviados correctamente!");
     } catch (error) {
-      alert("Error al enviar el correo.");
+      alert("Error al enviar el correo o guardar el pedido.");
     }
   };
 
