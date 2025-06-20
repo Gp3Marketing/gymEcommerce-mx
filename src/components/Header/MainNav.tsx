@@ -33,10 +33,8 @@ const MainNav = () => {
   const [showResults, setShowResults] = useState(false);
 
   const handleAccountClick = (e: React.MouseEvent) => {
-    if (user) {
-      e.preventDefault();
-      setShowAccountMenu((prev) => !prev);
-    }
+    e.preventDefault();
+    setShowAccountMenu((prev) => !prev);
   };
 
   const handleLogout = () => {
@@ -139,7 +137,7 @@ const MainNav = () => {
             >
               {user ? getFirstName(user.displayName, user.email) : "Iniciar sesión"}
             </Link>
-            {user && showAccountMenu && (
+            {showAccountMenu && (
               <AccountMenu onLogout={handleLogout} />
             )}
           </div>

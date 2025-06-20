@@ -1,30 +1,42 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/hooks/useAuth";
 
 interface AccountMenuProps {
+  onClose: () => void;
   onLogout: () => Promise<void> | void;
 }
 
-const AccountMenu: React.FC<AccountMenuProps> = ({ onLogout }) => {
+const AccountMenu: React.FC<AccountMenuProps> = ({ onClose, onLogout }) => {
   const menuRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+  const { user } = useAuth();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        onLogout();
+        onClose();
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [onLogout]);
+  }, [onClose]);
+
+  const handleProtectedRoute = (route: string) => {
+    if (!user) {
+      router.push(`/login?redirect=${encodeURIComponent(route)}`);
+    } else {
+      router.push(route);
+    }
+    onClose();
+  };
 
   const handleLogout = async () => {
     await onLogout();
     router.push("/login");
+    onClose();
   };
 
   return (
@@ -35,23 +47,39 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ onLogout }) => {
       <div className="mb-2 font-semibold text-neutral-700">Tu Cuenta</div>
       <ul className="space-y-2">
         <li>
-          <Link href="/account" className="block hover:text-primary">
+          <button
+            className="block w-full text-left hover:text-primary"
+            onClick={() => handleProtectedRoute("/account")}
+          >
             Cuenta
-          </Link>
-        </li>
-        <li>
-          <Link href="/orders" className="block hover:text-primary">
-            Pedidos
-          </Link>
+          </button>
         </li>
         <li>
           <button
             className="block w-full text-left hover:text-primary"
-            onClick={handleLogout}
+            onClick={() => handleProtectedRoute("/orders")}
           >
-            Cerrar Sesión
+            Mis Pedidos
           </button>
         </li>
+        <li>
+          <button
+            className="block w-full text-left hover:text-primary"
+            onClick={() => handleProtectedRoute("/wishlist")}
+          >
+            Lista de Deseos
+          </button>
+        </li>
+        {user && (
+          <li>
+            <button
+              className="block w-full text-left hover:text-primary"
+              onClick={handleLogout}
+            >
+              Cerrar Sesión
+            </button>
+          </li>
+        )}
       </ul>
     </div>
   );
