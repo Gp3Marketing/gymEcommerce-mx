@@ -175,10 +175,10 @@ const CheckoutPage = () => {
             0
           ),
           productos: cart.map((item) => ({
-            slug: item.slug,
-            nombreProducto: item.nombreProducto,
-            cantidad: item.cantidad,
-            precio: item.precio,
+            slug: item.slug || null,
+            nombreProducto: item.nombreProducto || "",
+            cantidad: item.cantidad ?? 1,
+            precio: item.precio ?? 0,
           })),
           shipping: shippingAddress,
           contact: contactInfo,
@@ -188,6 +188,7 @@ const CheckoutPage = () => {
 
       alert("¡Datos enviados correctamente!");
     } catch (error) {
+      console.log(error);
       alert("Error al enviar el correo o guardar el pedido.");
     }
   };
