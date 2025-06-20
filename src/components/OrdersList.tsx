@@ -115,10 +115,32 @@ const OrdersList: React.FC<OrdersListProps> = ({ orders }) => (
                 })}
               </div>
               {/* Resumen del pedido a la derecha */}
-              <div className="flex-1 mt-10 lg:mt-0 lg:pl-10 flex flex-col justify-start items-end">
+              <div className="flex-1 px-10 py-5 ml-20">
+                <div className="sticky top-28">
+                  <h3 className="text-2xl font-semibold">
+                    Detalles del Pedido
+                  </h3>
+                  <div className="mt-7 divide-y divide-neutral-300 text-sm">
+                    <div className="flex justify-between pb-4">
+                      <span className="font-semibold">Pedido:</span>
+                      <span>{order.id}</span>
+                    </div>
+                    <div className="flex justify-between py-4">
+                      <span className="font-semibold">Fecha de solicitud</span>
+                      <span>{order.fecha}</span>
+                    </div>
+                    <div className="flex justify-between py-4">
+                      <span className="font-semibold">Total Facturación:</span>
+                      <span>${order.total}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* <div className="flex-1 mt-10 lg:mt-0 lg:pl-10 flex flex-col justify-start items-end">
                 <div className="text-right space-y-2">
                   <div>
-                    <span className="font-semibold">Pedido:</span> {order.id}
+                    <span className="font-semibold">Pedido:</span>
+                    <span>{order.id}</span>
                   </div>
                   <div>
                     <span className="font-semibold">Fecha:</span> {order.fecha}
@@ -127,7 +149,7 @@ const OrdersList: React.FC<OrdersListProps> = ({ orders }) => (
                     <span className="font-semibold">Total:</span> ${order.total}
                   </div>
                 </div>
-              </div>
+              </div> */}
             </li>
           );
         })}
