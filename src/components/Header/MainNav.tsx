@@ -17,7 +17,7 @@ import CartSideBar from "../CartSideBar";
 import MenuBar from "./MenuBar";
 import MsgWhatsapp from "@/components/WhatsApp";
 
-import { shoes } from '@/data/content';
+import { shoes } from "@/data/content";
 
 const getFirstName = (displayName: string | null, email: string | null) => {
   if (displayName) return displayName.split(" ")[0];
@@ -28,7 +28,7 @@ const getFirstName = (displayName: string | null, email: string | null) => {
 const MainNav = () => {
   const { user, logout } = useAuth();
   const [showAccountMenu, setShowAccountMenu] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState<typeof shoes>([]);
   const [showResults, setShowResults] = useState(false);
 
@@ -46,7 +46,7 @@ const MainNav = () => {
     const value = e.target.value;
     setSearchTerm(value);
 
-    if (value.trim() === '') {
+    if (value.trim() === "") {
       setSearchResults([]);
       setShowResults(false);
       return;
@@ -98,7 +98,9 @@ const MainNav = () => {
                     />
                     <div>
                       <div className="font-medium">{shoe.shoeName}</div>
-                      <div className="text-xs text-neutral-500">{shoe.shoeCategory}</div>
+                      <div className="text-xs text-neutral-500">
+                        {shoe.shoeCategory}
+                      </div>
                     </div>
                   </Link>
                 ))
@@ -135,10 +137,15 @@ const MainNav = () => {
               className="hidden text-sm lg:block"
               onClick={handleAccountClick}
             >
-              {user ? getFirstName(user.displayName, user.email) : "Iniciar sesión"}
+              {user
+                ? getFirstName(user.displayName, user.email)
+                : "Iniciar sesión"}
             </Link>
             {showAccountMenu && (
-              <AccountMenu onLogout={handleLogout} />
+              <AccountMenu
+                onLogout={handleLogout}
+                onClose={() => setShowAccountMenu(false)}
+              />
             )}
           </div>
         </div>
