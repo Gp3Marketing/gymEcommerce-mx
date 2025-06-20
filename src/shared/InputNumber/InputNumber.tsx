@@ -1,11 +1,10 @@
 "use client";
 
 import type { FC } from "react";
-import React, { useEffect, useState } from "react";
 
 export interface InputNumberProps {
   className?: string;
-  defaultValue?: number;
+  value: number;
   min?: number;
   max?: number;
   onChange?: (value: number) => void;
@@ -15,44 +14,30 @@ export interface InputNumberProps {
 
 const InputNumber: FC<InputNumberProps> = ({
   className = "w-full",
-  defaultValue = 1,
+  value,
   min = 1,
   max = 99,
   onChange,
   label,
   desc,
 }) => {
-  const [value, setValue] = useState(defaultValue);
-
-  useEffect(() => {
-    setValue(defaultValue);
-  }, [defaultValue]);
-
   const handleClickDecrement = () => {
     if (min >= value) return;
-    setValue((state) => {
-      return state - 1;
-    });
     onChange && onChange(value - 1);
   };
   const handleClickIncrement = () => {
     if (max && max <= value) return;
-    setValue((state) => {
-      return state + 1;
-    });
     onChange && onChange(value + 1);
   };
 
-  const renderLabel = () => {
-    return (
-      <div className="flex flex-col">
-        <span className="font-medium">{label}</span>
-        {desc && (
-          <span className="text-xs font-normal text-neutral-500">{desc}</span>
-        )}
-      </div>
-    );
-  };
+  const renderLabel = () => (
+    <div className="flex flex-col">
+      <span className="font-medium">{label}</span>
+      {desc && (
+        <span className="text-xs font-normal text-neutral-500">{desc}</span>
+      )}
+    </div>
+  );
 
   return (
     <div

@@ -17,7 +17,7 @@ import CartSideBar from "../CartSideBar";
 import MenuBar from "./MenuBar";
 import MsgWhatsapp from "@/components/WhatsApp";
 
-import { shoes } from '@/data/content';
+import { shoes } from "@/data/content";
 
 const getFirstName = (displayName: string | null, email: string | null) => {
   if (displayName) return displayName.split(" ")[0];
@@ -28,15 +28,13 @@ const getFirstName = (displayName: string | null, email: string | null) => {
 const MainNav = () => {
   const { user, logout } = useAuth();
   const [showAccountMenu, setShowAccountMenu] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState<typeof shoes>([]);
   const [showResults, setShowResults] = useState(false);
 
   const handleAccountClick = (e: React.MouseEvent) => {
-    if (user) {
-      e.preventDefault();
-      setShowAccountMenu((prev) => !prev);
-    }
+    e.preventDefault();
+    setShowAccountMenu((prev) => !prev);
   };
 
   const handleLogout = () => {
@@ -48,7 +46,7 @@ const MainNav = () => {
     const value = e.target.value;
     setSearchTerm(value);
 
-    if (value.trim() === '') {
+    if (value.trim() === "") {
       setSearchResults([]);
       setShowResults(false);
       return;
@@ -100,7 +98,9 @@ const MainNav = () => {
                     />
                     <div>
                       <div className="font-medium">{shoe.shoeName}</div>
-                      <div className="text-xs text-neutral-500">{shoe.shoeCategory}</div>
+                      <div className="text-xs text-neutral-500">
+                        {shoe.shoeCategory}
+                      </div>
                     </div>
                   </Link>
                 ))
@@ -117,10 +117,12 @@ const MainNav = () => {
       <div className="flex flex-1 items-center justify-end gap-5">
         <div className="relative hidden lg:block">
           <span className="absolute -top-1/4 left-3/4 aspect-square w-3 rounded-full bg-red-600" />
+          {/* Icono campana */}
           <FaRegBell className="text-2xl" />
         </div>
 
         <div className="flex items-center divide-x divide-neutral-300">
+          {/* Icono Compra */}
           <CartSideBar />
           <div className="flex items-center gap-2 pl-5 relative">
             <ButtonCircle3 className="overflow-hidden bg-gray" size="w-10 h-10">
@@ -135,10 +137,15 @@ const MainNav = () => {
               className="hidden text-sm lg:block"
               onClick={handleAccountClick}
             >
-              {user ? getFirstName(user.displayName, user.email) : "Iniciar sesión"}
+              {user
+                ? getFirstName(user.displayName, user.email)
+                : "Iniciar sesión"}
             </Link>
-            {user && showAccountMenu && (
-              <AccountMenu onLogout={handleLogout} />
+            {showAccountMenu && (
+              <AccountMenu
+                onLogout={handleLogout}
+                onClose={() => setShowAccountMenu(false)}
+              />
             )}
           </div>
         </div>
