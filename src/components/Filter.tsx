@@ -7,7 +7,8 @@ import Button from "@/shared/Button/Button";
 import Select from "@/shared/Select/Select";
 
 const Filter = ({ onFilter }: { onFilter: (filters: string[]) => void }) => {
-  const [selected, setSelected] = useState(filters.map((f) => f[0]));
+  const defaultSelected = filters.map((f) => f[0]);
+  const [selected, setSelected] = useState(defaultSelected);
 
   const handleChange = (value: string, idx: number) => {
     const updated = [...selected];
@@ -16,8 +17,15 @@ const Filter = ({ onFilter }: { onFilter: (filters: string[]) => void }) => {
   };
 
   const handleFilterClick = () => {
-    onFilter(selected.filter((v): v is string => typeof v === 'string'));
+    onFilter(selected);
   };
+
+  const handleClear = () => {
+    setSelected(defaultSelected);
+    onFilter(defaultSelected);
+  };
+
+  const isFiltered = selected.some((v, idx) => v !== defaultSelected[idx]);
 
   return (
     <div className="mx-auto mb-10 max-w-4xl items-center justify-between space-y-3 rounded-2xl border border-neutral-300 p-2 md:flex md:space-y-0 md:rounded-full">
@@ -37,14 +45,24 @@ const Filter = ({ onFilter }: { onFilter: (filters: string[]) => void }) => {
           </Select>
         ))}
       </div>
-      <div className="hidden h-5 w-px bg-neutral-300 md:block" />
-      <Button
-        className="flex w-full items-center gap-1 bg-gray lg:w-auto"
-        onClick={handleFilterClick}
-      >
-        Filtrar
-        <LuFilter />
-      </Button>
+      <div className="flex items-center gap-2">
+        <Button
+          className="flex items-center gap-1 bg-gray rounded-full px-6 py-2"
+          onClick={handleFilterClick}
+        >
+          Filtrar
+          <LuFilter />
+        </Button>
+        {isFiltered && (
+          <Button
+            className="flex items-center gap-1 bg-neutral-200 text-neutral-500 rounded-full px-6 py-2"
+            onClick={handleClear}
+          >
+            Borrar
+            <LuFilter />
+          </Button>
+        )}
+      </div>
     </div>
   );
 };
