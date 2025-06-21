@@ -7,6 +7,7 @@ import { MdOutlineCameraAlt } from "react-icons/md";
 import { PiPercentFill } from "react-icons/pi";
 
 import type { NavItemType } from "@/components/NavItem";
+import type { BlogType } from "./types";
 
 /* new */
 import psychotic from "@/images/psychotic/psychotic-3.webp";
@@ -79,7 +80,15 @@ import aminox3 from "@/images/aminox/aminox-3.jpg";
 import aminox4 from "@/images/aminox/aminox-4.jpg";
 import aminox5 from "@/images/aminox/aminox-5.jpg";
 
-import type { BlogType } from "./types";
+import modernEaa from "@/images/modern-eaa/EAA.webp";
+
+import omega3 from "@/images/omega3/Omega3.jpg";
+
+import creatinaBirdman from "@/images/birdman/creatina.webp";
+
+import dragonCreatine from "@/images/dragoncreatine/creatina-Dragon.webp";
+
+import glutamina from '@/images/glutamina/GLUTAMINA.png'
 
 export const topNavLinks: NavItemType[] = [
   {
@@ -159,8 +168,8 @@ export const shoes = [
     slug: "cbum5peat",
     shoeName: "cbum5peat",
     coverImage: cbum5peat,
-    currentPrice: 189000,
-    previousPrice: 210000,
+    currentPrice: 10000,
+    previousPrice: 2000,
     shoeCategory: "Pre-entrenamiento",
     rating: 4.9,
     reviews: 10500,
@@ -196,8 +205,8 @@ export const shoes = [
     slug: "peachbum",
     shoeName: "PEACHBUM",
     coverImage: peachbum,
-    currentPrice: 189000,
-    previousPrice: 210000,
+    currentPrice: 10000,
+    previousPrice: 2000,
     shoeCategory: "Pre-entrenamiento",
     rating: 4.9,
     reviews: 8700,
@@ -230,12 +239,12 @@ export const shoes = [
     ],
   },
   {
-    slug: "preentreno",
-    shoeName: "Venom",
+    slug: "Vemon",
+    shoeName: "VEMON",
     coverImage: preentreno,
     currentPrice: 199,
     previousPrice: 250,
-    shoeCategory: "Pre-Entreno Dragon Pharma ",
+    shoeCategory: "Pre-entrenamiento",
     rating: 4.9,
     reviews: 310,
     pieces_sold: 2400,
@@ -316,7 +325,7 @@ export const shoes = [
     coverImage: iso,
     currentPrice: 950,
     previousPrice: 1150,
-    shoeCategory: "Proteina",
+    shoeCategory: "Proteína",
     rating: 5,
     reviews: 76,
     pieces_sold: 600,
@@ -353,7 +362,7 @@ export const shoes = [
     coverImage: CBUM,
     currentPrice: 1250,
     previousPrice: 1450,
-    shoeCategory: "Proteína aislada en polvo RAW",
+    shoeCategory: "Proteína",
     rating: 4.5,
     reviews: 194,
     pieces_sold: 700,
@@ -390,7 +399,7 @@ export const shoes = [
     coverImage: Cake,
     currentPrice: 1250,
     previousPrice: 1450,
-    shoeCategory: "Proteína de suero aislada (Itolato)",
+    shoeCategory: "Proteína",
     rating: 4.5,
     reviews: 194,
     pieces_sold: 700,
@@ -427,7 +436,7 @@ export const shoes = [
     coverImage: cream,
     currentPrice: 900,
     previousPrice: 1050,
-    shoeCategory: "Proteína de suero aislada (Itolato)",
+    shoeCategory: "Proteína",
     rating: 4.3,
     reviews: 1676,
     pieces_sold: 1200,
@@ -499,9 +508,9 @@ export const shoes = [
     slug: "gold-standard-whey",
     shoeName: "Gold Standard - Whey Protein",
     coverImage: whey,
-    currentPrice: 168000,
-    previousPrice: 190000,
-    shoeCategory: "Proteína en polvo",
+    currentPrice: 20000,
+    previousPrice: 19000,
+    shoeCategory: "Proteína",
     rating: 4.8,
     reviews: 22500,
     pieces_sold: 150000,
@@ -539,7 +548,7 @@ export const shoes = [
     coverImage: creatine,
     currentPrice: 165,
     previousPrice: 210,
-    shoeCategory: "Supplements",
+    shoeCategory: "Suplementos",
     rating: 4.9,
     reviews: 124,
     pieces_sold: 3200,
@@ -576,7 +585,7 @@ export const shoes = [
     coverImage: aminox,
     currentPrice: 145,
     previousPrice: 180,
-    shoeCategory: "Supplements",
+    shoeCategory: "Suplementos",
     rating: 4.7,
     reviews: 89,
     pieces_sold: 2300,
@@ -607,6 +616,195 @@ export const shoes = [
       },
     ],
   },
+  {
+  slug: "modern-eaa-plus",
+  shoeName: "Modern EAA+",
+  coverImage: modernEaa,
+  currentPrice: 699,
+  previousPrice: 799,
+  shoeCategory: "Aminoácidos",
+  rating: 4.8,
+  reviews: 154,
+  pieces_sold: 3150,
+  justIn: false,
+  shots: [modernEaa],
+  overview:
+    "Modern EAA+ de USP Labs combina aminoácidos esenciales (EAA) con electrolitos para optimizar la hidratación, recuperación y crecimiento muscular. Ideal para consumir antes, durante o después del entrenamiento. Su fórmula avanzada ayuda a prevenir la degradación muscular y acelerar la síntesis proteica. Libre de estimulantes y con delicioso sabor a ponche de frutas.",
+  shipment_details: [
+    {
+      icon: <PiPercentFill className="text-xl text-secondary" />,
+      title: "Descuento",
+      description: "10% OFF por compras mayores a $1,000 MXN",
+    },
+    {
+      icon: <FaCalendarAlt className="text-xl text-secondary" />,
+      title: "Tiempo de entrega",
+      description: "3 - 6 días hábiles",
+    },
+    {
+      icon: <BsBoxFill className="text-xl text-secondary" />,
+      title: "Empaque",
+      description: "Bote sellado USP Labs® 450g",
+    },
+    {
+      icon: <FaTruckFast className="text-xl text-secondary" />,
+      title: "Entrega estimada",
+      description: "25 - 28 de junio 2025",
+    },
+  ],
+},
+{
+  slug: "omega-3-90-softgels",
+  shoeName: "Omega-3 90 Softgels",
+  coverImage: omega3,
+  currentPrice: 299,
+  previousPrice: 349,
+  shoeCategory: "Omega 3",
+  rating: 4.6,
+  reviews: 78,
+  pieces_sold: 1820,
+  justIn: false,
+  shots: [omega3],
+  overview:
+    "Omega-3 90 Softgels es un suplemento de ácidos grasos esenciales que apoya la salud cardiovascular, cerebral y articular. Cada cápsula blanda contiene una alta concentración de EPA y DHA de calidad premium. Ideal para uso diario, mejora la circulación, reduce la inflamación y favorece el bienestar general. Sin sabor a pescado ni aditivos artificiales.",
+  shipment_details: [
+    {
+      icon: <PiPercentFill className="text-xl text-secondary" />,
+      title: "Descuento",
+      description: "5% OFF por compras mayores a $500 MXN",
+    },
+    {
+      icon: <FaCalendarAlt className="text-xl text-secondary" />,
+      title: "Tiempo de entrega",
+      description: "2 - 5 días hábiles",
+    },
+    {
+      icon: <BsBoxFill className="text-xl text-secondary" />,
+      title: "Empaque",
+      description: "Frasco sellado con 90 cápsulas blandas",
+    },
+    {
+      icon: <FaTruckFast className="text-xl text-secondary" />,
+      title: "Entrega estimada",
+      description: "22 - 25 de junio 2025",
+    },
+  ],
+},
+{
+  slug: "creatina-monohidratada-birdman-450g",
+  shoeName: "Creatina Monohidratada Birdman 450g",
+  coverImage: creatinaBirdman, 
+  currentPrice: 499,
+  previousPrice: 599,
+  shoeCategory: "Creatina",
+  rating: 4.8,
+  reviews: 132,
+  pieces_sold: 3200,
+  justIn: false,
+  shots: [creatinaBirdman],
+  overview:
+    "La Creatina Monohidratada Birdman 450g es un suplemento vegano de alta pureza que mejora el rendimiento físico, la fuerza muscular y acelera la recuperación post-entrenamiento. Apta para atletas y deportistas exigentes, esta creatina es 100% micronizada, sin saborizantes, colorantes ni aditivos artificiales. Perfecta para consumo diario.",
+  shipment_details: [
+    {
+      icon: <PiPercentFill className="text-xl text-secondary" />,
+      title: "Descuento",
+      description: "15% OFF por compras mayores a $800 MXN",
+    },
+    {
+      icon: <FaCalendarAlt className="text-xl text-secondary" />,
+      title: "Tiempo de entrega",
+      description: "3 - 6 días hábiles",
+    },
+    {
+      icon: <BsBoxFill className="text-xl text-secondary" />,
+      title: "Empaque",
+      description: "Bolsa resellable ecológica Birdman® 450g",
+    },
+    {
+      icon: <FaTruckFast className="text-xl text-secondary" />,
+      title: "Entrega estimada",
+      description: "23 - 27 de junio 2025",
+    },
+  ],
+},
+{
+  slug: "creatina-dragon-pharma-1kg",
+  shoeName: "Creatina Dragon",
+  coverImage: dragonCreatine,
+  currentPrice: 749,
+  previousPrice: 899,
+  shoeCategory: "Creatina",
+  rating: 4.9,
+  reviews: 176,
+  pieces_sold: 4100,
+  justIn: false,
+  shots: [dragonCreatine],
+  overview:
+    "La Creatina Monohidratada Dragon Pharma 1 kg proporciona 200 porciones de alta pureza, ideal para aumentar la fuerza, resistencia y volumen muscular. Formulada para atletas de alto rendimiento, esta creatina no contiene saborizantes ni aditivos. Perfecta para ciclos de carga y mantenimiento.",
+  shipment_details: [
+    {
+      icon: <PiPercentFill className="text-xl text-secondary" />,
+      title: "Descuento",
+      description: "10% OFF por compras mayores a $1,000 MXN",
+    },
+    {
+      icon: <FaCalendarAlt className="text-xl text-secondary" />,
+      title: "Tiempo de entrega",
+      description: "4 - 7 días hábiles",
+    },
+    {
+      icon: <BsBoxFill className="text-xl text-secondary" />,
+      title: "Empaque",
+      description: "Envase plástico hermético Dragon Pharma® 1 kg",
+    },
+    {
+      icon: <FaTruckFast className="text-xl text-secondary" />,
+      title: "Entrega estimada",
+      description: "24 - 28 de junio 2025",
+    },
+  ],
+},
+{
+  slug: "glutamina-creatina",
+  shoeName: "Glutamina + Creatina 600g",
+  coverImage: glutamina,
+  currentPrice: 579,
+  previousPrice: 699,
+  shoeCategory: "Glutamina",
+  rating: 4.6,
+  reviews: 98,
+  pieces_sold: 2650,
+  justIn: true,
+  shots: [glutamina],
+  overview:
+    "El suplemento Glutamina + Creatina combina dos potentes ingredientes para mejorar la recuperación muscular, aumentar la energía y reducir el catabolismo tras entrenamientos intensos. Ideal para quienes buscan fortalecer masa muscular y acelerar el tiempo de recuperación. Fórmula sin sabor, fácil de mezclar.",
+  shipment_details: [
+    {
+      icon: <PiPercentFill className="text-xl text-secondary" />,
+      title: "Descuento",
+      description: "10% OFF por compras mayores a $700 MXN",
+    },
+    {
+      icon: <FaCalendarAlt className="text-xl text-secondary" />,
+      title: "Tiempo de entrega",
+      description: "3 - 6 días hábiles",
+    },
+    {
+      icon: <BsBoxFill className="text-xl text-secondary" />,
+      title: "Empaque",
+      description: "Bote plástico sellado de 600g",
+    },
+    {
+      icon: <FaTruckFast className="text-xl text-secondary" />,
+      title: "Entrega estimada",
+      description: "24 - 27 de junio 2025",
+    },
+  ],
+}
+
+
+
+
 ];
 
 export const productsSection = {
@@ -652,41 +850,6 @@ export const filterShoes = (shoes, [brand, reviews, type]) => {
     return matchBrand && matchReviews && matchType;
   });
 };
-
-// export const brandsSection = {
-//   heading: "The Official Store of The Amazing Brand",
-//   description:
-//     "We work together with high quality and famous brands around the world",
-//   brands: [
-//     {
-//       brandName: "New Balance",
-//       rating: 4.9,
-//       reviews: 10334,
-//       followers: 7.2,
-//       visitLink: "https://www.newbalance.com",
-//       logo: new_balance,
-//       shoes: [new_balance1, new_balance2, new_balance3, new_balance4],
-//     },
-//     {
-//       brandName: "Compass",
-//       rating: 4.9,
-//       reviews: 10334,
-//       followers: 8.5,
-//       visitLink: "https://www.sepatucompass.com/",
-//       logo: compass_profile,
-//       shoes: [compass1, compass2, compass3, compass4],
-//     },
-//     {
-//       brandName: "Nike",
-//       rating: 4.9,
-//       reviews: 10334,
-//       followers: 11.2,
-//       visitLink: "https://nike.com",
-//       logo: nike_profile,
-//       shoes: [yellowLow, redlow, dunklow, lebronxx],
-//     },
-//   ],
-// };
 
 export const footerBannerData = {
   heading: "Ponte al día con los mejores suplementos",
