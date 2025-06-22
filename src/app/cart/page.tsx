@@ -74,10 +74,10 @@ const CartPage = () => {
 
   return (
     <div className="nc-CartPage">
-      <main className="container py-16 lg:pb-28 lg:pt-20 ">
+      <main className="container lg:pb-28 lg:pt-20 ">
         <div className="mb-14">
           <h2 className="block text-2xl font-medium sm:text-3xl lg:text-4xl">
-            Your Cart
+            Tu carrito de compras
           </h2>
         </div>
         <hr className="my-10 border-neutral-300 xl:my-12" />
@@ -94,7 +94,7 @@ const CartPage = () => {
           <div className="my-10 shrink-0 border-t border-neutral-300 lg:mx-10 lg:my-0 lg:border-l lg:border-t-0 xl:mx-16 2xl:mx-20" />
           <div className="flex-1">
             <div className="sticky top-28">
-              <h3 className="text-2xl font-semibold">Summary</h3>
+              <h3 className="text-2xl font-semibold">Resumen</h3>
               <div className="mt-7 divide-y divide-neutral-300 text-sm">
                 <div className="flex justify-between pb-4">
                   <span>Subtotal</span>
@@ -114,7 +114,7 @@ const CartPage = () => {
                 </div>
               </div>
               <ButtonPrimary href="/checkout" className="mt-8 w-full">
-                Checkout Now
+                Finalizar compra
               </ButtonPrimary>
               {/* 
               <ButtonSecondary

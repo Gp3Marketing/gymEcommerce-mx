@@ -81,76 +81,56 @@ import aminox3 from "@/images/aminox/aminox-3.jpg";
 import aminox4 from "@/images/aminox/aminox-4.jpg";
 import aminox5 from "@/images/aminox/aminox-5.jpg";
 
-import modernEaa from "@/images/modern-eaa/EAA.webp";
-
 import omega3 from "@/images/omega3/Omega3.jpg";
-
-import creatinaBirdman from "@/images/birdman/creatina.webp";
-
-import dragonCreatine from "@/images/dragoncreatine/creatina-Dragon.webp";
-
+import modernEaa from "@/images/modern-eaa/EAA.webp";
 import glutamina from "@/images/glutamina/GLUTAMINA.png";
+import creatinaBirdman from "@/images/birdman/creatina.webp";
+import dragonCreatine from "@/images/dragoncreatine/creatina-Dragon.webp";
 
 export const topNavLinks: NavItemType[] = [
   {
     id: "ee46t",
-    name: "Home",
+    name: "Inicio",
     href: "/",
   },
-  // {
-  //   id: "eerrrt",
-  //   name: "Blog",
-  //   href: "/blog",
-  // },
   {
     id: "eexct",
-    name: "Collections",
+    name: "colecciones",
     href: "/products",
-  },
-  {
-    id: "h6ii8g",
-    name: "Contact",
-    href: "/contact",
   },
   {
     id: "h678ty",
     name: "FAQs",
     href: "/faqs",
   },
+  {
+    id: "h6ii8g",
+    name: "Contacto",
+    href: "/contact",
+  },
 ];
 
 export const NavLinks: NavItemType[] = [
   {
     id: "ee46t",
-    name: "Home",
+    name: "Inicio",
     href: "/",
   },
   {
     id: "eexct",
-    name: "Collection",
+    name: "colecciones",
     href: "/products",
-  },
-
-  {
-    id: "h6ii8g",
-    name: "Contact",
-    href: "/contact",
   },
   {
     id: "h678ty",
     name: "FAQ",
     href: "/faqs",
   },
-  // {
-  //   id: "h6i78g",
-  //   name: "Checkout",
-  //   href: "/checkout",
-  // },
-  // {
-  //   id: "f678ty",
-  //   name: "Cart",
-  //   href: "/cart",
-  // },
+  {
+    id: "h6ii8g",
+    name: "Contacto",
+    href: "/contact",
+  },
 ];
 
 export const headerSection = {

@@ -20,7 +20,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { db } from "@/firebase/config";
 
 const CheckoutPage = () => {
-  const { cart, removeFromCart, updateQuantity } = useCart();
+  const { cart, removeFromCart, updateQuantity, clearCart } = useCart();
   const { user } = useAuth();
   const [tabActive, setTabActive] = useState<
     "ContactInfo" | "ShippingAddress" | "PaymentMethod"
@@ -41,7 +41,6 @@ const CheckoutPage = () => {
     communicationTime: "",
   });
 
-  // --- SINCRONIZA DATOS DE FIRESTORE AL ENTRAR AL CHECKOUT ---
   useEffect(() => {
     const fetchUserData = async () => {
       if (!user) return;
@@ -197,6 +196,8 @@ const CheckoutPage = () => {
         await addDoc(collection(db, "orders"), pedido);
       }
 
+      await clearCart();
+
       alert("¡Datos enviados correctamente!");
     } catch (error) {
       console.log(error);
@@ -260,7 +261,7 @@ const CheckoutPage = () => {
               </div>
             </div>
             <ButtonPrimary className="mt-8 w-full" onClick={handleConfirm}>
-              Confirmar
+              Confirmar pedido
             </ButtonPrimary>
           </div>
         </div>

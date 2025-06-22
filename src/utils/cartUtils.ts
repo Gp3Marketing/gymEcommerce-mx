@@ -1,5 +1,5 @@
 import { db } from "@/firebase/config";
-import { collection, doc, setDoc, deleteDoc, onSnapshot, updateDoc } from "firebase/firestore";
+import { collection, doc, setDoc, deleteDoc, onSnapshot, updateDoc, getDocs } from "firebase/firestore";
 
 export const addToCart = async (userId: string, item: any) => {
   if (!item || !item.id) {
@@ -30,4 +30,11 @@ export const subscribeToCart = (
       callback(items);
     }
   );
+};
+
+export const clearUserCart = async (userId: string) => {
+  const itemsRef = collection(db, "carts", userId, "items");
+  const itemsSnap = await getDocs(itemsRef);
+  const deletePromises = itemsSnap.docs.map((docu) => deleteDoc(docu.ref));
+  await Promise.all(deletePromises);
 };

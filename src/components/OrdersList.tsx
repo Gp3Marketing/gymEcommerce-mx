@@ -34,7 +34,6 @@ const OrdersList: React.FC<OrdersListProps> = ({ orders }) => (
     ) : (
       <ul>
         {orders.map((order) => {
-          // Calcular totales del pedido
           const subtotal = order.productos.reduce(
             (acc, item) => acc + item.precio * (item.cantidad || 1),
             0
@@ -51,7 +50,6 @@ const OrdersList: React.FC<OrdersListProps> = ({ orders }) => (
               key={order.id}
               className="mb-12 border-b pb-8 flex flex-col lg:flex-row"
             >
-              {/* Productos a la izquierda */}
               <div className="w-full divide-y divide-neutral-300 lg:w-[60%] xl:w-[55%]">
                 {order.productos.map((prod, idx) => {
                   let producto = prod.slug
@@ -114,7 +112,7 @@ const OrdersList: React.FC<OrdersListProps> = ({ orders }) => (
                   );
                 })}
               </div>
-              {/* Resumen del pedido a la derecha */}
+
               <div className="flex-1 px-10 py-5 ml-20">
                 <div className="sticky top-28">
                   <h3 className="text-2xl font-semibold">
@@ -136,20 +134,6 @@ const OrdersList: React.FC<OrdersListProps> = ({ orders }) => (
                   </div>
                 </div>
               </div>
-              {/* <div className="flex-1 mt-10 lg:mt-0 lg:pl-10 flex flex-col justify-start items-end">
-                <div className="text-right space-y-2">
-                  <div>
-                    <span className="font-semibold">Pedido:</span>
-                    <span>{order.id}</span>
-                  </div>
-                  <div>
-                    <span className="font-semibold">Fecha:</span> {order.fecha}
-                  </div>
-                  <div>
-                    <span className="font-semibold">Total:</span> ${order.total}
-                  </div>
-                </div>
-              </div> */}
             </li>
           );
         })}
