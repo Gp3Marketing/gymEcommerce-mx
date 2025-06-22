@@ -30,7 +30,7 @@ const OrdersList: React.FC<OrdersListProps> = ({ orders }) => (
     </div>
     <hr className="my-10 border-neutral-300 xl:my-12" />
     {orders.length === 0 ? (
-      <p>No tienes pedidos aún.</p>
+      <p>Aún no tienes adquirido productos, para procesar en tu pedido.</p>
     ) : (
       <ul>
         {orders.map((order) => {

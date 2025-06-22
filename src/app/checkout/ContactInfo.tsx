@@ -54,10 +54,11 @@ const ContactInfo: FC<Props> = ({
           <div className="sm:ml-8">
             <div className="uppercase tracking-tight">Información de contacto</div>
             <div className="mt-1 text-sm font-semibold">
-              {saved ? (
+              {(contactInfo.fullName || contactInfo.phone || contactInfo.email) ? (
                 <>
-                  <span>{contactInfo.email},</span>
-                  <span className="ml-2 tracking-tighter">{contactInfo.phone}</span>
+                  <span>{contactInfo.fullName}</span>
+                  {contactInfo.phone && <span className="ml-2">{contactInfo.phone}</span>}
+                  {contactInfo.email && <span className="ml-2">{contactInfo.email}</span>}
                 </>
               ) : (
                 <span className="text-neutral-500">Agrega tu información de contacto</span>
@@ -75,9 +76,8 @@ const ContactInfo: FC<Props> = ({
       </div>
 
       <div
-        className={`space-y-4 border-t border-neutral-300 px-6 py-7 sm:space-y-6 ${
-          isActive ? "block" : "hidden"
-        }`}
+        className={`space-y-4 border-t border-neutral-300 px-6 py-7 sm:space-y-6 ${isActive ? "block" : "hidden"
+          }`}
       >
         <h3 className="text-lg font-semibold">Completa tu información</h3>
 
@@ -132,7 +132,7 @@ const ContactInfo: FC<Props> = ({
           <Checkbox
             className="!text-sm"
             name="subscribe"
-            label="Quiero recibir novedades y ofertas por correo"
+            label="Acepto datos de trato y política de privacidad"
             defaultChecked
           />
         </div>

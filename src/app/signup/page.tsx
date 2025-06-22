@@ -34,9 +34,20 @@ const PageSignUp = () => {
         return;
       }
       await setDoc(doc(db, 'users', user.uid), {
-        userName,
-        email,
-        phone,
+        contactInfo: {
+          fullName: userName,
+          email,
+          phone,
+          birthDate: "", // El usuario lo llenará después en su cuenta
+        },
+        shippingAddress: {
+          street: "",
+          apartment: "",
+          city: "",
+          state: "",
+          country: "",
+          postalCode: "",
+        },
         createdAt: new Date(),
       });
       alert("¡Registro exitoso!");
@@ -87,15 +98,16 @@ const PageSignUp = () => {
             </div>
             <form onSubmit={handleRegister}>
               <div className="grid grid-cols-1 gap-6">
-                <FormItem label="Nombre de usuario">
+                <FormItem label="Nombre Completo">
                   <Input
                     type="text"
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
                     rounded="rounded-full"
                     sizeClass="h-12 px-4 py-3"
-                    placeholder="Tu nombre de usuario"
+                    placeholder="Tu Nombre Completo"
                     className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
+                    required
                   />
                 </FormItem>
                 <FormItem label="Email address">
@@ -107,6 +119,7 @@ const PageSignUp = () => {
                     sizeClass="h-12 px-4 py-3"
                     placeholder="example@example.com"
                     className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
+                    required
                   />
                 </FormItem>
                 <FormItem label="Número de teléfono">
@@ -116,8 +129,9 @@ const PageSignUp = () => {
                     onChange={(e) => setPhone(e.target.value)}
                     rounded="rounded-full"
                     sizeClass="h-12 px-4 py-3"
-                    placeholder="Tu número de teléfono"
+                    placeholder="+1 234 567 8901"
                     className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
+                    required
                   />
                 </FormItem>
                 <FormItem label="Password">
@@ -130,6 +144,7 @@ const PageSignUp = () => {
                       sizeClass="h-12 px-4 py-3"
                       placeholder="*********"
                       className="bg-transparent border-neutral-300 pr-10 placeholder:text-neutral-500 focus:border-primary"
+                      required
                     />
                     <button
                       type="button"
@@ -141,7 +156,7 @@ const PageSignUp = () => {
                     </button>
                   </div>
                 </FormItem>
-                <ButtonPrimary type="submit">Continue</ButtonPrimary>
+                <ButtonPrimary type="submit">Registrar</ButtonPrimary>
               </div>
             </form>
             <span className="block text-center text-sm text-neutral-500">
