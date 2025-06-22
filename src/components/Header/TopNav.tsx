@@ -13,9 +13,9 @@ const TopNav = () => {
     ),
     ...(user
       ? [
-          { id: "h6i78g", name: "Checkout", href: "/checkout" },
-          { id: "f678ty", name: "Cart", href: "/cart" },
-        ]
+        { id: "f678ty", name: "Carrito de compras", href: "/cart" },
+        { id: "h6i78g", name: "Checkout", href: "/checkout" },
+      ]
       : []),
   ];
 

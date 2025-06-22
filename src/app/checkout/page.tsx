@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { MdStar } from "react-icons/md";
 import emailjs from "emailjs-com";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, doc, getDoc } from "firebase/firestore";
 
 import LikeButton from "@/components/LikeButton";
 import ButtonPrimary from "@/shared/Button/ButtonPrimary";
@@ -40,6 +40,20 @@ const CheckoutPage = () => {
     postalCode: "",
     communicationTime: "",
   });
+
+  // --- SINCRONIZA DATOS DE FIRESTORE AL ENTRAR AL CHECKOUT ---
+  useEffect(() => {
+    const fetchUserData = async () => {
+      if (!user) return;
+      const userDoc = await getDoc(doc(db, "users", user.uid));
+      if (userDoc.exists()) {
+        const data = userDoc.data();
+        if (data.contactInfo) setContactInfo(data.contactInfo);
+        if (data.shippingAddress) setShippingAddress(data.shippingAddress);
+      }
+    };
+    fetchUserData();
+  }, [user]);
 
   const handleScrollToEl = (id: string) => {
     const element = document.getElementById(id);
@@ -143,10 +157,8 @@ const CheckoutPage = () => {
     </div>
   );
 
-  // ENVÍO DE EMAILJS Y GUARDADO EN FIRESTORE AL CONFIRMAR
   const handleConfirm = async () => {
     try {
-      // 1. Envía el correo
       await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
@@ -165,7 +177,6 @@ const CheckoutPage = () => {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
 
-      // 2. Guarda el pedido en Firestore con toda la info relevante
       if (user && cart.length > 0) {
         const pedido = {
           userId: user.uid,
@@ -175,10 +186,10 @@ const CheckoutPage = () => {
             0
           ),
           productos: cart.map((item) => ({
-            slug: item.slug,
-            nombreProducto: item.nombreProducto,
-            cantidad: item.cantidad,
-            precio: item.precio,
+            slug: item.slug || null,
+            nombreProducto: item.nombreProducto || "",
+            cantidad: item.cantidad ?? 1,
+            precio: item.precio ?? 0,
           })),
           shipping: shippingAddress,
           contact: contactInfo,
@@ -188,6 +199,7 @@ const CheckoutPage = () => {
 
       alert("¡Datos enviados correctamente!");
     } catch (error) {
+      console.log(error);
       alert("Error al enviar el correo o guardar el pedido.");
     }
   };
@@ -207,14 +219,14 @@ const CheckoutPage = () => {
           <div className="my-10 shrink-0 border-t border-neutral-300 lg:mx-10 lg:my-0 lg:border-l lg:border-t-0 xl:lg:mx-14 2xl:mx-16 " />
 
           <div className="w-full lg:w-[36%] ">
-            <h3 className="text-lg font-semibold">Order summary</h3>
+            <h3 className="text-lg font-semibold">Resumen del pedido</h3>
             <div className="mt-8 divide-y divide-neutral-300">
               {cart.map((item) => renderProduct(item))}
             </div>
 
             <div className="mt-10 border-t border-neutral-300 pt-6 text-sm">
               <div>
-                <div className="text-sm">Discount code</div>
+                <div className="text-sm">Código de descuento</div>
                 <div className="mt-1.5 flex">
                   <Input
                     rounded="rounded-lg"
@@ -225,7 +237,7 @@ const CheckoutPage = () => {
                     type="button"
                     className="ml-3 flex w-24 items-center justify-center rounded-2xl border border-neutral-300 bg-gray px-4 text-sm font-medium transition-colors hover:bg-neutral-100"
                   >
-                    Apply
+                    Aplicar
                   </button>
                 </div>
               </div>
