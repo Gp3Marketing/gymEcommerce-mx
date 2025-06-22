@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 
 import ButtonPrimary from "@/shared/Button/ButtonPrimary";
 import ButtonSecondary from "@/shared/Button/ButtonSecondary";
+import AceptPubliciti from "@/components/PopUp/AceptPubliciti";
 import FormItem from "@/shared/FormItem";
 import Input from "@/shared/Input/Input";
 import { useAuth } from "@/hooks/useAuth";
@@ -15,6 +16,10 @@ import { db } from "@/firebase/config";
 import { doc, setDoc } from "firebase/firestore";
 
 const PageSignUp = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [newUserUid, setNewUserUid] = useState("");
+  const [newUserName, setNewUserName] = useState("");
+
   const { registerWithEmail, loginWithGoogle } = useAuth();
   const router = useRouter();
 
@@ -25,44 +30,45 @@ const PageSignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleRegister = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      const userCredential = await registerWithEmail(email, password);
-      const user = userCredential?.user;
-      if (!user || !user.uid) {
-        alert('No se pudo crear el usuario.');
-        return;
-      }
-      await setDoc(doc(db, 'users', user.uid), {
-        contactInfo: {
-          fullName: userName,
-          email,
-          phone,
-          birthDate: "", // El usuario lo llenará después en su cuenta
-        },
-        shippingAddress: {
-          street: "",
-          apartment: "",
-          city: "",
-          state: "",
-          country: "",
-          postalCode: "",
-        },
-        createdAt: new Date(),
-      });
-      alert("¡Registro exitoso!");
-      router.push('/');
-    } catch (error: any) {
-      if (error.code === 'auth/email-already-in-use') {
-        alert(
-          'El correo electrónico ya está registrado. Intenta iniciar sesión o usa otro correo.'
-        );
-      } else {
-        alert('Error al registrar: ' + error.message);
-      }
-      console.error('Error al registrar:', error);
+  e.preventDefault();
+  try {
+    const userCredential = await registerWithEmail(email, password);
+    const user = userCredential?.user;
+    if (!user || !user.uid) {
+      alert('No se pudo crear el usuario.');
+      return;
     }
-  };
+    await setDoc(doc(db, 'users', user.uid), {
+      contactInfo: {
+        fullName: userName,
+        email,
+        phone,
+        birthDate: "",
+      },
+      shippingAddress: {
+        street: "",
+        apartment: "",
+        city: "",
+        state: "",
+        country: "",
+        postalCode: "",
+      },
+      createdAt: new Date(),
+    });
+    setNewUserUid(user.uid);
+    setNewUserName(userName);
+    setShowModal(true);
+  } catch (error: any) {
+    if (error.code === 'auth/email-already-in-use') {
+      alert(
+        'El correo electrónico ya está registrado. Intenta iniciar sesión o usa otro correo.'
+      );
+    } else {
+      alert('Error al registrar: ' + error.message);
+    }
+    console.error('Error al registrar:', error);
+  }
+};
 
   const handleGoogleSignUp = async () => {
     try {
@@ -168,6 +174,12 @@ const PageSignUp = () => {
           </div>
         </div>
       </div>
+      <AceptPubliciti
+        open={showModal}
+        userName={newUserName}
+        userUid={newUserUid}
+        onClose={() => setShowModal(false)}
+      />
     </div>
   );
 };
