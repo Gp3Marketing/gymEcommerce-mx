@@ -6,8 +6,6 @@ import { useWishlist } from "@/hooks/useWishlist";
 import WishlistProductCard from "./WishlistProductCard";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 
-const adImage = "/OFF.webp";
-
 const WishlistPage = () => {
   const { wishlist } = useWishlist();
 
@@ -22,7 +20,6 @@ const WishlistPage = () => {
       <hr className="my-10 border-neutral-300 xl:my-12" />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-        {/* Lista de deseos */}
         <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
           {wishlist.length === 0 ? (
             <div className="col-span-full text-gray-500 text-left">
@@ -35,7 +32,6 @@ const WishlistPage = () => {
           )}
         </div>
 
-        {/* Imagen de publicidad */}
         <div className="hidden lg:block">
           <div className="sticky top-28">
             <Splide
