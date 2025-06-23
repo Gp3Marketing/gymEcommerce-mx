@@ -18,6 +18,7 @@ import ShippingAddress from "./ShippingAddress";
 import { useCart } from "@/hooks/useCart";
 import { useAuth } from "@/hooks/useAuth";
 import { db } from "@/firebase/config";
+import { addUserNotification } from "@/utils/notificationsUtils";
 
 const CheckoutPage = () => {
   const { cart, removeFromCart, updateQuantity, clearCart } = useCart();
@@ -193,7 +194,15 @@ const CheckoutPage = () => {
           shipping: shippingAddress,
           contact: contactInfo,
         };
-        await addDoc(collection(db, "orders"), pedido);
+        const pedidoRef = await addDoc(collection(db, "orders"), pedido);
+        await addUserNotification(user.uid, {
+          type: "order",
+          extraData: {
+            orderId: pedidoRef.id,
+            total: pedido.total,
+          },
+          message: "¡Tu pedido ha sido realizado con éxito!",
+        });
       }
 
       await clearCart();

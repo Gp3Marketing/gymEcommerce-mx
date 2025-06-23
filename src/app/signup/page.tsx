@@ -14,6 +14,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { db } from "@/firebase/config";
 import { doc, setDoc } from "firebase/firestore";
+import { addUserNotification } from "@/utils/notificationsUtils";
 
 const PageSignUp = () => {
   const [showModal, setShowModal] = useState(false);
@@ -30,45 +31,55 @@ const PageSignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleRegister = async (e: React.FormEvent) => {
-  e.preventDefault();
-  try {
-    const userCredential = await registerWithEmail(email, password);
-    const user = userCredential?.user;
-    if (!user || !user.uid) {
-      alert('No se pudo crear el usuario.');
-      return;
+    e.preventDefault();
+    try {
+      const userCredential = await registerWithEmail(email, password);
+      const user = userCredential?.user;
+      if (!user || !user.uid) {
+        alert('No se pudo crear el usuario.');
+        return;
+      }
+      await setDoc(doc(db, 'users', user.uid), {
+        contactInfo: {
+          fullName: userName,
+          email,
+          phone,
+          birthDate: "",
+        },
+        shippingAddress: {
+          street: "",
+          apartment: "",
+          city: "",
+          state: "",
+          country: "",
+          postalCode: "",
+        },
+        createdAt: new Date(),
+      });
+
+      // Notificación de bienvenida
+      await addUserNotification(user.uid, {
+        type: "welcome",
+        message: `Bienvenido a FITMEX STORE, ${userName}`,
+        extraData: {
+          registeredAt: new Date().toISOString(),
+        },
+      });
+
+      setNewUserUid(user.uid);
+      setNewUserName(userName);
+      setShowModal(true);
+    } catch (error: any) {
+      if (error.code === 'auth/email-already-in-use') {
+        alert(
+          'El correo electrónico ya está registrado. Intenta iniciar sesión o usa otro correo.'
+        );
+      } else {
+        alert('Error al registrar: ' + error.message);
+      }
+      console.error('Error al registrar:', error);
     }
-    await setDoc(doc(db, 'users', user.uid), {
-      contactInfo: {
-        fullName: userName,
-        email,
-        phone,
-        birthDate: "",
-      },
-      shippingAddress: {
-        street: "",
-        apartment: "",
-        city: "",
-        state: "",
-        country: "",
-        postalCode: "",
-      },
-      createdAt: new Date(),
-    });
-    setNewUserUid(user.uid);
-    setNewUserName(userName);
-    setShowModal(true);
-  } catch (error: any) {
-    if (error.code === 'auth/email-already-in-use') {
-      alert(
-        'El correo electrónico ya está registrado. Intenta iniciar sesión o usa otro correo.'
-      );
-    } else {
-      alert('Error al registrar: ' + error.message);
-    }
-    console.error('Error al registrar:', error);
-  }
-};
+  };
 
   const handleGoogleSignUp = async () => {
     try {

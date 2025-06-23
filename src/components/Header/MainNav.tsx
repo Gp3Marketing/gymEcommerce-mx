@@ -18,6 +18,10 @@ import MenuBar from "./MenuBar";
 import MsgWhatsapp from "@/components/WhatsApp";
 
 import { shoes } from "@/data/content";
+import NotificationsSidebar from "@/components/NotificationsSidebar";
+import { useNotifications } from "@/hooks/useNotifications";
+import { db } from "@/firebase/config";
+import { doc, updateDoc } from "firebase/firestore";
 
 const getFirstName = (displayName: string | null, email: string | null) => {
   if (displayName) return displayName.split(" ")[0];
@@ -27,10 +31,14 @@ const getFirstName = (displayName: string | null, email: string | null) => {
 
 const MainNav = () => {
   const { user, logout } = useAuth();
-  const [showAccountMenu, setShowAccountMenu] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState<typeof shoes>([]);
   const [showResults, setShowResults] = useState(false);
+  const [showAccountMenu, setShowAccountMenu] = useState(false);
+  const [searchResults, setSearchResults] = useState<typeof shoes>([]);
+  const [showNotifications, setShowNotifications] = useState(false);
+
+  const notifications = useNotifications();
+  const unread = notifications.some(n => n.read === false);
 
   const handleAccountClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -59,6 +67,18 @@ const MainNav = () => {
     );
     setSearchResults(results);
     setShowResults(true);
+  };
+
+  const handleOpenNotifications = async () => {
+    setShowNotifications(true);
+    // Marcar todas como leídas
+    if (user && notifications.length > 0) {
+      notifications.forEach(async (n) => {
+        if (!n.read) {
+          await updateDoc(doc(db, "users", user.uid, "notifications", n.id), { read: true });
+        }
+      });
+    }
   };
 
   return (
@@ -115,11 +135,16 @@ const MainNav = () => {
       </div>
 
       <div className="flex flex-1 items-center justify-end gap-5">
+        {/* Icono campana */}
         <div className="relative hidden lg:block">
-          <span className="absolute -top-1/4 left-3/4 aspect-square w-3 rounded-full bg-red-600" />
-          {/* Icono campana */}
-          <FaRegBell className="text-2xl" />
+          {unread && (
+            <span className="absolute -top-1/4 left-3/4 aspect-square w-3 rounded-full bg-red-600" />
+          )}
+          <button type="button" onClick={handleOpenNotifications}>
+            <FaRegBell className="text-2xl" />
+          </button>
         </div>
+        <NotificationsSidebar isOpen={showNotifications} onClose={() => setShowNotifications(false)} />
 
         <div className="flex items-center divide-x divide-neutral-300">
           {/* Icono Compra */}
