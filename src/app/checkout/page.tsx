@@ -104,7 +104,7 @@ const CheckoutPage = () => {
           </div>
           <div className="flex w-full items-end justify-between text-sm mt-2">
             <div className="flex items-center gap-3">
-              <LikeButton />
+              <LikeButton product={{ ...item, id: item.id || item._id || item.slug }} />
               <AiOutlineDelete
                 className="text-2xl cursor-pointer"
                 onClick={() => removeFromCart(id)}

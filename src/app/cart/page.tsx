@@ -4,10 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineDelete } from "react-icons/ai";
 import { MdStar } from "react-icons/md";
-import { TbBrandPaypal } from "react-icons/tb";
 import LikeButton from "@/components/LikeButton";
 import ButtonPrimary from "@/shared/Button/ButtonPrimary";
-import ButtonSecondary from "@/shared/Button/ButtonSecondary";
 import InputNumber from "@/shared/InputNumber/InputNumber";
 import { useCart } from "@/hooks/useCart";
 import { useAuth } from "@/hooks/useAuth";
@@ -44,7 +42,7 @@ const CartPage = () => {
         </div>
         <div className="flex w-full items-end justify-between text-sm">
           <div className="flex items-center gap-3">
-            <LikeButton />
+            <LikeButton product={{ ...item, id: item.id || item._id || item.slug }} />
             <button onClick={() => removeFromCart(item.id)}>
               <AiOutlineDelete className="text-2xl" />
             </button>

@@ -147,7 +147,6 @@ const MainNav = () => {
         <NotificationsSidebar isOpen={showNotifications} onClose={() => setShowNotifications(false)} />
 
         <div className="flex items-center divide-x divide-neutral-300">
-          {/* Icono Compra */}
           <CartSideBar />
           <div className="flex items-center gap-2 pl-5 relative">
             <ButtonCircle3 className="overflow-hidden bg-gray" size="w-10 h-10">
