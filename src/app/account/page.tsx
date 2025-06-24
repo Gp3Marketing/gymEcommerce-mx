@@ -78,8 +78,7 @@ const AccountPage = () => {
     setStep(2);
   };
 
-  const handleBack = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleBack = () => {
     setStep(1);
   };
 
@@ -119,11 +118,7 @@ const AccountPage = () => {
         <div className="flex flex-col lg:flex-row gap-10 items-start">
           <form
             className="flex-1 w-full max-w-xl space-y-10 mt-6"
-            onSubmit={
-              step === 1
-                ? handleNext
-                : handleSave
-            }
+            onSubmit={step === 1 ? handleNext : handleSave}
           >
             <div className="bg-white rounded-2xl shadow p-8 space-y-6">
               <div className="flex items-center justify-between mb-4">
