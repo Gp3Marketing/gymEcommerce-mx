@@ -11,7 +11,7 @@ const promoImages = ["/OFF.webp", "/OFF2.webp", "/PreEntreno.webp"];
 
 const PromoTag = () => {
   return (
-    <div className="relative h-[400px] w-full rounded-2xl overflow-hidden text-white">
+    <div className="relative h-[420px] w-full rounded-2xl overflow-hidden text-white">
       <Splide
         options={{
           type: "loop",
@@ -25,7 +25,7 @@ const PromoTag = () => {
         {promoImages.map((src, index) => (
           <SplideSlide key={index}>
             <div
-              className="w-full h-[400px] bg-cover bg-center"
+              className="w-full h-[420px] bg-cover bg-center"
               style={{ backgroundImage: `url(${src})` }}
             />
           </SplideSlide>
@@ -35,7 +35,7 @@ const PromoTag = () => {
 
       <div className="absolute inset-0 z-30 flex flex-col justify-between p-8">
         <h1 className="text-[32px] md:text-[40px] font-medium uppercase leading-tight">
-          {promotionTag.heading}
+          {promotionTag.title}
         </h1>
         <div>
           <ButtonSecondary className="bg-white text-primary" sizeClass="px-5 py-4">

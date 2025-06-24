@@ -86,6 +86,7 @@ import modernEaa from "@/images/modern-eaa/EAA.webp";
 import glutamina from "@/images/glutamina/GLUTAMINA.png";
 import creatinaBirdman from "@/images/birdman/creatina.webp";
 import dragonCreatine from "@/images/dragoncreatine/creatina-Dragon.webp";
+import { title } from "process";
 
 export const topNavLinks: NavItemType[] = [
   {
@@ -134,14 +135,14 @@ export const NavLinks: NavItemType[] = [
 ];
 
 export const headerSection = {
-  title: "¡NUEVA LLEGADA!",
-  heading: "PSYCHOTIC – WORKOUT DE LOCURA",
+  title: "🔥 LLEGÓ LA BESTIA 🔥",
+  heading: "PSYCHOTIC – POTENCIA AL LÍMITE",
   description:
-    "Psychotic no es un pre-entreno cualquiera: es una bomba de energía extrema que lleva tu entrenamiento a otro nivel.",
+    "No es un simple pre-entreno. PSYCHOTIC desata una energía brutal, foco extremo y resistencia imparable. ¡Prepárate para entrenar como nunca antes!",
 };
 
 export const promotionTag = {
-  heading: "Conoce nuestras ofertas",
+  title: "¡Descubre Descuentos Irresistibles!",
 };
 
 export const shoes = [
@@ -784,18 +785,14 @@ export const shoes = [
   },
 ];
 
-
-// Parte del filtro del Home 
+// Parte del filtro del Home
 export const productsSection = {
   heading: "Haz tu compra ahora, tu progreso empieza hoy.",
   description:
     "¡Tenemos una gran variedad de colecciones para ti! Explora y encuentra los zapatos de tus sueños, ¡hazlo realidad!",
 };
 
-export const shoeTypes = [
-  "Tipo",
-  ...branch.map((b) => b.name),
-];
+export const shoeTypes = ["Tipo", ...branch.map((b) => b.name)];
 
 export const priceRanges = [
   "Precios",
@@ -805,18 +802,20 @@ export const priceRanges = [
   "Más de 1000",
 ];
 
-export const discountOptions = [
-  "Descuento",
-  "Con descuento",
-  "Sin descuento",
-];
+export const discountOptions = ["Descuento", "Con descuento", "Sin descuento"];
 
 export const filterShoes = (
   shoes,
-  { brand = "Productos", type = "Tipo", priceRange = [0, Infinity], discount = "Descuento" }
+  {
+    brand = "Productos",
+    type = "Tipo",
+    priceRange = [0, Infinity],
+    discount = "Descuento",
+  }
 ) => {
   return shoes.filter((shoe) => {
-    const matchBrand = brand === "Productos" || shoe.shoeName.trim() === brand.trim();
+    const matchBrand =
+      brand === "Productos" || shoe.shoeName.trim() === brand.trim();
     let matchType = true;
     if (type !== "Tipo") {
       const branchObj = branch.find((b) => b.name === type);
@@ -825,7 +824,8 @@ export const filterShoes = (
         : false;
     }
 
-    const matchPrice = shoe.currentPrice >= priceRange[0] && shoe.currentPrice <= priceRange[1];
+    const matchPrice =
+      shoe.currentPrice >= priceRange[0] && shoe.currentPrice <= priceRange[1];
     let matchDiscount = true;
     if (discount === "Con descuento") matchDiscount = shoe.justIn === true;
     if (discount === "Sin descuento") matchDiscount = shoe.justIn === false;
@@ -834,11 +834,7 @@ export const filterShoes = (
   });
 };
 
-export const filters = [
-  shoeTypes,
-  discountOptions,
-  priceRanges,
-];
+export const filters = [shoeTypes, discountOptions, priceRanges];
 
 // ____________________________________________________________________________
 
