@@ -147,7 +147,7 @@ const NotificationsSidebar: React.FC<{
                         </div>
                       ))}
                     </div>
-                    {/* <div className="mt-6 border-t pt-4 space-y-3">
+                    <div className="mt-6 border-t pt-4 space-y-3">
                       <label className="flex items-center gap-2 cursor-pointer">
                         <input
                           type="checkbox"
@@ -164,7 +164,7 @@ const NotificationsSidebar: React.FC<{
                         />
                         <span>Notificarme cuando haya nuevos productos</span>
                       </label>
-                    </div> */}
+                    </div>
                   </div>
                 </div>
               </div>

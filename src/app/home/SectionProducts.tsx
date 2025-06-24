@@ -7,6 +7,8 @@ import { productsSection, shoes, filterShoes } from "@/data/content";
 import ButtonPrimary from "@/shared/Button/ButtonPrimary";
 import Heading from "@/shared/Heading/Heading";
 
+/* import type { Shoe } from "@/data/content";
+ */
 const PRODUCTS_PER_PAGE = 8;
 const PRODUCTS_PER_ROW = 4;
 
@@ -44,9 +46,9 @@ const SectionProducts = () => {
 
   const handleFilter = (selected: string[]) => {
     setActiveFilters({
-      type: selected[0],
-      discount: selected[1],
-      price: selected[2],
+      type: selected[0] || "",
+      discount: selected[1] || "",
+      price: selected[2] || "",
     });
   };
 

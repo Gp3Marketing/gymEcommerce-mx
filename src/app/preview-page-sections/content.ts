@@ -1,7 +1,8 @@
 import preview from "@/images/preview.jpg";
 import notFound from "@/images/preview/404.jpg";
-import blogPage from "@/images/preview/blogs.jpg";
+/* import blogPage from "@/images/preview/blogs.jpg";
 import blogSingle from "@/images/preview/blogsingle.jpg";
+*/
 import cart from "@/images/preview/cart.jpg";
 import checkout from "@/images/preview/checkout.jpg";
 import collection from "@/images/preview/collection.jpg";

@@ -4,7 +4,6 @@ import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import type { FC } from "react";
 import React from "react";
-import { BsBag } from "react-icons/bs";
 import { GoDotFill } from "react-icons/go";
 import { LuInfo } from "react-icons/lu";
 import { MdStar } from "react-icons/md";
@@ -16,11 +15,9 @@ import { shoeSizes } from "@/data/content";
 import nike_profile from "@/images/nike_profile.png";
 import ButtonCircle3 from "@/shared/Button/ButtonCircle3";
 import ButtonPrimary from "@/shared/Button/ButtonPrimary";
-import ButtonSecondary from "@/shared/Button/ButtonSecondary";
 import Heading from "@/shared/Heading/Heading";
 import { useCart } from "@/hooks/useCart";
 import { useAuth } from "@/hooks/useAuth";
-import AddToCartButton from "@/components/AddToCartButton";
 
 interface SectionProductHeaderProps {
   shots: StaticImageData[];
@@ -62,7 +59,7 @@ const SectionProductHeader: FC<SectionProductHeaderProps> = ({
 
   const handleAddToCart = () => {
     if (!user) {
-      alert("Debes iniciar sesión");
+      alert("Debes iniciar sesión para agregar productos al carrito.");
       return;
     }
     addToCart(producto);
@@ -126,13 +123,12 @@ const SectionProductHeader: FC<SectionProductHeaderProps> = ({
 
         <div className="mt-5 flex items-center gap-5">
           <ButtonPrimary className="w-full">Buy Now</ButtonPrimary>
-          <AddToCartButton producto={producto} />
-          {/* <ButtonSecondary
-            className="flex w-full items-center gap-1 border-2 border-primary text-primary"
+          <button
+            className="w-full border-2 border-primary text-primary py-2 rounded flex items-center justify-center"
             onClick={handleAddToCart}
           >
-            <BsBag /> Add to cart
-          </ButtonSecondary> */}
+            Agregar al carrito
+          </button>
         </div>
       </div>
     </div>

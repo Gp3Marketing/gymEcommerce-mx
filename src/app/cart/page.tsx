@@ -40,7 +40,7 @@ const CartPage = () => {
         </div>
         <div className="flex w-full items-end justify-between text-sm">
           <div className="flex items-center gap-3">
-            <LikeButton />
+            <LikeButton product={item} />
             <button onClick={() => removeFromCart(item.id)}>
               <AiOutlineDelete className="text-2xl" />
             </button>

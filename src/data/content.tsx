@@ -86,7 +86,10 @@ import modernEaa from "@/images/modern-eaa/EAA.webp";
 import glutamina from "@/images/glutamina/GLUTAMINA.png";
 import creatinaBirdman from "@/images/birdman/creatina.webp";
 import dragonCreatine from "@/images/dragoncreatine/creatina-Dragon.webp";
-import { title } from "process";
+
+import type { ProductType } from "@/types/product";
+
+/* import { title } from "process"; */
 
 export const topNavLinks: NavItemType[] = [
   {
@@ -805,7 +808,7 @@ export const priceRanges = [
 export const discountOptions = ["Descuento", "Con descuento", "Sin descuento"];
 
 export const filterShoes = (
-  shoes,
+  shoes: ProductType[],
   {
     brand = "Productos",
     type = "Tipo",
@@ -820,7 +823,7 @@ export const filterShoes = (
     if (type !== "Tipo") {
       const branchObj = branch.find((b) => b.name === type);
       matchType = branchObj
-        ? branchObj.categorias.includes(shoe.shoeCategory.trim())
+        ? branchObj.categorias.includes(shoe.shoeCategory?.trim() || "")
         : false;
     }
 
@@ -908,7 +911,7 @@ export const contactSection = {
   heading: "Contacto",
   Title: "¿Tienes alguna duda, queja o sugerencia?",
   description:
-    "Si necesitas asistencia con tu pedido, tienes algún reclamo o simplemente quieres compartir tu experiencia, no dudes en escribirnos. " + 
+    "Si necesitas asistencia con tu pedido, tienes algún reclamo o simplemente quieres compartir tu experiencia, no dudes en escribirnos. " +
     "Nuestro equipo de atención estará encantado de responderte lo antes posible.",
   directContactInfoHeader: {
     heading: "Prefer to reach out directly?",
@@ -1261,3 +1264,5 @@ export const productsCollection = {
   description:
     "Lorem ipsum dolor sit amet consectetur adipiscing elit facilisi pellentesque cursus eget morbi sagittis sagittis.",
 };
+
+export type Shoe = (typeof shoes)[number];

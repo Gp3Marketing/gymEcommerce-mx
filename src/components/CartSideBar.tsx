@@ -83,7 +83,7 @@ const CartSideBar: React.FC = () => {
               >
                 -
               </button>
-              <span className="mx-2">{item.cantidad}</span>
+              <span className="mx-2">{cantidad}</span>
               <button
                 onClick={() => updateQuantity(item.id, item.cantidad + 1)}
                 className="w-8 h-8 flex items-center justify-center rounded-full border border-neutral-300 text-lg font-bold"

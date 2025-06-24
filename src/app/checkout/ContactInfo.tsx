@@ -33,11 +33,11 @@ const ContactInfo: FC<Props> = ({
   contactInfo,
   setContactInfo,
 }) => {
-  const [saved, setSaved] = React.useState(false);
+  /* const [saved, setSaved] = React.useState(false); */
 
   const handleSave = () => {
     if (contactInfo.phone && contactInfo.email) {
-      setSaved(true);
+     /*  setSaved(true); */
       onCloseActive();
     } else {
       alert("Por favor completa el teléfono y el correo electrónico.");

@@ -13,6 +13,7 @@ export interface CartItem {
   cantidad: number;
   precio: number;
   nombreProducto: string;
+  slug?: string;
 }
 
 export function useCart() {

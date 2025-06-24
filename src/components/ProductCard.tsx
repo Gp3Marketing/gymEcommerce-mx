@@ -3,8 +3,8 @@ import Link from "next/link";
 import type { FC } from "react";
 import React from "react";
 
-import type { ProductType } from "@/data/types";
-import LikeButton from "./LikeButton";
+import type { ProductType } from "@/types/product";
+import LikeButton from "@/components/LikeButton";
 
 interface ProductCardProps {
   product: ProductType;
@@ -31,7 +31,7 @@ const ProductCard: FC<ProductCardProps> = ({
           className="absolute right-2 top-2"
           product={{
             ...product,
-            id: product.id || product._id || product.slug,
+            id: product.id ?? product._id ?? product.slug,
           }}
         />
         <Link

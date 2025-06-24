@@ -8,7 +8,7 @@ import Select from "@/shared/Select/Select";
 
 const Filter = ({ onFilter }: { onFilter: (filters: string[]) => void }) => {
   const defaultSelected = filters.map((f) => f[0]);
-  const [selected, setSelected] = useState(defaultSelected);
+  const [selected, setSelected] = useState<(string | undefined)[]>(defaultSelected);
 
   const handleChange = (value: string, idx: number) => {
     const updated = [...selected];
@@ -17,12 +17,12 @@ const Filter = ({ onFilter }: { onFilter: (filters: string[]) => void }) => {
   };
 
   const handleFilterClick = () => {
-    onFilter(selected);
+    onFilter(selected.filter((v): v is string => v !== undefined));
   };
 
   const handleClear = () => {
     setSelected(defaultSelected);
-    onFilter(defaultSelected);
+    onFilter(defaultSelected.filter((v): v is string => v !== undefined));
   };
 
   const isFiltered = selected.some((v, idx) => v !== defaultSelected[idx]);
