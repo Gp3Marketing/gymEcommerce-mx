@@ -9,12 +9,12 @@ const TopNav = () => {
 
   const topNavLinks = [
     ...baseTopNavLinks.filter(
-      (item) => item.name !== "Checkout" && item.name !== "Cart"
+      (item) => item.name !== "Finalizar compra" && item.name !== "Cart"
     ),
     ...(user
       ? [
         { id: "f678ty", name: "Carrito de compras", href: "/cart" },
-        { id: "h6i78g", name: "Checkout", href: "/checkout" },
+        { id: "h6i78g", name: "Finalizar compra", href: "/checkout" },
       ]
       : []),
   ];

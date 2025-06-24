@@ -18,9 +18,10 @@ import ShippingAddress from "./ShippingAddress";
 import { useCart } from "@/hooks/useCart";
 import { useAuth } from "@/hooks/useAuth";
 import { db } from "@/firebase/config";
+import { addUserNotification } from "@/utils/notificationsUtils";
 
 const CheckoutPage = () => {
-  const { cart, removeFromCart, updateQuantity } = useCart();
+  const { cart, removeFromCart, updateQuantity, clearCart } = useCart();
   const { user } = useAuth();
   const [tabActive, setTabActive] = useState<
     "ContactInfo" | "ShippingAddress" | "PaymentMethod"
@@ -41,7 +42,6 @@ const CheckoutPage = () => {
     communicationTime: "",
   });
 
-  // --- SINCRONIZA DATOS DE FIRESTORE AL ENTRAR AL CHECKOUT ---
   useEffect(() => {
     const fetchUserData = async () => {
       if (!user) return;
@@ -104,7 +104,7 @@ const CheckoutPage = () => {
           </div>
           <div className="flex w-full items-end justify-between text-sm mt-2">
             <div className="flex items-center gap-3">
-              <LikeButton />
+              <LikeButton product={{ ...item, id: item.id || item._id || item.slug }} />
               <AiOutlineDelete
                 className="text-2xl cursor-pointer"
                 onClick={() => removeFromCart(id)}
@@ -194,8 +194,18 @@ const CheckoutPage = () => {
           shipping: shippingAddress,
           contact: contactInfo,
         };
-        await addDoc(collection(db, "orders"), pedido);
+        const pedidoRef = await addDoc(collection(db, "orders"), pedido);
+        await addUserNotification(user.uid, {
+          type: "order",
+          extraData: {
+            orderId: pedidoRef.id,
+            total: pedido.total,
+          },
+          message: "¡Tu pedido ha sido realizado con éxito!",
+        });
       }
+
+      await clearCart();
 
       alert("¡Datos enviados correctamente!");
     } catch (error) {
@@ -260,7 +270,7 @@ const CheckoutPage = () => {
               </div>
             </div>
             <ButtonPrimary className="mt-8 w-full" onClick={handleConfirm}>
-              Confirmar
+              Confirmar pedido
             </ButtonPrimary>
           </div>
         </div>

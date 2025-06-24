@@ -4,7 +4,6 @@ import type { FC } from "react";
 import React from "react";
 
 import type { ProductType } from "@/data/types";
-
 import LikeButton from "./LikeButton";
 
 interface ProductCardProps {
@@ -22,13 +21,19 @@ const ProductCard: FC<ProductCardProps> = ({
     <div
       className={`transitionEffect relative rounded-2xl p-3 shadow-md ${className}`}
     >
-      <div className="h-[250px] w-full overflow-hidden rounded-2xl lg:h-[220px] 2xl:h-[300px]">
+      <div className="h-[250px] w-full overflow-hidden rounded-2xl lg:h-[240px] 2xl:h-[300px]">
         {product.justIn && (
           <div className="absolute left-6 top-0 rounded-b-lg bg-primary px-3 py-2 text-sm uppercase text-white shadow-md">
             ¡Acabo de llegar!
           </div>
         )}
-        <LikeButton className="absolute right-2 top-2" />
+        <LikeButton
+          className="absolute right-2 top-2"
+          product={{
+            ...product,
+            id: product.id || product._id || product.slug,
+          }}
+        />
         <Link
           className="h-[250px] w-full lg:h-[220px]"
           href={`/products/${product.slug}`}
@@ -36,6 +41,8 @@ const ProductCard: FC<ProductCardProps> = ({
           <Image
             src={product.coverImage}
             alt={`${product.shoeName} cover photo`}
+            width={300}
+            height={300}
             className="h-full w-full object-cover object-bottom"
           />
         </Link>
@@ -51,7 +58,6 @@ const ProductCard: FC<ProductCardProps> = ({
             ${product.previousPrice}
           </p>
         </div>
-
         <div className="flex items-center justify-between">
           <p className="text-sm text-neutral-500">{product.shoeCategory}</p>
           <p className="text-lg font-medium text-primary">

@@ -7,14 +7,20 @@ import { useRouter } from "next/navigation";
 
 import ButtonPrimary from "@/shared/Button/ButtonPrimary";
 import ButtonSecondary from "@/shared/Button/ButtonSecondary";
+import AceptPubliciti from "@/components/PopUp/AceptPubliciti";
 import FormItem from "@/shared/FormItem";
 import Input from "@/shared/Input/Input";
 import { useAuth } from "@/hooks/useAuth";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { db } from "@/firebase/config";
 import { doc, setDoc } from "firebase/firestore";
+import { addUserNotification } from "@/utils/notificationsUtils";
 
 const PageSignUp = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [newUserUid, setNewUserUid] = useState("");
+  const [newUserName, setNewUserName] = useState("");
+
   const { registerWithEmail, loginWithGoogle } = useAuth();
   const router = useRouter();
 
@@ -38,7 +44,7 @@ const PageSignUp = () => {
           fullName: userName,
           email,
           phone,
-          birthDate: "", // El usuario lo llenará después en su cuenta
+          birthDate: "",
         },
         shippingAddress: {
           street: "",
@@ -50,8 +56,19 @@ const PageSignUp = () => {
         },
         createdAt: new Date(),
       });
-      alert("¡Registro exitoso!");
-      router.push('/');
+
+      // Notificación de bienvenida
+      await addUserNotification(user.uid, {
+        type: "welcome",
+        message: `Bienvenido a FITMEX STORE, ${userName}`,
+        extraData: {
+          registeredAt: new Date().toISOString(),
+        },
+      });
+
+      setNewUserUid(user.uid);
+      setNewUserName(userName);
+      setShowModal(true);
     } catch (error: any) {
       if (error.code === 'auth/email-already-in-use') {
         alert(
@@ -168,6 +185,12 @@ const PageSignUp = () => {
           </div>
         </div>
       </div>
+      <AceptPubliciti
+        open={showModal}
+        userName={newUserName}
+        userUid={newUserUid}
+        onClose={() => setShowModal(false)}
+      />
     </div>
   );
 };

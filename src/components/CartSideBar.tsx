@@ -67,7 +67,7 @@ const CartSideBar: React.FC = () => {
           </div>
           <div className="flex w-full items-end justify-between text-sm">
             <div className="flex items-center gap-3">
-              <LikeButton />
+              <LikeButton product={{ ...item, id: item.id || item._id || item.slug }} />
               <AiOutlineDelete
                 className="text-2xl cursor-pointer"
                 onClick={() => removeFromCart(item.id)}
@@ -120,7 +120,7 @@ const CartSideBar: React.FC = () => {
                   <div className="relative h-screen bg-white">
                     <div className="hiddenScrollbar h-screen overflow-y-auto p-5">
                       <div className="flex items-center justify-between">
-                        <h3 className="text-xl font-semibold">Shopping cart</h3>
+                        <h3 className="text-xl font-semibold">Carro de Compra</h3>
                         <ButtonCircle3 onClick={handleCloseMenu}>
                           <MdClose className="text-2xl" />
                         </ButtonCircle3>
@@ -139,7 +139,7 @@ const CartSideBar: React.FC = () => {
                         <span>
                           <span className="font-medium">Subtotal</span>
                           <span className="block text-sm text-neutral-500">
-                            Shipping and taxes calculated at checkout.
+                            Los gastos de envío e impuestos se calculan al finalizar la compra.
                           </span>
                         </span>
                         <span className="text-xl font-medium">
@@ -164,7 +164,7 @@ const CartSideBar: React.FC = () => {
                           href="/cart"
                           className="w-full flex-1 border-2 border-primary text-primary"
                         >
-                          View cart
+                          Ver carrito
                         </ButtonSecondary>
                       </div>
                     </div>
