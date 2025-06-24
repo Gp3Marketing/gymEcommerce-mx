@@ -9,27 +9,27 @@ import Footer from "@/shared/Footer/Footer";
 import Loading from "./loading";
 
 export const metadata: Metadata = {
-  title: "Hotkicks Ecommerce Template",
+  title: "FITMEX STORE",
   icons: [
     {
       rel: "apple-touch-icon",
-      url: "/apple-touch-icon.png",
+      url: "/logo-icon.png",
     },
     {
       rel: "icon",
       type: "image/png",
       sizes: "32x32",
-      url: "/favicon.png",
+      url: "/logo-icon.png",
     },
     {
       rel: "icon",
       type: "image/png",
       sizes: "16x16",
-      url: "/favicon.png",
+      url: "/flogo-icon.png",
     },
     {
       rel: "icon",
-      url: "/favicon.ico",
+      url: "/logo-icon.png",
     },
   ],
 };

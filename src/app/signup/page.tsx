@@ -7,14 +7,20 @@ import { useRouter } from "next/navigation";
 
 import ButtonPrimary from "@/shared/Button/ButtonPrimary";
 import ButtonSecondary from "@/shared/Button/ButtonSecondary";
+import AceptPubliciti from "@/components/PopUp/AceptPubliciti";
 import FormItem from "@/shared/FormItem";
 import Input from "@/shared/Input/Input";
 import { useAuth } from "@/hooks/useAuth";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { db } from "@/firebase/config";
 import { doc, setDoc } from "firebase/firestore";
+import { addUserNotification } from "@/utils/notificationsUtils";
 
 const PageSignUp = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [newUserUid, setNewUserUid] = useState("");
+  const [newUserName, setNewUserName] = useState("");
+
   const { registerWithEmail, loginWithGoogle } = useAuth();
   const router = useRouter();
 
@@ -34,13 +40,35 @@ const PageSignUp = () => {
         return;
       }
       await setDoc(doc(db, 'users', user.uid), {
-        userName,
-        email,
-        phone,
+        contactInfo: {
+          fullName: userName,
+          email,
+          phone,
+          birthDate: "",
+        },
+        shippingAddress: {
+          street: "",
+          apartment: "",
+          city: "",
+          state: "",
+          country: "",
+          postalCode: "",
+        },
         createdAt: new Date(),
       });
-      alert("¡Registro exitoso!");
-      router.push('/');
+
+      // Notificación de bienvenida
+      await addUserNotification(user.uid, {
+        type: "welcome",
+        message: `Bienvenido a FITMEX STORE, ${userName}`,
+        extraData: {
+          registeredAt: new Date().toISOString(),
+        },
+      });
+
+      setNewUserUid(user.uid);
+      setNewUserName(userName);
+      setShowModal(true);
     } catch (error: any) {
       if (error.code === 'auth/email-already-in-use') {
         alert(
@@ -87,15 +115,16 @@ const PageSignUp = () => {
             </div>
             <form onSubmit={handleRegister}>
               <div className="grid grid-cols-1 gap-6">
-                <FormItem label="Nombre de usuario">
+                <FormItem label="Nombre Completo">
                   <Input
                     type="text"
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
                     rounded="rounded-full"
                     sizeClass="h-12 px-4 py-3"
-                    placeholder="Tu nombre de usuario"
+                    placeholder="Tu Nombre Completo"
                     className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
+                    required
                   />
                 </FormItem>
                 <FormItem label="Email address">
@@ -107,6 +136,7 @@ const PageSignUp = () => {
                     sizeClass="h-12 px-4 py-3"
                     placeholder="example@example.com"
                     className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
+                    required
                   />
                 </FormItem>
                 <FormItem label="Número de teléfono">
@@ -116,8 +146,9 @@ const PageSignUp = () => {
                     onChange={(e) => setPhone(e.target.value)}
                     rounded="rounded-full"
                     sizeClass="h-12 px-4 py-3"
-                    placeholder="Tu número de teléfono"
+                    placeholder="+1 234 567 8901"
                     className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
+                    required
                   />
                 </FormItem>
                 <FormItem label="Password">
@@ -130,6 +161,7 @@ const PageSignUp = () => {
                       sizeClass="h-12 px-4 py-3"
                       placeholder="*********"
                       className="bg-transparent border-neutral-300 pr-10 placeholder:text-neutral-500 focus:border-primary"
+                      required
                     />
                     <button
                       type="button"
@@ -141,7 +173,7 @@ const PageSignUp = () => {
                     </button>
                   </div>
                 </FormItem>
-                <ButtonPrimary type="submit">Continue</ButtonPrimary>
+                <ButtonPrimary type="submit">Registrar</ButtonPrimary>
               </div>
             </form>
             <span className="block text-center text-sm text-neutral-500">
@@ -153,6 +185,12 @@ const PageSignUp = () => {
           </div>
         </div>
       </div>
+      <AceptPubliciti
+        open={showModal}
+        userName={newUserName}
+        userUid={newUserUid}
+        onClose={() => setShowModal(false)}
+      />
     </div>
   );
 };

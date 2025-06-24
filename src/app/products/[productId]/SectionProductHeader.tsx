@@ -1,3 +1,5 @@
+"use client";
+
 import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import type { FC } from "react";
@@ -11,11 +13,14 @@ import { PiSealCheckFill } from "react-icons/pi";
 import ImageShowCase from "@/components/ImageShowCase";
 import ShoeSizeButton from "@/components/ShoeSizeButton";
 import { shoeSizes } from "@/data/content";
-import nike_profile from "@/images/nike_profile.jpg";
+import nike_profile from "@/images/nike_profile.png";
 import ButtonCircle3 from "@/shared/Button/ButtonCircle3";
 import ButtonPrimary from "@/shared/Button/ButtonPrimary";
 import ButtonSecondary from "@/shared/Button/ButtonSecondary";
 import Heading from "@/shared/Heading/Heading";
+import { useCart } from "@/hooks/useCart";
+import { useAuth } from "@/hooks/useAuth";
+import AddToCartButton from "@/components/AddToCartButton";
 
 interface SectionProductHeaderProps {
   shots: StaticImageData[];
@@ -25,6 +30,9 @@ interface SectionProductHeaderProps {
   rating: number;
   pieces_sold: number;
   reviews: number;
+  coverImage: string;
+  slug: string;
+  shoeCategory?: string;
 }
 
 const SectionProductHeader: FC<SectionProductHeaderProps> = ({
@@ -35,11 +43,35 @@ const SectionProductHeader: FC<SectionProductHeaderProps> = ({
   rating,
   pieces_sold,
   reviews,
+  coverImage,
+  slug,
+  shoeCategory,
 }) => {
+  const { user } = useAuth();
+  const { addToCart } = useCart();
+
+  const producto = {
+    id: slug,
+    nombreProducto: shoeName,
+    coverImage,
+    precio: currentPrice,
+    cantidad: 1,
+    shoeCategory,
+    rating,
+  };
+
+  const handleAddToCart = () => {
+    if (!user) {
+      alert("Debes iniciar sesión");
+      return;
+    }
+    addToCart(producto);
+  };
+
   return (
     <div className="items-stretch justify-between space-y-10 lg:flex lg:space-y-0">
       <div className="basis-[50%]">
-        <ImageShowCase shots={shots} />
+        <ImageShowCase shots={shots} product={producto} />
       </div>
 
       <div className="basis-[45%]">
@@ -59,7 +91,7 @@ const SectionProductHeader: FC<SectionProductHeaderProps> = ({
                 className="h-full w-full object-cover"
               />
             </ButtonCircle3>
-            <span className="font-medium">Nike</span>
+            <span className="font-medium">FITMEX STORE</span>
             <PiSealCheckFill className="text-blue-600" />
           </div>
           <GoDotFill className="mx-3 text-neutral-500" />
@@ -94,9 +126,13 @@ const SectionProductHeader: FC<SectionProductHeaderProps> = ({
 
         <div className="mt-5 flex items-center gap-5">
           <ButtonPrimary className="w-full">Buy Now</ButtonPrimary>
-          <ButtonSecondary className="flex w-full items-center gap-1 border-2 border-primary text-primary">
+          <AddToCartButton producto={producto} />
+          {/* <ButtonSecondary
+            className="flex w-full items-center gap-1 border-2 border-primary text-primary"
+            onClick={handleAddToCart}
+          >
             <BsBag /> Add to cart
-          </ButtonSecondary>
+          </ButtonSecondary> */}
         </div>
       </div>
     </div>

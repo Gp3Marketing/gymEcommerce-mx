@@ -5,21 +5,10 @@ import { FiBox } from "react-icons/fi";
 import { IoChatboxOutline } from "react-icons/io5";
 import { MdOutlineCameraAlt } from "react-icons/md";
 import { PiPercentFill } from "react-icons/pi";
+import { branch } from "@/data/filterByProduct";
 
 import type { NavItemType } from "@/components/NavItem";
-import blackLebron from "@/images/blackLebron.webp";
-import brownsb from "@/images/brownsb.webp";
-
-import redlow from "@/images/redlow.webp";
-import shot1 from "@/images/shots/shot1.webp";
-import shot2 from "@/images/shots/shot2.webp";
-import shot3 from "@/images/shots/shot3.jpeg";
-import shot4 from "@/images/shots/shot4.jpeg";
-import shot5 from "@/images/shots/shot5.webp";
-import shot6 from "@/images/shots/shot6.jpeg";
-import shot7 from "@/images/shots/shot7.webp";
-import slides from "@/images/slides.webp";
-import yellowLow from "@/images/yellowLow.webp";
+import type { BlogType } from "./types";
 
 /* new */
 import psychotic from "@/images/psychotic/psychotic-3.webp";
@@ -60,73 +49,78 @@ import gold2 from "@/images/isolate-gold/gold2.png";
 import gold3 from "@/images/isolate-gold/gold3.jpg";
 
 import whey from "@/images/whey/whey.jpg";
+import whey1 from "@/images/whey/whey0.jpg";
+import whey2 from "@/images/whey/whey1.jpg";
+import whey3 from "@/images/whey/whey2.jpg";
+import whey4 from "@/images/whey/whey3.jpg";
 
 import cbum5peat from "@/images/cbum5peat/cbum5peat.jpg";
+import cbum5peat1 from "@/images/cbum5peat/cbum5peat-1.jpg";
+import cbum5peat2 from "@/images/cbum5peat/cbum5peat-2.jpg";
+import cbum5peat3 from "@/images/cbum5peat/cbum5peat-3.jpg";
+import cbum5peat4 from "@/images/cbum5peat/cbum5peat-4.jpg";
 
 import peachbum from "@/images/peachbum/peachbum.jpg";
+import peachbum1 from "@/images/peachbum/creatine-1.jpg";
+import peachbum2 from "@/images/peachbum/creatine-2.jpg";
+import peachbum3 from "@/images/peachbum/creatine-3.jpg";
 
+import preentreno from "@/images/preentreno/preentrenovenom.jpg";
+import Venom from "@/images/preentreno/vemon1.jpg";
+import Venom1 from "@/images/preentreno/vemon2.jpg";
 
-import type { BlogType } from "./types";
+import creatine from "@/images/creatine/creatine.jpg";
+import creatine2 from "@/images/creatine/creatine-2.jpg";
+import creatine3 from "@/images/creatine/creatine-3.jpg";
+import creatine4 from "@/images/creatine/creatine-4.jpg";
+
+import aminox from "@/images/aminox/aminox.jpg";
+import aminox1 from "@/images/aminox/aminox-1.jpg";
+import aminox2 from "@/images/aminox/aminox-2.jpg";
+import aminox3 from "@/images/aminox/aminox-3.jpg";
+import aminox4 from "@/images/aminox/aminox-4.jpg";
+import aminox5 from "@/images/aminox/aminox-5.jpg";
+
+import omega3 from "@/images/omega3/Omega3.jpg";
+import modernEaa from "@/images/modern-eaa/EAA.webp";
+import glutamina from "@/images/glutamina/GLUTAMINA.png";
+import creatinaBirdman from "@/images/birdman/creatina.webp";
+import dragonCreatine from "@/images/dragoncreatine/creatina-Dragon.webp";
+import { title } from "process";
 
 export const topNavLinks: NavItemType[] = [
   {
     id: "ee46t",
-    name: "Home",
+    name: "Inicio",
     href: "/",
   },
-  // {
-  //   id: "eerrrt",
-  //   name: "Blog",
-  //   href: "/blog",
-  // },
   {
     id: "eexct",
-    name: "Collections",
+    name: "colecciones",
     href: "/products",
   },
   {
-    id: "h6ii8g",
-    name: "Contact",
-    href: "/contact",
-  },
-  {
     id: "h678ty",
-    name: "FAQ",
+    name: "FAQs",
     href: "/faqs",
   },
   {
-    id: "h6i78g",
-    name: "Checkout",
-    href: "/checkout",
-  },
-  {
-    id: "f678ty",
-    name: "Cart",
-    href: "/cart",
+    id: "h6ii8g",
+    name: "Contacto",
+    href: "/contact",
   },
 ];
 
 export const NavLinks: NavItemType[] = [
   {
     id: "ee46t",
-    name: "Home",
+    name: "Inicio",
     href: "/",
   },
-  // {
-  //   id: "eerrrt",
-  //   name: "Blog",
-  //   href: "/blog",
-  // },
   {
     id: "eexct",
-    name: "Collection",
+    name: "colecciones",
     href: "/products",
-  },
-
-  {
-    id: "h6ii8g",
-    name: "Contact",
-    href: "/contact",
   },
   {
     id: "h678ty",
@@ -134,117 +128,112 @@ export const NavLinks: NavItemType[] = [
     href: "/faqs",
   },
   {
-    id: "h6i78g",
-    name: "Checkout",
-    href: "/checkout",
-  },
-  {
-    id: "f678ty",
-    name: "Cart",
-    href: "/cart",
+    id: "h6ii8g",
+    name: "Contacto",
+    href: "/contact",
   },
 ];
 
 export const headerSection = {
-  title: "¡NUEVA LLEGADA!",
-  heading: "PSYCHOTIC – WORKOUT DE LOCURA",
+  title: "🔥 LLEGÓ LA BESTIA 🔥",
+  heading: "PSYCHOTIC – POTENCIA AL LÍMITE",
   description:
-    "Psychotic no es un pre-entreno cualquiera: es una bomba de energía extrema que lleva tu entrenamiento a otro nivel.",
+    "No es un simple pre-entreno. PSYCHOTIC desata una energía brutal, foco extremo y resistencia imparable. ¡Prepárate para entrenar como nunca antes!",
 };
 
 export const promotionTag = {
-  heading: "Conoce nuestras ofertas",
+  title: "¡Descubre Descuentos Irresistibles!",
 };
 
 export const shoes = [
- {
-  slug: "cbum5peat",
-  shoeName: "cbum5peat",
-  coverImage: cbum5peat, // reemplaza con tu imagen importada
-  currentPrice: 189000, // en COP (ajústalo según tu tienda)
-  previousPrice: 210000,
-  shoeCategory: "Pre-entrenamiento",
-  rating: 4.9,
-  reviews: 10500, // número estimado de reseñas globales
-  pieces_sold: 85000,
-  justIn: true,
-  shots: [cbum5peat, shot1, shot2, shot3, shot4, shot5, shot6, shot7], // reemplaza si tienes otras tomas
-  overview:
-    "El pre-entreno CBUM Thavage, creado por el campeón mundial Chris Bumstead, está diseñado para quienes entrenan con intensidad. Su fórmula incluye ingredientes como L-Citrulina, Beta-Alanina y Alpha-GPC para mayor bombeo muscular, concentración mental y resistencia. Con un sabor delicioso y rendimiento comprobado, es ideal para elevar tus sesiones al siguiente nivel.",
-  shipment_details: [
-    {
-      icon: <PiPercentFill className="text-xl text-secondary" />,
-      title: "Descuento",
-      description: "15% en compras superiores a $180.000 COP",
-    },
-    {
-      icon: <FaCalendarAlt className="text-xl text-secondary" />,
-      title: "Tiempo de entrega",
-      description: "2 - 5 días hábiles",
-    },
-    {
-      icon: <BsBoxFill className="text-xl text-secondary" />,
-      title: "Presentación",
-      description: "Envase con 20 servicios",
-    },
-    {
-      icon: <FaTruckFast className="text-xl text-secondary" />,
-      title: "Llegada estimada",
-      description: "13 - 16 Junio 2025",
-    },
-  ],
-},
   {
-  slug: "peachbum",
-  shoeName: "peachbum",
-  coverImage: peachbum, 
-  currentPrice: 189000,
-  previousPrice: 210000,
-  shoeCategory: "Pre-entrenamiento",
-  rating: 4.9,
-  reviews: 8700,
-  pieces_sold: 68000,
-  justIn: true,
-  shots: [peachbum, shot1, shot2, shot3, shot4, shot5, shot6, shot7],
-  overview:
-    "Thavage Pre-Workout en sabor Peach Bum ofrece energía explosiva, concentración mental y bombeo muscular intenso. Con 40 servicios, esta fórmula incluye Beta-Alanina, L-Citrulina y Alpha-GPC para entrenamientos de alto rendimiento. Su sabor a durazno dulce te encantará desde el primer scoop.",
-  shipment_details: [
-    {
-      icon: <PiPercentFill className="text-xl text-secondary" />,
-      title: "Descuento",
-      description: "10% en compras desde $180.000 COP",
-    },
-    {
-      icon: <FaCalendarAlt className="text-xl text-secondary" />,
-      title: "Tiempo de entrega",
-      description: "2 - 5 días hábiles",
-    },
-    {
-      icon: <BsBoxFill className="text-xl text-secondary" />,
-      title: "Presentación",
-      description: "Envase con 40 servicios sabor Peach Bum",
-    },
-    {
-      icon: <FaTruckFast className="text-xl text-secondary" />,
-      title: "Llegada estimada",
-      description: "13 - 16 Junio 2025",
-    },
-  ],
-},
+    slug: "cbum5peat",
+    shoeName: "cbum5peat",
+    coverImage: cbum5peat,
+    currentPrice: 10000,
+    previousPrice: 2000,
+    shoeCategory: "Pre-entrenamiento",
+    rating: 4.9,
+    reviews: 10500,
+    pieces_sold: 85000,
+    justIn: true,
+    shots: [cbum5peat1, cbum5peat4, cbum5peat3, cbum5peat2],
+    overview:
+      "El pre-entreno CBUM Thavage, creado por el campeón mundial Chris Bumstead, está diseñado para quienes entrenan con intensidad. Su fórmula incluye ingredientes como L-Citrulina, Beta-Alanina y Alpha-GPC para mayor bombeo muscular, concentración mental y resistencia. Con un sabor delicioso y rendimiento comprobado, es ideal para elevar tus sesiones al siguiente nivel.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Descuento",
+        description: "15% en compras superiores a $180.000 COP",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Tiempo de entrega",
+        description: "2 - 5 días hábiles",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Presentación",
+        description: "Envase con 20 servicios",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Llegada estimada",
+        description: "13 - 16 Junio 2025",
+      },
+    ],
+  },
   {
-    slug: "brownsb",
-    shoeName: "SB Low Brown",
-    coverImage: brownsb,
+    slug: "peachbum",
+    shoeName: "PEACHBUM",
+    coverImage: peachbum,
+    currentPrice: 10000,
+    previousPrice: 2000,
+    shoeCategory: "Pre-entrenamiento",
+    rating: 4.9,
+    reviews: 8700,
+    pieces_sold: 68000,
+    justIn: true,
+    shots: [peachbum1, peachbum2, peachbum3],
+    overview:
+      "Thavage Pre-Workout en sabor Peach Bum ofrece energía explosiva, concentración mental y bombeo muscular intenso. Con 40 servicios, esta fórmula incluye Beta-Alanina, L-Citrulina y Alpha-GPC para entrenamientos de alto rendimiento. Su sabor a durazno dulce te encantará desde el primer scoop.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Descuento",
+        description: "10% en compras desde $180.000 COP",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Tiempo de entrega",
+        description: "2 - 5 días hábiles",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Presentación",
+        description: "Envase con 40 servicios sabor Peach Bum",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Llegada estimada",
+        description: "13 - 16 Junio 2025",
+      },
+    ],
+  },
+  {
+    slug: "Vemon",
+    shoeName: "VEMON",
+    coverImage: preentreno,
     currentPrice: 199,
     previousPrice: 250,
-    shoeCategory: "Men's shoes",
-    rating: 4.8,
-    reviews: 56,
-    pieces_sold: 600,
-    justIn: false,
-    shots: [brownsb, shot1, shot2, shot3, shot4, shot5, shot6, shot7],
+    shoeCategory: "Pre-entrenamiento",
+    rating: 4.9,
+    reviews: 310,
+    pieces_sold: 2400,
+    justIn: true,
+    shots: [preentreno, Venom, Venom1],
     overview:
-      "When your workouts wade into the nitty gritty, the Nike Free Metcon 5 can meet you in the depths, help you dig deep to find that final ounce of force and come out of the other side on a high. It matches style with substance, forefoot flexibility with backend stability, perfect for flying through a cardio day or enhancing your agility. A revamped upper offers easier entry with a collar made just for your ankle.",
+      "Venom® es un pre-entrenamiento extremadamente potente formulado para atletas que desean niveles extremos de energía, enfoque y rendimiento. Con ingredientes como Beta-Alanina, Alpha-GPC y Caffeine Anhydrous, Venom® te lleva al siguiente nivel para que puedas aplastar cada entrenamiento con intensidad y concentración máximas.",
     shipment_details: [
       {
         icon: <PiPercentFill className="text-xl text-secondary" />,
@@ -254,17 +243,17 @@ export const shoes = [
       {
         icon: <FaCalendarAlt className="text-xl text-secondary" />,
         title: "Delivery Time",
-        description: "6 - 12 Working days",
+        description: "4 - 8 Working days",
       },
       {
         icon: <BsBoxFill className="text-xl text-secondary" />,
         title: "Package",
-        description: "Reagular Premium Box",
+        description: "Dragon Pharma Secure Bottle",
       },
       {
         icon: <FaTruckFast className="text-xl text-secondary" />,
         title: "Estimated Arrival",
-        description: "10 - 12 October 23",
+        description: "14 - 18 June 2025",
       },
     ],
   },
@@ -318,7 +307,7 @@ export const shoes = [
     coverImage: iso,
     currentPrice: 950,
     previousPrice: 1150,
-    shoeCategory: "Proteina",
+    shoeCategory: "Proteína",
     rating: 5,
     reviews: 76,
     pieces_sold: 600,
@@ -355,7 +344,7 @@ export const shoes = [
     coverImage: CBUM,
     currentPrice: 1250,
     previousPrice: 1450,
-    shoeCategory: "Proteína aislada en polvo RAW",
+    shoeCategory: "Proteína",
     rating: 4.5,
     reviews: 194,
     pieces_sold: 700,
@@ -392,7 +381,7 @@ export const shoes = [
     coverImage: Cake,
     currentPrice: 1250,
     previousPrice: 1450,
-    shoeCategory: "Proteína de suero aislada (Itolato)",
+    shoeCategory: "Proteína",
     rating: 4.5,
     reviews: 194,
     pieces_sold: 700,
@@ -429,7 +418,7 @@ export const shoes = [
     coverImage: cream,
     currentPrice: 900,
     previousPrice: 1050,
-    shoeCategory: "Proteína de suero aislada (Itolato)",
+    shoeCategory: "Proteína",
     rating: 4.3,
     reviews: 1676,
     pieces_sold: 1200,
@@ -497,176 +486,357 @@ export const shoes = [
       },
     ],
   },
- {
-  slug: "gold-standard-whey",
-  shoeName: "Gold Standard 100% Whey",
-  coverImage: whey, // reemplázalo con la imagen que subiste
-  currentPrice: 168000, // en pesos colombianos (COP)
-  previousPrice: 190000,
-  shoeCategory: "Proteína en polvo",
-  rating: 4.8,
-  reviews: 22500, // basado en el número de reseñas en iHerb
-  pieces_sold: 150000,
-  justIn: true,
-  shots: [whey, shot1, shot2, shot3, shot4, shot5, shot6, shot7], // usa las imágenes que tengas del producto
-  overview:
-    "Optimum Nutrition Gold Standard 100% Whey es la fórmula de proteína más vendida en el mundo. Elaborada con aislado de proteína de suero como ingrediente principal, ofrece 24 g de proteína de alta calidad por porción para apoyar el crecimiento y mantenimiento muscular. Sabor: Extreme Milk Chocolate.",
-  shipment_details: [
-    {
-      icon: <PiPercentFill className="text-xl text-secondary" />,
-      title: "Descuento",
-      description: "10% en compras superiores a $150.000 COP",
-    },
-    {
-      icon: <FaCalendarAlt className="text-xl text-secondary" />,
-      title: "Tiempo de entrega",
-      description: "3 - 5 días hábiles",
-    },
-    {
-      icon: <BsBoxFill className="text-xl text-secondary" />,
-      title: "Presentación",
-      description: "Tarro de 2 lb (907 g)",
-    },
-    {
-      icon: <FaTruckFast className="text-xl text-secondary" />,
-      title: "Llegada estimada",
-      description: "Entre 14 - 17 Junio 2025",
-    },
-  ],
-},
+  {
+    slug: "gold-standard-whey",
+    shoeName: "Gold Standard - Whey Protein",
+    coverImage: whey,
+    currentPrice: 20000,
+    previousPrice: 19000,
+    shoeCategory: "Proteína",
+    rating: 4.8,
+    reviews: 22500,
+    pieces_sold: 150000,
+    justIn: false,
+    shots: [whey2, whey1, whey3, whey4],
+    overview:
+      "Optimum Nutrition Gold Standard 100% Whey es la fórmula de proteína más vendida en el mundo. Elaborada con aislado de proteína de suero como ingrediente principal, ofrece 24 g de proteína de alta calidad por porción para apoyar el crecimiento y mantenimiento muscular. Sabor: Extreme Milk Chocolate.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Descuento",
+        description: "10% en compras superiores a $150.000 COP",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Tiempo de entrega",
+        description: "3 - 5 días hábiles",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Presentación",
+        description: "Tarro de 2 lb (907 g)",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Llegada estimada",
+        description: "Entre 14 - 17 Junio 2025",
+      },
+    ],
+  },
 
   {
-    slug: "slides",
-    shoeName: "Slides",
-    coverImage: slides,
-    currentPrice: 199,
-    previousPrice: 250,
-    shoeCategory: "Men's shoes",
-    rating: 4.8,
-    reviews: 56,
-    pieces_sold: 600,
-    justIn: false,
-    shots: [slides, shot1, shot2, shot3, shot4, shot5, shot6, shot7],
+    slug: "creatine",
+    shoeName: "Creatine micronized ",
+    coverImage: creatine,
+    currentPrice: 165,
+    previousPrice: 210,
+    shoeCategory: "Suplementos",
+    rating: 4.9,
+    reviews: 124,
+    pieces_sold: 3200,
+    justIn: true,
+    shots: [creatine, creatine2, creatine3, creatine4],
     overview:
-      "When your workouts wade into the nitty gritty, the Nike Free Metcon 5 can meet you in the depths, help you dig deep to find that final ounce of force and come out of the other side on a high. It matches style with substance, forefoot flexibility with backend stability, perfect for flying through a cardio day or enhancing your agility. A revamped upper offers easier entry with a collar made just for your ankle.",
+      "La Creatine Powder de Optimum Nutrition te ayuda a mejorar tu rendimiento físico durante ejercicios de alta intensidad. Cada porción contiene 5g de monohidrato de creatina micronizada para una mejor absorción y resultados comprobados. Ideal para deportistas que buscan aumentar su fuerza y resistencia.",
     shipment_details: [
       {
         icon: <PiPercentFill className="text-xl text-secondary" />,
         title: "Discount",
-        description: "> $100 Disc 10%",
+        description: "Compra > $100 y obtén 10% OFF",
       },
       {
         icon: <FaCalendarAlt className="text-xl text-secondary" />,
         title: "Delivery Time",
-        description: "6 - 12 Working days",
+        description: "4 - 8 días hábiles",
       },
       {
         icon: <BsBoxFill className="text-xl text-secondary" />,
         title: "Package",
-        description: "Reagular Premium Box",
+        description: "Envase plástico resistente ON®",
       },
       {
         icon: <FaTruckFast className="text-xl text-secondary" />,
         title: "Estimated Arrival",
-        description: "10 - 12 October 23",
+        description: "14 - 18 de junio 2025",
       },
     ],
   },
   {
-    slug: "yellowLow",
-    shoeName: "Dunk Low Yellow",
-    coverImage: yellowLow,
-    currentPrice: 199,
-    previousPrice: 250,
-    shoeCategory: "Men's shoes",
-    rating: 4.8,
-    reviews: 56,
-    pieces_sold: 600,
+    slug: "aminox",
+    shoeName: "ANINOX",
+    coverImage: aminox,
+    currentPrice: 145,
+    previousPrice: 180,
+    shoeCategory: "Suplementos",
+    rating: 4.7,
+    reviews: 89,
+    pieces_sold: 2300,
     justIn: true,
-    shots: [yellowLow, shot1, shot2, shot3, shot4, shot5, shot6, shot7],
+    shots: [aminox1, aminox2, aminox3, aminox4, aminox5],
     overview:
-      "When your workouts wade into the nitty gritty, the Nike Free Metcon 5 can meet you in the depths, help you dig deep to find that final ounce of force and come out of the other side on a high. It matches style with substance, forefoot flexibility with backend stability, perfect for flying through a cardio day or enhancing your agility. A revamped upper offers easier entry with a collar made just for your ankle.",
+      "AMINOx de BSN es un suplemento efervescente que combina BCAA’s y aminoácidos esenciales para favorecer la recuperación muscular y mejorar el rendimiento deportivo. Con sabor a sandía, no contiene cafeína y es ideal para cualquier hora del día. Aporta 10g de aminoácidos por porción y ayuda a combatir la fatiga post-entrenamiento.",
     shipment_details: [
       {
         icon: <PiPercentFill className="text-xl text-secondary" />,
         title: "Discount",
-        description: "> $100 Disc 10%",
+        description: "10% OFF por compras > $100",
       },
       {
         icon: <FaCalendarAlt className="text-xl text-secondary" />,
         title: "Delivery Time",
-        description: "6 - 12 Working days",
+        description: "4 - 7 días hábiles",
       },
       {
         icon: <BsBoxFill className="text-xl text-secondary" />,
         title: "Package",
-        description: "Reagular Premium Box",
+        description: "Envase de plástico sellado BSN®",
       },
       {
         icon: <FaTruckFast className="text-xl text-secondary" />,
         title: "Estimated Arrival",
-        description: "10 - 12 October 23",
+        description: "14 - 17 de junio 2025",
+      },
+    ],
+  },
+  {
+    slug: "modern-eaa-plus",
+    shoeName: "Modern EAA+",
+    coverImage: modernEaa,
+    currentPrice: 699,
+    previousPrice: 799,
+    shoeCategory: "Aminoácidos",
+    rating: 4.8,
+    reviews: 154,
+    pieces_sold: 3150,
+    justIn: false,
+    shots: [modernEaa],
+    overview:
+      "Modern EAA+ de USP Labs combina aminoácidos esenciales (EAA) con electrolitos para optimizar la hidratación, recuperación y crecimiento muscular. Ideal para consumir antes, durante o después del entrenamiento. Su fórmula avanzada ayuda a prevenir la degradación muscular y acelerar la síntesis proteica. Libre de estimulantes y con delicioso sabor a ponche de frutas.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Descuento",
+        description: "10% OFF por compras mayores a $1,000 MXN",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Tiempo de entrega",
+        description: "3 - 6 días hábiles",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Empaque",
+        description: "Bote sellado USP Labs® 450g",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Entrega estimada",
+        description: "25 - 28 de junio 2025",
+      },
+    ],
+  },
+  {
+    slug: "omega-3-90-softgels",
+    shoeName: "Omega-3 90 Softgels",
+    coverImage: omega3,
+    currentPrice: 299,
+    previousPrice: 349,
+    shoeCategory: "Omega 3",
+    rating: 4.6,
+    reviews: 78,
+    pieces_sold: 1820,
+    justIn: false,
+    shots: [omega3],
+    overview:
+      "Omega-3 90 Softgels es un suplemento de ácidos grasos esenciales que apoya la salud cardiovascular, cerebral y articular. Cada cápsula blanda contiene una alta concentración de EPA y DHA de calidad premium. Ideal para uso diario, mejora la circulación, reduce la inflamación y favorece el bienestar general. Sin sabor a pescado ni aditivos artificiales.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Descuento",
+        description: "5% OFF por compras mayores a $500 MXN",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Tiempo de entrega",
+        description: "2 - 5 días hábiles",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Empaque",
+        description: "Frasco sellado con 90 cápsulas blandas",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Entrega estimada",
+        description: "22 - 25 de junio 2025",
+      },
+    ],
+  },
+  {
+    slug: "creatina-monohidratada-birdman-450g",
+    shoeName: "Creatina Monohidratada Birdman 450g",
+    coverImage: creatinaBirdman,
+    currentPrice: 499,
+    previousPrice: 599,
+    shoeCategory: "Creatina",
+    rating: 4.8,
+    reviews: 132,
+    pieces_sold: 3200,
+    justIn: false,
+    shots: [creatinaBirdman],
+    overview:
+      "La Creatina Monohidratada Birdman 450g es un suplemento vegano de alta pureza que mejora el rendimiento físico, la fuerza muscular y acelera la recuperación post-entrenamiento. Apta para atletas y deportistas exigentes, esta creatina es 100% micronizada, sin saborizantes, colorantes ni aditivos artificiales. Perfecta para consumo diario.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Descuento",
+        description: "15% OFF por compras mayores a $800 MXN",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Tiempo de entrega",
+        description: "3 - 6 días hábiles",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Empaque",
+        description: "Bolsa resellable ecológica Birdman® 450g",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Entrega estimada",
+        description: "23 - 27 de junio 2025",
+      },
+    ],
+  },
+  {
+    slug: "creatina-dragon-pharma-1kg",
+    shoeName: "Creatina Dragon",
+    coverImage: dragonCreatine,
+    currentPrice: 749,
+    previousPrice: 899,
+    shoeCategory: "Creatina",
+    rating: 4.9,
+    reviews: 176,
+    pieces_sold: 4100,
+    justIn: false,
+    shots: [dragonCreatine],
+    overview:
+      "La Creatina Monohidratada Dragon Pharma 1 kg proporciona 200 porciones de alta pureza, ideal para aumentar la fuerza, resistencia y volumen muscular. Formulada para atletas de alto rendimiento, esta creatina no contiene saborizantes ni aditivos. Perfecta para ciclos de carga y mantenimiento.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Descuento",
+        description: "10% OFF por compras mayores a $1,000 MXN",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Tiempo de entrega",
+        description: "4 - 7 días hábiles",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Empaque",
+        description: "Envase plástico hermético Dragon Pharma® 1 kg",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Entrega estimada",
+        description: "24 - 28 de junio 2025",
+      },
+    ],
+  },
+  {
+    slug: "glutamina-creatina",
+    shoeName: "Glutamina + Creatina 600g",
+    coverImage: glutamina,
+    currentPrice: 579,
+    previousPrice: 699,
+    shoeCategory: "Glutamina",
+    rating: 4.6,
+    reviews: 98,
+    pieces_sold: 2650,
+    justIn: true,
+    shots: [glutamina],
+    overview:
+      "El suplemento Glutamina + Creatina combina dos potentes ingredientes para mejorar la recuperación muscular, aumentar la energía y reducir el catabolismo tras entrenamientos intensos. Ideal para quienes buscan fortalecer masa muscular y acelerar el tiempo de recuperación. Fórmula sin sabor, fácil de mezclar.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Descuento",
+        description: "10% OFF por compras mayores a $700 MXN",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Tiempo de entrega",
+        description: "3 - 6 días hábiles",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Empaque",
+        description: "Bote plástico sellado de 600g",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Entrega estimada",
+        description: "24 - 27 de junio 2025",
       },
     ],
   },
 ];
 
+// Parte del filtro del Home
 export const productsSection = {
-  heading: "Shop Now, Look Good Later",
+  heading: "Haz tu compra ahora, tu progreso empieza hoy.",
   description:
-    "We have a buch of collections for you! Lets explore and find your dream shoes, make it happen",
+    "¡Tenemos una gran variedad de colecciones para ti! Explora y encuentra los zapatos de tus sueños, ¡hazlo realidad!",
 };
 
-const shoeBrands = ["Nike", "Alexander Mqueen", "New Balance", "Compass"];
+export const shoeTypes = ["Tipo", ...branch.map((b) => b.name)];
 
-const shoeTypes = ["Type", "Sandals", "Sneakers", "Boots"];
-
-const sizes = ["Size", "S", "M", "L", "XL", "XXl"];
-
-const prices = [
-  "Price",
-  "Below $100",
-  "Below $200",
-  "Below $300",
-  "Below $400",
+export const priceRanges = [
+  "Precios",
+  "Menos de 100",
+  "100 - 500",
+  "500 - 1000",
+  "Más de 1000",
 ];
 
-export const filters = [shoeBrands, prices, sizes, shoeTypes];
+export const discountOptions = ["Descuento", "Con descuento", "Sin descuento"];
 
-// export const brandsSection = {
-//   heading: "The Official Store of The Amazing Brand",
-//   description:
-//     "We work together with high quality and famous brands around the world",
-//   brands: [
-//     {
-//       brandName: "New Balance",
-//       rating: 4.9,
-//       reviews: 10334,
-//       followers: 7.2,
-//       visitLink: "https://www.newbalance.com",
-//       logo: new_balance,
-//       shoes: [new_balance1, new_balance2, new_balance3, new_balance4],
-//     },
-//     {
-//       brandName: "Compass",
-//       rating: 4.9,
-//       reviews: 10334,
-//       followers: 8.5,
-//       visitLink: "https://www.sepatucompass.com/",
-//       logo: compass_profile,
-//       shoes: [compass1, compass2, compass3, compass4],
-//     },
-//     {
-//       brandName: "Nike",
-//       rating: 4.9,
-//       reviews: 10334,
-//       followers: 11.2,
-//       visitLink: "https://nike.com",
-//       logo: nike_profile,
-//       shoes: [yellowLow, redlow, dunklow, lebronxx],
-//     },
-//   ],
-// };
+export const filterShoes = (
+  shoes,
+  {
+    brand = "Productos",
+    type = "Tipo",
+    priceRange = [0, Infinity],
+    discount = "Descuento",
+  }
+) => {
+  return shoes.filter((shoe) => {
+    const matchBrand =
+      brand === "Productos" || shoe.shoeName.trim() === brand.trim();
+    let matchType = true;
+    if (type !== "Tipo") {
+      const branchObj = branch.find((b) => b.name === type);
+      matchType = branchObj
+        ? branchObj.categorias.includes(shoe.shoeCategory.trim())
+        : false;
+    }
+
+    const matchPrice =
+      shoe.currentPrice >= priceRange[0] && shoe.currentPrice <= priceRange[1];
+    let matchDiscount = true;
+    if (discount === "Con descuento") matchDiscount = shoe.justIn === true;
+    if (discount === "Sin descuento") matchDiscount = shoe.justIn === false;
+
+    return matchBrand && matchType && matchPrice && matchDiscount;
+  });
+};
+
+export const filters = [shoeTypes, discountOptions, priceRanges];
+
+// ____________________________________________________________________________
 
 export const footerBannerData = {
   heading: "Ponte al día con los mejores suplementos",
@@ -734,9 +904,6 @@ export const shoeSizes = [
   "EU44",
 ];
 
-/* 
-export const note = " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, est eum magnam doloremque, at adipisci debitis, similique dolores ipsa unde necessitatibus vero quibusdam nostrum numquam!";
- */
 export const contactSection = {
   heading: "Contacto",
   description:
@@ -806,7 +973,8 @@ export const faqsData = {
             "Los tiempos de entrega varían según tu ubicación. Normalmente, los pedidos nacionales tardan de 3 a 5 días hábiles, mientras que los pedidos internacionales pueden tardar de 7 a 14 días hábiles.",
         },
         {
-          question: "¿Puedo cambiar mi dirección de envío después de realizar un pedido?",
+          question:
+            "¿Puedo cambiar mi dirección de envío después de realizar un pedido?",
           answer:
             "Desafortunadamente, no podemos cambiar la dirección de envío una vez realizado el pedido. Por favor, verifica bien tu información antes de completar la compra.",
         },

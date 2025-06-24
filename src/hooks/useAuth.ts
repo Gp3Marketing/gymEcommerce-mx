@@ -8,6 +8,8 @@ import {
   signInWithPopup,
   onAuthStateChanged,
   signOut,
+  setPersistence,
+  browserLocalPersistence,
   User,
   UserCredential,
 } from "firebase/auth";
@@ -31,6 +33,7 @@ export function useAuth(): UseAuthResult {
   };
 
   const loginWithGoogle = async () => {
+    await setPersistence(auth, browserLocalPersistence); // Asegura persistencia
     return await signInWithPopup(auth, googleProvider);
   };
 
