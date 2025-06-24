@@ -11,7 +11,7 @@ import { useCart } from "@/hooks/useCart";
 import { useAuth } from "@/hooks/useAuth";
 
 const CartPage = () => {
-  const { user } = useAuth();
+  /* const { user } = useAuth(); */
   const { cart, removeFromCart, updateQuantity } = useCart();
 
   const renderProduct = (item: any) => (
