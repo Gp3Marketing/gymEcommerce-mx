@@ -906,8 +906,10 @@ export const shoeSizes = [
 
 export const contactSection = {
   heading: "Contacto",
+  Title: "¿Tienes alguna duda, queja o sugerencia?",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis quis phasellus eleifend tellus orci ornare.",
+    "Si necesitas asistencia con tu pedido, tienes algún reclamo o simplemente quieres compartir tu experiencia, no dudes en escribirnos. " + 
+    "Nuestro equipo de atención estará encantado de responderte lo antes posible.",
   directContactInfoHeader: {
     heading: "Prefer to reach out directly?",
     description:
