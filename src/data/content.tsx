@@ -18,7 +18,7 @@ import psychotic3 from "@/images/psychotic/psychotic-1.png";
 import psychotic4 from "@/images/psychotic/psychotic.webp";
 import psychotic5 from "@/images/psychotic/psychotic-5.jpg";
 
-import iso from "@/images/iso100/Iso-100-0.avif";
+import iso from "@/images/iso100/iso-1.jpg";
 import iso1 from "@/images/iso100/iso-1.jpg";
 import iso2 from "@/images/iso100/iso-2.jpg";
 import iso3 from "@/images/iso100/iso-3.jpg";
