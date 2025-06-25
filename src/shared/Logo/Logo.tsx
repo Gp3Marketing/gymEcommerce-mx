@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { FC } from "react";
 import React from "react";
-import { RiMicrosoftLoopFill } from "react-icons/ri";
+// import { RiMicrosoftLoopFill } from "react-icons/ri";
 import LogoImage from "@/public/logo-icon.png";
 interface LogoProps {
   className?: string;

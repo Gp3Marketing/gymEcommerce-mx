@@ -10,8 +10,8 @@ import { MdStar } from "react-icons/md";
 import { PiSealCheckFill } from "react-icons/pi";
 
 import ImageShowCase from "@/components/ImageShowCase";
-import ShoeSizeButton from "@/components/ShoeSizeButton";
-import { shoeSizes } from "@/data/content";
+// import ShoeSizeButton from "@/components/ShoeSizeButton";
+// import { shoeSizes } from "@/data/content";
 import nike_profile from "@/images/nike_profile.png";
 import ButtonCircle3 from "@/shared/Button/ButtonCircle3";
 import ButtonPrimary from "@/shared/Button/ButtonPrimary";
@@ -115,11 +115,11 @@ const SectionProductHeader: FC<SectionProductHeaderProps> = ({
           </p>
         </div>
 
-        <div className="grid grid-cols-3 gap-3">
+        {/* <div className="grid grid-cols-3 gap-3">
           {shoeSizes.map((size) => (
             <ShoeSizeButton key={size} size={size} />
           ))}
-        </div>
+        </div> */}
 
         <div className="mt-5 flex items-center gap-5">
           <ButtonPrimary className="w-full">Buy Now</ButtonPrimary>
