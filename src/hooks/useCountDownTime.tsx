@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const calculateTimeLeft = () => {
   const year = new Date().getFullYear();
@@ -39,7 +39,7 @@ const useCountDownTime = () => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
     return () => clearTimeout(timer);
-  });
+  }, []);
 
   return timeLeft;
 };

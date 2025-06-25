@@ -1,4 +1,3 @@
-import { db } from '@/firebase/config';
 import {
   collection,
   deleteDoc,
@@ -6,6 +5,8 @@ import {
   onSnapshot,
   setDoc,
 } from 'firebase/firestore';
+
+import { db } from '@/firebase/config';
 
 export const addToWishlist = async (userId: string, product: any) => {
   if (!product || !product.id) {

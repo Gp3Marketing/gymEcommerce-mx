@@ -1,7 +1,12 @@
-"use client";
-import { useEffect, useState } from "react";
-import { useAuth } from "@/hooks/useAuth";
-import { addToWishlist, removeFromWishlist, subscribeToWishlist } from "@/utils/wishlistUtils";
+'use client';
+
+import { useEffect, useState } from 'react';
+import { useAuth } from '@/hooks/useAuth';
+import {
+  addToWishlist,
+  removeFromWishlist,
+  subscribeToWishlist,
+} from '@/utils/wishlistUtils';
 
 export function useWishlist() {
   const { user } = useAuth();
@@ -10,7 +15,7 @@ export function useWishlist() {
   useEffect(() => {
     if (!user) {
       setWishlist([]);
-      return;
+      return undefined;
     }
     const unsub = subscribeToWishlist(user.uid, setWishlist);
     return () => unsub();
@@ -26,7 +31,8 @@ export function useWishlist() {
     await removeFromWishlist(user.uid, productId);
   };
 
-  const isInWishlist = (productId: string) => wishlist.some(p => p.id === productId);
+  const isInWishlist = (productId: string) =>
+    wishlist.some((p) => p.id === productId);
 
   return { wishlist, add, remove, isInWishlist };
 }
