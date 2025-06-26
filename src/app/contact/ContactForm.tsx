@@ -1,16 +1,19 @@
 'use client';
+
 import React from 'react';
 
-import ButtonPrimary from "@/shared/Button/ButtonPrimary";
-import FormItem from "@/shared/FormItem";
-import Input from "@/shared/Input/Input";
-import Textarea from "@/shared/TextArea/TextArea";
+import ButtonPrimary from '@/shared/Button/ButtonPrimary';
+import FormItem from '@/shared/FormItem';
+import Input from '@/shared/Input/Input';
+import Textarea from '@/shared/TextArea/TextArea';
 
 const ContactForm = () => {
   return (
-    <form className="w-full space-y-5"
+    <form
+      className="w-full space-y-5"
       action="https://formspree.io/f/mqabqqre"
-      method="POST">
+      method="POST"
+    >
       <div className="grid gap-5 md:grid-cols-2">
         <FormItem label="Nombre completo">
           <Input
@@ -44,7 +47,7 @@ const ContactForm = () => {
             inputMode="numeric"
             rounded="rounded-lg"
             className="border-neutral-300 bg-white placeholder:text-neutral-500 focus:border-primary"
-            onInput={e => {
+            onInput={(e) => {
               const input = e.target as HTMLInputElement;
               input.value = input.value.replace(/[^0-9]/g, '');
             }}
@@ -69,7 +72,11 @@ const ContactForm = () => {
           rows={6}
         />
       </FormItem>
-      <ButtonPrimary className="self-center" sizeClass="py-4 px-6" type="submit">
+      <ButtonPrimary
+        className="self-center"
+        sizeClass="py-4 px-6"
+        type="submit"
+      >
         Submit
       </ButtonPrimary>
     </form>

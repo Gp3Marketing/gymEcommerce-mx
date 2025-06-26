@@ -1,25 +1,26 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import React, { useState } from "react";
-import { FaGoogle } from "react-icons/fa6";
-import { useRouter } from "next/navigation";
+import { doc, setDoc } from 'firebase/firestore';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaGoogle } from 'react-icons/fa6';
 
-import ButtonPrimary from "@/shared/Button/ButtonPrimary";
-import ButtonSecondary from "@/shared/Button/ButtonSecondary";
-import AceptPubliciti from "@/components/PopUp/AceptPubliciti";
-import FormItem from "@/shared/FormItem";
-import Input from "@/shared/Input/Input";
-import { useAuth } from "@/hooks/useAuth";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { db } from "@/firebase/config";
-import { doc, setDoc } from "firebase/firestore";
-import { addUserNotification } from "@/utils/notificationsUtils";
+import AceptPubliciti from '@/components/PopUp/AceptPubliciti';
+import { db } from '@/firebase/config';
+import { useAuth } from '@/hooks/useAuth';
+import ButtonPrimary from '@/shared/Button/ButtonPrimary';
+import ButtonSecondary from '@/shared/Button/ButtonSecondary';
+import FormItem from '@/shared/FormItem';
+import Input from '@/shared/Input/Input';
+import { addUserNotification } from '@/utils/notificationsUtils';
 
 const PageSignUp = () => {
   const [showModal, setShowModal] = useState(false);
-  const [newUserUid, setNewUserUid] = useState("");
-  const [newUserName, setNewUserName] = useState("");
+  const [newUserUid, setNewUserUid] = useState('');
+  const [newUserName, setNewUserName] = useState('');
+  const [mensaje, setMensaje] = useState<string | null>(null);
 
   const { registerWithEmail, loginWithGoogle } = useAuth();
   const router = useRouter();
@@ -32,11 +33,12 @@ const PageSignUp = () => {
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
+    setMensaje(null);
     try {
       const userCredential = await registerWithEmail(email, password);
       const user = userCredential?.user;
       if (!user || !user.uid) {
-        alert('No se pudo crear el usuario.');
+        setMensaje('No se pudo crear el usuario.');
         return;
       }
       await setDoc(doc(db, 'users', user.uid), {
@@ -44,22 +46,22 @@ const PageSignUp = () => {
           fullName: userName,
           email,
           phone,
-          birthDate: "",
+          birthDate: '',
         },
         shippingAddress: {
-          street: "",
-          apartment: "",
-          city: "",
-          state: "",
-          country: "",
-          postalCode: "",
+          street: '',
+          apartment: '',
+          city: '',
+          state: '',
+          country: '',
+          postalCode: '',
         },
         createdAt: new Date(),
       });
 
       // Notificación de bienvenida
       await addUserNotification(user.uid, {
-        type: "welcome",
+        type: 'welcome',
         message: `Bienvenido a FITMEX STORE, ${userName}`,
         extraData: {
           registeredAt: new Date().toISOString(),
@@ -71,22 +73,22 @@ const PageSignUp = () => {
       setShowModal(true);
     } catch (error: any) {
       if (error.code === 'auth/email-already-in-use') {
-        alert(
-          'El correo electrónico ya está registrado. Intenta iniciar sesión o usa otro correo.'
+        setMensaje(
+          'El correo electrónico ya está registrado. Intenta iniciar sesión o usa otro correo.',
         );
       } else {
-        alert('Error al registrar: ' + error.message);
+        setMensaje(`Error al registrar: ${error.message}`);
       }
-      console.error('Error al registrar:', error);
     }
   };
 
   const handleGoogleSignUp = async () => {
+    setMensaje(null);
     try {
       await loginWithGoogle();
       router.push('/');
-    } catch (error) {
-      console.error('Error al registrarse con Google:', error);
+    } catch {
+      setMensaje('Error al registrarse con Google.');
     }
   };
 
@@ -115,6 +117,11 @@ const PageSignUp = () => {
             </div>
             <form onSubmit={handleRegister}>
               <div className="grid grid-cols-1 gap-6">
+                {mensaje && (
+                  <div className="rounded bg-red-100 px-4 py-2 text-red-700">
+                    {mensaje}
+                  </div>
+                )}
                 <FormItem label="Nombre Completo">
                   <Input
                     type="text"
@@ -154,13 +161,13 @@ const PageSignUp = () => {
                 <FormItem label="Password">
                   <div className="relative">
                     <Input
-                      type={showPassword ? "text" : "password"}
+                      type={showPassword ? 'text' : 'password'}
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       rounded="rounded-full"
                       sizeClass="h-12 px-4 py-3"
                       placeholder="*********"
-                      className="bg-transparent border-neutral-300 pr-10 placeholder:text-neutral-500 focus:border-primary"
+                      className="border-neutral-300 bg-transparent pr-10 placeholder:text-neutral-500 focus:border-primary"
                       required
                     />
                     <button
@@ -177,7 +184,7 @@ const PageSignUp = () => {
               </div>
             </form>
             <span className="block text-center text-sm text-neutral-500">
-              Ya cuentas con cuenta propia?{" "}
+              Ya cuentas con cuenta propia?{' '}
               <Link href="/login" className="text-primary">
                 Login
               </Link>

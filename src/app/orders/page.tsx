@@ -1,13 +1,15 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import OrdersList from "@/components/OrdersList";
-import { useAuth } from "@/hooks/useAuth";
-import { collection, getDocs, query, where } from "firebase/firestore";
-import { db } from "@/firebase/config";
-import type { Order } from "@/types/order";
+'use client';
+
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import React, { useEffect, useState } from 'react';
+
+import OrdersList from '@/components/OrdersList';
+import { db } from '@/firebase/config';
+import { useAuth } from '@/hooks/useAuth';
+import type { Order } from '@/types/order';
 
 const fetchOrders = async (userId: string): Promise<Order[]> => {
-  const q = query(collection(db, "orders"), where("userId", "==", userId));
+  const q = query(collection(db, 'orders'), where('userId', '==', userId));
   const querySnapshot = await getDocs(q);
   return querySnapshot.docs.map((doc) => {
     const data = doc.data();

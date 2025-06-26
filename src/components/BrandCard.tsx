@@ -1,11 +1,11 @@
-import type { StaticImageData } from "next/image";
-import Image from "next/image";
-import type { FC } from "react";
-import React from "react";
-import { MdStar } from "react-icons/md";
-import { PiSealCheckFill } from "react-icons/pi";
+import type { StaticImageData } from 'next/image';
+import Image from 'next/image';
+import type { FC } from 'react';
+import React from 'react';
+import { MdStar } from 'react-icons/md';
+import { PiSealCheckFill } from 'react-icons/pi';
 
-import ButtonSecondary from "@/shared/Button/ButtonSecondary";
+import ButtonSecondary from '@/shared/Button/ButtonSecondary';
 
 interface BrandCardProps {
   brandName: string;
@@ -30,11 +30,11 @@ const BrandCard: FC<BrandCardProps> = ({
     <div className="rounded-2xl border border-neutral-300 p-3">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="h-20 w-20 overflow-hidden rounded-lg">
+          <div className="size-20 overflow-hidden rounded-lg">
             <Image
               src={logo}
               alt="logo"
-              className="h-full w-full object-cover object-center"
+              className="size-full object-cover object-center"
             />
           </div>
           <div>
@@ -44,7 +44,7 @@ const BrandCard: FC<BrandCardProps> = ({
             <div className="flex items-center gap-1">
               <MdStar className="text-yellow-400" />
               <p className="text-sm">
-                {rating}{" "}
+                {rating}{' '}
                 <span className="text-neutral-500">{`(${reviews} Reviews)`}</span>
               </p>
             </div>
@@ -69,7 +69,7 @@ const BrandCard: FC<BrandCardProps> = ({
             <Image
               src={shoe}
               alt="shoe"
-              className="h-full w-full object-cover object-bottom"
+              className="size-full object-cover object-bottom"
             />
           </div>
         ))}

@@ -2,7 +2,7 @@
 
 import type { Route } from 'next';
 import Link from 'next/link';
-import type { ButtonHTMLAttributes, FC } from 'react';
+import type { FC } from 'react';
 import React from 'react';
 
 export interface ButtonProps {
@@ -12,7 +12,7 @@ export interface ButtonProps {
   fontSize?: string;
   loading?: boolean;
   disabled?: boolean;
-  type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
+  type?: 'button' | 'submit';
   href?: Route;
   onClick?: () => void;
   children?: React.ReactNode;
@@ -70,7 +70,7 @@ const Button: FC<ButtonProps> = ({
       disabled={disabled || loading}
       className={CLASSES}
       onClick={onClick}
-      type={type}
+      type={type === 'submit' ? 'submit' : 'button'}
     >
       {loading && renderLoading()}
       {children || 'This is Button'}

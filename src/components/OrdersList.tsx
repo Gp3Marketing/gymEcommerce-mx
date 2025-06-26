@@ -1,8 +1,9 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { shoes } from "@/data/content";
-import type { Order } from "@/types/order";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+
+import { shoes } from '@/data/content';
+import type { Order } from '@/types/order';
 
 const OrdersList: React.FC<{ orders: Order[] }> = ({ orders }) => (
   <main className="container py-16 lg:pb-28 lg:pt-20 ">
@@ -19,9 +20,9 @@ const OrdersList: React.FC<{ orders: Order[] }> = ({ orders }) => (
         {orders.map((order) => (
           <li
             key={order.id}
-            className="mb-12 border-b pb-8 flex flex-col lg:flex-row"
+            className="mb-12 flex flex-col border-b pb-8 lg:flex-row"
           >
-            <div className="w-full divide-y divide-neutral-300 lg:w-[60%] xl:w-[55%]">
+            <div className="w-full divide-y divide-neutral-300 lg:w-3/5 xl:w-[55%]">
               {order.productos.map((prod, idx) => {
                 let producto = prod.slug
                   ? shoes.find((s) => s.slug === prod.slug)
@@ -30,7 +31,7 @@ const OrdersList: React.FC<{ orders: Order[] }> = ({ orders }) => (
                   producto = shoes.find(
                     (s) =>
                       s.shoeName.trim().toLowerCase() ===
-                      prod.nombreProducto.trim().toLowerCase()
+                      prod.nombreProducto.trim().toLowerCase(),
                   );
                 }
                 if (!producto)
@@ -41,12 +42,12 @@ const OrdersList: React.FC<{ orders: Order[] }> = ({ orders }) => (
                   );
                 return (
                   <div key={idx} className="flex py-5 last:pb-0">
-                    <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl md:h-40 md:w-40">
+                    <div className="relative size-24 shrink-0 overflow-hidden rounded-xl md:size-40">
                       <Image
                         fill
                         src={producto.coverImage}
                         alt={producto.shoeName}
-                        className="h-full w-full object-contain object-center"
+                        className="size-full object-contain object-center"
                       />
                       <Link
                         className="absolute inset-0"
@@ -62,7 +63,7 @@ const OrdersList: React.FC<{ orders: Order[] }> = ({ orders }) => (
                                 {producto.shoeName}
                               </Link>
                             </h3>
-                            <div className="text-sm text-neutral-500 mb-1">
+                            <div className="mb-1 text-sm text-neutral-500">
                               {producto.overview}
                             </div>
                           </div>
@@ -71,7 +72,7 @@ const OrdersList: React.FC<{ orders: Order[] }> = ({ orders }) => (
                           </span>
                         </div>
                       </div>
-                      <div className="flex w-full items-end justify-between text-sm mt-2">
+                      <div className="mt-2 flex w-full items-end justify-between text-sm">
                         <div>
                           <span className="text-neutral-500">
                             Cantidad: {prod.cantidad}
@@ -84,11 +85,9 @@ const OrdersList: React.FC<{ orders: Order[] }> = ({ orders }) => (
               })}
             </div>
 
-            <div className="flex-1 px-10 py-5 ml-20">
+            <div className="ml-20 flex-1 px-10 py-5">
               <div className="sticky top-28">
-                <h3 className="text-2xl font-semibold">
-                  Detalles del Pedido
-                </h3>
+                <h3 className="text-2xl font-semibold">Detalles del Pedido</h3>
                 <div className="mt-7 divide-y divide-neutral-300 text-sm">
                   <div className="flex justify-between pb-4">
                     <span className="font-semibold">Pedido:</span>

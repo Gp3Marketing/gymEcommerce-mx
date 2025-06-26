@@ -1,8 +1,9 @@
-"use client";
+'use client';
 
-import React, { useRef, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { useAuth } from "@/hooks/useAuth";
+import { useRouter } from 'next/navigation';
+import React, { useEffect, useRef } from 'react';
+
+import { useAuth } from '@/hooks/useAuth';
 
 interface AccountMenuProps {
   onClose: () => void;
@@ -20,8 +21,8 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ onClose, onLogout }) => {
         onClose();
       }
     };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [onClose]);
 
   const handleProtectedRoute = (route: string) => {
@@ -35,21 +36,21 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ onClose, onLogout }) => {
 
   const handleLogout = async () => {
     await onLogout();
-    router.push("/login");
+    router.push('/login');
     onClose();
   };
 
   return (
     <div
       ref={menuRef}
-      className="absolute right-0 top-12 z-50 w-56 rounded-lg bg-white shadow-lg border border-neutral-200 p-4"
+      className="absolute right-0 top-12 z-50 w-56 rounded-lg border border-neutral-200 bg-white p-4 shadow-lg"
     >
       <div className="mb-2 font-semibold text-neutral-700">Tu Cuenta</div>
       <ul className="space-y-2">
         <li>
           <button
             className="block w-full text-left hover:text-primary"
-            onClick={() => handleProtectedRoute("/account")}
+            onClick={() => handleProtectedRoute('/account')}
           >
             Cuenta
           </button>
@@ -57,7 +58,7 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ onClose, onLogout }) => {
         <li>
           <button
             className="block w-full text-left hover:text-primary"
-            onClick={() => handleProtectedRoute("/orders")}
+            onClick={() => handleProtectedRoute('/orders')}
           >
             Mis Pedidos
           </button>
@@ -65,7 +66,7 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ onClose, onLogout }) => {
         <li>
           <button
             className="block w-full text-left hover:text-primary"
-            onClick={() => handleProtectedRoute("/wishlist")}
+            onClick={() => handleProtectedRoute('/wishlist')}
           >
             Lista de Deseos
           </button>

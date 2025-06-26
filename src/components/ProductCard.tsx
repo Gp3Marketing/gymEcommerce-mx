@@ -1,10 +1,10 @@
-import Image from "next/image";
-import Link from "next/link";
-import type { FC } from "react";
-import React from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import type { FC } from 'react';
+import React from 'react';
 
-import type { ProductType } from "@/types/product";
-import LikeButton from "@/components/LikeButton";
+import LikeButton from '@/components/LikeButton';
+import type { ProductType } from '@/types/product';
 
 interface ProductCardProps {
   product: ProductType;
@@ -31,7 +31,7 @@ const ProductCard: FC<ProductCardProps> = ({
           className="absolute right-2 top-2"
           product={{
             ...product,
-            id: product.id ?? product._id ?? product.slug,
+            id: product.id ?? product.slug,
           }}
         />
         <Link
@@ -43,7 +43,7 @@ const ProductCard: FC<ProductCardProps> = ({
             alt={`${product.shoeName} cover photo`}
             width={300}
             height={300}
-            className="h-full w-full object-cover object-bottom"
+            className="size-full object-cover object-bottom"
           />
         </Link>
       </div>
@@ -52,7 +52,7 @@ const ProductCard: FC<ProductCardProps> = ({
           <h3 className="font-semibold">{product.shoeName}</h3>
           <p
             className={`text-neutral-500 ${
-              showPrevPrice ? "block" : "hidden"
+              showPrevPrice ? 'block' : 'hidden'
             } text-sm line-through`}
           >
             ${product.previousPrice}

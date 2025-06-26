@@ -1,51 +1,51 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
-import { useState, useEffect } from "react";
-import { AiOutlineDelete } from "react-icons/ai";
-import { MdStar } from "react-icons/md";
-import emailjs from "emailjs-com";
-import { addDoc, collection, doc, getDoc } from "firebase/firestore";
+import emailjs from 'emailjs-com';
+import { addDoc, collection, doc, getDoc } from 'firebase/firestore';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { AiOutlineDelete } from 'react-icons/ai';
+import { MdStar } from 'react-icons/md';
 
-import LikeButton from "@/components/LikeButton";
-import ButtonPrimary from "@/shared/Button/ButtonPrimary";
-import Input from "@/shared/Input/Input";
-import InputNumber from "@/shared/InputNumber/InputNumber";
+import LikeButton from '@/components/LikeButton';
+import { db } from '@/firebase/config';
+import { useAuth } from '@/hooks/useAuth';
+import { useCart } from '@/hooks/useCart';
+import ButtonPrimary from '@/shared/Button/ButtonPrimary';
+import Input from '@/shared/Input/Input';
+import InputNumber from '@/shared/InputNumber/InputNumber';
+import { addUserNotification } from '@/utils/notificationsUtils';
 
-import ContactInfo from "./ContactInfo";
-import ShippingAddress from "./ShippingAddress";
-import { useCart } from "@/hooks/useCart";
-import { useAuth } from "@/hooks/useAuth";
-import { db } from "@/firebase/config";
-import { addUserNotification } from "@/utils/notificationsUtils";
+import ContactInfo from './ContactInfo';
+import ShippingAddress from './ShippingAddress';
 
 const CheckoutPage = () => {
   const { cart, removeFromCart, updateQuantity, clearCart } = useCart();
   const { user } = useAuth();
   const [tabActive, setTabActive] = useState<
-    "ContactInfo" | "ShippingAddress" | "PaymentMethod"
-  >("ShippingAddress");
+    'ContactInfo' | 'ShippingAddress' | 'PaymentMethod'
+  >('ShippingAddress');
 
   const [contactInfo, setContactInfo] = useState({
-    fullName: "",
-    phone: "",
-    email: "",
+    fullName: '',
+    phone: '',
+    email: '',
   });
   const [shippingAddress, setShippingAddress] = useState({
-    street: "",
-    apartment: "",
-    city: "",
-    state: "",
-    country: "",
-    postalCode: "",
-    communicationTime: "",
+    street: '',
+    apartment: '',
+    city: '',
+    state: '',
+    country: '',
+    postalCode: '',
+    communicationTime: '',
   });
 
   useEffect(() => {
     const fetchUserData = async () => {
       if (!user) return;
-      const userDoc = await getDoc(doc(db, "users", user.uid));
+      const userDoc = await getDoc(doc(db, 'users', user.uid));
       if (userDoc.exists()) {
         const data = userDoc.data();
         if (data.contactInfo) setContactInfo(data.contactInfo);
@@ -58,7 +58,7 @@ const CheckoutPage = () => {
   const handleScrollToEl = (id: string) => {
     const element = document.getElementById(id);
     setTimeout(() => {
-      element?.scrollIntoView({ behavior: "smooth" });
+      element?.scrollIntoView({ behavior: 'smooth' });
     }, 80);
   };
 
@@ -75,38 +75,38 @@ const CheckoutPage = () => {
     } = item;
     return (
       <div key={id} className="flex py-5 last:pb-0">
-        <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl md:h-40 md:w-40">
+        <div className="relative size-24 shrink-0 overflow-hidden rounded-xl md:size-40">
           <Image
             fill
             src={coverImage}
             alt={nombreProducto}
-            className="h-full w-full object-contain object-center"
+            className="size-full object-contain object-center"
           />
           <Link className="absolute inset-0" href={`/products/${id}`} />
         </div>
         <div className="ml-4 flex flex-1 flex-col justify-between">
           <div>
-            <h3 className="font-medium md:text-2xl flex items-center gap-2">
+            <h3 className="flex items-center gap-2 font-medium md:text-2xl">
               <Link href={`/products/${id}`}>{nombreProducto}</Link>
             </h3>
-            <span className="text-sm block mt-1">Valor: ${precio}</span>
-            <span className="text-sm block mt-1">Cantidad: {cantidad}</span>
-            <span className="text-sm block mt-1">{shoeCategory}</span>
+            <span className="mt-1 block text-sm">Valor: ${precio}</span>
+            <span className="mt-1 block text-sm">Cantidad: {cantidad}</span>
+            <span className="mt-1 block text-sm">{shoeCategory}</span>
             {overview && (
-              <span className="text-xs block mt-1 text-neutral-500">
+              <span className="mt-1 block text-xs text-neutral-500">
                 {overview}
               </span>
             )}
-            <div className="flex items-center gap-1 mt-2">
+            <div className="mt-2 flex items-center gap-1">
               <MdStar className="text-yellow-400" />
               <span className="text-sm">{rating}</span>
             </div>
           </div>
-          <div className="flex w-full items-end justify-between text-sm mt-2">
+          <div className="mt-2 flex w-full items-end justify-between text-sm">
             <div className="flex items-center gap-3">
-              <LikeButton product={{ ...item, id: item.id || item._id || item.slug }} />
+              <LikeButton product={{ ...item, id: item.id || item.slug }} />
               <AiOutlineDelete
-                className="text-2xl cursor-pointer"
+                className="cursor-pointer text-2xl"
                 onClick={() => removeFromCart(id)}
               />
             </div>
@@ -126,14 +126,14 @@ const CheckoutPage = () => {
     <div className="space-y-8">
       <div id="ContactInfo" className="scroll-mt-24">
         <ContactInfo
-          isActive={tabActive === "ContactInfo"}
+          isActive={tabActive === 'ContactInfo'}
           onOpenActive={() => {
-            setTabActive("ContactInfo");
-            handleScrollToEl("ContactInfo");
+            setTabActive('ContactInfo');
+            handleScrollToEl('ContactInfo');
           }}
           onCloseActive={() => {
-            setTabActive("ShippingAddress");
-            handleScrollToEl("ShippingAddress");
+            setTabActive('ShippingAddress');
+            handleScrollToEl('ShippingAddress');
           }}
           contactInfo={contactInfo}
           setContactInfo={setContactInfo}
@@ -141,14 +141,14 @@ const CheckoutPage = () => {
       </div>
       <div id="ShippingAddress" className="scroll-mt-24">
         <ShippingAddress
-          isActive={tabActive === "ShippingAddress"}
+          isActive={tabActive === 'ShippingAddress'}
           onOpenActive={() => {
-            setTabActive("ShippingAddress");
-            handleScrollToEl("ShippingAddress");
+            setTabActive('ShippingAddress');
+            handleScrollToEl('ShippingAddress');
           }}
           onCloseActive={() => {
-            setTabActive("PaymentMethod");
-            handleScrollToEl("PaymentMethod");
+            setTabActive('PaymentMethod');
+            handleScrollToEl('PaymentMethod');
           }}
           shippingAddress={shippingAddress}
           setShippingAddress={setShippingAddress}
@@ -174,7 +174,7 @@ const CheckoutPage = () => {
           postalCode: shippingAddress.postalCode,
           communicationTime: shippingAddress.communicationTime,
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
       );
 
       if (user && cart.length > 0) {
@@ -183,34 +183,35 @@ const CheckoutPage = () => {
           fecha: new Date().toISOString().slice(0, 10),
           total: cart.reduce(
             (acc, item) => acc + item.precio * (item.cantidad || 1),
-            0
+            0,
           ),
           productos: cart.map((item) => ({
             slug: item.slug || null,
-            nombreProducto: item.nombreProducto || "",
+            nombreProducto: item.nombreProducto || '',
             cantidad: item.cantidad ?? 1,
             precio: item.precio ?? 0,
           })),
           shipping: shippingAddress,
           contact: contactInfo,
         };
-        const pedidoRef = await addDoc(collection(db, "orders"), pedido);
+        const pedidoRef = await addDoc(collection(db, 'orders'), pedido);
         await addUserNotification(user.uid, {
-          type: "order",
+          type: 'order',
           extraData: {
             orderId: pedidoRef.id,
             total: pedido.total,
           },
-          message: "¡Tu pedido ha sido realizado con éxito!",
+          message: '¡Tu pedido ha sido realizado con éxito!',
         });
       }
 
       await clearCart();
 
-      alert("¡Datos enviados correctamente!");
+      // window.alert('¡Datos enviados correctamente!');
+      // Reemplaza por tu sistema de notificaciones si tienes uno
     } catch (error) {
-      console.log(error);
-      alert("Error al enviar el correo o guardar el pedido.");
+      // window.alert('Error al enviar el correo o guardar el pedido.');
+      // Reemplaza por tu sistema de notificaciones si tienes uno
     }
   };
 
@@ -264,7 +265,7 @@ const CheckoutPage = () => {
                   $
                   {cart.reduce(
                     (acc, item) => acc + item.precio * (item.cantidad || 1),
-                    0
+                    0,
                   )}
                 </span>
               </div>

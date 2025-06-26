@@ -1,8 +1,9 @@
-"use client";
+'use client';
 
-import { useCart } from "@/hooks/useCart";
-import { useAuth } from "@/hooks/useAuth";
-import { BsBag } from "react-icons/bs";
+import { BsBag } from 'react-icons/bs';
+
+import { useAuth } from '@/hooks/useAuth';
+import { useCart } from '@/hooks/useCart';
 
 interface AddToCartButtonProps {
   producto: any;
@@ -14,10 +15,10 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({ producto }) => {
 
   const handleAddToCart = () => {
     if (!user) {
-      alert("Debes iniciar sesión");
+      alert('Debes iniciar sesión');
       return;
     }
-    console.log("Producto a agregar al carrito:", producto);
+    console.log('Producto a agregar al carrito:', producto);
     addToCart(producto);
   };
 
@@ -25,9 +26,9 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({ producto }) => {
     <button
       onClick={handleAddToCart}
       className="flex w-full items-center justify-center gap-2
-        border-2 rounded-full border-primary text-primary px-5 py-3"
+        rounded-full border-2 border-primary px-5 py-3 text-primary"
       type="button"
-      >
+    >
       <BsBag /> Agregar al carrito
     </button>
   );

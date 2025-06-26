@@ -1,8 +1,11 @@
-import "rc-slider/assets/index.css";
-import Slider from "rc-slider";
-import React, { useState, useEffect } from "react";
-import Heading from "@/shared/Heading/Heading";
-import { branch } from "../data/filterByProduct";
+import 'rc-slider/assets/index.css';
+
+import Slider from 'rc-slider';
+import React, { useEffect, useState } from 'react';
+
+import Heading from '@/shared/Heading/Heading';
+
+import { branch } from '../data/filterByProduct';
 
 interface Brand {
   name: string;
@@ -14,7 +17,7 @@ interface BranchItem {
 }
 
 const brands: Brand[] = [
-  { name: "Mostrar todo" },
+  { name: 'Mostrar todo' },
   ...branch.map((b: BranchItem) => ({ name: b.name })),
 ];
 
@@ -23,9 +26,12 @@ type SidebarFiltersProps = {
   priceRange?: number[];
 };
 
-const SidebarFilters = ({ onFilterChange, priceRange = [0, 10000] }: SidebarFiltersProps) => {
+const SidebarFilters = ({
+  onFilterChange,
+  priceRange = [0, 10000],
+}: SidebarFiltersProps) => {
   const [rangePrices, setRangePrices] = useState(priceRange);
-  const [activeBrand, setActiveBrand] = useState("Mostrar todo");
+  const [activeBrand, setActiveBrand] = useState('Mostrar todo');
 
   useEffect(() => {
     setRangePrices(priceRange);
@@ -54,8 +60,8 @@ const SidebarFilters = ({ onFilterChange, priceRange = [0, 10000] }: SidebarFilt
               onClick={() => handleBrandClick(item.name)}
               className={`rounded-lg py-4 ${
                 activeBrand === item.name
-                  ? "text-sm bg-primary text-white"
-                  : "bg-gray"
+                  ? 'bg-primary text-sm text-white'
+                  : 'bg-gray'
               }`}
             >
               {item.name}

@@ -1,30 +1,30 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import React, { useState } from "react";
-import { FaGoogle } from "react-icons/fa6";
-import { useRouter } from "next/navigation";
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaGoogle } from 'react-icons/fa6';
 
-import ButtonPrimary from "@/shared/Button/ButtonPrimary";
-import ButtonSecondary from "@/shared/Button/ButtonSecondary";
-import FormItem from "@/shared/FormItem";
-import Input from "@/shared/Input/Input";
-import { useAuth } from "@/hooks/useAuth";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useAuth } from '@/hooks/useAuth';
+import ButtonPrimary from '@/shared/Button/ButtonPrimary';
+import ButtonSecondary from '@/shared/Button/ButtonSecondary';
+import FormItem from '@/shared/FormItem';
+import Input from '@/shared/Input/Input';
 
 const PageLogin = () => {
   const { loginWithGoogle, loginWithEmail } = useAuth();
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleGoogleLogin = async () => {
     try {
       await loginWithGoogle();
-      router.push("/");
+      router.push('/');
     } catch (error) {
-      console.error("Error al iniciar sesión con Google:", error);
+      console.error('Error al iniciar sesión con Google:', error);
     }
   };
 
@@ -32,10 +32,10 @@ const PageLogin = () => {
     e.preventDefault();
     try {
       await loginWithEmail(email, password);
-      router.push("/");
+      router.push('/');
     } catch (error: any) {
-      alert("Correo o contraseña incorrectos.");
-      console.error("Error al iniciar sesión:", error);
+      alert('Correo o contraseña incorrectos.');
+      console.error('Error al iniciar sesión:', error);
     }
   };
 
@@ -68,7 +68,7 @@ const PageLogin = () => {
                   <Input
                     type="email"
                     value={email}
-                    onChange={e => setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                     rounded="rounded-full"
                     sizeClass="h-12 px-4 py-3"
                     placeholder="example@example.com"
@@ -78,13 +78,13 @@ const PageLogin = () => {
                 <FormItem label="Password">
                   <div className="relative">
                     <Input
-                      type={showPassword ? "text" : "password"}
+                      type={showPassword ? 'text' : 'password'}
                       value={password}
-                      onChange={e => setPassword(e.target.value)}
+                      onChange={(e) => setPassword(e.target.value)}
                       rounded="rounded-full"
                       sizeClass="h-12 px-4 py-3"
                       placeholder="*********"
-                      className="border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary pr-10"
+                      className="border-neutral-300 bg-transparent pr-10 placeholder:text-neutral-500 focus:border-primary"
                     />
                     <button
                       type="button"
@@ -105,7 +105,7 @@ const PageLogin = () => {
                 <span className="text-primary"> No hay problema</span>
               </Link>
               <span className="block text-center text-sm text-neutral-500">
-                No posees cuenta?{" "}
+                No posees cuenta?{' '}
                 <Link href="/signup" className="text-primary">
                   Registrate
                 </Link>

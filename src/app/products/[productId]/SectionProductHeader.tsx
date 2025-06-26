@@ -1,23 +1,23 @@
-"use client";
+'use client';
 
-import type { StaticImageData } from "next/image";
-import Image from "next/image";
-import type { FC } from "react";
-import React from "react";
-import { GoDotFill } from "react-icons/go";
-import { LuInfo } from "react-icons/lu";
-import { MdStar } from "react-icons/md";
-import { PiSealCheckFill } from "react-icons/pi";
+import type { StaticImageData } from 'next/image';
+import Image from 'next/image';
+import type { FC } from 'react';
+import React from 'react';
+import { GoDotFill } from 'react-icons/go';
+import { LuInfo } from 'react-icons/lu';
+import { MdStar } from 'react-icons/md';
+import { PiSealCheckFill } from 'react-icons/pi';
 
-import ImageShowCase from "@/components/ImageShowCase";
+import ImageShowCase from '@/components/ImageShowCase';
+import { useAuth } from '@/hooks/useAuth';
+import { useCart } from '@/hooks/useCart';
 // import ShoeSizeButton from "@/components/ShoeSizeButton";
 // import { shoeSizes } from "@/data/content";
-import nike_profile from "@/images/nike_profile.png";
-import ButtonCircle3 from "@/shared/Button/ButtonCircle3";
-import ButtonPrimary from "@/shared/Button/ButtonPrimary";
-import Heading from "@/shared/Heading/Heading";
-import { useCart } from "@/hooks/useCart";
-import { useAuth } from "@/hooks/useAuth";
+import nike_profile from '@/images/nike_profile.png';
+import ButtonCircle3 from '@/shared/Button/ButtonCircle3';
+import ButtonPrimary from '@/shared/Button/ButtonPrimary';
+import Heading from '@/shared/Heading/Heading';
 
 interface SectionProductHeaderProps {
   shots: StaticImageData[];
@@ -59,7 +59,7 @@ const SectionProductHeader: FC<SectionProductHeaderProps> = ({
 
   const handleAddToCart = () => {
     if (!user) {
-      alert("Debes iniciar sesión para agregar productos al carrito.");
+      alert('Debes iniciar sesión para agregar productos al carrito.');
       return;
     }
     addToCart(producto);
@@ -85,7 +85,7 @@ const SectionProductHeader: FC<SectionProductHeaderProps> = ({
               <Image
                 src={nike_profile}
                 alt="nike_profile"
-                className="h-full w-full object-cover"
+                className="size-full object-cover"
               />
             </ButtonCircle3>
             <span className="font-medium">FITMEX STORE</span>
@@ -95,7 +95,7 @@ const SectionProductHeader: FC<SectionProductHeaderProps> = ({
           <div className="flex items-center gap-1">
             <MdStar className="text-yellow-400" />
             <p className="text-sm">
-              {rating}{" "}
+              {rating}{' '}
               <span className="text-neutral-500">{`(${reviews} Reviews)`}</span>
             </p>
           </div>
@@ -124,7 +124,7 @@ const SectionProductHeader: FC<SectionProductHeaderProps> = ({
         <div className="mt-5 flex items-center gap-5">
           <ButtonPrimary className="w-full">Buy Now</ButtonPrimary>
           <button
-            className="w-full border-2 border-primary text-primary py-2 rounded flex items-center justify-center"
+            className="flex w-full items-center justify-center rounded border-2 border-primary py-2 text-primary"
             onClick={handleAddToCart}
           >
             Agregar al carrito

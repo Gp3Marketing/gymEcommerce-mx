@@ -1,10 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import {
-  auth,
-  googleProvider,
-} from '@/firebase/config';
 import {
   browserLocalPersistence,
   createUserWithEmailAndPassword,
@@ -17,14 +12,14 @@ import {
   type User,
   type UserCredential,
 } from 'firebase/auth';
+import { useEffect, useState } from 'react';
+
+import { auth, googleProvider } from '@/firebase/config';
 
 interface UseAuthResult {
   user: User | null;
   loading: boolean;
-  loginWithEmail: (
-    email: string,
-    password: string,
-  ) => Promise<void>;
+  loginWithEmail: (email: string, password: string) => Promise<void>;
   loginWithGoogle: () => Promise<UserCredential>;
   logout: () => Promise<void>;
   registerWithEmail: (
@@ -37,10 +32,7 @@ export function useAuth(): UseAuthResult {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
-  const loginWithEmail = async (
-    email: string,
-    password: string,
-  ) => {
+  const loginWithEmail = async (email: string, password: string) => {
     await signInWithEmailAndPassword(auth, email, password);
   };
 
@@ -49,10 +41,7 @@ export function useAuth(): UseAuthResult {
     return signInWithPopup(auth, googleProvider);
   };
 
-  const registerWithEmail = async (
-    email: string,
-    password: string,
-  ) => {
+  const registerWithEmail = async (email: string, password: string) => {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
       email,

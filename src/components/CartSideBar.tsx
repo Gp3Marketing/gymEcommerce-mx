@@ -1,17 +1,19 @@
-"use client";
+'use client';
 
-import { Dialog, Transition } from "@headlessui/react";
-import Image from "next/image";
-import Link from "next/link";
-import React, { Fragment, useState } from "react";
-import { AiOutlineDelete } from "react-icons/ai";
-import { FaBagShopping } from "react-icons/fa6";
-import { MdClose, MdStar } from "react-icons/md";
-import ButtonCircle3 from "@/shared/Button/ButtonCircle3";
-import ButtonPrimary from "@/shared/Button/ButtonPrimary";
-import ButtonSecondary from "@/shared/Button/ButtonSecondary";
-import LikeButton from "./LikeButton";
-import { useCart } from "@/hooks/useCart";
+import { Dialog, Transition } from '@headlessui/react';
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { Fragment, useState } from 'react';
+import { AiOutlineDelete } from 'react-icons/ai';
+import { FaBagShopping } from 'react-icons/fa6';
+import { MdClose, MdStar } from 'react-icons/md';
+
+import { useCart } from '@/hooks/useCart';
+import ButtonCircle3 from '@/shared/Button/ButtonCircle3';
+import ButtonPrimary from '@/shared/Button/ButtonPrimary';
+import ButtonSecondary from '@/shared/Button/ButtonSecondary';
+
+import LikeButton from './LikeButton';
 
 const CartSideBar: React.FC = () => {
   const [isVisable, setIsVisable] = useState(false);
@@ -32,12 +34,12 @@ const CartSideBar: React.FC = () => {
     } = item;
     return (
       <div key={id} className="flex py-5 last:pb-0">
-        <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl">
+        <div className="relative size-24 shrink-0 overflow-hidden rounded-xl">
           <Image
             fill
             src={coverImage}
             alt={nombreProducto}
-            className="h-full w-full object-contain object-center"
+            className="size-full object-contain object-center"
           />
           <Link
             onClick={handleCloseMenu}
@@ -67,26 +69,28 @@ const CartSideBar: React.FC = () => {
           </div>
           <div className="flex w-full items-end justify-between text-sm">
             <div className="flex items-center gap-3">
-              <LikeButton product={{ ...item, id: item.id || item._id || item.slug }} />
+              <LikeButton product={{ ...item, id: item.id || item.slug }} />
               <AiOutlineDelete
-                className="text-2xl cursor-pointer"
+                className="cursor-pointer text-2xl"
                 onClick={() => removeFromCart(item.id)}
               />
             </div>
             <div className="flex items-center gap-2">
               <button
+                type="button"
                 onClick={() =>
                   updateQuantity(item.id, Math.max(1, item.cantidad - 1))
                 }
-                className="w-8 h-8 flex items-center justify-center rounded-full border border-neutral-300 text-lg font-bold"
+                className="flex size-8 items-center justify-center rounded-full border border-neutral-300 text-lg font-bold"
                 disabled={item.cantidad <= 1}
               >
                 -
               </button>
               <span className="mx-2">{cantidad}</span>
               <button
+                type="button"
                 onClick={() => updateQuantity(item.id, item.cantidad + 1)}
-                className="w-8 h-8 flex items-center justify-center rounded-full border border-neutral-300 text-lg font-bold"
+                className="flex size-8 items-center justify-center rounded-full border border-neutral-300 text-lg font-bold"
               >
                 +
               </button>
@@ -120,7 +124,9 @@ const CartSideBar: React.FC = () => {
                   <div className="relative h-screen bg-white">
                     <div className="hiddenScrollbar h-screen overflow-y-auto p-5">
                       <div className="flex items-center justify-between">
-                        <h3 className="text-xl font-semibold">Carro de Compra</h3>
+                        <h3 className="text-xl font-semibold">
+                          Carro de Compra
+                        </h3>
                         <ButtonCircle3 onClick={handleCloseMenu}>
                           <MdClose className="text-2xl" />
                         </ButtonCircle3>
@@ -139,7 +145,8 @@ const CartSideBar: React.FC = () => {
                         <span>
                           <span className="font-medium">Subtotal</span>
                           <span className="block text-sm text-neutral-500">
-                            Los gastos de envío e impuestos se calculan al finalizar la compra.
+                            Los gastos de envío e impuestos se calculan al
+                            finalizar la compra.
                           </span>
                         </span>
                         <span className="text-xl font-medium">
@@ -147,7 +154,7 @@ const CartSideBar: React.FC = () => {
                           {cart.reduce(
                             (acc, item) =>
                               acc + item.precio * (item.cantidad || 1),
-                            0
+                            0,
                           )}
                         </span>
                       </p>
@@ -194,7 +201,7 @@ const CartSideBar: React.FC = () => {
       <button
         type="button"
         onClick={handleOpenMenu}
-        className="mx-5 flex items-center gap-1 rounded-full bg-neutral-100 p-2 text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+        className="focus-visible:ring-opacity/75 mx-5 flex items-center gap-1 rounded-full bg-neutral-100 p-2 text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
       >
         <FaBagShopping className="text-2xl" />
         <span className="hidden text-sm lg:block">

@@ -1,11 +1,12 @@
-import React from "react";
+import React from 'react';
+
+import MsgWhatsapp from '@/components/WhatsApp';
 
 import SectionBestDeals from './home/SectionBestDeals';
 // import SectionBrands from './home/SectionBrands';
 import SectionHeader from './home/SectionHeader';
-import SectionProducts from './home/SectionProducts';
 import SectionHeroSlider from './home/SectionHeroSlider';
-import MsgWhatsapp from "@/components/WhatsApp";
+import SectionProducts from './home/SectionProducts';
 
 const page = () => {
   return (

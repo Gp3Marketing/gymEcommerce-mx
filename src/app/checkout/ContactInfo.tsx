@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import type { FC } from "react";
-import React from "react";
-import { FaRegCircleUser } from "react-icons/fa6";
+import type { FC } from 'react';
+import React from 'react';
+import { FaRegCircleUser } from 'react-icons/fa6';
 
-import ButtonPrimary from "@/shared/Button/ButtonPrimary";
-import ButtonSecondary from "@/shared/Button/ButtonSecondary";
-import Checkbox from "@/shared/Checkbox/Checkbox";
-import FormItem from "@/shared/FormItem";
-import Input from "@/shared/Input/Input";
+import ButtonPrimary from '@/shared/Button/ButtonPrimary';
+import ButtonSecondary from '@/shared/Button/ButtonSecondary';
+import Checkbox from '@/shared/Checkbox/Checkbox';
+import FormItem from '@/shared/FormItem';
+import Input from '@/shared/Input/Input';
 
 interface Props {
   isActive: boolean;
@@ -19,11 +19,13 @@ interface Props {
     phone: string;
     email: string;
   };
-  setContactInfo: React.Dispatch<React.SetStateAction<{
-    fullName: string;
-    phone: string;
-    email: string;
-  }>>;
+  setContactInfo: React.Dispatch<
+    React.SetStateAction<{
+      fullName: string;
+      phone: string;
+      email: string;
+    }>
+  >;
 }
 
 const ContactInfo: FC<Props> = ({
@@ -37,10 +39,10 @@ const ContactInfo: FC<Props> = ({
 
   const handleSave = () => {
     if (contactInfo.phone && contactInfo.email) {
-     /*  setSaved(true); */
+      /*  setSaved(true); */
       onCloseActive();
     } else {
-      alert("Por favor completa el teléfono y el correo electrónico.");
+      alert('Por favor completa el teléfono y el correo electrónico.');
     }
   };
 
@@ -52,16 +54,26 @@ const ContactInfo: FC<Props> = ({
         </span>
         <div className="flex w-full items-center justify-between">
           <div className="sm:ml-8">
-            <div className="uppercase tracking-tight">Información de contacto</div>
+            <div className="uppercase tracking-tight">
+              Información de contacto
+            </div>
             <div className="mt-1 text-sm font-semibold">
-              {(contactInfo.fullName || contactInfo.phone || contactInfo.email) ? (
+              {contactInfo.fullName ||
+              contactInfo.phone ||
+              contactInfo.email ? (
                 <>
                   <span>{contactInfo.fullName}</span>
-                  {contactInfo.phone && <span className="ml-2">{contactInfo.phone}</span>}
-                  {contactInfo.email && <span className="ml-2">{contactInfo.email}</span>}
+                  {contactInfo.phone && (
+                    <span className="ml-2">{contactInfo.phone}</span>
+                  )}
+                  {contactInfo.email && (
+                    <span className="ml-2">{contactInfo.email}</span>
+                  )}
                 </>
               ) : (
-                <span className="text-neutral-500">Agrega tu información de contacto</span>
+                <span className="text-neutral-500">
+                  Agrega tu información de contacto
+                </span>
               )}
             </div>
           </div>
@@ -76,8 +88,9 @@ const ContactInfo: FC<Props> = ({
       </div>
 
       <div
-        className={`space-y-4 border-t border-neutral-300 px-6 py-7 sm:space-y-6 ${isActive ? "block" : "hidden"
-          }`}
+        className={`space-y-4 border-t border-neutral-300 px-6 py-7 sm:space-y-6 ${
+          isActive ? 'block' : 'hidden'
+        }`}
       >
         <h3 className="text-lg font-semibold">Completa tu información</h3>
 
@@ -86,7 +99,10 @@ const ContactInfo: FC<Props> = ({
             <Input
               value={contactInfo.fullName}
               onChange={(e) =>
-                setContactInfo((prev) => ({ ...prev, fullName: e.target.value }))
+                setContactInfo((prev) => ({
+                  ...prev,
+                  fullName: e.target.value,
+                }))
               }
               rounded="rounded-lg"
               sizeClass="h-12 px-4 py-3"
@@ -141,7 +157,10 @@ const ContactInfo: FC<Props> = ({
           <ButtonPrimary className="shadow-none sm:!px-7" onClick={handleSave}>
             Guardar y continuar
           </ButtonPrimary>
-          <ButtonSecondary className="mt-3 sm:ml-3 sm:mt-0" onClick={onCloseActive}>
+          <ButtonSecondary
+            className="mt-3 sm:ml-3 sm:mt-0"
+            onClick={onCloseActive}
+          >
             Cancelar
           </ButtonSecondary>
         </div>

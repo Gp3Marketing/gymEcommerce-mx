@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
-import { useRef } from "react";
+import { motion, useScroll, useTransform } from 'framer-motion';
+import Image from 'next/image';
+import { useRef } from 'react';
 
-import { templateDetails } from "./content";
+import { templateDetails } from './content';
 
 const DivSlider = () => {
   const targetRef = useRef(null);

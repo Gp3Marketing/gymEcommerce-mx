@@ -1,25 +1,26 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
-import { AiOutlineDelete } from "react-icons/ai";
-import { MdStar } from "react-icons/md";
-import LikeButton from "@/components/LikeButton";
-import ButtonPrimary from "@/shared/Button/ButtonPrimary";
-import InputNumber from "@/shared/InputNumber/InputNumber";
-import { useCart } from "@/hooks/useCart";
+import Image from 'next/image';
+import Link from 'next/link';
+import { AiOutlineDelete } from 'react-icons/ai';
+import { MdStar } from 'react-icons/md';
+
+import LikeButton from '@/components/LikeButton';
+import { useCart } from '@/hooks/useCart';
+import ButtonPrimary from '@/shared/Button/ButtonPrimary';
+import InputNumber from '@/shared/InputNumber/InputNumber';
 
 const CartPage = () => {
   const { cart, removeFromCart, updateQuantity } = useCart();
 
   const renderProduct = (item: any) => (
     <div key={item.id} className="flex py-5 last:pb-0">
-      <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl md:h-40 md:w-40">
+      <div className="relative size-24 shrink-0 overflow-hidden rounded-xl md:size-40">
         <Image
           fill
           src={item.coverImage}
           alt={item.nombreProducto}
-          className="h-full w-full object-contain object-center"
+          className="size-full object-contain object-center"
         />
         <Link className="absolute inset-0" href={`/products/${item.id}`} />
       </div>
@@ -32,7 +33,7 @@ const CartPage = () => {
               </h3>
               <div className="flex items-center gap-1">
                 <MdStar className="text-yellow-400" />
-                <span className="text-sm">{item.rating || ""}</span>
+                <span className="text-sm">{item.rating || ''}</span>
               </div>
             </div>
             <span className="font-medium md:text-xl">${item.precio}</span>
@@ -41,7 +42,7 @@ const CartPage = () => {
         <div className="flex w-full items-end justify-between text-sm">
           <div className="flex items-center gap-3">
             <LikeButton product={item} />
-            <button onClick={() => removeFromCart(item.id)}>
+            <button type="button" onClick={() => removeFromCart(item.id)}>
               <AiOutlineDelete className="text-2xl" />
             </button>
           </div>
@@ -59,11 +60,11 @@ const CartPage = () => {
   // Calcular totales
   const subtotal = cart.reduce(
     (acc, item) => acc + item.precio * (item.cantidad || 1),
-    0
+    0,
   );
   const totalProductos = cart.reduce(
     (acc, item) => acc + (item.cantidad || 1),
-    0
+    0,
   );
   const taxes = subtotal * 0.1;
   const total = subtotal + taxes;
@@ -78,7 +79,7 @@ const CartPage = () => {
         </div>
         <hr className="my-10 border-neutral-300 xl:my-12" />
         <div className="flex flex-col lg:flex-row">
-          <div className="w-full divide-y divide-neutral-300 lg:w-[60%] xl:w-[55%]">
+          <div className="w-full divide-y divide-neutral-300 lg:w-3/5 xl:w-[55%]">
             {cart.length === 0 ? (
               <div className="py-10 text-center text-neutral-500">
                 Sin productos agregados
