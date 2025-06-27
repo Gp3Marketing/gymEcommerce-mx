@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { Dialog, Transition } from "@headlessui/react";
 import React, { Fragment, useState } from "react";
@@ -88,83 +88,71 @@ const NotificationsSidebar: React.FC<{
                     </div>
                     <hr className="my-10 border-neutral-300 xl:my-4" />
 
-                    <div className="divide-y divide-neutral-300">
-                      {notifications.length === 0 && (
-                        <div className="py-8 text-center text-neutral-500">
-                          No tienes notificaciones
-                        </div>
-                      )}
-                      {notifications.map((n, idx) => (
-                        <div
-                          key={n.id || idx}
-                          className="flex flex-col gap-1 py-4"
-                        >
-                          {n.type === "welcome" ? (
-                            <>
-                              <span className="text-xl">🎉</span>
-                              <span className="font-semibold">{n.message}</span>
-                              <span className="text-xs text-neutral-500">
-                                {n.extraData?.registeredAt
-                                  ? new Date(
-                                      n.extraData.registeredAt
-                                    ).toLocaleDateString()
-                                  : ""}
-                              </span>
-                            </>
-                          ) : n.type === "order" ? (
-                            <>
-                              <span className="text-xl">🛒</span>
-                              <span className="font-semibold">
-                                Detalles del Pedido
-                              </span>
-                              <span className="text-xs text-neutral-500">
-                                Pedido: {n.extraData?.orderId}
-                              </span>
-                              <span className="text-xs text-neutral-500">
-                                Fecha de solicitud:{" "}
-                                {n.date?.toDate().toLocaleDateString()}
-                              </span>
-                              <span className="text-xs text-neutral-500">
-                                Total Facturación: ${n.extraData?.total}
-                              </span>
-                            </>
-                          ) : n.type === "password" ? (
-                            <>
-                              <span className="text-xl">🔒</span>
-                              <span>
-                                Se cambió la contraseña el{" "}
-                                {n.date?.toDate().toLocaleDateString()}
-                              </span>
-                            </>
-                          ) : n.type === "profile" ? (
-                            <>
-                              <span className="text-xl">👤</span>
-                              <span>Has actualizado tu dirección de envío</span>
-                            </>
-                          ) : (
-                            <span>{n.message}</span>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                    {/* <div className="mt-6 border-t pt-4 space-y-3">
-                      <label className="flex items-center gap-2 cursor-pointer">
-                        <input
-                          type="checkbox"
-                          checked={promoNotifications}
-                          onChange={handlePromoChange}
-                        />
-                        <span>Recibir notificaciones de promociones</span>
-                      </label>
-                      <label className="flex items-center gap-2 cursor-pointer">
-                        <input
-                          type="checkbox"
-                          checked={newProductNotifications}
-                          onChange={handleNewProductChange}
-                        />
-                        <span>Notificarme cuando haya nuevos productos</span>
-                      </label>
-                    </div> */}
+                    {!user ? (
+                      <div className="py-8 text-center text-neutral-500">
+                        Para ver tus notificaciones no olvides iniciar sesión
+                      </div>
+                    ) : (
+                      <div className="divide-y divide-neutral-300">
+                        {notifications.length === 0 && (
+                          <div className="py-8 text-center text-neutral-500">
+                            No tienes notificaciones
+                          </div>
+                        )}
+                        {notifications.map((n, idx) => (
+                          <div
+                            key={n.id || idx}
+                            className="flex flex-col gap-1 py-4"
+                          >
+                            {n.type === "welcome" ? (
+                              <>
+                                <span className="text-xl">🎉</span>
+                                <span className="font-semibold">{n.message}</span>
+                                <span className="text-xs text-neutral-500">
+                                  {n.extraData?.registeredAt
+                                    ? new Date(
+                                        n.extraData.registeredAt
+                                      ).toLocaleDateString()
+                                    : ""}
+                                </span>
+                              </>
+                            ) : n.type === "order" ? (
+                              <>
+                                <span className="text-xl">🛒</span>
+                                <span className="font-semibold">
+                                  Detalles del Pedido
+                                </span>
+                                <span className="text-xs text-neutral-500">
+                                  Pedido: {n.extraData?.orderId}
+                                </span>
+                                <span className="text-xs text-neutral-500">
+                                  Fecha de solicitud:{" "}
+                                  {n.date?.toDate().toLocaleDateString()}
+                                </span>
+                                <span className="text-xs text-neutral-500">
+                                  Total Facturación: ${n.extraData?.total}
+                                </span>
+                              </>
+                            ) : n.type === "password" ? (
+                              <>
+                                <span className="text-xl">🔒</span>
+                                <span>
+                                  Se cambió la contraseña el{" "}
+                                  {n.date?.toDate().toLocaleDateString()}
+                                </span>
+                              </>
+                            ) : n.type === "profile" ? (
+                              <>
+                                <span className="text-xl">👤</span>
+                                <span>Has actualizado tu dirección de envío</span>
+                              </>
+                            ) : (
+                              <span>{n.message}</span>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

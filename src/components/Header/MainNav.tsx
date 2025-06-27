@@ -38,9 +38,14 @@ const MainNav = () => {
   const [showNotifications, setShowNotifications] = useState(false);
 
   const notifications = useNotifications();
-  const unread = notifications.some(n => n.read === false);
+  const unread = notifications.some((n) => n.read === false);
 
   const handleAccountClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShowAccountMenu((prev) => !prev);
+  };
+
+  const handleAvatarClick = (e: React.MouseEvent) => {
     e.preventDefault();
     setShowAccountMenu((prev) => !prev);
   };
@@ -75,7 +80,10 @@ const MainNav = () => {
     if (user && notifications.length > 0) {
       notifications.forEach(async (n) => {
         if (!n.read) {
-          await updateDoc(doc(db, "users", user.uid, "notifications", n.id), { read: true });
+          await updateDoc(
+            doc(db, "users", user.uid, "notifications", n.id),
+            { read: true }
+          );
         }
       });
     }
@@ -144,18 +152,27 @@ const MainNav = () => {
             <FaRegBell className="text-2xl" />
           </button>
         </div>
-        <NotificationsSidebar isOpen={showNotifications} onClose={() => setShowNotifications(false)} />
+        <NotificationsSidebar
+          isOpen={showNotifications}
+          onClose={() => setShowNotifications(false)}
+        />
 
         <div className="flex items-center divide-x divide-neutral-300">
           <CartSideBar />
           <div className="flex items-center gap-2 pl-5 relative">
-            <ButtonCircle3 className="overflow-hidden bg-gray" size="w-10 h-10">
+            {/* Avatar SIEMPRE abre el menú de cuenta */}
+            <ButtonCircle3
+              className="overflow-hidden bg-gray"
+              size="w-10 h-10"
+              onClick={handleAvatarClick}
+            >
               <Image
                 src={avatar}
                 alt="avatar"
                 className="h-full w-full object-cover object-center"
               />
             </ButtonCircle3>
+            {/* El link solo visible en desktop */}
             <Link
               href={user ? "#" : "/login"}
               className="hidden text-sm lg:block"
@@ -165,6 +182,7 @@ const MainNav = () => {
                 ? getFirstName(user.displayName, user.email)
                 : "Iniciar sesión"}
             </Link>
+            {/* El menú de cuenta aparece en mobile y desktop */}
             {showAccountMenu && (
               <AccountMenu
                 onLogout={handleLogout}
