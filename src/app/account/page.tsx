@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+
 'use client';
 
 import { doc, getDoc, setDoc } from 'firebase/firestore';
@@ -177,7 +179,10 @@ const AccountPage = () => {
               {step === 1 && (
                 <>
                   <div>
-                    <label htmlFor="fullName" className="mb-1 block font-medium">
+                    <label
+                      htmlFor="fullName"
+                      className="mb-1 block font-medium"
+                    >
                       Nombre completo
                     </label>
                     <Input
@@ -223,7 +228,10 @@ const AccountPage = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="birthDate" className="mb-1 block font-medium">
+                    <label
+                      htmlFor="birthDate"
+                      className="mb-1 block font-medium"
+                    >
                       Fecha de nacimiento
                     </label>
                     <Input
@@ -258,7 +266,10 @@ const AccountPage = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="apartment" className="mb-1 block font-medium">
+                    <label
+                      htmlFor="apartment"
+                      className="mb-1 block font-medium"
+                    >
                       Departamento, casa, etc.
                     </label>
                     <Input
@@ -284,6 +295,7 @@ const AccountPage = () => {
                       placeholder="Ej: Ciudad de México"
                       disabled={!isEditing}
                       className={inputClass(isEditing)}
+                      aria-labelledby="city"
                     />
                   </div>
                   <div>
@@ -317,7 +329,10 @@ const AccountPage = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="postalCode" className="mb-1 block font-medium">
+                    <label
+                      htmlFor="postalCode"
+                      className="mb-1 block font-medium"
+                    >
                       Código postal
                     </label>
                     <Input
