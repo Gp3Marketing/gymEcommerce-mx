@@ -1,4 +1,5 @@
 'use client';
+'use client';
 
 import { Dialog, Transition } from '@headlessui/react';
 import { doc, getDoc, setDoc } from 'firebase/firestore';

@@ -7,6 +7,19 @@ import React, { Fragment, useState } from 'react';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { FaBagShopping } from 'react-icons/fa6';
 import { MdClose, MdStar } from 'react-icons/md';
+import ButtonCircle3 from '@/shared/Button/ButtonCircle3';
+import ButtonPrimary from '@/shared/Button/ButtonPrimary';
+import ButtonSecondary from '@/shared/Button/ButtonSecondary';
+import LikeButton from './LikeButton';
+import { useCart } from '@/hooks/useCart';
+import { useAuth } from '@/hooks/useAuth';
+import { Dialog, Transition } from '@headlessui/react';
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { Fragment, useState } from 'react';
+import { AiOutlineDelete } from 'react-icons/ai';
+import { FaBagShopping } from 'react-icons/fa6';
+import { MdClose, MdStar } from 'react-icons/md';
 
 import { useCart } from '@/hooks/useCart';
 import ButtonCircle3 from '@/shared/Button/ButtonCircle3';
@@ -18,6 +31,7 @@ import LikeButton from './LikeButton';
 const CartSideBar: React.FC = () => {
   const [isVisable, setIsVisable] = useState(false);
   const { cart, removeFromCart, updateQuantity } = useCart();
+  const { user } = useAuth();
 
   const handleOpenMenu = () => setIsVisable(true);
   const handleCloseMenu = () => setIsVisable(false);
@@ -131,22 +145,29 @@ const CartSideBar: React.FC = () => {
                           <MdClose className="text-2xl" />
                         </ButtonCircle3>
                       </div>
-                      {cart.length === 0 && (
+                      {!user ? (
                         <div className="py-8 text-center text-neutral-500">
-                          Todavía no tienes productos agregados
+                          Debes iniciar sesión para ver los productos que has añadido a tu carrito.
                         </div>
+                      ) : (
+                        <>
+                          {cart.length === 0 && (
+                            <div className="py-8 text-center text-neutral-500">
+                              Todavía no tienes productos agregados
+                            </div>
+                          )}
+                          <div className="divide-y divide-neutral-300">
+                            {cart.map((item) => renderProduct(item))}
+                          </div>
+                        </>
                       )}
-                      <div className="divide-y divide-neutral-300">
-                        {cart.map((item) => renderProduct(item))}
-                      </div>
                     </div>
                     <div className="absolute bottom-0 left-0 w-full bg-neutral-50 p-5">
                       <p className="flex justify-between">
                         <span>
                           <span className="font-medium">Subtotal</span>
                           <span className="block text-sm text-neutral-500">
-                            Los gastos de envío e impuestos se calculan al
-                            finalizar la compra.
+                            Los gastos de envío e impuestos se calculan al finalizar la compra.
                           </span>
                         </span>
                         <span className="text-xl font-medium">
@@ -154,7 +175,7 @@ const CartSideBar: React.FC = () => {
                           {cart.reduce(
                             (acc, item) =>
                               acc + item.precio * (item.cantidad || 1),
-                            0,
+                            0
                           )}
                         </span>
                       </p>

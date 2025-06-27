@@ -44,6 +44,11 @@ const MainNav = () => {
     setShowAccountMenu((prev) => !prev);
   };
 
+  const handleAvatarClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShowAccountMenu((prev) => !prev);
+  };
+
   const handleLogout = () => {
     setShowAccountMenu(false);
     logout();
@@ -70,13 +75,10 @@ const MainNav = () => {
 
   const handleOpenNotifications = async () => {
     setShowNotifications(true);
-    // Marcar todas como leídas
     if (user && notifications.length > 0) {
       notifications.forEach(async (n) => {
         if (!n.read) {
-          await updateDoc(doc(db, 'users', user.uid, 'notifications', n.id), {
-            read: true,
-          });
+          await updateDoc(doc(db, "users", user.uid, "notifications", n.id), { read: true });
         }
       });
     }
@@ -136,7 +138,6 @@ const MainNav = () => {
       </div>
 
       <div className="flex flex-1 items-center justify-end gap-5">
-        {/* Icono campana */}
         <div className="relative hidden lg:block">
           {unread && (
             <span className="absolute -top-1/4 left-3/4 aspect-square w-3 rounded-full bg-red-600" />
@@ -152,7 +153,7 @@ const MainNav = () => {
 
         <div className="flex items-center divide-x divide-neutral-300">
           <CartSideBar />
-          <div className="relative flex items-center gap-2 pl-5">
+          <div className="flex items-center gap-2 pl-5 relative">
             <ButtonCircle3 className="overflow-hidden bg-gray" size="w-10 h-10">
               <Image
                 src={avatar}
@@ -160,19 +161,15 @@ const MainNav = () => {
                 className="size-full object-cover object-center"
               />
             </ButtonCircle3>
-            {user ? (
-              <button
-                type="button"
-                className="hidden text-sm lg:block"
-                onClick={handleAccountClick}
-              >
-                {getFirstName(user.displayName, user.email)}
-              </button>
-            ) : (
-              <Link href="/login" className="hidden text-sm lg:block">
-                Iniciar sesión
-              </Link>
-            )}
+            <Link
+              href={user ? "#" : "/login"}
+              className="hidden text-sm lg:block"
+              onClick={handleAccountClick}
+            >
+              {user
+                ? getFirstName(user.displayName, user.email)
+                : "Iniciar sesión"}
+            </Link>
             {showAccountMenu && (
               <AccountMenu
                 onLogout={handleLogout}
