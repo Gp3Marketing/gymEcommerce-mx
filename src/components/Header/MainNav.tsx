@@ -76,7 +76,6 @@ const MainNav = () => {
 
   const handleOpenNotifications = async () => {
     setShowNotifications(true);
-    // Marcar todas como leídas
     if (user && notifications.length > 0) {
       notifications.forEach(async (n) => {
         if (!n.read) {
@@ -143,7 +142,6 @@ const MainNav = () => {
       </div>
 
       <div className="flex flex-1 items-center justify-end gap-5">
-        {/* Icono campana */}
         <div className="relative hidden lg:block">
           {unread && (
             <span className="absolute -top-1/4 left-3/4 aspect-square w-3 rounded-full bg-red-600" />
@@ -160,7 +158,6 @@ const MainNav = () => {
         <div className="flex items-center divide-x divide-neutral-300">
           <CartSideBar />
           <div className="flex items-center gap-2 pl-5 relative">
-            {/* Avatar SIEMPRE abre el menú de cuenta */}
             <ButtonCircle3
               className="overflow-hidden bg-gray"
               size="w-10 h-10"
@@ -172,7 +169,6 @@ const MainNav = () => {
                 className="h-full w-full object-cover object-center"
               />
             </ButtonCircle3>
-            {/* El link solo visible en desktop */}
             <Link
               href={user ? "#" : "/login"}
               className="hidden text-sm lg:block"
