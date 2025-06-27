@@ -7,6 +7,9 @@ import React, { useState } from 'react';
 import { FaRegBell } from 'react-icons/fa6';
 import { RiSearch2Line } from 'react-icons/ri';
 
+import CartSideBar from '../CartSideBar';
+import AccountMenu from './AccountMenu';
+import MenuBar from './MenuBar';
 import NotificationsSidebar from '@/components/NotificationsSidebar';
 import MsgWhatsapp from '@/components/WhatsApp';
 import { shoes } from '@/data/content';
@@ -17,10 +20,6 @@ import avatar from '@/images/avatar.png';
 import ButtonCircle3 from '@/shared/Button/ButtonCircle3';
 import Input from '@/shared/Input/Input';
 import Logo from '@/shared/Logo/Logo';
-
-import CartSideBar from '../CartSideBar';
-import AccountMenu from './AccountMenu';
-import MenuBar from './MenuBar';
 
 const getFirstName = (displayName: string | null, email: string | null) => {
   if (displayName) return displayName.split(' ')[0];
@@ -40,11 +39,6 @@ const MainNav = () => {
   const unread = notifications.some((n) => n.read === false);
 
   const handleAccountClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setShowAccountMenu((prev) => !prev);
-  };
-
-  const handleAvatarClick = (e: React.MouseEvent) => {
     e.preventDefault();
     setShowAccountMenu((prev) => !prev);
   };
@@ -78,7 +72,9 @@ const MainNav = () => {
     if (user && notifications.length > 0) {
       notifications.forEach(async (n) => {
         if (!n.read) {
-          await updateDoc(doc(db, "users", user.uid, "notifications", n.id), { read: true });
+          await updateDoc(doc(db, 'users', user.uid, 'notifications', n.id), {
+            read: true,
+          });
         }
       });
     }
@@ -109,7 +105,7 @@ const MainNav = () => {
                   <Link
                     key={shoe.slug}
                     href={`/products/${shoe.slug}`}
-                    className="hover:bg-gray-100 flex items-center gap-3 px-4 py-2"
+                    className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100"
                     onClick={() => setShowResults(false)}
                   >
                     <Image
@@ -153,7 +149,7 @@ const MainNav = () => {
 
         <div className="flex items-center divide-x divide-neutral-300">
           <CartSideBar />
-          <div className="flex items-center gap-2 pl-5 relative">
+          <div className="relative flex items-center gap-2 pl-5">
             <ButtonCircle3 className="overflow-hidden bg-gray" size="w-10 h-10">
               <Image
                 src={avatar}
@@ -161,15 +157,15 @@ const MainNav = () => {
                 className="size-full object-cover object-center"
               />
             </ButtonCircle3>
-            <Link
-              href={user ? "#" : "/login"}
+            <button
+              type="button"
               className="hidden text-sm lg:block"
               onClick={handleAccountClick}
             >
               {user
                 ? getFirstName(user.displayName, user.email)
-                : "Iniciar sesión"}
-            </Link>
+                : 'Iniciar sesión'}
+            </button>
             {showAccountMenu && (
               <AccountMenu
                 onLogout={handleLogout}
