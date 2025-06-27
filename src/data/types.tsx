@@ -1,4 +1,4 @@
-import type { StaticImageData } from "next/image";
+import type { StaticImageData } from 'next/image';
 
 export type ProductType = {
   slug: string;
@@ -46,6 +46,6 @@ export type BlogType = {
   date: string;
   coverImage: string;
   blogData: BlogData;
-  tag: "Style" | "Fitting" | "General";
+  tag: 'Style' | 'Fitting' | 'General';
   slug: string;
 };

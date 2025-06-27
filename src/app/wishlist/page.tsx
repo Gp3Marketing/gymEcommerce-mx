@@ -1,10 +1,13 @@
-"use client";
+'use client';
 
-import "@splidejs/react-splide/css";
-import Image from "next/image";
-import { useWishlist } from "@/hooks/useWishlist";
-import WishlistProductCard from "./WishlistProductCard";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
+import '@splidejs/react-splide/css';
+
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import Image from 'next/image';
+
+import { useWishlist } from '@/hooks/useWishlist';
+
+import WishlistProductCard from './WishlistProductCard';
 
 const WishlistPage = () => {
   const { wishlist } = useWishlist();
@@ -19,10 +22,10 @@ const WishlistPage = () => {
 
       <hr className="my-10 border-neutral-300 xl:my-12" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-        <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-2">
           {wishlist.length === 0 ? (
-            <div className="col-span-full text-gray-500 text-left">
+            <div className="text-gray-500 col-span-full text-left">
               No tienes productos en tu lista de interes.
             </div>
           ) : (
@@ -36,7 +39,7 @@ const WishlistPage = () => {
           <div className="sticky top-28">
             <Splide
               options={{
-                type: "loop",
+                type: 'loop',
                 autoplay: true,
                 interval: 5000,
                 arrows: false,
@@ -44,7 +47,7 @@ const WishlistPage = () => {
                 height: 600,
               }}
               aria-label="Publicidad carrusel"
-              className="rounded-xl overflow-hidden"
+              className="overflow-hidden rounded-xl"
             >
               <SplideSlide>
                 <Image

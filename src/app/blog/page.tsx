@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import Heading from "@/shared/Heading/Heading";
+import Heading from '@/shared/Heading/Heading';
 
-import SectionBlogs from "./SectionBlogs";
-import SectionBlogsHero from "./SectionBlogsHero";
+import SectionBlogs from './SectionBlogs';
+import SectionBlogsHero from './SectionBlogsHero';
 
 const page = () => {
   return (

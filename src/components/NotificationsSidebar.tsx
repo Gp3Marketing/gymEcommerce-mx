@@ -1,13 +1,14 @@
-"use client";
+'use client';
 
-import { Dialog, Transition } from "@headlessui/react";
-import React, { Fragment, useState } from "react";
-import { MdClose } from "react-icons/md";
-import ButtonCircle3 from "@/shared/Button/ButtonCircle3";
-import { useNotifications } from "@/hooks/useNotifications";
-import { useAuth } from "@/hooks/useAuth";
-import { db } from "@/firebase/config";
-import { doc, setDoc, getDoc } from "firebase/firestore";
+import { Dialog, Transition } from '@headlessui/react';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
+import React, { Fragment, useState } from 'react';
+import { MdClose } from 'react-icons/md';
+
+import { db } from '@/firebase/config';
+import { useAuth } from '@/hooks/useAuth';
+import { useNotifications } from '@/hooks/useNotifications';
+import ButtonCircle3 from '@/shared/Button/ButtonCircle3';
 
 const NotificationsSidebar: React.FC<{
   isOpen: boolean;
@@ -22,12 +23,12 @@ const NotificationsSidebar: React.FC<{
   React.useEffect(() => {
     const fetchPrefs = async () => {
       if (!user) return;
-      const userDoc = await getDoc(doc(db, "users", user.uid));
+      const userDoc = await getDoc(doc(db, 'users', user.uid));
       if (userDoc.exists()) {
         const data = userDoc.data();
-        if (typeof data.acceptPromos === "boolean")
+        if (typeof data.acceptPromos === 'boolean')
           setPromoNotifications(data.acceptPromos);
-        if (typeof data.notifyNewProducts === "boolean")
+        if (typeof data.notifyNewProducts === 'boolean')
           setNewProductNotifications(data.notifyNewProducts);
       }
     };
@@ -40,9 +41,9 @@ const NotificationsSidebar: React.FC<{
     const newValue = !promoNotifications;
     setPromoNotifications(newValue);
     await setDoc(
-      doc(db, "users", user.uid),
+      doc(db, 'users', user.uid),
       { acceptPromos: newValue },
-      { merge: true }
+      { merge: true },
     );
   };
   const handleNewProductChange = async () => {
@@ -50,10 +51,63 @@ const NotificationsSidebar: React.FC<{
     const newValue = !newProductNotifications;
     setNewProductNotifications(newValue);
     await setDoc(
-      doc(db, "users", user.uid),
+      doc(db, 'users', user.uid),
       { notifyNewProducts: newValue },
-      { merge: true }
+      { merge: true },
     );
+  };
+
+  // Función auxiliar para renderizar notificaciones
+  const renderNotification = (n: any) => {
+    if (n.type === 'welcome') {
+      return (
+        <>
+          <span className="text-xl">🎉</span>
+          <span className="font-semibold">{n.message}</span>
+          <span className="text-xs text-neutral-500">
+            {n.extraData?.registeredAt
+              ? new Date(n.extraData.registeredAt).toLocaleDateString()
+              : ''}
+          </span>
+        </>
+      );
+    }
+    if (n.type === 'order') {
+      return (
+        <>
+          <span className="text-xl">🛒</span>
+          <span className="font-semibold">Detalles del Pedido</span>
+          <span className="text-xs text-neutral-500">
+            Pedido: {n.extraData?.orderId}
+          </span>
+          <span className="text-xs text-neutral-500">
+            Fecha de solicitud: {n.date?.toDate().toLocaleDateString()}
+          </span>
+          <span className="text-xs text-neutral-500">
+            Total Facturación: ${n.extraData?.total}
+          </span>
+        </>
+      );
+    }
+    if (n.type === 'password') {
+      return (
+        <>
+          <span className="text-xl">🔒</span>
+          <span>
+            Se cambió la contraseña el {n.date?.toDate().toLocaleDateString()}
+          </span>
+        </>
+      );
+    }
+    if (n.type === 'profile') {
+      return (
+        <>
+          <span className="text-xl">👤</span>
+          <span>Has actualizado tu dirección de envío</span>
+        </>
+      );
+    }
+    return <span>{n.message}</span>;
   };
 
   return (
@@ -99,72 +153,36 @@ const NotificationsSidebar: React.FC<{
                           key={n.id || idx}
                           className="flex flex-col gap-1 py-4"
                         >
-                          {n.type === "welcome" ? (
-                            <>
-                              <span className="text-xl">🎉</span>
-                              <span className="font-semibold">{n.message}</span>
-                              <span className="text-xs text-neutral-500">
-                                {n.extraData?.registeredAt
-                                  ? new Date(
-                                      n.extraData.registeredAt
-                                    ).toLocaleDateString()
-                                  : ""}
-                              </span>
-                            </>
-                          ) : n.type === "order" ? (
-                            <>
-                              <span className="text-xl">🛒</span>
-                              <span className="font-semibold">
-                                Detalles del Pedido
-                              </span>
-                              <span className="text-xs text-neutral-500">
-                                Pedido: {n.extraData?.orderId}
-                              </span>
-                              <span className="text-xs text-neutral-500">
-                                Fecha de solicitud:{" "}
-                                {n.date?.toDate().toLocaleDateString()}
-                              </span>
-                              <span className="text-xs text-neutral-500">
-                                Total Facturación: ${n.extraData?.total}
-                              </span>
-                            </>
-                          ) : n.type === "password" ? (
-                            <>
-                              <span className="text-xl">🔒</span>
-                              <span>
-                                Se cambió la contraseña el{" "}
-                                {n.date?.toDate().toLocaleDateString()}
-                              </span>
-                            </>
-                          ) : n.type === "profile" ? (
-                            <>
-                              <span className="text-xl">👤</span>
-                              <span>Has actualizado tu dirección de envío</span>
-                            </>
-                          ) : (
-                            <span>{n.message}</span>
-                          )}
+                          {renderNotification(n)}
                         </div>
                       ))}
                     </div>
-                    {/* <div className="mt-6 border-t pt-4 space-y-3">
-                      <label className="flex items-center gap-2 cursor-pointer">
+                    <div className="mt-6 space-y-3 border-t pt-4">
+                      <label
+                        className="flex cursor-pointer items-center gap-2"
+                        htmlFor="promoNotifications"
+                      >
                         <input
+                          id="promoNotifications"
                           type="checkbox"
                           checked={promoNotifications}
                           onChange={handlePromoChange}
                         />
                         <span>Recibir notificaciones de promociones</span>
                       </label>
-                      <label className="flex items-center gap-2 cursor-pointer">
+                      <label
+                        className="flex cursor-pointer items-center gap-2"
+                        htmlFor="newProductNotifications"
+                      >
                         <input
+                          id="newProductNotifications"
                           type="checkbox"
                           checked={newProductNotifications}
                           onChange={handleNewProductChange}
                         />
                         <span>Notificarme cuando haya nuevos productos</span>
                       </label>
-                    </div> */}
+                    </div>
                   </div>
                 </div>
               </div>

@@ -1,19 +1,22 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import Filter from "@/components/Filter";
-import ProductCard from "@/components/ProductCard";
-import { productsSection, shoes, filterShoes } from "@/data/content";
-import ButtonPrimary from "@/shared/Button/ButtonPrimary";
-import Heading from "@/shared/Heading/Heading";
+import React, { useState } from 'react';
 
+import Filter from '@/components/Filter';
+import ProductCard from '@/components/ProductCard';
+import { filterShoes, productsSection, shoes } from '@/data/content';
+import ButtonPrimary from '@/shared/Button/ButtonPrimary';
+import Heading from '@/shared/Heading/Heading';
+
+/* import type { Shoe } from "@/data/content";
+ */
 const PRODUCTS_PER_PAGE = 8;
 const PRODUCTS_PER_ROW = 4;
 
 const initialFilters = {
-  type: "Tipo",
-  discount: "Descuento",
-  price: "Precios",
+  type: 'Tipo',
+  discount: 'Descuento',
+  price: 'Precios',
 };
 
 const SectionProducts = () => {
@@ -21,10 +24,10 @@ const SectionProducts = () => {
   const [showMore, setShowMore] = useState(false);
 
   const getPriceRange = (price: string) => {
-    if (price === "Menos de 100") return [0, 99];
-    if (price === "100 - 500") return [100, 500];
-    if (price === "500 - 1000") return [501, 1000];
-    if (price === "Más de 1000") return [1001, Infinity];
+    if (price === 'Menos de 100') return [0, 99];
+    if (price === '100 - 500') return [100, 500];
+    if (price === '500 - 1000') return [501, 1000];
+    if (price === 'Más de 1000') return [1001, Infinity];
     return [0, Infinity];
   };
 
@@ -44,9 +47,9 @@ const SectionProducts = () => {
 
   const handleFilter = (selected: string[]) => {
     setActiveFilters({
-      type: selected[0],
-      discount: selected[1],
-      price: selected[2],
+      type: selected[0] || '',
+      discount: selected[1] || '',
+      price: selected[2] || '',
     });
   };
 
@@ -70,7 +73,7 @@ const SectionProducts = () => {
       {filteredShoes.length > PRODUCTS_PER_PAGE && (
         <div className="mt-14 flex items-center justify-center">
           <ButtonPrimary onClick={handleToggle}>
-            {showMore ? "Ver menos" : "Ver más"}
+            {showMore ? 'Ver menos' : 'Ver más'}
           </ButtonPrimary>
         </div>
       )}

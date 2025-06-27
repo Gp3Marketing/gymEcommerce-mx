@@ -1,11 +1,11 @@
-import Image from "next/image";
-import React from "react";
+import Image from 'next/image';
+import React from 'react';
 
 // import Logo from '@/shared/Logo/Logo';
-import allThemesPreview from "@/images/preview/showcase1.jpg";
-import ButtonPrimary from "@/shared/Button/ButtonPrimary";
+import allThemesPreview from '@/images/preview/showcase1.jpg';
+import ButtonPrimary from '@/shared/Button/ButtonPrimary';
 
-import { midSection } from "./content";
+import { midSection } from './content';
 
 const SectionMid = () => {
   return (
@@ -15,10 +15,10 @@ const SectionMid = () => {
           <Image
             src={allThemesPreview}
             alt="cover image"
-            className="h-full w-full object-cover object-center"
+            className="size-full object-cover object-center"
           />
         </div>
-        <div className="flex basis-[40%] flex-col justify-center gap-7 p-5 lg:p-0 lg:pr-10">
+        <div className="flex basis-2/5 flex-col justify-center gap-7 p-5 lg:p-0 lg:pr-10">
           {/* <Logo /> */}
           <h4 className="text-2xl font-medium">{midSection.heading}</h4>
           <p className="text-neutral-500">{midSection.description}</p>

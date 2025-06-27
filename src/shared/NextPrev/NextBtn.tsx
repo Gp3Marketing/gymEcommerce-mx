@@ -1,10 +1,10 @@
-import type { ButtonHTMLAttributes, FC } from "react";
-import React from "react";
-import { MdKeyboardArrowRight } from "react-icons/md";
+import type { ButtonHTMLAttributes, FC } from 'react';
+import React from 'react';
+import { MdKeyboardArrowRight } from 'react-icons/md';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
-const NextBtn: FC<Props> = ({ className = "w-10 h-10 text-lg", ...args }) => {
+const NextBtn: FC<Props> = ({ className = 'w-10 h-10 text-lg', ...args }) => {
   return (
     <button
       type="button"

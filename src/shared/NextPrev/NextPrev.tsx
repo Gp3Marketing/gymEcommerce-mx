@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
-import type { FC } from "react";
-import React from "react";
+import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
+import type { FC } from 'react';
+import React from 'react';
 
 export interface NextPrevProps {
   className?: string;
@@ -14,23 +14,23 @@ export interface NextPrevProps {
 }
 
 const NextPrev: FC<NextPrevProps> = ({
-  className = "",
+  className = '',
   onClickNext = () => {},
   onClickPrev = () => {},
-  btnClassName = "w-12 h-12",
+  btnClassName = 'w-12 h-12',
   disableNext,
   disablePrev,
 }) => {
-  const [focus, setFocus] = React.useState<"left" | "right">("right");
+  const [focus, setFocus] = React.useState<'left' | 'right'>('right');
 
   return (
     <div className={`nc-NextPrev relative flex items-center ${className}`}>
       <button
         type="button"
         className={`${btnClassName} mr-2 flex items-center justify-center rounded-full border ${
-          focus === "left"
-            ? "border-primary bg-primary text-white"
-            : "border-slate-700"
+          focus === 'left'
+            ? 'border-primary bg-primary text-white'
+            : 'border-slate-700'
         }`}
         onClick={(e) => {
           e.preventDefault();
@@ -38,16 +38,16 @@ const NextPrev: FC<NextPrevProps> = ({
         }}
         title="Prev"
         disabled={disablePrev}
-        onMouseEnter={() => setFocus("left")}
+        onMouseEnter={() => setFocus('left')}
       >
-        <ArrowLeftIcon className="h-5 w-5" />
+        <ArrowLeftIcon className="size-5" />
       </button>
       <button
         type="button"
         className={`${btnClassName} flex items-center justify-center rounded-full border ${
-          focus === "right"
-            ? "border-primary bg-primary text-white"
-            : "border-slate-700"
+          focus === 'right'
+            ? 'border-primary bg-primary text-white'
+            : 'border-slate-700'
         }`}
         onClick={(e) => {
           e.preventDefault();
@@ -55,9 +55,9 @@ const NextPrev: FC<NextPrevProps> = ({
         }}
         title="Next"
         disabled={disableNext}
-        onMouseEnter={() => setFocus("right")}
+        onMouseEnter={() => setFocus('right')}
       >
-        <ArrowRightIcon className="h-5 w-5" />
+        <ArrowRightIcon className="size-5" />
       </button>
     </div>
   );

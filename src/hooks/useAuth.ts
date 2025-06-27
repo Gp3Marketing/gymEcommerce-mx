@@ -1,19 +1,20 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
 import {
+  browserLocalPersistence,
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
   sendEmailVerification,
+  setPersistence,
   signInWithEmailAndPassword,
   signInWithPopup,
-  onAuthStateChanged,
   signOut,
-  setPersistence,
-  browserLocalPersistence,
-  User,
-  UserCredential,
-} from "firebase/auth";
-import { auth, googleProvider } from "@/firebase/config";
+  type User,
+  type UserCredential,
+} from 'firebase/auth';
+import { useEffect, useState } from 'react';
+
+import { auth, googleProvider } from '@/firebase/config';
 
 interface UseAuthResult {
   user: User | null;
@@ -21,7 +22,10 @@ interface UseAuthResult {
   loginWithEmail: (email: string, password: string) => Promise<void>;
   loginWithGoogle: () => Promise<UserCredential>;
   logout: () => Promise<void>;
-  registerWithEmail: (email: string, password: string) => Promise<UserCredential>;
+  registerWithEmail: (
+    email: string,
+    password: string,
+  ) => Promise<UserCredential>;
 }
 
 export function useAuth(): UseAuthResult {
@@ -33,15 +37,15 @@ export function useAuth(): UseAuthResult {
   };
 
   const loginWithGoogle = async () => {
-    await setPersistence(auth, browserLocalPersistence); // Asegura persistencia
-    return await signInWithPopup(auth, googleProvider);
+    await setPersistence(auth, browserLocalPersistence);
+    return signInWithPopup(auth, googleProvider);
   };
 
   const registerWithEmail = async (email: string, password: string) => {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
       email,
-      password
+      password,
     );
     if (userCredential.user) {
       await sendEmailVerification(userCredential.user);

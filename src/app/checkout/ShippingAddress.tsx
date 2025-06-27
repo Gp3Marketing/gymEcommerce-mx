@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import type { FC } from "react";
-import React from "react";
-import { TbTruckDelivery } from "react-icons/tb";
+import type { FC } from 'react';
+import React from 'react';
+import { TbTruckDelivery } from 'react-icons/tb';
 
-import ButtonPrimary from "@/shared/Button/ButtonPrimary";
-import ButtonSecondary from "@/shared/Button/ButtonSecondary";
-import FormItem from "@/shared/FormItem";
-import Input from "@/shared/Input/Input";
-import Radio from "@/shared/Radio/Radio";
-import Select from "@/shared/Select/Select";
+import ButtonPrimary from '@/shared/Button/ButtonPrimary';
+import ButtonSecondary from '@/shared/Button/ButtonSecondary';
+import FormItem from '@/shared/FormItem';
+import Input from '@/shared/Input/Input';
+import Radio from '@/shared/Radio/Radio';
+import Select from '@/shared/Select/Select';
 
 interface Props {
   isActive: boolean;
@@ -24,15 +24,17 @@ interface Props {
     postalCode: string;
     communicationTime: string;
   };
-  setShippingAddress: React.Dispatch<React.SetStateAction<{
-    street: string;
-    apartment: string;
-    city: string;
-    state: string;
-    country: string;
-    postalCode: string;
-    communicationTime: string;
-  }>>;
+  setShippingAddress: React.Dispatch<
+    React.SetStateAction<{
+      street: string;
+      apartment: string;
+      city: string;
+      state: string;
+      country: string;
+      postalCode: string;
+      communicationTime: string;
+    }>
+  >;
 }
 
 const ShippingAddress: FC<Props> = ({
@@ -61,10 +63,12 @@ const ShippingAddress: FC<Props> = ({
             <div className="mt-1 text-sm font-semibold">
               {isAddressSaved ? (
                 <span>
-                  {shippingAddress.street}, Apt {shippingAddress.apartment}, {shippingAddress.city}, {shippingAddress.state}, {shippingAddress.country}, {shippingAddress.postalCode}
+                  {shippingAddress.street}, Apt {shippingAddress.apartment},{' '}
+                  {shippingAddress.city}, {shippingAddress.state},{' '}
+                  {shippingAddress.country}, {shippingAddress.postalCode}
                 </span>
               ) : (
-                <span className="text-neutral-500 italic">
+                <span className="italic text-neutral-500">
                   Dirección de envío pendiente por completar
                 </span>
               )}
@@ -80,14 +84,19 @@ const ShippingAddress: FC<Props> = ({
         </div>
       </div>
 
-      <div className={`space-y-4 border-t border-neutral-300 px-6 py-7 sm:space-y-6 ${isActive ? "block" : "hidden"}`}>
+      <div
+        className={`space-y-4 border-t border-neutral-300 px-6 py-7 sm:space-y-6 ${isActive ? 'block' : 'hidden'}`}
+      >
         <div className="space-y-4 sm:flex sm:space-x-3 sm:space-y-0">
           <div className="flex-1">
             <FormItem label="Ciudad">
               <Input
                 value={shippingAddress.city}
                 onChange={(e) =>
-                  setShippingAddress((prev) => ({ ...prev, city: e.target.value }))
+                  setShippingAddress((prev) => ({
+                    ...prev,
+                    city: e.target.value,
+                  }))
                 }
                 rounded="rounded-lg"
                 sizeClass="h-12 px-4 py-3"
@@ -101,7 +110,10 @@ const ShippingAddress: FC<Props> = ({
               <Select
                 value={shippingAddress.country}
                 onChange={(e) =>
-                  setShippingAddress((prev) => ({ ...prev, country: e.target.value }))
+                  setShippingAddress((prev) => ({
+                    ...prev,
+                    country: e.target.value,
+                  }))
                 }
                 sizeClass="h-12 px-4 py-3"
                 className="rounded-lg border-neutral-300 bg-transparent placeholder:text-neutral-500 focus:border-primary"
@@ -123,7 +135,10 @@ const ShippingAddress: FC<Props> = ({
               <Input
                 value={shippingAddress.street}
                 onChange={(e) =>
-                  setShippingAddress((prev) => ({ ...prev, street: e.target.value }))
+                  setShippingAddress((prev) => ({
+                    ...prev,
+                    street: e.target.value,
+                  }))
                 }
                 rounded="rounded-lg"
                 sizeClass="h-12 px-4 py-3"
@@ -138,7 +153,10 @@ const ShippingAddress: FC<Props> = ({
               <Input
                 value={shippingAddress.apartment}
                 onChange={(e) =>
-                  setShippingAddress((prev) => ({ ...prev, apartment: e.target.value }))
+                  setShippingAddress((prev) => ({
+                    ...prev,
+                    apartment: e.target.value,
+                  }))
                 }
                 rounded="rounded-lg"
                 sizeClass="h-12 px-4 py-3"
@@ -155,7 +173,10 @@ const ShippingAddress: FC<Props> = ({
               <Input
                 value={shippingAddress.postalCode}
                 onChange={(e) =>
-                  setShippingAddress((prev) => ({ ...prev, postalCode: e.target.value }))
+                  setShippingAddress((prev) => ({
+                    ...prev,
+                    postalCode: e.target.value,
+                  }))
                 }
                 rounded="rounded-lg"
                 sizeClass="h-12 px-4 py-3"
@@ -170,7 +191,10 @@ const ShippingAddress: FC<Props> = ({
               <Input
                 value={shippingAddress.state}
                 onChange={(e) =>
-                  setShippingAddress((prev) => ({ ...prev, state: e.target.value }))
+                  setShippingAddress((prev) => ({
+                    ...prev,
+                    state: e.target.value,
+                  }))
                 }
                 rounded="rounded-lg"
                 sizeClass="h-12 px-4 py-3"
@@ -190,11 +214,13 @@ const ShippingAddress: FC<Props> = ({
               label="Mañana (8 AM - 12 PM)"
               id="communication-time-morning"
               name="communication-time"
-              defaultChecked={shippingAddress.communicationTime === "Mañana (8 AM - 12 PM)"}
+              defaultChecked={
+                shippingAddress.communicationTime === 'Mañana (8 AM - 12 PM)'
+              }
               onChange={() =>
                 setShippingAddress((prev) => ({
                   ...prev,
-                  communicationTime: "Mañana (8 AM - 12 PM)",
+                  communicationTime: 'Mañana (8 AM - 12 PM)',
                 }))
               }
             />
@@ -202,11 +228,13 @@ const ShippingAddress: FC<Props> = ({
               label="Noche (6 PM - 9 PM)"
               id="communication-time-evening"
               name="communication-time"
-              defaultChecked={shippingAddress.communicationTime === "Noche (6 PM - 9 PM)"}
+              defaultChecked={
+                shippingAddress.communicationTime === 'Noche (6 PM - 9 PM)'
+              }
               onChange={() =>
                 setShippingAddress((prev) => ({
                   ...prev,
-                  communicationTime: "Noche (6 PM - 9 PM)",
+                  communicationTime: 'Noche (6 PM - 9 PM)',
                 }))
               }
             />
@@ -214,11 +242,13 @@ const ShippingAddress: FC<Props> = ({
               label="Tarde (12 PM - 6 PM)"
               id="communication-time-afternoon"
               name="communication-time"
-              defaultChecked={shippingAddress.communicationTime === "Tarde (12 PM - 6 PM)"}
+              defaultChecked={
+                shippingAddress.communicationTime === 'Tarde (12 PM - 6 PM)'
+              }
               onChange={() =>
                 setShippingAddress((prev) => ({
                   ...prev,
-                  communicationTime: "Tarde (12 PM - 6 PM)",
+                  communicationTime: 'Tarde (12 PM - 6 PM)',
                 }))
               }
             />
@@ -226,11 +256,14 @@ const ShippingAddress: FC<Props> = ({
               label="Comunicación a cualquier hora"
               id="communication-time-any"
               name="communication-time"
-              defaultChecked={shippingAddress.communicationTime === "Comunicación a cualquier hora"}
+              defaultChecked={
+                shippingAddress.communicationTime ===
+                'Comunicación a cualquier hora'
+              }
               onChange={() =>
                 setShippingAddress((prev) => ({
                   ...prev,
-                  communicationTime: "Comunicación a cualquier hora",
+                  communicationTime: 'Comunicación a cualquier hora',
                 }))
               }
             />
@@ -243,7 +276,10 @@ const ShippingAddress: FC<Props> = ({
         <ButtonPrimary className="shadow-none sm:!px-7" onClick={handleSave}>
           Guardar
         </ButtonPrimary>
-        <ButtonSecondary className="mt-3 sm:ml-3 sm:mt-0" onClick={onCloseActive}>
+        <ButtonSecondary
+          className="mt-3 sm:ml-3 sm:mt-0"
+          onClick={onCloseActive}
+        >
           Cancelar
         </ButtonSecondary>
       </div>
