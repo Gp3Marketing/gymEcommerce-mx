@@ -1,7 +1,7 @@
 'use client';
 
 import type { FC } from 'react';
-import React from 'react';
+import React, { useState } from 'react';
 import { FaRegCircleUser } from 'react-icons/fa6';
 
 import ButtonPrimary from '@/shared/Button/ButtonPrimary';
@@ -35,14 +35,14 @@ const ContactInfo: FC<Props> = ({
   contactInfo,
   setContactInfo,
 }) => {
-  /* const [saved, setSaved] = React.useState(false); */
+  const [error, setError] = useState<string | null>(null);
 
   const handleSave = () => {
     if (contactInfo.phone && contactInfo.email) {
-      /*  setSaved(true); */
+      setError(null);
       onCloseActive();
     } else {
-      alert('Por favor completa el teléfono y el correo electrónico.');
+      setError('Por favor completa el teléfono y el correo electrónico.');
     }
   };
 
@@ -93,6 +93,12 @@ const ContactInfo: FC<Props> = ({
         }`}
       >
         <h3 className="text-lg font-semibold">Completa tu información</h3>
+
+        {error && (
+          <div className="mb-4 rounded bg-red-100 px-4 py-2 text-red-700">
+            {error}
+          </div>
+        )}
 
         <div className="max-w-lg">
           <FormItem label="Nombre Completo">

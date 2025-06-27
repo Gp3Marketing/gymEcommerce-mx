@@ -32,13 +32,13 @@ function SectionHeroSlider() {
         loop
         className="mb-20 h-[80vh] w-full"
       >
-        {slides.map((slide, index) => (
-          <SwiperSlide key={index}>
+        {slides.map((slide) => (
+          <SwiperSlide key={slide.title}>
             <div
               className="flex size-full items-center justify-between bg-cover bg-center px-10"
               style={{ backgroundImage: `url(${slide.image})` }}
             >
-              <div className="max-w-xl rounded-xl bg-black bg-opacity-60 p-8 text-white">
+              <div className="max-w-xl rounded-xl bg-black/60 p-8 text-white">
                 <h2 className="mb-4 text-4xl font-bold">{slide.title}</h2>
                 <p className="text-lg">{slide.description}</p>
               </div>

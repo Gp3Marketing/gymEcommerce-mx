@@ -18,13 +18,14 @@ const PageLogin = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState<string | null>(null);
 
   const handleGoogleLogin = async () => {
     try {
       await loginWithGoogle();
       router.push('/');
-    } catch (error) {
-      console.error('Error al iniciar sesión con Google:', error);
+    } catch {
+      setError('Error al iniciar sesión con Google.');
     }
   };
 
@@ -33,9 +34,8 @@ const PageLogin = () => {
     try {
       await loginWithEmail(email, password);
       router.push('/');
-    } catch (error: any) {
-      alert('Correo o contraseña incorrectos.');
-      console.error('Error al iniciar sesión:', error);
+    } catch {
+      setError('Correo o contraseña incorrectos.');
     }
   };
 
@@ -47,6 +47,11 @@ const PageLogin = () => {
         </h2>
         <div className="mx-auto max-w-md">
           <div className="space-y-6">
+            {error && (
+              <div className="mb-4 rounded bg-red-100 px-4 py-2 text-red-700">
+                {error}
+              </div>
+            )}
             <div>
               <ButtonSecondary
                 className="flex w-full items-center gap-3 border-2 border-primary text-primary"

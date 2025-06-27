@@ -160,15 +160,19 @@ const MainNav = () => {
                 className="size-full object-cover object-center"
               />
             </ButtonCircle3>
-            <Link
-              href={user ? '#' : '/login'}
-              className="hidden text-sm lg:block"
-              onClick={handleAccountClick}
-            >
-              {user
-                ? getFirstName(user.displayName, user.email)
-                : 'Iniciar sesión'}
-            </Link>
+            {user ? (
+              <button
+                type="button"
+                className="hidden text-sm lg:block"
+                onClick={handleAccountClick}
+              >
+                {getFirstName(user.displayName, user.email)}
+              </button>
+            ) : (
+              <Link href="/login" className="hidden text-sm lg:block">
+                Iniciar sesión
+              </Link>
+            )}
             {showAccountMenu && (
               <AccountMenu
                 onLogout={handleLogout}

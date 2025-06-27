@@ -45,6 +45,7 @@ const WishlistProductCard: React.FC<WishlistProductCardProps> = ({
         {showFull ? overview : shortOverview}
         {overview.length > 100 && (
           <button
+            type="button"
             className="ml-1 text-primary underline"
             onClick={() => setShowFull((v) => !v)}
           >

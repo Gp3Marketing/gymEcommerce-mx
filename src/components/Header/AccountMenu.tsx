@@ -49,6 +49,7 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ onClose, onLogout }) => {
       <ul className="space-y-2">
         <li>
           <button
+            type="button"
             className="block w-full text-left hover:text-primary"
             onClick={() => handleProtectedRoute('/account')}
           >
@@ -57,6 +58,7 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ onClose, onLogout }) => {
         </li>
         <li>
           <button
+            type="button"
             className="block w-full text-left hover:text-primary"
             onClick={() => handleProtectedRoute('/orders')}
           >
@@ -65,6 +67,7 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ onClose, onLogout }) => {
         </li>
         <li>
           <button
+            type="button"
             className="block w-full text-left hover:text-primary"
             onClick={() => handleProtectedRoute('/wishlist')}
           >
@@ -74,6 +77,7 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ onClose, onLogout }) => {
         {user && (
           <li>
             <button
+              type="button"
               className="block w-full text-left hover:text-primary"
               onClick={handleLogout}
             >

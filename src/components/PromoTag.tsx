@@ -8,7 +8,11 @@ import React from 'react';
 import { promotionTag } from '@/data/content';
 import ButtonSecondary from '@/shared/Button/ButtonSecondary';
 
-const promoImages = ['/OFF.webp', '/OFF2.webp', '/PreEntreno.webp'];
+const promoImages = [
+  { src: '/OFF.webp', alt: 'Promo OFF' },
+  { src: '/OFF2.webp', alt: 'Promo OFF2' },
+  { src: '/PreEntreno.webp', alt: 'Promo PreEntreno' },
+];
 
 const PromoTag = () => {
   return (
@@ -23,11 +27,12 @@ const PromoTag = () => {
         }}
         className="absolute inset-0 z-0"
       >
-        {promoImages.map((src, index) => (
-          <SplideSlide key={index}>
+        {promoImages.map((img) => (
+          <SplideSlide key={img.src}>
             <div
               className="h-[420px] w-full bg-cover bg-center"
-              style={{ backgroundImage: `url(${src})` }}
+              style={{ backgroundImage: `url(${img.src})` }}
+              aria-label={img.alt}
             />
           </SplideSlide>
         ))}

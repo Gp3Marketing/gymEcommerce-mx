@@ -1,6 +1,7 @@
 'use client';
 
 import emailjs from 'emailjs-com';
+import React, { useState } from 'react';
 
 type ContactInfo = {
   fullName: string;
@@ -24,6 +25,8 @@ type Props = {
 };
 
 const SendOrderEmail = ({ contactInfo, shippingAddress }: Props) => {
+  const [message, setMessage] = useState<string | null>(null);
+
   const handleSend = async () => {
     try {
       await emailjs.send(
@@ -43,20 +46,33 @@ const SendOrderEmail = ({ contactInfo, shippingAddress }: Props) => {
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
       );
-      alert('¡Datos enviados correctamente!');
+      setMessage('¡Datos enviados correctamente!');
     } catch (error) {
-      alert('Error al enviar el correo.');
+      setMessage('Error al enviar el correo.');
     }
   };
 
   return (
-    <button
-      type="button"
-      className="mt-8 w-full rounded bg-blue-600 py-3 text-white"
-      onClick={handleSend}
-    >
-      Confirmar
-    </button>
+    <>
+      {message && (
+        <div
+          className={`mb-4 rounded px-4 py-2 ${
+            message.startsWith('¡Datos')
+              ? 'bg-green-100 text-green-700'
+              : 'bg-red-100 text-red-700'
+          }`}
+        >
+          {message}
+        </div>
+      )}
+      <button
+        type="button"
+        className="mt-8 w-full rounded bg-blue-600 py-3 text-white"
+        onClick={handleSend}
+      >
+        Confirmar
+      </button>
+    </>
   );
 };
 

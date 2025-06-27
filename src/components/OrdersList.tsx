@@ -23,7 +23,7 @@ const OrdersList: React.FC<{ orders: Order[] }> = ({ orders }) => (
             className="mb-12 flex flex-col border-b pb-8 lg:flex-row"
           >
             <div className="w-full divide-y divide-neutral-300 lg:w-3/5 xl:w-[55%]">
-              {order.productos.map((prod, idx) => {
+              {order.productos.map((prod) => {
                 let producto = prod.slug
                   ? shoes.find((s) => s.slug === prod.slug)
                   : undefined;
@@ -36,12 +36,18 @@ const OrdersList: React.FC<{ orders: Order[] }> = ({ orders }) => (
                 }
                 if (!producto)
                   return (
-                    <div key={idx} className="mb-2 text-red-500">
+                    <div
+                      key={prod.slug || prod.nombreProducto}
+                      className="mb-2 text-red-500"
+                    >
                       Producto no encontrado: {prod.nombreProducto}
                     </div>
                   );
                 return (
-                  <div key={idx} className="flex py-5 last:pb-0">
+                  <div
+                    key={prod.slug || prod.nombreProducto}
+                    className="flex py-5 last:pb-0"
+                  >
                     <div className="relative size-24 shrink-0 overflow-hidden rounded-xl md:size-40">
                       <Image
                         fill
