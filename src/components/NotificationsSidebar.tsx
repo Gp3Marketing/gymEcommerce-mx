@@ -20,7 +20,6 @@ const NotificationsSidebar: React.FC<{
   const [promoNotifications, setPromoNotifications] = useState(true);
   const [newProductNotifications, setNewProductNotifications] = useState(true);
 
-  // Leer preferencias al abrir
   React.useEffect(() => {
     const fetchPrefs = async () => {
       if (!user) return;
