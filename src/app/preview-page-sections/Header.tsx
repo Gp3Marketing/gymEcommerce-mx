@@ -1,8 +1,9 @@
-import React from "react";
-import Heading from "@/shared/Heading/Heading";
+import React from 'react';
 
-import { templateDetails } from "./content";
-import ImageScroll from "./ImageScroll";
+import Heading from '@/shared/Heading/Heading';
+
+import { templateDetails } from './content';
+import ImageScroll from './ImageScroll';
 
 const Header = () => {
   return (

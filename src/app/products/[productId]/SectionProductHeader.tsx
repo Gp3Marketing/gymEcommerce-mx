@@ -1,26 +1,23 @@
-"use client";
+'use client';
 
-import type { StaticImageData } from "next/image";
-import Image from "next/image";
-import type { FC } from "react";
-import React from "react";
-import { BsBag } from "react-icons/bs";
-import { GoDotFill } from "react-icons/go";
-import { LuInfo } from "react-icons/lu";
-import { MdStar } from "react-icons/md";
-import { PiSealCheckFill } from "react-icons/pi";
+import type { StaticImageData } from 'next/image';
+import Image from 'next/image';
+import type { FC } from 'react';
+import React, { useState } from 'react';
+import { GoDotFill } from 'react-icons/go';
+import { LuInfo } from 'react-icons/lu';
+import { MdStar } from 'react-icons/md';
+import { PiSealCheckFill } from 'react-icons/pi';
 
-import ImageShowCase from "@/components/ImageShowCase";
-import ShoeSizeButton from "@/components/ShoeSizeButton";
-import { shoeSizes } from "@/data/content";
-import nike_profile from "@/images/nike_profile.png";
-import ButtonCircle3 from "@/shared/Button/ButtonCircle3";
-import ButtonPrimary from "@/shared/Button/ButtonPrimary";
-import ButtonSecondary from "@/shared/Button/ButtonSecondary";
-import Heading from "@/shared/Heading/Heading";
-import { useCart } from "@/hooks/useCart";
-import { useAuth } from "@/hooks/useAuth";
-import AddToCartButton from "@/components/AddToCartButton";
+import ImageShowCase from '@/components/ImageShowCase';
+import { useAuth } from '@/hooks/useAuth';
+import { useCart } from '@/hooks/useCart';
+// import ShoeSizeButton from "@/components/ShoeSizeButton";
+// import { shoeSizes } from "@/data/content";
+import nike_profile from '@/images/nike_profile.png';
+import ButtonCircle3 from '@/shared/Button/ButtonCircle3';
+import ButtonPrimary from '@/shared/Button/ButtonPrimary';
+import Heading from '@/shared/Heading/Heading';
 
 interface SectionProductHeaderProps {
   shots: StaticImageData[];
@@ -49,6 +46,7 @@ const SectionProductHeader: FC<SectionProductHeaderProps> = ({
 }) => {
   const { user } = useAuth();
   const { addToCart } = useCart();
+  const [error, setError] = useState<string | null>(null);
 
   const producto = {
     id: slug,
@@ -62,15 +60,16 @@ const SectionProductHeader: FC<SectionProductHeaderProps> = ({
 
   const handleAddToCart = () => {
     if (!user) {
-      alert("Debes iniciar sesión");
+      setError('Debes iniciar sesión para agregar productos al carrito.');
       return;
     }
+    setError(null);
     addToCart(producto);
   };
 
   return (
     <div className="items-stretch justify-between space-y-10 lg:flex lg:space-y-0">
-      <div className="basis-[50%]">
+      <div className="basis-1/2">
         <ImageShowCase shots={shots} product={producto} />
       </div>
 
@@ -88,7 +87,7 @@ const SectionProductHeader: FC<SectionProductHeaderProps> = ({
               <Image
                 src={nike_profile}
                 alt="nike_profile"
-                className="h-full w-full object-cover"
+                className="size-full object-cover"
               />
             </ButtonCircle3>
             <span className="font-medium">FITMEX STORE</span>
@@ -98,7 +97,7 @@ const SectionProductHeader: FC<SectionProductHeaderProps> = ({
           <div className="flex items-center gap-1">
             <MdStar className="text-yellow-400" />
             <p className="text-sm">
-              {rating}{" "}
+              {rating}{' '}
               <span className="text-neutral-500">{`(${reviews} Reviews)`}</span>
             </p>
           </div>
@@ -118,21 +117,27 @@ const SectionProductHeader: FC<SectionProductHeaderProps> = ({
           </p>
         </div>
 
-        <div className="grid grid-cols-3 gap-3">
+        {/* <div className="grid grid-cols-3 gap-3">
           {shoeSizes.map((size) => (
             <ShoeSizeButton key={size} size={size} />
           ))}
-        </div>
+        </div> */}
+
+        {error && (
+          <div className="mb-4 rounded bg-red-100 px-4 py-2 text-red-700">
+            {error}
+          </div>
+        )}
 
         <div className="mt-5 flex items-center gap-5">
           <ButtonPrimary className="w-full">Buy Now</ButtonPrimary>
-          <AddToCartButton producto={producto} />
-          {/* <ButtonSecondary
-            className="flex w-full items-center gap-1 border-2 border-primary text-primary"
+          <button
+            type="button"
+            className="flex w-full items-center justify-center rounded border-2 border-primary py-2 text-primary"
             onClick={handleAddToCart}
           >
-            <BsBag /> Add to cart
-          </ButtonSecondary> */}
+            Agregar al carrito
+          </button>
         </div>
       </div>
     </div>

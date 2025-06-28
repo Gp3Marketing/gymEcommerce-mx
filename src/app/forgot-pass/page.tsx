@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import React, { useState } from "react";
-import { sendPasswordResetEmail } from "firebase/auth";
-import { auth } from "@/firebase/config";
+import { sendPasswordResetEmail } from 'firebase/auth';
+import Link from 'next/link';
+import React, { useState } from 'react';
 
-import FormItem from "@/shared/FormItem";
-import Input from "@/shared/Input/Input";
-import ButtonPrimary from "@/shared/Button/ButtonPrimary";
+import { auth } from '@/firebase/config';
+import ButtonPrimary from '@/shared/Button/ButtonPrimary';
+import FormItem from '@/shared/FormItem';
+import Input from '@/shared/Input/Input';
 
 const PageForgotPass = () => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const [message, setMessage] = useState<string | null>(null);
   const [timer, setTimer] = useState(0);
   const [showVerification, setShowVerification] = useState(false);
@@ -22,7 +22,7 @@ const PageForgotPass = () => {
       await sendPasswordResetEmail(auth, email);
       setShowVerification(true);
       setMessage(
-        "¡Se te envió un código de verificación! Verifica tu correo electrónico."
+        '¡Se te envió un código de verificación! Verifica tu correo electrónico.',
       );
       setTimer(20);
       const interval = setInterval(() => {
@@ -35,20 +35,18 @@ const PageForgotPass = () => {
         });
       }, 1000);
     } catch (error: any) {
-      if (error.code === "auth/user-not-found") {
+      if (error.code === 'auth/user-not-found') {
         setShowVerification(false);
-        setMessage(
-          "Verifica que el correo sea el correcto."
-        );
+        setMessage('Verifica que el correo sea el correcto.');
       } else {
         setShowVerification(false);
-        setMessage("No se pudo enviar el correo. Verifica el email.");
+        setMessage('No se pudo enviar el correo. Verifica el email.');
       }
     }
   };
 
   const handleVerified = () => {
-    setEmail("");
+    setEmail('');
     setShowVerification(false);
     setMessage(null);
   };
@@ -80,10 +78,10 @@ const PageForgotPass = () => {
           {/* Botón cambia de texto según el flujo */}
           {timer === 0 && (
             <div className="flex justify-center">
-              <ButtonPrimary className="mt-4 -mb-3" type="submit">
+              <ButtonPrimary className="-mb-3 mt-4" type="submit">
                 {showVerification
-                  ? "Volver a reenviar verificación"
-                  : "Recuperar contraseña"}
+                  ? 'Volver a reenviar verificación'
+                  : 'Recuperar contraseña'}
               </ButtonPrimary>
             </div>
           )}
@@ -109,11 +107,11 @@ const PageForgotPass = () => {
         )}
 
         <span className="block text-center text-neutral-500">
-          Regresar a{" "}
+          Regresar a{' '}
           <Link href="/login" className="text-primary">
             Iniciar sesión
           </Link>
-          {" / "}
+          {' / '}
           <Link href="/signup" className="text-primary">
             Registrarse
           </Link>

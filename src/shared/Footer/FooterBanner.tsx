@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import { footerBannerData } from "@/data/content";
-import Heading from "@/shared/Heading/Heading";
+import { footerBannerData } from '@/data/content';
+import Heading from '@/shared/Heading/Heading';
 
-import ButtonPrimary from "../Button/ButtonPrimary";
+import ButtonPrimary from '../Button/ButtonPrimary';
 
 const FooterBanner = () => {
   return (
@@ -17,7 +17,7 @@ const FooterBanner = () => {
           {footerBannerData.description}
         </p>
         <div className="mt-10 flex items-center justify-center">
-          <ButtonPrimary sizeClass="px-6 py-4">More about us</ButtonPrimary>
+          <ButtonPrimary sizeClass="px-6 py-4">Mirar más</ButtonPrimary>
         </div>
       </div>
     </div>

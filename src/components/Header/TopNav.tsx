@@ -1,21 +1,24 @@
-"use client";
-import React from "react";
-import { topNavLinks as baseTopNavLinks } from "@/data/content";
-import NavigationItem from "../NavItem";
-import { useAuth } from "@/hooks/useAuth";
+'use client';
+
+import React from 'react';
+
+import { topNavLinks as baseTopNavLinks } from '@/data/content';
+import { useAuth } from '@/hooks/useAuth';
+
+import NavigationItem from '../NavItem';
 
 const TopNav = () => {
   const { user } = useAuth();
 
   const topNavLinks = [
     ...baseTopNavLinks.filter(
-      (item) => item.name !== "Finalizar compra" && item.name !== "Cart"
+      (item) => item.name !== 'Finalizar compra' && item.name !== 'Cart',
     ),
     ...(user
       ? [
-        { id: "f678ty", name: "Carrito de compras", href: "/cart" },
-        { id: "h6i78g", name: "Finalizar compra", href: "/checkout" },
-      ]
+          { id: 'f678ty', name: 'Carrito de compras', href: '/cart' },
+          { id: 'h6i78g', name: 'Finalizar compra', href: '/checkout' },
+        ]
       : []),
   ];
 

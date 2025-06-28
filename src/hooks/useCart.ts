@@ -1,18 +1,20 @@
-import { useEffect, useState } from "react";
-import { useAuth } from "@/hooks/useAuth";
+import { useEffect, useState } from 'react';
+
+import { useAuth } from '@/hooks/useAuth';
 import {
   addToCart,
+  clearUserCart,
   removeFromCart,
   subscribeToCart,
   updateCartItemQuantity,
-  clearUserCart,
-} from "@/utils/cartUtils";
+} from '@/utils/cartUtils';
 
 export interface CartItem {
   id: string;
   cantidad: number;
   precio: number;
   nombreProducto: string;
+  slug?: string;
 }
 
 export function useCart() {
@@ -23,7 +25,7 @@ export function useCart() {
   useEffect(() => {
     if (!user) {
       setCart([]);
-      return;
+      return undefined;
     }
     setLoading(true);
     const unsubscribe = subscribeToCart(user.uid, (items) => {

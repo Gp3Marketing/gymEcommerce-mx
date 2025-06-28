@@ -1,10 +1,11 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import ProductCard from "@/components/ProductCard";
-import SidebarFilters from "@/components/SideBarFilter";
-import { shoes } from "@/data/content";
-import { branch } from "@/data/filterByProduct";
+import React, { useState } from 'react';
+
+import ProductCard from '@/components/ProductCard';
+import SidebarFilters from '@/components/SideBarFilter';
+import { shoes } from '@/data/content';
+import { branch } from '@/data/filterByProduct';
 
 const getMinMaxPrice = () => {
   const prices = shoes.map((item) => item.currentPrice || 0);
@@ -20,7 +21,7 @@ const Page = () => {
 
     let filtered = [...shoes];
 
-    if (brand !== "Mostrar todo") {
+    if (brand !== 'Mostrar todo') {
       const branchObj = branch.find((b) => b.name === brand);
       if (branchObj) {
         filtered = filtered.filter((item) =>
@@ -28,8 +29,9 @@ const Page = () => {
             (cat) =>
               item.shoeCategory &&
               cat &&
-              item.shoeCategory.trim().toLowerCase() === cat.trim().toLowerCase()
-          )
+              item.shoeCategory.trim().toLowerCase() ===
+                cat.trim().toLowerCase(),
+          ),
         );
       } else {
         filtered = [];
@@ -38,11 +40,11 @@ const Page = () => {
 
     filtered = filtered.filter(
       (item) =>
-        typeof item.currentPrice === "number" &&
+        typeof item.currentPrice === 'number' &&
         range[0] !== undefined &&
         range[1] !== undefined &&
         item.currentPrice >= range[0] &&
-        item.currentPrice <= range[1]
+        item.currentPrice <= range[1],
     );
 
     setFilteredShoes(filtered);
@@ -64,14 +66,14 @@ const Page = () => {
         </div>
         <div className="mb-10 shrink-0 border-t lg:mx-4 lg:mb-0 lg:border-t-0" />
         <div className="relative flex-1">
-          <div className="grid flex-1 gap-x-8 gap-y-10 sm:grid-cols-2 xl:grid-cols-3 py-10 mt-2">
+          <div className="mt-2 grid flex-1 gap-x-8 gap-y-10 py-10 sm:grid-cols-2 xl:grid-cols-3">
             {filteredShoes.map((item) => (
               <ProductCard showPrevPrice product={item} key={item.slug} />
             ))}
           </div>
         </div>
       </div>
-      <div className="my-24"></div>
+      <div className="my-24" />
     </div>
   );
 };

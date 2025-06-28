@@ -1,14 +1,16 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { LuFilter } from "react-icons/lu";
-import { filters } from "@/data/content";
-import Button from "@/shared/Button/Button";
-import Select from "@/shared/Select/Select";
+import React, { useState } from 'react';
+import { LuFilter } from 'react-icons/lu';
+
+import { filters } from '@/data/content';
+import Button from '@/shared/Button/Button';
+import Select from '@/shared/Select/Select';
 
 const Filter = ({ onFilter }: { onFilter: (filters: string[]) => void }) => {
   const defaultSelected = filters.map((f) => f[0]);
-  const [selected, setSelected] = useState(defaultSelected);
+  const [selected, setSelected] =
+    useState<(string | undefined)[]>(defaultSelected);
 
   const handleChange = (value: string, idx: number) => {
     const updated = [...selected];
@@ -17,12 +19,12 @@ const Filter = ({ onFilter }: { onFilter: (filters: string[]) => void }) => {
   };
 
   const handleFilterClick = () => {
-    onFilter(selected);
+    onFilter(selected.filter((v): v is string => v !== undefined));
   };
 
   const handleClear = () => {
     setSelected(defaultSelected);
-    onFilter(defaultSelected);
+    onFilter(defaultSelected.filter((v): v is string => v !== undefined));
   };
 
   const isFiltered = selected.some((v, idx) => v !== defaultSelected[idx]);
@@ -47,7 +49,7 @@ const Filter = ({ onFilter }: { onFilter: (filters: string[]) => void }) => {
       </div>
       <div className="flex items-center gap-2">
         <Button
-          className="flex items-center gap-1 bg-gray rounded-full px-6 py-2"
+          className="flex items-center gap-1 rounded-full bg-gray px-6 py-2"
           onClick={handleFilterClick}
         >
           Filtrar
@@ -55,7 +57,7 @@ const Filter = ({ onFilter }: { onFilter: (filters: string[]) => void }) => {
         </Button>
         {isFiltered && (
           <Button
-            className="flex items-center gap-1 bg-neutral-200 text-neutral-500 rounded-full px-6 py-2"
+            className="flex items-center gap-1 rounded-full bg-neutral-200 px-6 py-2 text-neutral-500"
             onClick={handleClear}
           >
             Borrar

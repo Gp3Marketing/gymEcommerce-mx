@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import type { FC } from "react";
-import React from "react";
+import type { FC } from 'react';
+import React from 'react';
 
 export interface PrevProps {
   btnClassName?: string;
@@ -11,10 +11,10 @@ export interface PrevProps {
 }
 
 const Prev: FC<PrevProps> = ({
-  className = "relative",
+  className = 'relative',
   onClickPrev = () => {},
-  btnClassName = "w-10 h-10",
-  svgSize = "w-5 h-5",
+  btnClassName = 'w-10 h-10',
+  svgSize = 'w-5 h-5',
 }) => {
   return (
     <div
