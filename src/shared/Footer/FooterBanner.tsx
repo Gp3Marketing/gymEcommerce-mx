@@ -17,7 +17,7 @@ const FooterBanner = () => {
           {footerBannerData.description}
         </p>
         <div className="mt-10 flex items-center justify-center">
-          <ButtonPrimary sizeClass="px-6 py-4">More about us</ButtonPrimary>
+          <ButtonPrimary sizeClass="px-6 py-4">Mirar más</ButtonPrimary>
         </div>
       </div>
     </div>
