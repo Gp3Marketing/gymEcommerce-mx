@@ -8,6 +8,7 @@ import { AiOutlineDelete } from 'react-icons/ai';
 import { FaBagShopping } from 'react-icons/fa6';
 import { MdClose, MdStar } from 'react-icons/md';
 
+import { useAuth } from '@/hooks/useAuth';
 import { useCart } from '@/hooks/useCart';
 import ButtonCircle3 from '@/shared/Button/ButtonCircle3';
 import ButtonPrimary from '@/shared/Button/ButtonPrimary';
@@ -18,20 +19,14 @@ import LikeButton from './LikeButton';
 const CartSideBar: React.FC = () => {
   const [isVisable, setIsVisable] = useState(false);
   const { cart, removeFromCart, updateQuantity } = useCart();
+  const { user } = useAuth();
 
   const handleOpenMenu = () => setIsVisable(true);
   const handleCloseMenu = () => setIsVisable(false);
 
   const renderProduct = (item: any) => {
-    const {
-      nombreProducto,
-      coverImage,
-      precio,
-      id,
-      rating,
-      shoeCategory,
-      cantidad,
-    } = item;
+    const { nombreProducto, coverImage, precio, id, shoeCategory, cantidad } =
+      item;
     return (
       <div key={id} className="flex py-5 last:pb-0">
         <div className="relative size-24 shrink-0 overflow-hidden rounded-xl">
@@ -61,7 +56,7 @@ const CartSideBar: React.FC = () => {
                 </span>
                 <div className="flex items-center gap-1">
                   <MdStar className="text-yellow-400" />
-                  <span className="text-sm">{rating}</span>
+                  <span className="text-sm">{item.rating}</span>
                 </div>
               </div>
               <span className=" font-medium">${precio}</span>
@@ -69,7 +64,12 @@ const CartSideBar: React.FC = () => {
           </div>
           <div className="flex w-full items-end justify-between text-sm">
             <div className="flex items-center gap-3">
-              <LikeButton product={{ ...item, id: item.id || item.slug }} />
+              <LikeButton
+                product={{
+                  ...item,
+                  id: item.id || item.productId || item.slug,
+                }}
+              />
               <AiOutlineDelete
                 className="cursor-pointer text-2xl"
                 onClick={() => removeFromCart(item.id)}
@@ -131,50 +131,71 @@ const CartSideBar: React.FC = () => {
                           <MdClose className="text-2xl" />
                         </ButtonCircle3>
                       </div>
-                      {cart.length === 0 && (
+                      {!user ? (
                         <div className="py-8 text-center text-neutral-500">
-                          Todavía no tienes productos agregados
+                          Debes iniciar sesión para ver los productos que has
+                          añadido a tu carrito.
                         </div>
-                      )}
-                      <div className="divide-y divide-neutral-300">
-                        {cart.map((item) => renderProduct(item))}
-                      </div>
-                    </div>
-                    <div className="absolute bottom-0 left-0 w-full bg-neutral-50 p-5">
-                      <p className="flex justify-between">
-                        <span>
-                          <span className="font-medium">Subtotal</span>
-                          <span className="block text-sm text-neutral-500">
-                            Los gastos de envío e impuestos se calculan al
-                            finalizar la compra.
-                          </span>
-                        </span>
-                        <span className="text-xl font-medium">
-                          $
-                          {cart.reduce(
-                            (acc, item) =>
-                              acc + item.precio * (item.cantidad || 1),
-                            0,
+                      ) : (
+                        <>
+                          {cart.length === 0 && (
+                            <div className="py-8 text-center text-neutral-500">
+                              Todavía no tienes productos agregados
+                            </div>
                           )}
-                        </span>
-                      </p>
-                      <div className="mt-5 flex items-center gap-5">
-                        <ButtonPrimary
-                          href="/checkout"
-                          onClick={handleCloseMenu}
-                          className="w-full flex-1"
-                        >
-                          Checkout
-                        </ButtonPrimary>
-                        <ButtonSecondary
-                          onClick={handleCloseMenu}
-                          href="/cart"
-                          className="w-full flex-1 border-2 border-primary text-primary"
-                        >
-                          Ver carrito
-                        </ButtonSecondary>
-                      </div>
+                          <div className="divide-y divide-neutral-300">
+                            {cart.map((item) => renderProduct(item))}
+                          </div>
+                        </>
+                      )}
                     </div>
+                    {!user ? (
+                      <div className="absolute bottom-0 left-0 w-full bg-neutral-50 p-5">
+                        <ButtonPrimary
+                          href="/login"
+                          onClick={handleCloseMenu}
+                          className="w-full"
+                        >
+                          Ingresar sesión
+                        </ButtonPrimary>
+                      </div>
+                    ) : (
+                      <div className="absolute bottom-0 left-0 w-full bg-neutral-50 p-5">
+                        <p className="flex justify-between">
+                          <span>
+                            <span className="font-medium">Subtotal</span>
+                            <span className="block text-sm text-neutral-500">
+                              Los gastos de envío e impuestos se calculan al
+                              finalizar la compra.
+                            </span>
+                          </span>
+                          <span className="text-xl font-medium">
+                            $
+                            {cart.reduce(
+                              (acc, item) =>
+                                acc + item.precio * (item.cantidad || 1),
+                              0,
+                            )}
+                          </span>
+                        </p>
+                        <div className="mt-5 flex items-center gap-5">
+                          <ButtonPrimary
+                            href="/checkout"
+                            onClick={handleCloseMenu}
+                            className="w-full flex-1"
+                          >
+                            Checkout
+                          </ButtonPrimary>
+                          <ButtonSecondary
+                            onClick={handleCloseMenu}
+                            href="/cart"
+                            className="w-full flex-1 border-2 border-primary text-primary"
+                          >
+                            Ver carrito
+                          </ButtonSecondary>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -201,7 +222,7 @@ const CartSideBar: React.FC = () => {
       <button
         type="button"
         onClick={handleOpenMenu}
-        className="focus-visible:ring-opacity/75 mx-5 flex items-center gap-1 rounded-full bg-neutral-100 p-2 text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+        className="mx-5 flex items-center gap-1 rounded-full bg-neutral-100 p-2 text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
       >
         <FaBagShopping className="text-2xl" />
         <span className="hidden text-sm lg:block">

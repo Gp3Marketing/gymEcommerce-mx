@@ -70,7 +70,6 @@ const MainNav = () => {
 
   const handleOpenNotifications = async () => {
     setShowNotifications(true);
-    // Marcar todas como leídas
     if (user && notifications.length > 0) {
       notifications.forEach(async (n) => {
         if (!n.read) {
@@ -136,7 +135,6 @@ const MainNav = () => {
       </div>
 
       <div className="flex flex-1 items-center justify-end gap-5">
-        {/* Icono campana */}
         <div className="relative hidden lg:block">
           {unread && (
             <span className="absolute -top-1/4 left-3/4 aspect-square w-3 rounded-full bg-red-600" />
@@ -160,19 +158,15 @@ const MainNav = () => {
                 className="size-full object-cover object-center"
               />
             </ButtonCircle3>
-            {user ? (
-              <button
-                type="button"
-                className="hidden text-sm lg:block"
-                onClick={handleAccountClick}
-              >
-                {getFirstName(user.displayName, user.email)}
-              </button>
-            ) : (
-              <Link href="/login" className="hidden text-sm lg:block">
-                Iniciar sesión
-              </Link>
-            )}
+            <button
+              type="button"
+              className="hidden text-sm lg:block"
+              onClick={handleAccountClick}
+            >
+              {user
+                ? getFirstName(user.displayName, user.email)
+                : 'Iniciar sesión'}
+            </button>
             {showAccountMenu && (
               <AccountMenu
                 onLogout={handleLogout}
