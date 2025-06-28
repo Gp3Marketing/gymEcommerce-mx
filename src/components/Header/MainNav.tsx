@@ -7,9 +7,6 @@ import React, { useState } from 'react';
 import { FaRegBell } from 'react-icons/fa6';
 import { RiSearch2Line } from 'react-icons/ri';
 
-import CartSideBar from '../CartSideBar';
-import AccountMenu from './AccountMenu';
-import MenuBar from './MenuBar';
 import NotificationsSidebar from '@/components/NotificationsSidebar';
 import MsgWhatsapp from '@/components/WhatsApp';
 import { shoes } from '@/data/content';
@@ -20,6 +17,10 @@ import avatar from '@/images/avatar.png';
 import ButtonCircle3 from '@/shared/Button/ButtonCircle3';
 import Input from '@/shared/Input/Input';
 import Logo from '@/shared/Logo/Logo';
+
+import CartSideBar from '../CartSideBar';
+import AccountMenu from './AccountMenu';
+import MenuBar from './MenuBar';
 
 const getFirstName = (displayName: string | null, email: string | null) => {
   if (displayName) return displayName.split(' ')[0];
@@ -105,7 +106,7 @@ const MainNav = () => {
                   <Link
                     key={shoe.slug}
                     href={`/products/${shoe.slug}`}
-                    className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100"
+                    className="hover:bg-gray-100 flex items-center gap-3 px-4 py-2"
                     onClick={() => setShowResults(false)}
                   >
                     <Image
