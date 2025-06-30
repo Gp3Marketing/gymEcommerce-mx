@@ -13,6 +13,7 @@ import { useAuth } from '@/hooks/useAuth';
 import ButtonPrimary from '@/shared/Button/ButtonPrimary';
 import ButtonSecondary from '@/shared/Button/ButtonSecondary';
 import Input from '@/shared/Input/Input';
+import Radio from '@/shared/Radio/Radio';
 
 const AccountPage = () => {
   const { user } = useAuth();
@@ -34,6 +35,7 @@ const AccountPage = () => {
     state: '',
     country: '',
     postalCode: '',
+    communicationTime: '',
   });
 
   useEffect(() => {
@@ -43,10 +45,15 @@ const AccountPage = () => {
       if (userDoc.exists()) {
         const data = userDoc.data();
         if (data.contactInfo) setContactInfo(data.contactInfo);
-        if (data.shippingAddress) setShippingAddress(data.shippingAddress);
+        if (data.shippingAddress)
+          setShippingAddress((prev) => ({
+            ...prev,
+            ...data.shippingAddress,
+          }));
       }
     };
     fetchUserData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   const isContactValid =
@@ -60,13 +67,16 @@ const AccountPage = () => {
     shippingAddress.city &&
     shippingAddress.state &&
     shippingAddress.country &&
-    shippingAddress.postalCode;
+    shippingAddress.postalCode &&
+    shippingAddress.communicationTime;
 
   const handleContactChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setContactInfo({ ...contactInfo, [e.target.name]: e.target.value });
   };
 
-  const handleShippingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleShippingChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) => {
     setShippingAddress({ ...shippingAddress, [e.target.name]: e.target.value });
   };
 
@@ -295,7 +305,6 @@ const AccountPage = () => {
                       placeholder="Ej: Ciudad de México"
                       disabled={!isEditing}
                       className={inputClass(isEditing)}
-                      aria-labelledby="city"
                     />
                   </div>
                   <div>
@@ -346,6 +355,77 @@ const AccountPage = () => {
                       className={inputClass(isEditing)}
                     />
                   </div>
+                  <div>
+                    <label className="mb-1 block font-medium">
+                      Hora de comunicación
+                    </label>
+                    <div className="mt-1.5 grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3">
+                      <Radio
+                        label="Mañana (8 AM - 12 PM)"
+                        id="communication-time-morning"
+                        name="communicationTime"
+                        defaultChecked={
+                          shippingAddress.communicationTime ===
+                          'Mañana (8 AM - 12 PM)'
+                        }
+                        onChange={() =>
+                          setShippingAddress((prev) => ({
+                            ...prev,
+                            communicationTime: 'Mañana (8 AM - 12 PM)',
+                          }))
+                        }
+                        disabled={!isEditing}
+                      />
+                      <Radio
+                        label="Noche (6 PM - 9 PM)"
+                        id="communication-time-evening"
+                        name="communicationTime"
+                        defaultChecked={
+                          shippingAddress.communicationTime ===
+                          'Noche (6 PM - 9 PM)'
+                        }
+                        onChange={() =>
+                          setShippingAddress((prev) => ({
+                            ...prev,
+                            communicationTime: 'Noche (6 PM - 9 PM)',
+                          }))
+                        }
+                        disabled={!isEditing}
+                      />
+                      <Radio
+                        label="Tarde (12 PM - 6 PM)"
+                        id="communication-time-afternoon"
+                        name="communicationTime"
+                        defaultChecked={
+                          shippingAddress.communicationTime ===
+                          'Tarde (12 PM - 6 PM)'
+                        }
+                        onChange={() =>
+                          setShippingAddress((prev) => ({
+                            ...prev,
+                            communicationTime: 'Tarde (12 PM - 6 PM)',
+                          }))
+                        }
+                        disabled={!isEditing}
+                      />
+                      <Radio
+                        label="Comunicación a cualquier hora"
+                        id="communication-time-any"
+                        name="communicationTime"
+                        defaultChecked={
+                          shippingAddress.communicationTime ===
+                          'Comunicación a cualquier hora'
+                        }
+                        onChange={() =>
+                          setShippingAddress((prev) => ({
+                            ...prev,
+                            communicationTime: 'Comunicación a cualquier hora',
+                          }))
+                        }
+                        disabled={!isEditing}
+                      />
+                    </div>
+                  </div>
                 </>
               )}
               {isEditing && (
@@ -361,12 +441,20 @@ const AccountPage = () => {
                     </ButtonSecondary>
                   )}
                   {step === 1 && (
-                    <ButtonPrimary className="w-full" type="submit">
+                    <ButtonPrimary
+                      className="w-full"
+                      type="submit"
+                      disabled={!isContactValid}
+                    >
                       Siguiente
                     </ButtonPrimary>
                   )}
                   {step === 2 && (
-                    <ButtonPrimary className="w-full" type="submit">
+                    <ButtonPrimary
+                      className="w-full"
+                      type="submit"
+                      disabled={!isShippingValid}
+                    >
                       Guardar
                     </ButtonPrimary>
                   )}

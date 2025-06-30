@@ -957,7 +957,7 @@ export const contactSection = {
 };
 
 export const faqsData = {
-  heading: 'Frequently Asked Questions',
+  heading: 'Preguntas Frecuentes',
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget adipiscing nibh nunc. Velit rhoncus arcu velesaed.',
   faqs: [
@@ -993,7 +993,7 @@ export const faqsData = {
       ],
     },
     {
-      category: 'Products',
+      category: 'Productos',
       data: [
         {
           question: 'How do I determine the right size for my sneakers?',

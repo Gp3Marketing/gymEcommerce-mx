@@ -4,11 +4,13 @@ import React from 'react';
 
 import { topNavLinks as baseTopNavLinks } from '@/data/content';
 import { useAuth } from '@/hooks/useAuth';
+import { useCart } from '@/hooks/useCart';
 
 import NavigationItem from '../NavItem';
 
 const TopNav = () => {
   const { user } = useAuth();
+  const { cart } = useCart();
 
   const topNavLinks = [
     ...baseTopNavLinks.filter(
@@ -17,7 +19,9 @@ const TopNav = () => {
     ...(user
       ? [
           { id: 'f678ty', name: 'Carrito de compras', href: '/cart' },
-          { id: 'h6i78g', name: 'Finalizar compra', href: '/checkout' },
+          ...(cart.length > 0
+            ? [{ id: 'h6i78g', name: 'Finalizar compra', href: '/checkout' }]
+            : []),
         ]
       : []),
   ];

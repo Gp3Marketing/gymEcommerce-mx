@@ -42,6 +42,23 @@ const CheckoutPage = () => {
     communicationTime: '',
   });
 
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  // Validaciones para deshabilitar el botón de confirmación
+  const isContactInfoValid =
+    contactInfo.fullName.trim() !== '' &&
+    contactInfo.phone.trim() !== '' &&
+    contactInfo.email.trim() !== '';
+
+  const isShippingAddressValid =
+    shippingAddress.street.trim() !== '' &&
+    shippingAddress.city.trim() !== '' &&
+    shippingAddress.state.trim() !== '' &&
+    shippingAddress.country.trim() !== '' &&
+    shippingAddress.postalCode.trim() !== '';
+
+  const isCartValid = cart.length > 0;
+
   useEffect(() => {
     const fetchUserData = async () => {
       if (!user) return;
@@ -60,6 +77,20 @@ const CheckoutPage = () => {
     setTimeout(() => {
       element?.scrollIntoView({ behavior: 'smooth' });
     }, 80);
+  };
+
+  // Agrega esta función:
+  const saveContactInfo = ({
+    fullName,
+    phone,
+    email,
+  }: {
+    fullName: string;
+    phone: string;
+    email: string;
+  }) => {
+    setContactInfo({ fullName, phone, email });
+    // Aquí puedes agregar lógica para guardar en Firestore si lo necesitas
   };
 
   const renderProduct = (item: any) => {
@@ -137,6 +168,7 @@ const CheckoutPage = () => {
           }}
           contactInfo={contactInfo}
           setContactInfo={setContactInfo}
+          saveContactInfo={saveContactInfo}
         />
       </div>
       <div id="ShippingAddress" className="scroll-mt-24">
@@ -158,6 +190,19 @@ const CheckoutPage = () => {
   );
 
   const handleConfirm = async () => {
+    if (!isCartValid) {
+      setErrorMsg(
+        'Debes agregar productos al carrito para realizar el pedido.',
+      );
+      return;
+    }
+    if (!isContactInfoValid || !isShippingAddressValid) {
+      setErrorMsg(
+        'Por favor completa todos los campos requeridos para tu pedido.',
+      );
+      return;
+    }
+    setErrorMsg(null);
     try {
       await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
@@ -204,14 +249,9 @@ const CheckoutPage = () => {
           message: '¡Tu pedido ha sido realizado con éxito!',
         });
       }
-
       await clearCart();
-
-      // window.alert('¡Datos enviados correctamente!');
-      // Reemplaza por tu sistema de notificaciones si tienes uno
     } catch (error) {
-      // window.alert('Error al enviar el correo o guardar el pedido.');
-      // Reemplaza por tu sistema de notificaciones si tienes uno
+      setErrorMsg('Ocurrió un error al procesar tu pedido. Intenta de nuevo.');
     }
   };
 
@@ -270,7 +310,30 @@ const CheckoutPage = () => {
                 </span>
               </div>
             </div>
-            <ButtonPrimary className="mt-8 w-full" onClick={handleConfirm}>
+            {errorMsg && (
+              <div className="mb-4 rounded bg-red-100 px-4 py-2 text-red-700">
+                {errorMsg}
+              </div>
+            )}
+            <ButtonPrimary
+              className="mt-8 w-full"
+              onClick={() => {
+                if (!isCartValid) {
+                  setErrorMsg(
+                    'Recuerda tener productos en tu carrito para confirmar tu pedido',
+                  );
+                  return;
+                }
+                if (!isContactInfoValid || !isShippingAddressValid) {
+                  setErrorMsg(
+                    'Tienes datos pendientes por confirmar, antes de confirmar el pedido',
+                  );
+                  return;
+                }
+                handleConfirm();
+              }}
+              disabled={false}
+            >
               Confirmar pedido
             </ButtonPrimary>
           </div>

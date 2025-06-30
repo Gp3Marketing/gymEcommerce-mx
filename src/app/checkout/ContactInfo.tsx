@@ -26,6 +26,11 @@ interface Props {
       email: string;
     }>
   >;
+  saveContactInfo: (info: {
+    fullName: string;
+    phone: string;
+    email: string;
+  }) => void;
 }
 
 const ContactInfo: FC<Props> = ({
@@ -34,15 +39,22 @@ const ContactInfo: FC<Props> = ({
   onOpenActive,
   contactInfo,
   setContactInfo,
+  saveContactInfo,
 }) => {
   const [error, setError] = useState<string | null>(null);
 
+  const isValid =
+    contactInfo.fullName.trim() !== '' &&
+    contactInfo.phone.trim() !== '' &&
+    contactInfo.email.trim() !== '';
+
   const handleSave = () => {
-    if (contactInfo.phone && contactInfo.email) {
+    if (isValid) {
       setError(null);
+      saveContactInfo(contactInfo);
       onCloseActive();
     } else {
-      setError('Por favor completa el teléfono y el correo electrónico.');
+      setError('Por favor completa todos los campos requeridos.');
     }
   };
 
@@ -160,7 +172,11 @@ const ContactInfo: FC<Props> = ({
         </div>
 
         <div className="flex flex-col pt-6 sm:flex-row">
-          <ButtonPrimary className="shadow-none sm:!px-7" onClick={handleSave}>
+          <ButtonPrimary
+            className="shadow-none sm:!px-7"
+            onClick={handleSave}
+            disabled={!isValid}
+          >
             Guardar y continuar
           </ButtonPrimary>
           <ButtonSecondary

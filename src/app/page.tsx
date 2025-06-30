@@ -3,7 +3,6 @@ import React from 'react';
 import MsgWhatsapp from '@/components/WhatsApp';
 
 import SectionBestDeals from './home/SectionBestDeals';
-// import SectionBrands from './home/SectionBrands';
 import SectionHeader from './home/SectionHeader';
 import SectionHeroSlider from './home/SectionHeroSlider';
 import SectionProducts from './home/SectionProducts';
@@ -30,10 +29,6 @@ const page = () => {
       <div className="mb-32">
         <MsgWhatsapp />
       </div>
-
-      {/* <div className="mb-32">
-        <SectionBrands />
-      </div> */}
     </div>
   );
 };
