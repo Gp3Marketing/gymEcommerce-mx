@@ -81,12 +81,43 @@ import aminox3 from "@/images/aminox/aminox-3.jpg";
 import aminox4 from "@/images/aminox/aminox-4.jpg";
 import aminox5 from "@/images/aminox/aminox-5.jpg";
 
+import Ryse from "@/images/Ryse/Ryse.jpeg";
+import Ryse1 from "@/images/Ryse/Ryse1.jpeg";
+import Ryse2 from "@/images/Ryse/Ryse2.jpeg";
+
+import Pak from "@/images/Pak/Pak.jpeg";
+import Pak1 from "@/images/Pak/Pak1.jpeg";
+import Pak2 from "@/images/Pak/Pak2.jpg";
+import Pak3 from "@/images/Pak/Pak3.jpg";
+
+import Muscletech from "@/images/Muscletech/Muscletech1.jpeg";
+import Muscletech1 from "@/images/Muscletech/Muscletech2.jpeg";
+import Muscletech2 from "@/images/Muscletech/Muscletech.jpeg";
+
+import Falcon from "@/images/Falcon/Falcon.jpeg";
+import Falcon1 from "@/images/Falcon/Falcon1.jpeg";
+import Falcon2 from "@/images/Falcon/Falcon2.jpeg";
+import Falcon3 from "@/images/Falcon/Falcon3.jpeg";
+import Falcon4 from "@/images/Falcon/Falcon4.jpeg";
+
+import Bordan from "@/images/Bordan/Bordan.jpeg";
+import Bordan1 from "@/images/Bordan/Bordan1.jpeg";
+import Bordan2 from "@/images/Bordan/Bordan2.jpeg";
+import Bordan3 from "@/images/Bordan/Bordan3.jpeg";
+import Bordan4 from "@/images/Bordan/Bordan4.jpeg";
+
+import Bcaas from "@/images/Bcaas/Bcaas.jpeg";
+import Bcaas1 from "@/images/Bcaas/Bcaas1.jpeg";
+import Bcaas2 from "@/images/Bcaas/Bcaas2.jpeg";
+import Bcaas3 from "@/images/Bcaas/Bcaas3.jpeg";
+
 import omega3 from "@/images/omega3/Omega3.jpg";
 import modernEaa from "@/images/modern-eaa/EAA.webp";
 import glutamina from "@/images/glutamina/GLUTAMINA.png";
 import creatinaBirdman from "@/images/birdman/creatina.webp";
 import dragonCreatine from "@/images/dragoncreatine/creatina-Dragon.webp";
-import { title } from "process";
+
+// import { title } from "process";
 
 export const topNavLinks: NavItemType[] = [
   {
@@ -598,6 +629,235 @@ export const shoes = [
       },
     ],
   },
+  // Producto Ryse
+  {
+    slug: "Ryse",
+    shoeName: "Ryse",
+    coverImage: Ryse,
+    currentPrice: 145,
+    previousPrice: 180,
+    shoeCategory: "Suplementos",
+    rating: 4.7,
+    reviews: 89,
+    pieces_sold: 2300,
+    justIn: true,
+    shots: [Ryse, Ryse1, Ryse2],
+    overview:
+      "AMINOx de BSN es un suplemento efervescente que combina BCAA’s y aminoácidos esenciales para favorecer la recuperación muscular y mejorar el rendimiento deportivo. Con sabor a sandía, no contiene cafeína y es ideal para cualquier hora del día. Aporta 10g de aminoácidos por porción y ayuda a combatir la fatiga post-entrenamiento.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Discount",
+        description: "10% OFF por compras > $100",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Delivery Time",
+        description: "4 - 7 días hábiles",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Package",
+        description: "Envase de plástico sellado BSN®",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Estimated Arrival",
+        description: "14 - 17 de junio 2025",
+      },
+    ],
+  },
+  // Producto Pak
+  {
+    slug: "Pak",
+    shoeName: "Pak",
+    coverImage: Pak,
+    currentPrice: 145,
+    previousPrice: 180,
+    shoeCategory: "Suplementos",
+    rating: 4.7,
+    reviews: 89,
+    pieces_sold: 2300,
+    justIn: true,
+    shots: [Pak, Pak1, Pak2, Pak3],
+    overview:
+      "AMINOx de BSN es un suplemento efervescente que combina BCAA’s y aminoácidos esenciales para favorecer la recuperación muscular y mejorar el rendimiento deportivo. Con sabor a sandía, no contiene cafeína y es ideal para cualquier hora del día. Aporta 10g de aminoácidos por porción y ayuda a combatir la fatiga post-entrenamiento.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Discount",
+        description: "10% OFF por compras > $100",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Delivery Time",
+        description: "4 - 7 días hábiles",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Package",
+        description: "Envase de plástico sellado BSN®",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Estimated Arrival",
+        description: "14 - 17 de junio 2025",
+      },
+    ],
+  },
+  // Producto Muscletech
+  {
+    slug: "Muscletech",
+    shoeName: "Muscletech",
+    coverImage: Muscletech,
+    currentPrice: 145,
+    previousPrice: 180,
+    shoeCategory: "Suplementos",
+    rating: 4.7,
+    reviews: 89,
+    pieces_sold: 2300,
+    justIn: true,
+    shots: [Muscletech, Muscletech1, Muscletech2],
+    overview:
+      "AMINOx de BSN es un suplemento efervescente que combina BCAA’s y aminoácidos esenciales para favorecer la recuperación muscular y mejorar el rendimiento deportivo. Con sabor a sandía, no contiene cafeína y es ideal para cualquier hora del día. Aporta 10g de aminoácidos por porción y ayuda a combatir la fatiga post-entrenamiento.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Discount",
+        description: "10% OFF por compras > $100",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Delivery Time",
+        description: "4 - 7 días hábiles",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Package",
+        description: "Envase de plástico sellado BSN®",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Estimated Arrival",
+        description: "14 - 17 de junio 2025",
+      },
+    ],
+  },
+  // Producto Falcon
+  {
+    slug: "Falcon",
+    shoeName: "Falcon",
+    coverImage: Falcon,
+    currentPrice: 145,
+    previousPrice: 180,
+    shoeCategory: "Suplementos",
+    rating: 4.7,
+    reviews: 89,
+    pieces_sold: 2300,
+    justIn: true,
+    shots: [Falcon, Falcon1, Falcon2, Falcon3, Falcon4],
+    overview:
+      "AMINOx de BSN es un suplemento efervescente que combina BCAA’s y aminoácidos esenciales para favorecer la recuperación muscular y mejorar el rendimiento deportivo. Con sabor a sandía, no contiene cafeína y es ideal para cualquier hora del día. Aporta 10g de aminoácidos por porción y ayuda a combatir la fatiga post-entrenamiento.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Discount",
+        description: "10% OFF por compras > $100",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Delivery Time",
+        description: "4 - 7 días hábiles",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Package",
+        description: "Envase de plástico sellado BSN®",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Estimated Arrival",
+        description: "14 - 17 de junio 2025",
+      },
+    ],
+  },
+  // Producto Bordan
+  {
+    slug: "Bordan",
+    shoeName: "Bordan",
+    coverImage: Bordan,
+    currentPrice: 145,
+    previousPrice: 180,
+    shoeCategory: "Suplementos",
+    rating: 4.7,
+    reviews: 89,
+    pieces_sold: 2300,
+    justIn: true,
+    shots: [Bordan, Bordan1, Bordan2, Bordan3, Bordan4],
+    overview:
+      "AMINOx de BSN es un suplemento efervescente que combina BCAA’s y aminoácidos esenciales para favorecer la recuperación muscular y mejorar el rendimiento deportivo. Con sabor a sandía, no contiene cafeína y es ideal para cualquier hora del día. Aporta 10g de aminoácidos por porción y ayuda a combatir la fatiga post-entrenamiento.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Discount",
+        description: "10% OFF por compras > $100",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Delivery Time",
+        description: "4 - 7 días hábiles",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Package",
+        description: "Envase de plástico sellado BSN®",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Estimated Arrival",
+        description: "14 - 17 de junio 2025",
+      },
+    ],
+  },
+  // Producto Bcaas & Glutamina
+  {
+    slug: "Bcaas",
+    shoeName: "Bcaas & Glutamina",
+    coverImage: Bcaas,
+    currentPrice: 145,
+    previousPrice: 180,
+    shoeCategory: "Suplementos",
+    rating: 4.7,
+    reviews: 89,
+    pieces_sold: 2300,
+    justIn: true,
+    shots: [Bcaas, Bcaas1, Bcaas2, Bcaas3],
+    overview:
+      "AMINOx de BSN es un suplemento efervescente que combina BCAA’s y aminoácidos esenciales para favorecer la recuperación muscular y mejorar el rendimiento deportivo. Con sabor a sandía, no contiene cafeína y es ideal para cualquier hora del día. Aporta 10g de aminoácidos por porción y ayuda a combatir la fatiga post-entrenamiento.",
+    shipment_details: [
+      {
+        icon: <PiPercentFill className="text-xl text-secondary" />,
+        title: "Discount",
+        description: "10% OFF por compras > $100",
+      },
+      {
+        icon: <FaCalendarAlt className="text-xl text-secondary" />,
+        title: "Delivery Time",
+        description: "4 - 7 días hábiles",
+      },
+      {
+        icon: <BsBoxFill className="text-xl text-secondary" />,
+        title: "Package",
+        description: "Envase de plástico sellado BSN®",
+      },
+      {
+        icon: <FaTruckFast className="text-xl text-secondary" />,
+        title: "Estimated Arrival",
+        description: "14 - 17 de junio 2025",
+      },
+    ],
+  },
+  //-----------------------------
   {
     slug: "modern-eaa-plus",
     shoeName: "Modern EAA+",
@@ -908,7 +1168,7 @@ export const contactSection = {
   heading: "Contacto",
   Title: "¿Tienes alguna duda, queja o sugerencia?",
   description:
-    "Si necesitas asistencia con tu pedido, tienes algún reclamo o simplemente quieres compartir tu experiencia, no dudes en escribirnos. " + 
+    "Si necesitas asistencia con tu pedido, tienes algún reclamo o simplemente quieres compartir tu experiencia, no dudes en escribirnos. " +
     "Nuestro equipo de atención estará encantado de responderte lo antes posible.",
   directContactInfoHeader: {
     heading: "Prefer to reach out directly?",

@@ -6,6 +6,8 @@ import SectionHeader from './home/SectionHeader';
 import SectionProducts from './home/SectionProducts';
 import SectionHeroSlider from './home/SectionHeroSlider';
 import MsgWhatsapp from "@/components/WhatsApp";
+import Dashboard from "@/app/admin/page";
+
 
 const page = () => {
   return (
@@ -30,6 +32,10 @@ const page = () => {
         <MsgWhatsapp />
       </div>
 
+      <div className="mb-32">
+        <Dashboard />
+      </div>
+      
       {/* <div className="mb-32">
         <SectionBrands />
       </div> */}

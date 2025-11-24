@@ -13,10 +13,16 @@ import {
   User,
   UserCredential,
 } from "firebase/auth";
-import { auth, googleProvider } from "@/firebase/config";
+
+import { auth, googleProvider, db } from "@/firebase/config";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+
+interface AuthUser extends User {
+  role?: string;
+}
 
 interface UseAuthResult {
-  user: User | null;
+  user: AuthUser | null;
   loading: boolean;
   loginWithEmail: (email: string, password: string) => Promise<void>;
   loginWithGoogle: () => Promise<UserCredential>;
@@ -25,27 +31,30 @@ interface UseAuthResult {
 }
 
 export function useAuth(): UseAuthResult {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [user, setUser] = useState<AuthUser | null>(null);
+  const [loading, setLoading] = useState(true);
 
   const loginWithEmail = async (email: string, password: string) => {
     await signInWithEmailAndPassword(auth, email, password);
   };
 
   const loginWithGoogle = async () => {
-    await setPersistence(auth, browserLocalPersistence); // Asegura persistencia
+    await setPersistence(auth, browserLocalPersistence);
     return await signInWithPopup(auth, googleProvider);
   };
 
   const registerWithEmail = async (email: string, password: string) => {
-    const userCredential = await createUserWithEmailAndPassword(
-      auth,
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+    await setDoc(doc(db, "users", userCredential.user.uid), {
       email,
-      password
-    );
+      role: "user",
+    });
+
     if (userCredential.user) {
       await sendEmailVerification(userCredential.user);
     }
+
     return userCredential;
   };
 
@@ -54,8 +63,23 @@ export function useAuth(): UseAuthResult {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+      if (firebaseUser) {
+        const docRef = doc(db, "users", firebaseUser.uid);
+        const userDoc = await getDoc(docRef);
+
+        if (userDoc.exists()) {
+          setUser({
+            ...firebaseUser,
+            role: userDoc.data().role,
+          });
+        } else {
+          setUser(firebaseUser); 
+        }
+      } else {
+        setUser(null);
+      }
+
       setLoading(false);
     });
 

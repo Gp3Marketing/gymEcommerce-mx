@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { FaGoogle } from "react-icons/fa6";
 import { useRouter } from "next/navigation";
+import { auth } from "@/firebase/config";
 
 import ButtonPrimary from "@/shared/Button/ButtonPrimary";
 import ButtonSecondary from "@/shared/Button/ButtonSecondary";
@@ -20,24 +21,49 @@ const PageLogin = () => {
   const [password, setPassword] = useState("");
 
   const handleGoogleLogin = async () => {
-    try {
-      await loginWithGoogle();
-      router.push("/");
-    } catch (error) {
-      console.error("Error al iniciar sesión con Google:", error);
-    }
-  };
+  try {
+    await loginWithGoogle();
+
+    setTimeout(() => {
+      const user = auth.currentUser as any;
+
+      if (user?.role === "admin" || user?.role === "superadmin") {
+        router.push("/admin");
+      } else {
+        router.push("/");
+      }
+    }, 500);
+
+  } catch (error) {
+    console.error("Error al iniciar sesión con Google:", error);
+  }
+};
+
 
   const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      await loginWithEmail(email, password);
-      router.push("/");
-    } catch (error: any) {
-      alert("Correo o contraseña incorrectos.");
-      console.error("Error al iniciar sesión:", error);
-    }
-  };
+  e.preventDefault();
+  try {
+    await loginWithEmail(email, password);
+
+    // Espera un momento a que Firebase cargue el rol
+    setTimeout(() => {
+      if (auth.currentUser) {
+        const role = (auth.currentUser as any).role;
+
+        if (role === "admin" || role === "superadmin") {
+          router.push("/admin");
+        } else {
+          router.push("/");
+        }
+      }
+    }, 500);
+
+  } catch (error: any) {
+    alert("Correo o contraseña incorrectos.");
+    console.error("Error al iniciar sesión:", error);
+  }
+};
+
 
   return (
     <div className="nc-PageLogin" data-nc-id="PageLogin">
